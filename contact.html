@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="/js/includes.js" defer></script>
+    <title>Contact Consulting Crew | Get in Touch Today</title>
+    <meta name="description" content="Contact Consulting Crew for business consulting services. Schedule a free consultation or request a quote for data analysis, web development, digital marketing, and more.">
+</head>
+<body>
+    <div data-include="/includes/header.html"></div>
+
+    <!-- Contact Hero -->
+    <section class="page-hero contact-hero" aria-label="Contact Us">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title animate-fade-up">Get in Touch</h1>
+                <p class="hero-subtitle animate-fade-up" style="animation-delay: 0.2s">
+                    Ready to transform your business? Let's start the conversation today.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" aria-label="Contact Information">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info animate-fade-left">
+                    <h2 class="section-title">Let's Connect</h2>
+                    <p class="contact-description">
+                        We're here to help you achieve your business goals. Reach out to us through 
+                        any of the following channels.
+                    </p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-phone" aria-hidden="true"></i>
+                            </div>
+                            <div class="method-content">
+                                <h3>Call Us</h3>
+                                <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+                                <p class="method-note">Mon-Fri, 9:00 AM - 6:00 PM EST</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="method-content">
+                                <h3>Email Us</h3>
+                                <p><a href="mailto:info@consultingcrew.com">info@consultingcrew.com</a></p>
+                                <p class="method-note">Typically reply within 4 business hours</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            </div>
+                            <div class="method-content">
+                                <h3>Visit Us</h3>
+                                <p>123 Business Street, Suite 100<br>New York, NY 10001</p>
+                                <p class="method-note">By appointment only</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                            </div>
+                            <div class="method-content">
+                                <h3>Schedule a Call</h3>
+                                <p>Book a 30-minute discovery call at your convenience</p>
+                                <a href="#booking" class="btn btn-secondary btn-sm">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-contact">
+                        <h3>Connect on Social</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link linkedin" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="social-link twitter" aria-label="Twitter">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="social-link facebook" aria-label="Facebook">
+                                <i class="fab fa-facebook" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="social-link instagram" aria-label="Instagram">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact-form-container animate-fade-right">
+                    <div class="form-header">
+                        <h3>Send us a Message</h3>
+                        <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+                    </div>
+                    
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="John Smith">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="john@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company" placeholder="Your Company Inc.">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interested In *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="data-analysis">Data Analysis & Visualization</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="web-hosting">Web Hosting</option>
+                                <option value="branding">Branding & Identity</option>
+                                <option value="digital-marketing">Digital Marketing</option>
+                                <option value="hr-services">HR Services</option>
+                                <option value="multiple">Multiple Services</option>
+                                <option value="not-sure">Not Sure Yet</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" name="message" rows="5" required 
+                                      placeholder="Tell us about your project, goals, and timeline..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="newsletter" checked>
+                                <span>Subscribe to our newsletter for updates and insights</span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="privacy" required>
+                                <span>I agree to the <a href="/privacy-policy.html">Privacy Policy</a> *</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message
+                        </button>
+                        
+                        <p class="form-note">* Required fields</p>
+                    </form>
+                    
+                    <div id="formSuccess" class="form-success" style="display: none;">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle" aria-hidden="true"></i>
+                        </div>
+                        <h3>Message Sent Successfully!</h3>
+                        <p>Thank you for contacting Consulting Crew. We'll get back to you within 24 hours.</p>
+                        <button id="sendAnother" class="btn btn-secondary">Send Another Message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="section booking-section" aria-label="Schedule a Call">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-fade-up">Schedule a Free Consultation</h2>
+                <p class="section-subtitle animate-fade-up" style="animation-delay: 0.2s">
+                    Book a 30-minute discovery call with our experts
+                </p>
+            </div>
+            
+            <div class="booking-widget animate-fade-up" style="animation-delay: 0.3s">
+                <div class="booking-calendar-placeholder">
+                    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                    <h3>Calendar Integration</h3>
+                    <p>In a production environment, this would integrate with a calendar service like Calendly.</p>
+                    <a href="mailto:info@consultingcrew.com?subject=Schedule%20Consultation" class="btn btn-primary">
+                        <i class="fas fa-envelope" aria-hidden="true"></i> Email to Schedule
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq-section" aria-label="Frequently Asked Questions">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-fade-up">Contact FAQs</h2>
+                <p class="section-subtitle animate-fade-up" style="animation-delay: 0.2s">
+                    Common questions about working with us
+                </p>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-item animate-fade-up" style="animation-delay: 0.3s">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What happens after I submit the contact form?</span>
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We'll review your inquiry and assign it to the appropriate team member. You'll receive an acknowledgment email within 2 hours and a detailed response within 24 hours (business days).</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-fade-up" style="animation-delay: 0.4s">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Do you offer free consultations?</span>
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! We offer a complimentary 30-minute discovery call to understand your needs and discuss how we can help. This helps us determine if we're the right fit for each other.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-fade-up" style="animation-delay: 0.5s">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What are your typical response times?</span>
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Email: Within 4 business hours<br>
+                           Phone calls: During business hours (9 AM - 6 PM EST)<br>
+                           Emergency support: 24/7 for enterprise clients</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-fade-up" style="animation-delay: 0.6s">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Do you work with international clients?</span>
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! We serve clients worldwide. We accommodate different time zones and can conduct meetings via video conference. Additional fees may apply for extensive international coordination.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div data-include="/includes/footer.html"></div>
+
+    <!-- Contact Form Script -->
+    <script>
+        document.addEventListener('includes-loaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const formSuccess = document.getElementById('formSuccess');
+            const sendAnotherBtn = document.getElementById('sendAnother');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const formData = new FormData(this);
+                    const data = Object.fromEntries(formData);
+                    
+                    // Show success message
+                    contactForm.style.display = 'none';
+                    formSuccess.style.display = 'block';
+                    
+                    // In production, send data to your backend
+                    console.log('Contact form submitted:', data);
+                    
+                    // You would typically send to your backend:
+                    // fetch('/api/contact', {
+                    //     method: 'POST',
+                    //     headers: {'Content-Type': 'application/json'},
+                    //     body: JSON.stringify(data)
+                    // })
+                });
+            }
+            
+            if (sendAnotherBtn) {
+                sendAnotherBtn.addEventListener('click', function() {
+                    formSuccess.style.display = 'none';
+                    contactForm.style.display = 'block';
+                    contactForm.reset();
+                });
+            }
+            
+            // FAQ Accordion
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isExpanded = question.getAttribute('aria-expanded') === 'true';
+                    
+                    // Close all other FAQs
+                    faqQuestions.forEach(q => {
+                        if (q !== question) {
+                            q.setAttribute('aria-expanded', 'false');
+                            q.nextElementSibling.style.maxHeight = null;
+                            q.querySelector('i').classList.remove('fa-chevron-up');
+                            q.querySelector('i').classList.add('fa-chevron-down');
+                        }
+                    });
+                    
+                    // Toggle current FAQ
+                    if (isExpanded) {
+                        question.setAttribute('aria-expanded', 'false');
+                        answer.style.maxHeight = null;
+                        question.querySelector('i').classList.remove('fa-chevron-up');
+                        question.querySelector('i').classList.add('fa-chevron-down');
+                    } else {
+                        question.setAttribute('aria-expanded', 'true');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        question.querySelector('i').classList.remove('fa-chevron-down');
+                        question.querySelector('i').classList.add('fa-chevron-up');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
