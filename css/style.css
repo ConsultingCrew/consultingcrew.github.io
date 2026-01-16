@@ -1,0 +1,10 @@
+/* Update all image paths to be relative to root */
+.logo-icon {
+    background: url('/images/logo-bg.png'); /* Example */
+}
+
+/* Update font paths if using local fonts */
+@font-face {
+    font-family: 'CustomFont';
+    src: url('/fonts/custom.woff2') format('woff2');
+}

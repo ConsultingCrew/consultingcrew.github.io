@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulting Crew | Professional Business Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <script>
+        // Simple CSS for immediate display (prevents FOUC - Flash of Unstyled Content)
+        document.head.insertAdjacentHTML('beforeend', `
+            <style>
+                /* Critical CSS for immediate rendering */
+                * { margin: 0; padding: 0; box-sizing: border-box; }
+                body { font-family: 'Inter', sans-serif; padding-top: 80px; }
+                .main-header { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; top: 0; width: 100%; z-index: 1000; }
+                .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+                .header-content { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
+                .logo a { text-decoration: none; color: #333; font-weight: bold; font-size: 1.5rem; }
+                .main-nav { display: none; }
+                .mobile-menu-btn { display: block; font-size: 1.5rem; cursor: pointer; }
+                
+                /* Mobile nav styles */
+                .mobile-nav { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; transform: translateX(-100%); transition: transform 0.3s; z-index: 2000; }
+                .mobile-nav.active { transform: translateX(0); }
+                
+                @media (min-width: 768px) {
+                    .main-nav { display: block; }
+                    .mobile-menu-btn { display: none; }
+                }
+            </style>
+        `);
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="/">
+                        <div class="logo-container">
+                            <span class="logo-icon">CC</span>
+                            <div class="logo-text">
+                                <span class="logo-main">Consulting</span>
+                                <span class="logo-sub">Crew</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about.html">About</a></li>
+                        <li class="dropdown">
+                            <a href="/services.html">Services <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <a href="/services/data-analysis.html">Data Analysis</a>
+                                <a href="/services/web-development.html">Web Development</a>
+                                <a href="/services/web-hosting.html">Web Hosting</a>
+                                <a href="/services/branding.html">Branding</a>
+                                <a href="/services/digital-marketing.html">Digital Marketing</a>
+                                <a href="/services/hr-services.html">HR Services</a>
+                            </div>
+                        </li>
+                        <li><a href="/blog.html">Insights</a></li>
+                        <li><a href="/contact.html" class="nav-cta">Contact Us</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <div class="mobile-nav-header">
+            <div class="logo">
+                <a href="/">
+                    <div class="logo-container">
+                        <span class="logo-icon">CC</span>
+                        <div class="logo-text">
+                            <span class="logo-main">Consulting</span>
+                            <span class="logo-sub">Crew</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <button class="mobile-close"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="mobile-nav-list">
+            <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="/about.html"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="/services.html"><i class="fas fa-cogs"></i> Services</a></li>
+            <li><a href="/blog.html"><i class="fas fa-blog"></i> Insights</a></li>
+            <li><a href="/contact.html"><i class="fas fa-phone-alt"></i> Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Cookie Banner (Simple) -->
+    <div id="cookieBanner" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #333; color: white; padding: 15px; text-align: center; z-index: 10000;">
+        <p>We use cookies. <a href="/cookie-policy.html" style="color: #4CAF50;">Learn more</a></p>
+        <button onclick="acceptCookies()" style="background: #4CAF50; color: white; border: none; padding: 8px 16px; margin: 0 5px; cursor: pointer;">Accept</button>
+        <button onclick="declineCookies()" style="background: #f44336; color: white; border: none; padding: 8px 16px; margin: 0 5px; cursor: pointer;">Decline</button>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" style="display: none; position: fixed; bottom: 20px; right: 20px; background: #646464; color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; z-index: 999;">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Simple cookie functions
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookieBanner').style.display = 'none';
+        }
+        
+        function declineCookies() {
+            localStorage.setItem('cookiesAccepted', 'false');
+            document.getElementById('cookieBanner').style.display = 'none';
+        }
+        
+        // Show cookie banner if not decided
+        if (!localStorage.getItem('cookiesAccepted')) {
+            setTimeout(() => {
+                document.getElementById('cookieBanner').style.display = 'block';
+            }, 1000);
+        }
+    </script>
