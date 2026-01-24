@@ -1,255 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Include system will add header -->
-    <script src="/js/includes.js" defer></script>
-    <title>Consulting Crew | Transform Your Business with Expert Consulting</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulting Crew - Strategic Advisory Firm</title>
+    <link rel="stylesheet" href="css/main.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/CC_fav.ico">
+    <link rel="icon" sizes="32x32" href="images/CC_fav.ico">
+    <link rel="icon" sizes="16x16" href="images/CC_fav.ico">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="images/CC_fav.ico" color="#0455bf">
+    <meta name="msapplication-TileColor" content="#0455bf">
+    <meta name="theme-color" content="#0455bf">
 </head>
 <body>
-    <!-- Header will be loaded here -->
-    <div data-include="/includes/header.html"></div>
+
+<!-- Loading Screen -->
+<div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+        <div class="loading-logo">
+            <img src="images/CC_logo.png" alt="Consulting Crew" width="100" height="100" loading="eager">
+        </div>
+        <div class="loading-progress">
+            <div class="progress-bar"></div>
+        </div>
+        <p class="loading-text">Loading...</p>
+    </div>
+</div>
+
+    <!-- Cookie Consent Modal -->
+    <div class="cookie-consent-modal" id="cookieConsent">
+        <div class="cookie-content">
+            <h3>Cookie Policy</h3>
+            <p>We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By continuing to use this site, you consent to our use of cookies. <a href="cookie-policy.html" class="cookie-policy-link">Learn more</a></p>
+            <div class="cookie-buttons">
+                <button class="btn btn-primary" id="acceptCookies">Accept All</button>
+                <button class="btn btn-secondary" id="customizeCookies">Customize</button>
+                <button class="btn btn-outline" id="rejectCookies">Reject Non-Essential</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+<header class="header" id="main-header">
+    <div class="container">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/CC_logo.png" alt="Consulting Crew Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1 class="logo-title">Consulting Crew</h1>
+                    <p class="logo-tagline">Empowering Smarter Decisions</p>
+                </div>
+            </a>
+        </div>
+        
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html" class="nav-link"><i class="fas fa-building"></i> About</a></li>
+                <li class="dropdown">
+                    <a href="services.html" class="nav-link dropdown-toggle">
+                        <i class="fas fa-cogs"></i> Services <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-grid">
+                            <a href="service-data.html" class="dropdown-card">
+                                <i class="fas fa-chart-line"></i>
+                                <div>
+                                    <h4>Data & BI</h4>
+                                    <p>Transform data into decisions</p>
+                                </div>
+                            </a>
+                            <a href="service-branding.html" class="dropdown-card">
+                                <i class="fas fa-rocket"></i>
+                                <div>
+                                    <h4>Branding & Growth</h4>
+                                    <p>Accelerate digital presence</p>
+                                </div>
+                            </a>
+                            <a href="service-hr.html" class="dropdown-card">
+                                <i class="fas fa-users-cog"></i>
+                                <div>
+                                    <h4>HR & Governance</h4>
+                                    <p>Scale with strong foundations</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="process.html" class="nav-link"><i class="fas fa-sitemap"></i> Process</a></li>
+                <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Insights</a></li>
+                <li><a href="contact.html" class="nav-link cta-link"><i class="fas fa-paper-plane"></i> Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-actions">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container-lg">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+            </ul>
+        </div>
+    </div>
 
     <!-- Hero Section -->
-    <section class="hero" aria-label="Hero section">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title animate-fade-up">
-                        Transform Your Business with <span class="highlight">Expert Consulting</span>
-                    </h1>
-                    <p class="hero-subtitle animate-fade-up" style="animation-delay: 0.2s">
-                        We help startups and small businesses thrive by creating relevant, effective marketing 
-                        strategies and techniques. Discover opportunities you never imagined.
-                    </p>
-                    <div class="hero-buttons animate-fade-up" style="animation-delay: 0.4s">
-                        <a href="/services.html" class="btn btn-primary btn-lg">
-                            <i class="fas fa-rocket" aria-hidden="true"></i> Explore Services
-                        </a>
-                        <a href="/contact.html" class="btn btn-secondary btn-lg">
-                            <i class="fas fa-calendar-check" aria-hidden="true"></i> Free Consultation
-                        </a>
-                    </div>
-                </div>
-                <div class="hero-image animate-fade-left" style="animation-delay: 0.6s">
-                    <div class="hero-image-placeholder">
-                        <i class="fas fa-chart-line" aria-hidden="true"></i>
-                        <p>Business Growth Visualization</p>
+<section class="hero" style="background: linear-gradient(rgba(9, 68, 145, 0.85), rgba(7, 46, 107, 0.9)), url('images/hero/main-hero.jpeg'); background-size: cover; background-position: center;">
+    <div class="container">
+        <div class="hero-content">
+                <div class="hero-text text-white">
+                    <h1 class="hero-title animate-fade-up">Empowering Smarter Decisions.<br>Driving Sustainable Growth.</h1>
+                    <p class="hero-subtitle animate-fade-up" style="animation-delay: 0.2s;">We partner with startups, SMEs, and growth-focused businesses to design and implement data-driven strategies that strengthen brands, optimize performance, and enable sustainable growth.</p>
+                    <div class="hero-actions animate-fade-up" style="animation-delay: 0.4s;">
+                        <a href="services.html" class="btn btn-primary btn-large">Our Services</a>
+                        <a href="process.html" class="btn btn-outline btn-large">Our Process</a>
                     </div>
                 </div>
             </div>
-            
-            <!-- Trust Indicators -->
-            <div class="trust-indicators">
-                <div class="trust-item">
-                    <i class="fas fa-award" aria-hidden="true"></i>
-                    <span>Certified Experts</span>
-                </div>
-                <div class="trust-item">
-                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
-                    <span>Secure & Confidential</span>
-                </div>
-                <div class="trust-item">
-                    <i class="fas fa-clock" aria-hidden="true"></i>
-                    <span>24/7 Support</span>
-                </div>
-                <div class="trust-item">
-                    <i class="fas fa-handshake" aria-hidden="true"></i>
-                    <span>100% Satisfaction</span>
-                </div>
-            </div>
+        </div>
+    </section>
+    
+    <!-- INTRO -->
+    <section class="intro-section">
+        <div class="container-sm">
+            <div class="eyebrow-label">Overview</div>
+            <h2 class="intro-heading">Your All-in-One<br>Creative &
+                Strategic Growth Partner</h2>
+            <p>
+                At Consulting Crew, we combine strategic thinking, design creativity, and digital expertise to support startups and small businesses in achieving measurable growth.
+                <br><br>  
+                Whether you are launching a new brand, revamping your online presence, or creating a marketing funnel, we're here to craft custom solutions that deliver results — with a focus on quality, clarity, and ROI.
+            </p>
         </div>
     </section>
 
     <!-- Services Preview -->
-    <section class="section services-preview" aria-label="Our Services">
-        <div class="container">
+<section class="section bg-light">
+        <div class="container-sm">
             <div class="section-header">
-                <h2 class="section-title animate-fade-up">Our Professional Services</h2>
-                <p class="section-subtitle animate-fade-up" style="animation-delay: 0.2s">
-                    Comprehensive solutions to help your business grow and succeed in today's competitive landscape
-                </p>
+                <h1>Our Services</h1>
+                <p>Strategic solutions that help organizations grow through smarter decisions, stronger brands, and efficient execution.</p>
             </div>
-            
             <div class="services-grid">
-                <!-- Service 1: Data Analysis -->
-                <div class="service-card animate-fade-up" style="animation-delay: 0.3s">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line" aria-hidden="true"></i>
+                <div class="service-card">
+                    <div class="service-icon" style="background-color: rgba(4, 85, 191, 0.1);">
+                        <i class="fas fa-chart-bar" style="color: #0455BF;"></i>
                     </div>
-                    <h3>Data Analysis & Visualization</h3>
-                    <p>Transform raw data into actionable insights with powerful analytics and visualization tools.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Business Intelligence Dashboards</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Predictive Analytics</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Real-time Reporting</li>
-                    </ul>
-                    <a href="/pages/service-data-analysis.html" class="service-link">
-                        Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                    </a>
+                    <h3>Data & Business Intelligence</h3>
+                    <p>Turn information into advantage with full-stack analytics and intelligence.</p>
+                    <a href="service-data.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                
-                <!-- Service 2: Web Development -->
-                <div class="service-card animate-fade-up" style="animation-delay: 0.4s">
-                    <div class="service-icon">
-                        <i class="fas fa-code" aria-hidden="true"></i>
+                <div class="service-card">
+                    <div class="service-icon" style="background-color: rgba(255, 85, 0, 0.1);">
+                        <i class="fas fa-bullhorn" style="color: #FF5500;"></i>
                     </div>
-                    <h3>Web Development</h3>
-                    <p>Visually stunning, user-friendly websites optimized for search engines and conversions.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Responsive Design</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> E-commerce Solutions</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Custom Web Applications</li>
-                    </ul>
-                    <a href="/pages/service-web-development.html" class="service-link">
-                        Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                    </a>
+                    <h3>Branding & Digital Growth</h3>
+                    <p>Build your presence and drive growth with powerful digital ecosystems.</p>
+                    <a href="service-branding.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                
-                <!-- Service 3: Digital Marketing -->
-                <div class="service-card animate-fade-up" style="animation-delay: 0.5s">
-                    <div class="service-icon">
-                        <i class="fas fa-bullhorn" aria-hidden="true"></i>
+                <div class="service-card">
+                    <div class="service-icon" style="background-color: rgba(92, 192, 19, 0.1);">
+                        <i class="fas fa-users" style="color: #5CC013;"></i>
                     </div>
-                    <h3>Digital Marketing</h3>
-                    <p>Connect, engage, and grow your brand with targeted social media marketing strategies.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Social Media Management</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> SEO Optimization</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Content Strategy</li>
-                    </ul>
-                    <a href="/pages/service-digital-marketing.html" class="service-link">
-                        Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                    </a>
+                    <h3>HR Systems & Governance</h3>
+                    <p>Strengthen your foundation to scale with resilient operational backbones.</p>
+                    <a href="service-hr.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            
-            <div class="text-center mt-50 animate-fade-up" style="animation-delay: 0.6s">
-                <a href="/services.html" class="btn btn-secondary">
-                    <i class="fas fa-eye" aria-hidden="true"></i> View All Services
-                </a>
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="services.html" class="btn btn-outline">View All Services</a>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="section stats-section" aria-label="Our Achievements">
+    <!-- About Preview -->
+    <section class="section about-preview">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item animate-counter">
-                    <div class="stat-number" data-count="150">0</div>
-                    <div class="stat-label">Happy Clients</div>
+            <div class="about-preview-content">
+                <div class="about-preview-text">
+                    <h2>Why Choose Consulting Crew?</h2>
+                    <p>We help organizations see opportunities more clearly, make better decisions, and close the gap between strategy and results.</p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle" style="color: #48ac00;"></i>
+                            <span>Strategic, Not Generic</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle" style="color: #48ac00;;"></i>
+                            <span>Experienced Advisory Team</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle" style="color: #48ac00;"></i>
+                            <span>Partnership-Led Approach</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle" style="color: #48ac00;"></i>
+                            <span>Measurable Business Impact</span>
+                        </div>
+                    </div>
+                    
+                    <a href="about.html" class="btn btn-primary">Learn More About Us</a>
                 </div>
-                <div class="stat-item animate-counter" style="animation-delay: 0.2s">
-                    <div class="stat-number" data-count="95">0</div>
-                    <div class="stat-label">Client Retention %</div>
-                </div>
-                <div class="stat-item animate-counter" style="animation-delay: 0.4s">
-                    <div class="stat-number" data-count="300">0</div>
-                    <div class="stat-label">Projects Completed</div>
-                </div>
-                <div class="stat-item animate-counter" style="animation-delay: 0.6s">
-                    <div class="stat-number" data-count="24">0</div>
-                    <div class="stat-label">Support Hours</div>
-                </div>
+                    <div class="about-preview-image">
+                        <div class="image-placeholder" style="background-image: url('images/why_us.jpg');">
+                            <div class="stats-overlay">
+                                <div class="stat">
+                                    <h3>150+</h3>
+                                    <p>Projects Completed</p>
+                                </div>
+                                <div class="stat">
+                                    <h3>95%</h3>
+                                    <p>Client Satisfaction</p>
+                                </div>
+                                <div class="stat">
+                                    <h3>50+</h3>
+                                    <p>Expert Advisors</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section class="section why-choose-us" aria-label="Why Choose Consulting Crew">
+    <!-- Process Preview -->
+    <section class="section process-preview">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title animate-fade-up">Why Choose Consulting Crew?</h2>
-                <p class="section-subtitle animate-fade-up" style="animation-delay: 0.2s">
-                    We're not just service providers – we're your strategic partners in growth
-                </p>
+                <h2>The EDGE Framework™</h2>
+                <p>Our disciplined, data-driven methodology converts insight into measurable and sustainable business impact.</p>
             </div>
-            
-            <div class="features-grid">
-                <div class="feature-card animate-fade-up" style="animation-delay: 0.3s">
-                    <div class="feature-icon">
-                        <i class="fas fa-lightbulb" aria-hidden="true"></i>
-                    </div>
-                    <h3>Innovation Focused</h3>
-                    <p>We stay ahead of industry trends to provide cutting-edge solutions that give you a competitive edge.</p>
+            <div class="process-steps">
+                <div class="process-step-card">
+                    <div class="step-number">1</div>
+                    <h3>Explore</h3>
+                    <p>Understand objectives, context, and opportunities.</p>
                 </div>
-                
-                <div class="feature-card animate-fade-up" style="animation-delay: 0.4s">
-                    <div class="feature-icon">
-                        <i class="fas fa-handshake" aria-hidden="true"></i>
-                    </div>
-                    <h3>Partnership Approach</h3>
-                    <p>We work collaboratively with you, becoming an extension of your team to achieve shared goals.</p>
+                <div class="process-step-card">
+                    <div class="step-number">2</div>
+                    <h3>Diagnose</h3>
+                    <p>Analyze data, systems, and performance gaps.</p>
                 </div>
-                
-                <div class="feature-card animate-fade-up" style="animation-delay: 0.5s">
-                    <div class="feature-icon">
-                        <i class="fas fa-star" aria-hidden="true"></i>
-                    </div>
-                    <h3>Excellence Guaranteed</h3>
-                    <p>Quality is our hallmark. We deliver world-class solutions that exceed expectations.</p>
+                <div class="process-step-card">
+                    <div class="step-number">3</div>
+                    <h3>Generate</h3>
+                    <p>Create actionable strategies and roadmaps.</p>
                 </div>
-                
-                <div class="feature-card animate-fade-up" style="animation-delay: 0.6s">
-                    <div class="feature-icon">
-                        <i class="fas fa-users" aria-hidden="true"></i>
-                    </div>
-                    <h3>Expert Team</h3>
-                    <p>Our team consists of certified professionals with deep industry experience and expertise.</p>
+                <div class="process-step-card">
+                    <div class="step-number">4</div>
+                    <h3>Execute</h3>
+                    <p>Implement, optimize, and sustain outcomes.</p>
                 </div>
+            </div>
+            <div class="text-center" style="margin-top: 50px;">
+                <a href="process.html" class="btn btn-primary">Explore Our Process</a>
             </div>
         </div>
     </section>
-
+    
+    <!-- TRUSTED BY -->
+        <section class="section">
+        <div class="container-sm">
+            <div class="section-header">
+            <h2>Trusted by growth-focused organizations</h2>
+            <div class="client-logos-container">
+                <div class="client-logo">
+                    <img src="images/clients/Burhan.jpeg" alt="Burhan Enterprises" loading="lazy">
+                </div>
+                <div class="client-logo">
+                    <img src="images/clients/TW.jpg" alt="TrustWay Furnitures" loading="lazy">
+                </div>
+                <div class="client-logo">
+                    <img src="images/clients/Fahad-Logo.jpg" alt="Fahad Enterprises" loading="lazy">
+                </div>
+                <div class="client-logo">
+                    <img src="images/clients/Adornments.jpg" alt="Adornments" loading="lazy">
+                </div>
+                <div class="client-logo">
+                    <img src="images/clients/Decor.jpg" alt="Decor Redefined" loading="lazy">
+                </div>
+                <div class="client-logo">
+                    <img src="images/clients/Dadex.png" alt="Dadex" loading="lazy">
+                </div>
+                <div class="client-logo">
+                    <img src="images/clients/SES.jpg" alt="SES Chem" loading="lazy">
+                </div>
+                <div class="client-logo">
+                    <img src="images/clients/OneStop.jpg" alt="One Stop Supplies" loading="lazy">
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    
     <!-- Testimonials -->
-    <section class="section testimonials-section" aria-label="Client Testimonials">
+<section class="section bg-light">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title animate-fade-up">What Our Clients Say</h2>
-                <p class="section-subtitle animate-fade-up" style="animation-delay: 0.2s">
-                    Don't just take our word for it - hear from some of our satisfied clients
-                </p>
+                <h2>Client Success Stories</h2>
+                <p>See how we've helped businesses achieve measurable growth and impact.</p>
             </div>
-            
             <div class="testimonials-slider">
-                <div class="testimonial-card animate-fade-up" style="animation-delay: 0.3s">
+                <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <i class="fas fa-quote-left" aria-hidden="true"></i>
-                        <p>Consulting Crew transformed our digital presence. Their data analysis revealed insights that increased our revenue by 40% in just 3 months.</p>
+                        <p>"Consulting Crew transformed our data strategy. Their BI dashboards gave us clarity we never had before."</p>
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-avatar">SJ</div>
                         <div class="author-info">
                             <h4>Sarah Johnson</h4>
-                            <p>CEO, TechStart Inc.</p>
+                            <p>CEO, TechGrowth Inc.</p>
                         </div>
                     </div>
                 </div>
-                
-                <div class="testimonial-card animate-fade-up" style="animation-delay: 0.4s">
+                <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <i class="fas fa-quote-left" aria-hidden="true"></i>
-                        <p>The web development team delivered beyond expectations. Our new website has tripled our online conversions.</p>
+                        <p>"The branding overhaul they delivered increased our web traffic by 300% in just 6 months."</p>
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-avatar">MR</div>
                         <div class="author-info">
-                            <h4>Michael Roberts</h4>
-                            <p>Founder, EcoProducts</p>
+                            <h4>Michael Chen</h4>
+                            <p>Marketing Director, InnovateCo</p>
                         </div>
                     </div>
                 </div>
-                
-                <div class="testimonial-card animate-fade-up" style="animation-delay: 0.5s">
+                <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <i class="fas fa-quote-left" aria-hidden="true"></i>
-                        <p>Their HR services helped us build a strong organizational structure that improved employee retention by 60%.</p>
+                        <p>"Their HR systems audit saved us from potential compliance issues and streamlined our operations."</p>
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-avatar">EC</div>
                         <div class="author-info">
-                            <h4>Emma Chen</h4>
-                            <p>HR Director, GrowthCorp</p>
+                            <h4>Jessica Williams</h4>
+                            <p>Operations Head, ScaleFast Ltd.</p>
                         </div>
                     </div>
                 </div>
@@ -258,61 +357,133 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section" aria-label="Call to Action">
+    <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2 class="cta-title animate-fade-up">Ready to Transform Your Business?</h2>
-                <p class="cta-text animate-fade-up" style="animation-delay: 0.2s">
-                    By engaging with us, you will not be buying a service, but an experience; 
-                    synonymous with excellence, innovation, and customer-centricity.
-                </p>
-                <div class="cta-buttons animate-fade-up" style="animation-delay: 0.4s">
-                    <a href="/contact.html" class="btn btn-accent btn-lg">
-                        <i class="fas fa-rocket" aria-hidden="true"></i> Start Your Journey Today
-                    </a>
-                    <a href="/about.html" class="btn btn-white btn-lg">
-                        <i class="fas fa-play-circle" aria-hidden="true"></i> Watch Our Story
-                    </a>
-                </div>
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Schedule a free strategy session with our experts to discuss your challenges and opportunities.</p>
+                <a href="contact.html" class="btn btn-secondary btn-large">Schedule Your Free Session</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer will be loaded here -->
-    <div data-include="/includes/footer.html"></div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="images/CC_logo.png" alt="Consulting Crew Logo" class="footer-logo-img">
+                            <div class="footer-logo-text">
+                                <h3>Consulting Crew</h3>
+                                <span class="footer-tagline">Empowering Smarter Decisions</span>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="footer-mission">Helping organizations make smarter decisions, build stronger brands, and achieve sustainable growth.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="service-data.html">Data & Business Intelligence</a></li>
+                            <li><a href="service-branding.html">Branding & Digital Growth</a></li>
+                            <li><a href="service-hr.html">HR Systems & Governance</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="process.html">Our Process</a></li>
+                            <li><a href="blog.html">Insights</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <div class="social-links">
+                            <a href="https://linkedin.com/company/consultingcrew" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://twitter.com/consultingcrew" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://youtube.com/@consultingcrew" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://instagram.com/consultingcrew" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope"></i> consultingcrew.pk@gmail.com</p>
+                            <p><i class="fas fa-phone"></i> +92 332 345 0433</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Karachi, Pakistan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Consulting Crew. All rights reserved.</p>
+                <p class="privacy-links">
+                    <a href="privacy-policy.html">Privacy Policy</a> | 
+                    <a href="terms-of-service.html">Terms of Service</a> |
+                    <a href="cookies-policy.html">Cookies Policy</a>
+                </p>
+            </div>
+        </div>
+    </footer>
 
-    <!-- Page-specific scripts -->
-    <script>
-        // Counter animation for stats
-        document.addEventListener('includes-loaded', function() {
-            const counters = document.querySelectorAll('.animate-counter');
+    <!-- Back to Top -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-toggle" id="chatToggle" aria-label="Open chat">
+            <i class="fas fa-comments"></i>
+            <span class="chat-badge">1</span>
+        </button>
+        
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">
+                <div class="chat-info">
+                    <div class="chat-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div>
+                        <h4>Consulting Crew AI</h4>
+                        <p>Typically replies instantly</p>
+                    </div>
+                </div>
+                <button class="chat-close" id="chatClose" aria-label="Close chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
             
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const counter = entry.target.querySelector('.stat-number');
-                        const target = parseInt(counter.getAttribute('data-count'));
-                        const duration = 2000;
-                        const step = target / (duration / 16);
-                        let current = 0;
-                        
-                        const timer = setInterval(() => {
-                            current += step;
-                            if (current >= target) {
-                                counter.textContent = target + (counter.getAttribute('data-count') > '95' ? '+' : '%');
-                                clearInterval(timer);
-                            } else {
-                                counter.textContent = Math.floor(current);
-                            }
-                        }, 16);
-                        
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages loaded via JS -->
+            </div>
             
-            counters.forEach(counter => observer.observe(counter));
-        });
-    </script>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message..." aria-label="Chat message">
+                <button id="chatSend" aria-label="Send message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+
 </body>
 </html>
