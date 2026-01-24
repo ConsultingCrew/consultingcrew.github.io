@@ -1,338 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="/js/includes.js" defer></script>
-    <title>Contact Consulting Crew | Get in Touch Today</title>
-    <meta name="description" content="Contact Consulting Crew for business consulting services. Schedule a free consultation or request a quote for data analysis, web development, digital marketing, and more.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Consulting Crew - Strategic Advisory Firm</title>
+ 
+        <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/CC_fav.ico">
+    <link rel="icon" sizes="32x32" href="images/CC_fav.ico">
+    <link rel="icon" sizes="16x16" href="images/CC_fav.ico">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="images/CC_fav.ico" color="#0455bf">
+    <meta name="msapplication-TileColor" content="#0455bf">
+    <meta name="theme-color" content="#0455bf">
 </head>
-<body>
-    <div data-include="/includes/header.html"></div>
 
-    <!-- Contact Hero -->
-    <section class="page-hero contact-hero" aria-label="Contact Us">
+<body>
+    <!-- Cookie Consent Modal -->
+    <div class="cookie-consent-modal" id="cookieConsent">
+        <div class="cookie-content">
+            <h3>Cookie Policy</h3>
+            <p>We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By continuing to use this site, you consent to our use of cookies. <a href="cookie-policy.html" class="cookie-policy-link">Learn more</a></p>
+            <div class="cookie-buttons">
+                <button class="btn btn-primary" id="acceptCookies">Accept All</button>
+                <button class="btn btn-secondary" id="customizeCookies">Customize</button>
+                <button class="btn btn-outline" id="rejectCookies">Reject Non-Essential</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header" id="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/CC_logo.png" alt="Consulting Crew Logo" class="logo-img">
+                    <div class="logo-text">
+                        <h1 class="logo-title">Consulting Crew</h1>
+                        <p class="logo-tagline">Empowering Smarter Decisions</p>
+                    </div>
+                </a>
+            </div>
+            
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="about.html" class="nav-link"><i class="fas fa-building"></i> About</a></li>
+                    <li class="dropdown">
+                        <a href="services.html" class="nav-link dropdown-toggle">
+                            <i class="fas fa-cogs"></i> Services <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-grid">
+                                <a href="service-data.html" class="dropdown-card">
+                                    <i class="fas fa-chart-line"></i>
+                                    <div>
+                                        <h4>Data & BI</h4>
+                                        <p>Transform data into decisions</p>
+                                    </div>
+                                </a>
+                                <a href="service-branding.html" class="dropdown-card">
+                                    <i class="fas fa-rocket"></i>
+                                    <div>
+                                        <h4>Branding & Growth</h4>
+                                        <p>Accelerate digital presence</p>
+                                    </div>
+                                </a>
+                                <a href="service-hr.html" class="dropdown-card">
+                                    <i class="fas fa-users-cog"></i>
+                                    <div>
+                                        <h4>HR & Governance</h4>
+                                        <p>Scale with strong foundations</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="process.html" class="nav-link"><i class="fas fa-sitemap"></i> Process</a></li>
+                    <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Insights</a></li>
+                    <li><a href="contact.html" class="nav-link active cta-link"><i class="fas fa-paper-plane"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container-lg">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+                <li>Contact Us</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+<section class="hero" style="background: linear-gradient(rgba(9, 68, 145, 0.85), rgba(7, 46, 107, 0.9)), url('images/hero/main-hero.jpeg'); background-size: cover; background-position: center;">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title animate-fade-up">Get in Touch</h1>
-                <p class="hero-subtitle animate-fade-up" style="animation-delay: 0.2s">
-                    Ready to transform your business? Let's start the conversation today.
-                </p>
-            </div>
+                <div class="hero-text text-white">
+                    <h1 class="hero-title animate-fade-up">Contact Us</h1>
+            <p>Ready to transform your business? Get in touch with our strategic advisors.</p>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="section contact-section" aria-label="Contact Information">
+    <!-- Contact Content -->
+    <section class="section">
         <div class="container">
-            <div class="contact-grid">
-                <!-- Contact Info -->
-                <div class="contact-info animate-fade-left">
-                    <h2 class="section-title">Let's Connect</h2>
-                    <p class="contact-description">
-                        We're here to help you achieve your business goals. Reach out to us through 
-                        any of the following channels.
-                    </p>
-                    
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <div class="method-icon">
-                                <i class="fas fa-phone" aria-hidden="true"></i>
-                            </div>
-                            <div class="method-content">
-                                <h3>Call Us</h3>
-                                <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
-                                <p class="method-note">Mon-Fri, 9:00 AM - 6:00 PM EST</p>
-                            </div>
+            <div class="contact-page-content">
+                <div class="contact-info-cards">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
                         </div>
-                        
-                        <div class="contact-method">
-                            <div class="method-icon">
-                                <i class="fas fa-envelope" aria-hidden="true"></i>
-                            </div>
-                            <div class="method-content">
-                                <h3>Email Us</h3>
-                                <p><a href="mailto:info@consultingcrew.com">info@consultingcrew.com</a></p>
-                                <p class="method-note">Typically reply within 4 business hours</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method">
-                            <div class="method-icon">
-                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                            </div>
-                            <div class="method-content">
-                                <h3>Visit Us</h3>
-                                <p>123 Business Street, Suite 100<br>New York, NY 10001</p>
-                                <p class="method-note">By appointment only</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method">
-                            <div class="method-icon">
-                                <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                            </div>
-                            <div class="method-content">
-                                <h3>Schedule a Call</h3>
-                                <p>Book a 30-minute discovery call at your convenience</p>
-                                <a href="#booking" class="btn btn-secondary btn-sm">Book Now</a>
-                            </div>
-                        </div>
+                        <h3>Email Us</h3>
+                        <p>consultingcrew.pk@gmail.com</p>
+                        <a href="mailto:consultingcrew.pk@gmail.com" class="contact-link">Send Message <i class="fas fa-arrow-right"></i></a>
                     </div>
                     
-                    <div class="social-contact">
-                        <h3>Connect on Social</h3>
-                        <div class="social-links">
-                            <a href="#" class="social-link linkedin" aria-label="LinkedIn">
-                                <i class="fab fa-linkedin" aria-hidden="true"></i>
-                            </a>
-                            <a href="#" class="social-link twitter" aria-label="Twitter">
-                                <i class="fab fa-twitter" aria-hidden="true"></i>
-                            </a>
-                            <a href="#" class="social-link facebook" aria-label="Facebook">
-                                <i class="fab fa-facebook" aria-hidden="true"></i>
-                            </a>
-                            <a href="#" class="social-link instagram" aria-label="Instagram">
-                                <i class="fab fa-instagram" aria-hidden="true"></i>
-                            </a>
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
                         </div>
+                        <h3>Call Us</h3>
+                        <p>+92 332 345 0433</p>
+                        <a href="tel:+923323450433" class="contact-link">Call Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Visit Us</h3>
+                        <p>Karachi, Pakistan</p>
+                        <a href="#" class="contact-link">Get Directions <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Business Hours</h3>
+                        <p>Monday - Friday: 9AM - 6PM</p>
+                        <p>Saturday: 10AM - 2PM</p>
                     </div>
                 </div>
                 
-                <!-- Contact Form -->
-                <div class="contact-form-container animate-fade-right">
+                <div class="contact-form-section">
                     <div class="form-header">
-                        <h3>Send us a Message</h3>
-                        <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+                        <h2>Send us a Message</h2>
+                        <p>Fill out the form below and we'll get back to you within 24 hours.</p>
                     </div>
                     
-                    <form id="contactForm" class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required placeholder="John Smith">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required placeholder="john@example.com">
+                                <input type="email" id="email" name="email" required>
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+                                <input type="tel" id="phone" name="phone">
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <label for="company">Company Name</label>
-                            <input type="text" id="company" name="company" placeholder="Your Company Inc.">
+                            <input type="text" id="company" name="company">
                         </div>
                         
                         <div class="form-group">
-                            <label for="service">Service Interested In *</label>
-                            <select id="service" name="service" required>
-                                <option value="">Select a service</option>
-                                <option value="data-analysis">Data Analysis & Visualization</option>
-                                <option value="web-development">Web Development</option>
-                                <option value="web-hosting">Web Hosting</option>
-                                <option value="branding">Branding & Identity</option>
-                                <option value="digital-marketing">Digital Marketing</option>
-                                <option value="hr-services">HR Services</option>
+                            <label for="serviceInterest">I'm interested in *</label>
+                            <select id="serviceInterest" name="serviceInterest" required>
+                                <option value="" disabled selected>Select a service...</option>
+                                <option value="data">Data & Business Intelligence</option>
+                                <option value="branding">Branding & Digital Growth</option>
+                                <option value="hr">HR Systems & Governance</option>
                                 <option value="multiple">Multiple Services</option>
-                                <option value="not-sure">Not Sure Yet</option>
+                                <option value="general">General Inquiry</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="projectBudget">Project Budget</label>
+                            <select id="projectBudget" name="projectBudget">
+                                <option value="" selected>Select budget range...</option>
+                                <option value="5-10k">$5,000 - $10,000</option>
+                                <option value="10-25k">$10,000 - $25,000</option>
+                                <option value="25-50k">$25,000 - $50,000</option>
+                                <option value="50k+">$50,000+</option>
+                                <option value="not-sure">Not sure yet</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
                             <label for="message">Your Message *</label>
-                            <textarea id="message" name="message" rows="5" required 
-                                      placeholder="Tell us about your project, goals, and timeline..."></textarea>
+                            <textarea id="message" name="message" rows="5" required placeholder="Tell us about your challenges, goals, or specific needs..."></textarea>
                         </div>
                         
-                        <div class="form-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="newsletter" checked>
-                                <span>Subscribe to our newsletter for updates and insights</span>
-                            </label>
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">Subscribe to our newsletter for insights and updates</label>
                         </div>
                         
-                        <div class="form-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="privacy" required>
-                                <span>I agree to the <a href="/privacy-policy.html">Privacy Policy</a> *</span>
-                            </label>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-block">
-                            <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message
-                        </button>
-                        
-                        <p class="form-note">* Required fields</p>
+                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
                     </form>
-                    
-                    <div id="formSuccess" class="form-success" style="display: none;">
-                        <div class="success-icon">
-                            <i class="fas fa-check-circle" aria-hidden="true"></i>
-                        </div>
-                        <h3>Message Sent Successfully!</h3>
-                        <p>Thank you for contacting Consulting Crew. We'll get back to you within 24 hours.</p>
-                        <button id="sendAnother" class="btn btn-secondary">Send Another Message</button>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Booking Section -->
-    <section id="booking" class="section booking-section" aria-label="Schedule a Call">
+    <!-- Map Section -->
+    <section class="section bg-light">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title animate-fade-up">Schedule a Free Consultation</h2>
-                <p class="section-subtitle animate-fade-up" style="animation-delay: 0.2s">
-                    Book a 30-minute discovery call with our experts
-                </p>
+                <h2>Our Location</h2>
+                <p>Based in Karachi, Pakistan, serving clients globally.</p>
             </div>
-            
-            <div class="booking-widget animate-fade-up" style="animation-delay: 0.3s">
-                <div class="booking-calendar-placeholder">
-                    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                    <h3>Calendar Integration</h3>
-                    <p>In a production environment, this would integrate with a calendar service like Calendly.</p>
-                    <a href="mailto:info@consultingcrew.com?subject=Schedule%20Consultation" class="btn btn-primary">
-                        <i class="fas fa-envelope" aria-hidden="true"></i> Email to Schedule
-                    </a>
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <div class="map-content">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>Karachi, Pakistan</h3>
+                        <p>We work with clients worldwide through virtual consultations and on-site engagements when needed.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="section faq-section" aria-label="Frequently Asked Questions">
+    <section class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title animate-fade-up">Contact FAQs</h2>
-                <p class="section-subtitle animate-fade-up" style="animation-delay: 0.2s">
-                    Common questions about working with us
-                </p>
+                <h2>Frequently Asked Questions</h2>
             </div>
-            
             <div class="faq-grid">
-                <div class="faq-item animate-fade-up" style="animation-delay: 0.3s">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>What happens after I submit the contact form?</span>
-                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>We'll review your inquiry and assign it to the appropriate team member. You'll receive an acknowledgment email within 2 hours and a detailed response within 24 hours (business days).</p>
-                    </div>
+                <div class="faq-item">
+                    <h3>What happens after I submit the contact form?</h3>
+                    <p>Our team will review your inquiry and contact you within 24 hours to schedule a preliminary consultation call to discuss your needs in detail.</p>
                 </div>
-                
-                <div class="faq-item animate-fade-up" style="animation-delay: 0.4s">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Do you offer free consultations?</span>
-                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes! We offer a complimentary 30-minute discovery call to understand your needs and discuss how we can help. This helps us determine if we're the right fit for each other.</p>
-                    </div>
+                <div class="faq-item">
+                    <h3>Do you offer free consultations?</h3>
+                    <p>Yes, we offer a free 30-minute strategy session to understand your challenges and determine if we're the right fit for your needs.</p>
                 </div>
-                
-                <div class="faq-item animate-fade-up" style="animation-delay: 0.5s">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>What are your typical response times?</span>
-                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Email: Within 4 business hours<br>
-                           Phone calls: During business hours (9 AM - 6 PM EST)<br>
-                           Emergency support: 24/7 for enterprise clients</p>
-                    </div>
+                <div class="faq-item">
+                    <h3>What is your typical project timeline?</h3>
+                    <p>Project timelines vary based on scope, but most engagements range from 4-12 weeks depending on the service and complexity.</p>
                 </div>
-                
-                <div class="faq-item animate-fade-up" style="animation-delay: 0.6s">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Do you work with international clients?</span>
-                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Absolutely! We serve clients worldwide. We accommodate different time zones and can conduct meetings via video conference. Additional fees may apply for extensive international coordination.</p>
-                    </div>
+                <div class="faq-item">
+                    <h3>Do you work with international clients?</h3>
+                    <p>Absolutely. We work with clients globally through virtual consultations, with the option for on-site visits for larger engagements.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <div data-include="/includes/footer.html"></div>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Prefer to Talk Directly?</h2>
+                <p>Call us at +92 332 345 0433 or click below to schedule a call at your convenience.</p>
+                <a href="#" class="btn btn-secondary btn-large" id="scheduleCallBtn">Schedule a Call</a>
+            </div>
+        </div>
+    </section>
 
-    <!-- Contact Form Script -->
-    <script>
-        document.addEventListener('includes-loaded', function() {
-            const contactForm = document.getElementById('contactForm');
-            const formSuccess = document.getElementById('formSuccess');
-            const sendAnotherBtn = document.getElementById('sendAnother');
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <a href="index.html">
+                            <div class="logo-icon">CC</div>
+                            <div>
+                                <h3>Consulting Crew</h3>
+                                <span class="tagline">Empowering Smarter Decisions</span>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="footer-mission">Helping organizations make smarter decisions, build stronger brands, and achieve sustainable growth.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="service-data.html">Data & Business Intelligence</a></li>
+                            <li><a href="service-branding.html">Branding & Digital Growth</a></li>
+                            <li><a href="service-hr.html">HR Systems & Governance</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="process.html">Our Process</a></li>
+                            <li><a href="blog.html">Insights</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <div class="social-links">
+                            <a href="https://linkedin.com/company/consultingcrew" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://twitter.com/consultingcrew" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://youtube.com/@consultingcrew" target="_blank"><i class="fab fa-youtube"></i></a>
+                            <a href="https://instagram.com/consultingcrew" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope"></i> consultingcrew.pk@gmail.com</p>
+                            <p><i class="fas fa-phone"></i> +92 332 345 0433</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Karachi, Pakistan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Get form data
-                    const formData = new FormData(this);
-                    const data = Object.fromEntries(formData);
-                    
-                    // Show success message
-                    contactForm.style.display = 'none';
-                    formSuccess.style.display = 'block';
-                    
-                    // In production, send data to your backend
-                    console.log('Contact form submitted:', data);
-                    
-                    // You would typically send to your backend:
-                    // fetch('/api/contact', {
-                    //     method: 'POST',
-                    //     headers: {'Content-Type': 'application/json'},
-                    //     body: JSON.stringify(data)
-                    // })
-                });
-            }
-            
-            if (sendAnotherBtn) {
-                sendAnotherBtn.addEventListener('click', function() {
-                    formSuccess.style.display = 'none';
-                    contactForm.style.display = 'block';
-                    contactForm.reset();
-                });
-            }
-            
-            // FAQ Accordion
-            const faqQuestions = document.querySelectorAll('.faq-question');
-            faqQuestions.forEach(question => {
-                question.addEventListener('click', () => {
-                    const answer = question.nextElementSibling;
-                    const isExpanded = question.getAttribute('aria-expanded') === 'true';
-                    
-                    // Close all other FAQs
-                    faqQuestions.forEach(q => {
-                        if (q !== question) {
-                            q.setAttribute('aria-expanded', 'false');
-                            q.nextElementSibling.style.maxHeight = null;
-                            q.querySelector('i').classList.remove('fa-chevron-up');
-                            q.querySelector('i').classList.add('fa-chevron-down');
-                        }
-                    });
-                    
-                    // Toggle current FAQ
-                    if (isExpanded) {
-                        question.setAttribute('aria-expanded', 'false');
-                        answer.style.maxHeight = null;
-                        question.querySelector('i').classList.remove('fa-chevron-up');
-                        question.querySelector('i').classList.add('fa-chevron-down');
-                    } else {
-                        question.setAttribute('aria-expanded', 'true');
-                        answer.style.maxHeight = answer.scrollHeight + 'px';
-                        question.querySelector('i').classList.remove('fa-chevron-down');
-                        question.querySelector('i').classList.add('fa-chevron-up');
-                    }
-                });
-            });
-        });
-    </script>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Consulting Crew. All rights reserved.</p>
+                <p>The EDGE Framework™ is a trademark of Consulting Crew.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

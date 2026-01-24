@@ -1,140 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="/js/includes.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service | Consulting Crew</title>
-    <meta name="description" content="Consulting Crew Terms of Service. Read our terms and conditions for using our website and services.">
-</head>
-<body>
-    <div data-include="/includes/header.html"></div>
 
-    <!-- Legal Hero -->
-    <section class="page-hero legal-hero" aria-label="Terms of Service">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Terms of Service</h1>
-                <p class="hero-subtitle">Last Updated: January 2024</p>
+<body>
+    <!-- Cookie Consent Modal -->
+    <div class="cookie-consent-modal" id="cookieConsent">
+        <div class="cookie-content">
+            <h3>Cookie Policy</h3>
+            <p>We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By continuing to use this site, you consent to our use of cookies. <a href="cookie-policy.html" class="cookie-policy-link">Learn more</a></p>
+            <div class="cookie-buttons">
+                <button class="btn btn-primary" id="acceptCookies">Accept All</button>
+                <button class="btn btn-secondary" id="customizeCookies">Customize</button>
+                <button class="btn btn-outline" id="rejectCookies">Reject Non-Essential</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header" id="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/CC_logo.png" alt="Consulting Crew Logo" class="logo-img">
+                    <div class="logo-text">
+                        <h1 class="logo-title">Consulting Crew</h1>
+                        <p class="logo-tagline">Empowering Smarter Decisions</p>
+                    </div>
+                </a>
+            </div>
+            
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="about.html" class="nav-link"><i class="fas fa-building"></i> About</a></li>
+                    <li class="dropdown">
+                        <a href="services.html" class="nav-link dropdown-toggle">
+                            <i class="fas fa-cogs"></i> Services <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-grid">
+                                <a href="service-data.html" class="dropdown-card">
+                                    <i class="fas fa-chart-line"></i>
+                                    <div>
+                                        <h4>Data & BI</h4>
+                                        <p>Transform data into decisions</p>
+                                    </div>
+                                </a>
+                                <a href="service-branding.html" class="dropdown-card">
+                                    <i class="fas fa-rocket"></i>
+                                    <div>
+                                        <h4>Branding & Growth</h4>
+                                        <p>Accelerate digital presence</p>
+                                    </div>
+                                </a>
+                                <a href="service-hr.html" class="dropdown-card">
+                                    <i class="fas fa-users-cog"></i>
+                                    <div>
+                                        <h4>HR & Governance</h4>
+                                        <p>Scale with strong foundations</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="process.html" class="nav-link"><i class="fas fa-sitemap"></i> Process</a></li>
+                    <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Insights</a></li>
+                    <li><a href="contact.html" class="nav-link cta-link"><i class="fas fa-paper-plane"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container-lg">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+                <li>Terms of Service</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Terms of Service</h1>
+            <p>Last updated: March 15, 2024</p>
         </div>
     </section>
 
     <!-- Terms Content -->
-    <section class="section legal-content-section">
+    <section class="section">
         <div class="container">
             <div class="legal-content">
-                <div class="acceptance-notice">
-                    <div class="notice-box">
-                        <h3><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> Important Notice</h3>
-                        <p>By accessing or using our website and services, you agree to be bound by these Terms of Service. If you disagree with any part of the terms, you may not access the website or use our services.</p>
-                    </div>
+                <div class="policy-intro">
+                    <p>Please read these Terms of Service ("Terms," "Terms of Service") carefully before using the consultingcrew.com website (the "Service") operated by Consulting Crew ("us," "we," or "our").</p>
+                    <p>Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users, and others who access or use the Service.</p>
+                    <p>By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the Terms, then you may not access the Service.</p>
                 </div>
-
-                <h2>1. Agreement to Terms</h2>
-                <p>These Terms of Service constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you") and Consulting Crew ("we," "us," or "our"), concerning your access to and use of the consultingcrew.com website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the "Site").</p>
-
-                <h2>2. Intellectual Property Rights</h2>
-                <p>Unless otherwise indicated, the Site is our proprietary property and all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics on the Site (collectively, the "Content") and the trademarks, service marks, and logos contained therein (the "Marks") are owned or controlled by us or licensed to us, and are protected by copyright and trademark laws and various other intellectual property rights and unfair competition laws of the United States, foreign jurisdictions, and international conventions.</p>
-
-                <h2>3. User Representations</h2>
-                <p>By using the Site, you represent and warrant that:</p>
-                <ul>
-                    <li>You have the legal capacity and you agree to comply with these Terms of Service</li>
-                    <li>You are not a minor in the jurisdiction in which you reside</li>
-                    <li>You will not access the Site through automated or non-human means</li>
-                    <li>You will not use the Site for any illegal or unauthorized purpose</li>
-                    <li>Your use of the Site will not violate any applicable law or regulation</li>
-                </ul>
-
-                <h2>4. Prohibited Activities</h2>
-                <p>You may not access or use the Site for any purpose other than that for which we make the Site available. The Site may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us.</p>
-                <p>As a user of the Site, you agree not to:</p>
-                <ul>
-                    <li>Systematically retrieve data or other content from the Site to create or compile a collection, compilation, database, or directory</li>
-                    <li>Trick, defraud, or mislead us and other users</li>
-                    <li>Circumvent, disable, or otherwise interfere with security-related features of the Site</li>
-                    <li>Disparage, tarnish, or otherwise harm, in our opinion, us and/or the Site</li>
-                    <li>Use any information obtained from the Site to harass, abuse, or harm another person</li>
-                    <li>Make improper use of our support services or submit false reports of abuse or misconduct</li>
-                    <li>Engage in unauthorized framing of or linking to the Site</li>
-                    <li>Upload or transmit viruses, Trojan horses, or other material that interferes with any party's uninterrupted use of the Site</li>
-                    <li>Engage in any automated use of the system, such as using scripts to send comments or messages</li>
-                    <li>Interfere with, disrupt, or create an undue burden on the Site or the networks or services connected to the Site</li>
-                    <li>Attempt to impersonate another user or person or use the username of another user</li>
-                    <li>Sell or otherwise transfer your profile</li>
-                    <li>Use the Site in a manner inconsistent with any applicable laws or regulations</li>
-                </ul>
-
-                <h2>5. Services</h2>
-                <h3>5.1 Service Description</h3>
-                <p>We provide business consulting services including but not limited to:</p>
-                <ul>
-                    <li>Data Analysis & Visualization</li>
-                    <li>Web Development</li>
-                    <li>Digital Marketing</li>
-                    <li>Branding & Identity</li>
-                    <li>Web Hosting</li>
-                    <li>HR Services</li>
-                </ul>
-
-                <h3>5.2 Service Agreements</h3>
-                <p>Specific terms for each service will be outlined in separate service agreements or statements of work. These Terms of Service govern your use of the Site, while service-specific agreements govern the provision of our consulting services.</p>
-
-                <h2>6. Fees and Payment</h2>
-                <p>We accept the following forms of payment:</p>
-                <ul>
-                    <li>Visa, MasterCard, American Express, Discover</li>
-                    <li>Bank transfers</li>
-                    <li>Checks</li>
-                </ul>
-                <p>You agree to pay all charges at the prices then in effect for your purchases and any applicable shipping fees, and you authorize us to charge your chosen payment provider for any such amounts upon placing your order.</p>
-
-                <h2>7. Cancellation</h2>
-                <p>All purchases are non-refundable. You can cancel your subscription at any time by contacting us using the contact information provided below. Your cancellation will take effect at the end of the current paid term.</p>
-
-                <h2>8. Disclaimer</h2>
-                <p>THE SITE IS PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE SITE AND OUR SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SITE AND YOUR USE THEREOF.</p>
-
-                <h2>9. Limitations of Liability</h2>
-                <p>IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SITE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
-
-                <h2>10. Indemnification</h2>
-                <p>You agree to defend, indemnify, and hold us harmless, including our subsidiaries, affiliates, and all of our respective officers, agents, partners, and employees, from and against any loss, damage, liability, claim, or demand, including reasonable attorneys' fees and expenses, made by any third party due to or arising out of: (1) your use of the Site; (2) breach of these Terms of Service; (3) any breach of your representations and warranties set forth in these Terms of Service; (4) your violation of the rights of a third party, including but not limited to intellectual property rights; or (5) any overt harmful act toward any other user of the Site with whom you connected via the Site.</p>
-
-                <h2>11. User Data</h2>
-                <p>We will maintain certain data that you transmit to the Site for the purpose of managing the performance of the Site, as well as data relating to your use of the Site. Although we perform regular routine backups of data, you are solely responsible for all data that you transmit or that relates to any activity you have undertaken using the Site.</p>
-
-                <h2>12. Electronic Communications</h2>
-                <p>Visiting the Site, sending us emails, and completing online forms constitute electronic communications. You consent to receive electronic communications, and you agree that all agreements, notices, disclosures, and other communications we provide to you electronically, via email and on the Site, satisfy any legal requirement that such communication be in writing.</p>
-
-                <h2>13. Governing Law</h2>
-                <p>These Terms of Service and your use of the Site are governed by and construed in accordance with the laws of the State of New York applicable to agreements made and to be entirely performed within the State of New York, without regard to its conflict of law principles.</p>
-
-                <h2>14. Dispute Resolution</h2>
-                <h3>14.1 Informal Negotiations</h3>
-                <p>To expedite resolution and control the cost of any dispute, controversy, or claim related to these Terms of Service (each a "Dispute" and collectively, "Disputes"), you and we agree to first attempt to negotiate any Dispute informally for at least thirty (30) days before initiating arbitration.</p>
-
-                <h3>14.2 Binding Arbitration</h3>
-                <p>If the parties are unable to resolve a Dispute through informal negotiations, the Dispute will be finally and exclusively resolved by binding arbitration.</p>
-
-                <h2>15. Corrections</h2>
-                <p>There may be information on the Site that contains typographical errors, inaccuracies, or omissions. We reserve the right to correct any errors, inaccuracies, or omissions and to change or update the information on the Site at any time, without prior notice.</p>
-
-                <h2>16. Changes to Terms</h2>
-                <p>We reserve the right, in our sole discretion, to make changes or modifications to these Terms of Service at any time and for any reason. We will alert you about any changes by updating the "Last Updated" date of these Terms of Service, and you waive any right to receive specific notice of each such change.</p>
-
-                <h2>17. Contact Us</h2>
-                <p>In order to resolve a complaint regarding the Site or to receive further information regarding use of the Site, please contact us at:</p>
-                <div class="contact-details">
-                    <p><strong>Consulting Crew</strong></p>
-                    <p>123 Business Street, Suite 100</p>
-                    <p>New York, NY 10001</p>
-                    <p><strong>Email:</strong> legal@consultingcrew.com</p>
-                    <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                
+                <div class="policy-section">
+                    <h2>1. Intellectual Property</h2>
+                    <p>The Service and its original content, features, and functionality are and will remain the exclusive property of Consulting Crew and its licensors. The Service is protected by copyright, trademark, and other laws of both Pakistan and foreign countries. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of Consulting Crew.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>2. Links to Other Websites</h2>
+                    <p>Our Service may contain links to third-party websites or services that are not owned or controlled by Consulting Crew.</p>
+                    <p>Consulting Crew has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third-party websites or services. You further acknowledge and agree that Consulting Crew shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods, or services available on or through any such websites or services.</p>
+                    <p>We strongly advise you to read the terms and conditions and privacy policies of any third-party websites or services that you visit.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>3. Termination</h2>
+                    <p>We may terminate or suspend access to our Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.</p>
+                    <p>All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity, and limitations of liability.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>4. Indemnification</h2>
+                    <p>You agree to defend, indemnify, and hold harmless Consulting Crew and its licensees and licensors, and their employees, contractors, agents, officers, and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney's fees), resulting from or arising out of:</p>
+                    <ul>
+                        <li>Your use and access of the Service</li>
+                        <li>Your violation of these Terms</li>
+                        <li>Your violation of any third-party right, including without limitation any copyright, property, or privacy right</li>
+                    </ul>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>5. Limitation of Liability</h2>
+                    <p>In no event shall Consulting Crew, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:</p>
+                    <ul>
+                        <li>Your access to or use of or inability to access or use the Service</li>
+                        <li>Any conduct or content of any third party on the Service</li>
+                        <li>Any content obtained from the Service</li>
+                        <li>Unauthorized access, use, or alteration of your transmissions or content</li>
+                    </ul>
+                    <p>Whether based on warranty, contract, tort (including negligence), or any other legal theory, whether or not we have been informed of the possibility of such damage, and even if a remedy set forth herein is found to have failed of its essential purpose.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>6. Disclaimer</h2>
+                    <p>Your use of the Service is at your sole risk. The Service is provided on an "AS IS" and "AS AVAILABLE" basis. The Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement, or course of performance.</p>
+                    <p>Consulting Crew, its subsidiaries, affiliates, and its licensors do not warrant that:</p>
+                    <ul>
+                        <li>The Service will function uninterrupted, secure, or available at any particular time or location</li>
+                        <li>Any errors or defects will be corrected</li>
+                        <li>The Service is free of viruses or other harmful components</li>
+                        <li>The results of using the Service will meet your requirements</li>
+                    </ul>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>7. Governing Law</h2>
+                    <p>These Terms shall be governed and construed in accordance with the laws of Pakistan, without regard to its conflict of law provisions.</p>
+                    <p>Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect. These Terms constitute the entire agreement between us regarding our Service, and supersede and replace any prior agreements we might have had between us regarding the Service.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>8. Changes to Terms</h2>
+                    <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will try to provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
+                    <p>By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the Service.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>9. Service-Specific Terms</h2>
+                    
+                    <h3>9.1 Consulting Services</h3>
+                    <p>When you engage Consulting Crew for consulting services:</p>
+                    <ul>
+                        <li>Services will be provided as outlined in a separate Statement of Work or Service Agreement</li>
+                        <li>Payment terms will be specified in the service agreement</li>
+                        <li>Confidentiality of client information is strictly maintained</li>
+                        <li>All work products remain the property of Consulting Crew until full payment is received</li>
+                    </ul>
+                    
+                    <h3>9.2 Free Consultations</h3>
+                    <p>Free consultation sessions are provided for exploratory purposes only and do not constitute formal consulting advice. Any recommendations provided during free consultations are preliminary and should not be relied upon for business decisions without further engagement.</p>
+                    
+                    <h3>9.3 Client Responsibilities</h3>
+                    <p>As a client of Consulting Crew, you agree to:</p>
+                    <ul>
+                        <li>Provide accurate and complete information about your business needs</li>
+                        <li>Cooperate with our consultants and provide necessary access to information</li>
+                        <li>Make timely decisions and provide feedback as requested</li>
+                        <li>Honor payment terms as agreed in the service contract</li>
+                    </ul>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>10. Contact Us</h2>
+                    <p>If you have any questions about these Terms, please contact us:</p>
+                    <ul>
+                        <li>By email: consultingcrew.pk@gmail.com</li>
+                        <li>By phone: +92 332 345 0433</li>
+                        <li>By mail: Consulting Crew, Karachi, Pakistan</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <div data-include="/includes/footer.html"></div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <a href="index.html">
+                            <div class="logo-icon">CC</div>
+                            <div>
+                                <h3>Consulting Crew</h3>
+                                <span class="tagline">Empowering Smarter Decisions</span>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="footer-mission">Helping organizations make smarter decisions, build stronger brands, and achieve sustainable growth.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="service-data.html">Data & Business Intelligence</a></li>
+                            <li><a href="service-branding.html">Branding & Digital Growth</a></li>
+                            <li><a href="service-hr.html">HR Systems & Governance</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="process.html">Our Process</a></li>
+                            <li><a href="blog.html">Insights</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <div class="social-links">
+                            <a href="https://linkedin.com/company/consultingcrew" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://twitter.com/consultingcrew" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://youtube.com/@consultingcrew" target="_blank"><i class="fab fa-youtube"></i></a>
+                            <a href="https://instagram.com/consultingcrew" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope"></i> consultingcrew.pk@gmail.com</p>
+                            <p><i class="fas fa-phone"></i> +92 332 345 0433</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Karachi, Pakistan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Consulting Crew. All rights reserved.</p>
+                <p>The EDGE Framework™ is a trademark of Consulting Crew.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

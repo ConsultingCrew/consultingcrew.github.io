@@ -1,273 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="/js/includes.js" defer></script>
-    <title>Our Services | Consulting Crew Professional Solutions</title>
-    <meta name="description" content="Comprehensive consulting services including data analysis, web development, digital marketing, branding, web hosting, and HR services for businesses.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Consulting Crew - Strategic Advisory Firm</title>
+
+ <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Add favicon links -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/CC_fav.ico">
+    <link rel="icon" sizes="32x32" href="images/CC_fav.ico">
+    <link rel="icon" sizes="16x16" href="images/CC_fav.ico">
 </head>
 <body>
-    <div data-include="/includes/header.html"></div>
 
-    <!-- Services Hero -->
-    <section class="page-hero services-hero" aria-label="Our Services">
+<!-- Loading Screen -->
+<div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+        <div class="loading-logo">
+            <img src="images/CC_logo.png" alt="Consulting Crew" width="100" height="100" loading="eager">
+        </div>
+        <div class="loading-progress">
+            <div class="progress-bar"></div>
+        </div>
+        <p class="loading-text">Loading...</p>
+    </div>
+</div>
+
+    <!-- Cookie Consent Modal -->
+    <div class="cookie-consent-modal" id="cookieConsent">
+        <div class="cookie-content">
+            <h3>Cookie Policy</h3>
+            <p>We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By continuing to use this site, you consent to our use of cookies. <a href="cookie-policy.html" class="cookie-policy-link">Learn more</a></p>
+            <div class="cookie-buttons">
+                <button class="btn btn-primary" id="acceptCookies">Accept All</button>
+                <button class="btn btn-secondary" id="customizeCookies">Customize</button>
+                <button class="btn btn-outline" id="rejectCookies">Reject Non-Essential</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+<header class="header" id="main-header">
+    <div class="container">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/CC_logo.png" alt="Consulting Crew Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1 class="logo-title">Consulting Crew</h1>
+                    <p class="logo-tagline">Empowering Smarter Decisions</p>
+                </div>
+            </a>
+        </div>
+        
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html" class="nav-link"><i class="fas fa-building"></i> About</a></li>
+                <li class="dropdown">
+                    <a href="services.html" class="nav-link active dropdown-toggle">
+                        <i class="fas fa-cogs"></i> Services <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-grid">
+                            <a href="service-data.html" class="dropdown-card">
+                                <i class="fas fa-chart-line"></i>
+                                <div>
+                                    <h4>Data & BI</h4>
+                                    <p>Transform data into decisions</p>
+                                </div>
+                            </a>
+                            <a href="service-branding.html" class="dropdown-card">
+                                <i class="fas fa-rocket"></i>
+                                <div>
+                                    <h4>Branding & Growth</h4>
+                                    <p>Accelerate digital presence</p>
+                                </div>
+                            </a>
+                            <a href="service-hr.html" class="dropdown-card">
+                                <i class="fas fa-users-cog"></i>
+                                <div>
+                                    <h4>HR & Governance</h4>
+                                    <p>Scale with strong foundations</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="process.html" class="nav-link"><i class="fas fa-sitemap"></i> Process</a></li>
+                <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Insights</a></li>
+                <li><a href="contact.html" class="nav-link cta-link"><i class="fas fa-paper-plane"></i> Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-actions">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container-lg">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+                <li>Our Services</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(rgba(9, 68, 145, 0.85), rgba(7, 46, 107, 0.9)), url('images/hero/main-hero.jpeg'); background-size: cover; background-position: center;">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title animate-fade-up">Our Professional Services</h1>
-                <p class="hero-subtitle animate-fade-up" style="animation-delay: 0.2s">
-                    Comprehensive solutions tailored to help your business grow, innovate, and succeed 
-                    in today's competitive landscape.
-                </p>
-            </div>
+                <div class="hero-text text-white">
+                    <h1 class="hero-title animate-fade-up">Our Services</h1>
+            <p>Strategic solutions that help organizations grow through smarter decisions, stronger brands, and efficient execution.</p>
         </div>
     </section>
 
-    <!-- All Services -->
-    <section class="section all-services" aria-label="Complete Service Portfolio">
+    <!-- Services Overview -->
+    <section class="section">
         <div class="container">
-            <div class="services-categories">
-                <!-- Category 1: Digital Solutions -->
-                <div class="service-category animate-fade-up">
-                    <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-laptop-code" aria-hidden="true"></i>
-                        </div>
-                        <h2>Digital Solutions</h2>
-                        <p>Technology-driven services to boost your online presence</p>
+            <div class="services-overview">
+                <div class="service-overview-card">
+                    <div class="service-icon-large" style="background-color: rgba(4, 85, 191, 0.1);">
+                        <i class="fas fa-chart-bar" style="color: #0455BF;"></i>
                     </div>
-                    
-                    <div class="services-grid">
-                        <div class="service-card detailed">
-                            <div class="service-icon">
-                                <i class="fas fa-chart-line" aria-hidden="true"></i>
-                            </div>
-                            <h3>Data Analysis & Visualization</h3>
-                            <p class="service-excerpt">Transform complex data into actionable insights with advanced analytics.</p>
-                            <ul class="service-features">
-                                <li><i class="fas fa-check" aria-hidden="true"></i> Business Intelligence Dashboards</li>
-                                <li><i class="fas fa-check" aria-hidden="true"></i> Predictive Analytics</li>
-                                <li><i class="fas fa-check" aria-hidden="true"></i> Real-time Reporting</li>
-                            </ul>
-                            <div class="service-actions">
-                                <a href="/pages/service-data-analysis.html" class="btn btn-primary">
-                                    Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                                </a>
-                                <span class="service-time"><i class="fas fa-clock" aria-hidden="true"></i> 2-4 weeks</span>
-                            </div>
-                        </div>
-                        
-                        <div class="service-card detailed">
-                            <div class="service-icon">
-                                <i class="fas fa-code" aria-hidden="true"></i>
-                            </div>
-                            <h3>Web Development</h3>
-                            <p class="service-excerpt">Custom websites and applications built for performance and user experience.</p>
-                            <ul class="service-features">
-                                <li><i class="fas fa-check" aria-hidden="true"></i> Responsive Design</li>
-                                <li><i class="fas fa-check" aria-hidden="true"></i> E-commerce Solutions</li>
-                                <li><i class="fas fa-check" aria-hidden="true"></i> Custom Web Apps</li>
-                            </ul>
-                            <div class="service-actions">
-                                <a href="/pages/service-web-development.html" class="btn btn-primary">
-                                    Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                                </a>
-                                <span class="service-time"><i class="fas fa-clock" aria-hidden="true"></i> 4-8 weeks</span>
-                            </div>
-                        </div>
+                    <h2>Data & Business Intelligence</h2>
+                    <p class="service-tagline">Turn Information into Advantage</p>
+                    <p>Move from data noise to confident strategy with full-stack analytics and intelligence. We help you transform scattered numbers into clear dashboards and actionable insights.</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> Data Analytics & Visualization</span>
+                        <span><i class="fas fa-check"></i> Business Intelligence & KPI Systems</span>
                     </div>
+                    <a href="service-data.html" class="btn btn-outline">Explore Service</a>
                 </div>
                 
-                <!-- Category 2: Marketing & Branding -->
-                <div class="service-category animate-fade-up" style="animation-delay: 0.2s">
-                    <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-bullhorn" aria-hidden="true"></i>
-                        </div>
-                        <h2>Marketing & Branding</h2>
-                        <p>Build and grow your brand in the digital space</p>
+                <div class="service-overview-card">
+                    <div class="service-icon-large" style="background-color: rgba(255, 85, 0, 0.1);">
+                        <i class="fas fa-bullhorn" style="color: #FF5500;"></i>
                     </div>
-                    
-                    <div class="services-grid">
-                        <div class="service-card detailed">
-                            <div class="service-icon">
-                                <i class="fas fa-palette" aria-hidden="true"></i>
-                            </div>
-                            <h3>Branding & Identity</h3>
-                            <p class="service-excerpt">Create a memorable brand that stands out and connects with your audience.</p>
-                            <ul class="service-features">
-                                <li><i class="fas fa-check" aria-hidden="true"></i> Logo & Visual Identity</li>
-                                <li><i class="fas fa-check" aria-hidden="true"></i> Brand Guidelines</li>
-                                <li><i class="fas fa-check" aria-hidden="true"></i> Brand Strategy</li>
-                            </ul>
-                            <div class="service-actions">
-                                <a href="/pages/service-branding.html" class="btn btn-primary">
-                                    Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                                </a>
-                                <span class="service-time"><i class="fas fa-clock" aria-hidden="true"></i> 3-6 weeks</span>
-                            </div>
-                        </div>
-                        
-                        <div class="service-card detailed">
-                            <div class="service-icon">
-                                <i class="fas fa-share-alt" aria-hidden="true"></i>
-                            </div>
-                            <h3>Digital Marketing</h3>
-                            <p class="service-excerpt">Connect, engage, and grow your audience through targeted digital campaigns.</p>
-                            <ul class="service-features">
-                                <li><i class="fas fa-check" aria-hidden="true"></i> Social Media Management</li>
-                                <li><i class="fas fa-check" aria-hidden="true"></i> SEO & Content Marketing</li>
-                                <li><i class="fas fa-check" aria-hidden="true"></i> PPC Advertising</li>
-                            </ul>
-                            <div class="service-actions">
-                                <a href="/pages/service-digital-marketing.html" class="btn btn-primary">
-                                    Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                                </a>
-                                <span class="service-time"><i class="fas fa-clock" aria-hidden="true"></i> Ongoing</span>
-                            </div>
-                        </div>
+                    <h2>Branding & Digital Growth</h2>
+                    <p class="service-tagline">Build Your Presence. Drive Your Growth.</p>
+                    <p>Create a powerful and cohesive digital ecosystem that attracts customers and scales with you. From brand identity to conversion-optimized websites.</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> Branding & Digital Marketing</span>
+                        <span><i class="fas fa-check"></i> Web Services</span>
                     </div>
+                    <a href="service-branding.html" class="btn btn-outline">Explore Service</a>
                 </div>
                 
-                <!-- Category 3: Business Infrastructure -->
-                <div class="service-category animate-fade-up" style="animation-delay: 0.3s">
-                    <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-building" aria-hidden="true"></i>
-                        </div>
-                        <h2>Business Infrastructure</h2>
-                        <p>Foundational services to support your business operations</p>
+                <div class="service-overview-card">
+                    <div class="service-icon-large" style="background-color: rgba(92, 192, 19, 0.1);">
+                        <i class="fas fa-users" style="color: #5CC013;"></i>
                     </div>
-                    
-                    <div class="services-grid">
-                        <div class="service-card detailed">
-                            <div class="service-icon">
-                                <i class="fas fa-server" aria-hidden="true"></i>
-                            </div>
-                            <h3>Web Hosting</h3>
-                            <p class="service-excerpt">Reliable, secure, and high-performance hosting solutions for your website.</p>
-                            <ul class="service-features">
-                                <li><i class="fas fa-check" aria-hidden="true"></i> 99.9% Uptime Guarantee</li>
-                                <li><i class="fas fa-check" aria-hidden="true"></i> SSL Security</li>
-                                <li><i class="fas fa-check" aria-hidden="true"></i> Daily Backups</li>
-                            </ul>
-                            <div class="service-actions">
-                                <a href="/pages/service-web-hosting.html" class="btn btn-primary">
-                                    Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                                </a>
-                                <span class="service-time"><i class="fas fa-clock" aria-hidden="true"></i> 24/7 Support</span>
-                            </div>
-                        </div>
-                        
-                        <div class="service-card detailed">
-                            <div class="service-icon">
-                                <i class="fas fa-users" aria-hidden="true"></i>
-                            </div>
-                            <h3>HR Services</h3>
-                            <p class="service-excerpt">Effective HR practices based on strong organizational structure.</p>
-                            <ul class="service-features">
-                                <li><i class="fas fa-check" aria-hidden="true"></i> Recruitment & Onboarding</li>
-                                <li><i class="fas fa-check" aria-hidden="true"></i> Policy Development</li>
-                                <li><i class="fas fa-check" aria-hidden="true"></i> Performance Management</li>
-                            </ul>
-                            <div class="service-actions">
-                                <a href="/pages/service-hr.html" class="btn btn-primary">
-                                    Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                                </a>
-                                <span class="service-time"><i class="fas fa-clock" aria-hidden="true"></i> Monthly Retainer</span>
-                            </div>
-                        </div>
+                    <h2>HR Systems & Governance</h2>
+                    <p class="service-tagline">Strengthen Your Foundation to Scale</p>
+                    <p>Build a resilient, people-first operational backbone for sustainable growth. Our comprehensive HR audit and documentation service assesses and strengthens your people operations.</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> HR Systems Audit & Process Optimization</span>
                     </div>
+                    <a href="service-hr.html" class="btn btn-outline">Explore Service</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Service Packages -->
-    <section class="section packages-section" aria-label="Service Packages">
+    <!-- How We Work -->
+    <section class="section bg-light">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title animate-fade-up">Flexible Service Packages</h2>
-                <p class="section-subtitle animate-fade-up" style="animation-delay: 0.2s">
-                    Choose the package that best fits your business needs and budget
-                </p>
+                <h2>How We Deliver Value</h2>
+                <p>Our approach ensures every engagement delivers measurable business impact.</p>
             </div>
-            
-            <div class="packages-grid">
-                <div class="package-card animate-fade-up" style="animation-delay: 0.3s">
-                    <div class="package-header">
-                        <h3>Starter</h3>
-                        <div class="package-price">
-                            <span class="price">$999</span>
-                            <span class="period">/project</span>
-                        </div>
-                        <p class="package-description">Perfect for small projects and startups</p>
-                    </div>
-                    <ul class="package-features">
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Single Service Focus</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Basic Strategy Session</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Email Support</li>
-                        <li><i class="fas fa-times" aria-hidden="true"></i> Ongoing Maintenance</li>
-                        <li><i class="fas fa-times" aria-hidden="true"></i> Priority Support</li>
-                    </ul>
-                    <a href="/contact.html?package=starter" class="btn btn-secondary">Choose Starter</a>
+            <div class="delivery-approach">
+                <div class="approach-step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery & Assessment</h3>
+                    <p>We begin by understanding your unique challenges, goals, and current capabilities through in-depth discovery sessions.</p>
                 </div>
-                
-                <div class="package-card featured animate-fade-up" style="animation-delay: 0.4s">
-                    <div class="package-badge">Most Popular</div>
-                    <div class="package-header">
-                        <h3>Professional</h3>
-                        <div class="package-price">
-                            <span class="price">$2,499</span>
-                            <span class="period">/month</span>
-                        </div>
-                        <p class="package-description">Ideal for growing businesses</p>
-                    </div>
-                    <ul class="package-features">
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Up to 3 Services</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Comprehensive Strategy</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Phone & Email Support</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Monthly Maintenance</li>
-                        <li><i class="fas fa-times" aria-hidden="true"></i> 24/7 Emergency Support</li>
-                    </ul>
-                    <a href="/contact.html?package=professional" class="btn btn-primary">Choose Professional</a>
+                <div class="approach-step">
+                    <div class="step-number">2</div>
+                    <h3>Strategy Development</h3>
+                    <p>Based on our assessment, we co-create tailored strategies aligned with your business objectives and growth aspirations.</p>
                 </div>
-                
-                <div class="package-card animate-fade-up" style="animation-delay: 0.5s">
-                    <div class="package-header">
-                        <h3>Enterprise</h3>
-                        <div class="package-price">
-                            <span class="price">$4,999</span>
-                            <span class="period">/month</span>
-                        </div>
-                        <p class="package-description">For established businesses</p>
-                    </div>
-                    <ul class="package-features">
-                        <li><i class="fas fa-check" aria-hidden="true"></i> All Services Included</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Dedicated Account Manager</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> 24/7 Priority Support</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Weekly Strategy Sessions</li>
-                        <li><i class="fas fa-check" aria-hidden="true"></i> Custom Reporting</li>
-                    </ul>
-                    <a href="/contact.html?package=enterprise" class="btn btn-secondary">Choose Enterprise</a>
+                <div class="approach-step">
+                    <div class="step-number">3</div>
+                    <h3>Implementation Support</h3>
+                    <p>We don't just advise—we help implement solutions, providing hands-on support throughout the execution phase.</p>
+                </div>
+                <div class="approach-step">
+                    <div class="step-number">4</div>
+                    <h3>Optimization & Growth</h3>
+                    <p>We continuously monitor results, optimize performance, and help scale successful initiatives for sustained impact.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta-section alt" aria-label="Get Started">
+    <!-- Service Comparison -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose the Right Service for Your Needs</h2>
+            </div>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Service Area</th>
+                            <th>Best For</th>
+                            <th>Key Deliverables</th>
+                            <th>Typical Timeline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Data & BI</strong></td>
+                            <td>Businesses needing data clarity and decision support</td>
+                            <td>Dashboards, KPI frameworks, analytics reports</td>
+                            <td>4-8 weeks</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Branding & Growth</strong></td>
+                            <td>Companies looking to enhance digital presence and attract customers</td>
+                            <td>Brand strategy, marketing campaigns, optimized websites</td>
+                            <td>8-12 weeks</td>
+                        </tr>
+                        <tr>
+                            <td><strong>HR Systems</strong></td>
+                            <td>Organizations scaling teams and needing operational structure</td>
+                            <td>HR audit report, process documentation, compliance framework</td>
+                            <td>6-10 weeks</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2 class="cta-title">Need a Custom Solution?</h2>
-                <p class="cta-text">
-                    Every business is unique. Contact us for a personalized service package tailored to your specific needs.
-                </p>
-                <a href="/contact.html" class="btn btn-accent btn-lg">
-                    <i class="fas fa-comments" aria-hidden="true"></i> Get Custom Quote
-                </a>
+                <h2>Not Sure Which Service You Need?</h2>
+                <p>Schedule a free consultation and we'll help identify the best approach for your business.</p>
+                <a href="contact.html" class="btn btn-secondary btn-large">Get a Free Consultation</a>
             </div>
         </div>
     </section>
 
-    <div data-include="/includes/footer.html"></div>
+   <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="images/CC_logo.png" alt="Consulting Crew Logo" class="footer-logo-img">
+                            <div class="footer-logo-text">
+                                <h3>Consulting Crew</h3>
+                                <span class="footer-tagline">Empowering Smarter Decisions</span>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="footer-mission">Helping organizations make smarter decisions, build stronger brands, and achieve sustainable growth.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="service-data.html">Data & Business Intelligence</a></li>
+                            <li><a href="service-branding.html">Branding & Digital Growth</a></li>
+                            <li><a href="service-hr.html">HR Systems & Governance</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="process.html">Our Process</a></li>
+                            <li><a href="blog.html">Insights</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <div class="social-links">
+                            <a href="https://linkedin.com/company/consultingcrew" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://twitter.com/consultingcrew" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://youtube.com/@consultingcrew" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://instagram.com/consultingcrew" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope"></i> consultingcrew.pk@gmail.com</p>
+                            <p><i class="fas fa-phone"></i> +92 332 345 0433</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Karachi, Pakistan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Consulting Crew. All rights reserved.</p>
+                <p>The EDGE Framework™ is a trademark of Consulting Crew.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-toggle" id="chatToggle" aria-label="Open chat">
+            <i class="fas fa-comments"></i>
+            <span class="chat-badge">1</span>
+        </button>
+        
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">
+                <div class="chat-info">
+                    <div class="chat-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div>
+                        <h4>Consulting Crew AI</h4>
+                        <p>Typically replies instantly</p>
+                    </div>
+                </div>
+                <button class="chat-close" id="chatClose" aria-label="Close chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages loaded via JS -->
+            </div>
+            
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message..." aria-label="Chat message">
+                <button id="chatSend" aria-label="Send message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+
 </body>
 </html>

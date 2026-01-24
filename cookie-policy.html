@@ -1,220 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="/js/includes.js" defer></script>
-    <title>Cookie Policy | Consulting Crew</title>
-    <meta name="description" content="Consulting Crew Cookie Policy. Learn about the cookies we use and how to manage your preferences.">
-</head>
-<body>
-    <div data-include="/includes/header.html"></div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Consulting Crew</title>
 
-    <!-- Legal Hero -->
-    <section class="page-hero legal-hero" aria-label="Cookie Policy">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/CC_fav.ico">
+    <link rel="icon" sizes="32x32" href="images/CC_fav.ico">
+    <link rel="icon" sizes="16x16" href="images/CC_fav.ico">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="images/CC_fav.ico" color="#0455bf">
+    <meta name="msapplication-TileColor" content="#0455bf">
+    <meta name="theme-color" content="#0455bf">
+</head>
+
+<body>
+    <!-- Cookie Consent Modal -->
+    <div class="cookie-consent-modal" id="cookieConsent">
+        <div class="cookie-content">
+            <h3>Cookie Policy</h3>
+            <p>We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By continuing to use this site, you consent to our use of cookies. <a href="cookie-policy.html" class="cookie-policy-link">Learn more</a></p>
+            <div class="cookie-buttons">
+                <button class="btn btn-primary" id="acceptCookies">Accept All</button>
+                <button class="btn btn-secondary" id="customizeCookies">Customize</button>
+                <button class="btn btn-outline" id="rejectCookies">Reject Non-Essential</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header" id="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/CC_logo.png" alt="Consulting Crew Logo" class="logo-img">
+                    <div class="logo-text">
+                        <h1 class="logo-title">Consulting Crew</h1>
+                        <p class="logo-tagline">Empowering Smarter Decisions</p>
+                    </div>
+                </a>
+            </div>
+            
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="about.html" class="nav-link"><i class="fas fa-building"></i> About</a></li>
+                    <li class="dropdown">
+                        <a href="services.html" class="nav-link dropdown-toggle">
+                            <i class="fas fa-cogs"></i> Services <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-grid">
+                                <a href="service-data.html" class="dropdown-card">
+                                    <i class="fas fa-chart-line"></i>
+                                    <div>
+                                        <h4>Data & BI</h4>
+                                        <p>Transform data into decisions</p>
+                                    </div>
+                                </a>
+                                <a href="service-branding.html" class="dropdown-card">
+                                    <i class="fas fa-rocket"></i>
+                                    <div>
+                                        <h4>Branding & Growth</h4>
+                                        <p>Accelerate digital presence</p>
+                                    </div>
+                                </a>
+                                <a href="service-hr.html" class="dropdown-card">
+                                    <i class="fas fa-users-cog"></i>
+                                    <div>
+                                        <h4>HR & Governance</h4>
+                                        <p>Scale with strong foundations</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="process.html" class="nav-link"><i class="fas fa-sitemap"></i> Process</a></li>
+                    <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Insights</a></li>
+                    <li><a href="contact.html" class="nav-link cta-link"><i class="fas fa-paper-plane"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container-lg">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+                <li>Privacy Policy</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+<section class="hero" style="background: linear-gradient(rgba(9, 68, 145, 0.85), rgba(7, 46, 107, 0.9)), url('images/hero/main-hero.jpeg'); background-size: cover; background-position: center;">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Cookie Policy</h1>
-                <p class="hero-subtitle">Last Updated: January 2024</p>
-            </div>
+                <div class="hero-text text-white">
+                    <h1 class="hero-title animate-fade-up">Privacy Policy</h1>
+            <p>Last updated: March 15, 2024</p>
         </div>
     </section>
 
-    <!-- Cookie Content -->
-    <section class="section legal-content-section">
+    <!-- Privacy Policy Content -->
+    <section class="section">
         <div class="container">
             <div class="legal-content">
-                <div class="policy-summary">
-                    <div class="summary-box">
-                        <h3><i class="fas fa-info-circle" aria-hidden="true"></i> Quick Summary</h3>
-                        <p>This policy explains what cookies are, how we use them, and how you can manage your preferences. By using our website, you consent to the use of cookies as described in this policy.</p>
-                    </div>
+                <div class="policy-intro">
+                    <p>Consulting Crew ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website consultingcrew.com or use our services.</p>
+                    <p>Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site or use our services.</p>
                 </div>
-
-                <h2>1. What Are Cookies?</h2>
-                <p>Cookies are small text files that are placed on your computer or mobile device when you visit a website. They are widely used to make websites work more efficiently and provide information to website owners.</p>
-
-                <h2>2. How We Use Cookies</h2>
-                <p>We use cookies for the following purposes:</p>
                 
-                <div class="cookie-categories">
-                    <div class="category-card">
-                        <div class="category-header">
-                            <h3><i class="fas fa-shield-alt" aria-hidden="true"></i> Essential Cookies</h3>
-                            <span class="category-status">Always Active</span>
-                        </div>
-                        <p>Required for the website to function properly. Cannot be disabled.</p>
-                        <ul>
-                            <li>Session management</li>
-                            <li>Security features</li>
-                            <li>Load balancing</li>
-                        </ul>
-                    </div>
+                <div class="policy-section">
+                    <h2>1. Information We Collect</h2>
                     
-                    <div class="category-card">
-                        <div class="category-header">
-                            <h3><i class="fas fa-chart-line" aria-hidden="true"></i> Performance Cookies</h3>
-                            <span class="category-status">Optional</span>
-                        </div>
-                        <p>Help us understand how visitors interact with our website.</p>
-                        <ul>
-                            <li>Website analytics</li>
-                            <li>Error tracking</li>
-                            <li>Performance monitoring</li>
-                        </ul>
-                    </div>
+                    <h3>1.1 Personal Information</h3>
+                    <p>We may collect personal information that you voluntarily provide to us when you:</p>
+                    <ul>
+                        <li>Register on our website</li>
+                        <li>Express interest in obtaining information about our services</li>
+                        <li>Participate in activities on our website</li>
+                        <li>Otherwise contact us</li>
+                    </ul>
+                    <p>The personal information we collect may include:</p>
+                    <ul>
+                        <li>Name and contact information (email address, phone number)</li>
+                        <li>Company information (name, size, industry)</li>
+                        <li>Any other information you choose to provide</li>
+                    </ul>
                     
-                    <div class="category-card">
-                        <div class="category-header">
-                            <h3><i class="fas fa-users" aria-hidden="true"></i> Functional Cookies</h3>
-                            <span class="category-status">Optional</span>
-                        </div>
-                        <p>Remember your preferences and settings for future visits.</p>
-                        <ul>
-                            <li>Language preferences</li>
-                            <li>Layout settings</li>
-                            <li>Form autofill</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="category-card">
-                        <div class="category-header">
-                            <h3><i class="fas fa-bullhorn" aria-hidden="true"></i> Marketing Cookies</h3>
-                            <span class="category-status">Optional</span>
-                        </div>
-                        <p>Used to deliver relevant advertisements and track campaign performance.</p>
-                        <ul>
-                            <li>Advertising targeting</li>
-                            <li>Conversion tracking</li>
-                            <li>Remarketing</li>
-                        </ul>
-                    </div>
+                    <h3>1.2 Automatically Collected Information</h3>
+                    <p>When you visit our website, we automatically collect certain information about your device and your visit, including:</p>
+                    <ul>
+                        <li>IP address</li>
+                        <li>Browser type and version</li>
+                        <li>Pages you visit on our website</li>
+                        <li>Time and date of your visit</li>
+                        <li>Time spent on those pages</li>
+                        <li>Other diagnostic data</li>
+                    </ul>
                 </div>
-
-                <h2>3. Types of Cookies We Use</h2>
-                <h3>3.1 First-Party Cookies</h3>
-                <p>These are cookies set by our website. They can only be read by our site.</p>
                 
-                <h3>3.2 Third-Party Cookies</h3>
-                <p>These are cookies set by third-party services embedded in our site, such as:</p>
-                <ul>
-                    <li>Google Analytics</li>
-                    <li>Social media platforms</li>
-                    <li>Advertising networks</li>
-                </ul>
-
-                <h2>4. Specific Cookies We Use</h2>
-                <div class="cookies-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Cookie Name</th>
-                                <th>Purpose</th>
-                                <th>Duration</th>
-                                <th>Type</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>session_id</code></td>
-                                <td>Maintains your session on our website</td>
-                                <td>Session</td>
-                                <td>Essential</td>
-                            </tr>
-                            <tr>
-                                <td><code>user_preferences</code></td>
-                                <td>Stores your language and layout preferences</td>
-                                <td>1 year</td>
-                                <td>Functional</td>
-                            </tr>
-                            <tr>
-                                <td><code>_ga</code></td>
-                                <td>Google Analytics - Distinguishes users</td>
-                                <td>2 years</td>
-                                <td>Performance</td>
-                            </tr>
-                            <tr>
-                                <td><code>_gid</code></td>
-                                <td>Google Analytics - Distinguishes users</td>
-                                <td>24 hours</td>
-                                <td>Performance</td>
-                            </tr>
-                            <tr>
-                                <td><code>_gat</code></td>
-                                <td>Google Analytics - Throttles request rate</td>
-                                <td>1 minute</td>
-                                <td>Performance</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="policy-section">
+                    <h2>2. How We Use Your Information</h2>
+                    <p>We use the information we collect for various purposes, including:</p>
+                    <ul>
+                        <li>To provide and maintain our services</li>
+                        <li>To notify you about changes to our services</li>
+                        <li>To allow you to participate in interactive features of our website</li>
+                        <li>To provide customer support</li>
+                        <li>To gather analysis or valuable information to improve our website</li>
+                        <li>To monitor the usage of our website</li>
+                        <li>To detect, prevent, and address technical issues</li>
+                        <li>To provide you with news, special offers, and general information about other services we offer</li>
+                    </ul>
                 </div>
-
-                <h2>5. Managing Cookies</h2>
-                <h3>5.1 Browser Settings</h3>
-                <p>Most web browsers allow you to control cookies through their settings preferences. Here are links to the cookie management instructions for popular browsers:</p>
-                <ul>
-                    <li><a href="https://support.google.com/chrome/answer/95647" target="_blank">Google Chrome</a></li>
-                    <li><a href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences" target="_blank">Mozilla Firefox</a></li>
-                    <li><a href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac" target="_blank">Safari</a></li>
-                    <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank">Microsoft Edge</a></li>
-                </ul>
-
-                <h3>5.2 Opt-Out Tools</h3>
-                <p>You can opt out of certain types of cookies:</p>
-                <ul>
-                    <li><a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google Analytics Opt-Out</a></li>
-                    <li><a href="https://www.youronlinechoices.com/" target="_blank">Your Online Choices (EU)</a></li>
-                    <li><a href="https://optout.networkadvertising.org/" target="_blank">Network Advertising Initiative</a></li>
-                </ul>
-
-                <h2>6. Do Not Track Signals</h2>
-                <p>Our website does not currently respond to Do Not Track (DNT) signals. However, you can configure your browser settings to reject cookies as described above.</p>
-
-                <h2>7. Legal Basis for Cookie Use (GDPR)</h2>
-                <p>For visitors from the European Economic Area (EEA), we rely on the following legal bases for cookie use:</p>
-                <ul>
-                    <li><strong>Consent:</strong> For optional cookies (performance, functional, marketing)</li>
-                    <li><strong>Legitimate interests:</strong> For essential cookies</li>
-                    <li><strong>Contractual necessity:</strong> For cookies required to provide services you requested</li>
-                </ul>
-
-                <h2>8. Data Transfers</h2>
-                <p>Cookie data may be transferred to and processed in countries outside of your country of residence, including the United States. These countries may have data protection laws that are different from the laws of your country.</p>
-
-                <h2>9. Updates to This Policy</h2>
-                <p>We may update this Cookie Policy from time to time. We will notify you of any changes by posting the new Cookie Policy on this page and updating the "Last Updated" date.</p>
-
-                <h2>10. Contact Us</h2>
-                <p>If you have any questions about our use of cookies, please contact us:</p>
-                <div class="contact-details">
-                    <p><strong>By email:</strong> privacy@consultingcrew.com</p>
-                    <p><strong>By phone:</strong> +1 (555) 123-4567</p>
-                    <p><strong>Subject line:</strong> Cookie Policy Inquiry</p>
+                
+                <div class="policy-section">
+                    <h2>3. Legal Basis for Processing Personal Information</h2>
+                    <p>We process personal information under the following conditions:</p>
+                    <ul>
+                        <li><strong>Performance of a contract:</strong> When we need to perform a contract with you</li>
+                        <li><strong>Legitimate interests:</strong> When processing is necessary for our legitimate business interests</li>
+                        <li><strong>Consent:</strong> When you have given us consent to process your personal information</li>
+                        <li><strong>Legal obligations:</strong> When processing is necessary for compliance with a legal obligation</li>
+                    </ul>
                 </div>
-
-                <div class="cookie-management">
-                    <h3>Manage Your Cookie Preferences</h3>
-                    <p>You can update your cookie preferences at any time:</p>
-                    <button id="openCookiePreferences" class="btn btn-primary">
-                        <i class="fas fa-sliders-h" aria-hidden="true"></i> Manage Cookie Preferences
-                    </button>
+                
+                <div class="policy-section">
+                    <h2>4. Sharing Your Information</h2>
+                    <p>We may share your personal information in the following situations:</p>
+                    
+                    <h3>4.1 With Service Providers</h3>
+                    <p>We may share your information with service providers to monitor and analyze the use of our website, for payment processing, and to contact you.</p>
+                    
+                    <h3>4.2 For Business Transfers</h3>
+                    <p>We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.</p>
+                    
+                    <h3>4.3 With Affiliates</h3>
+                    <p>We may share your information with our affiliates, in which case we will require those affiliates to honor this Privacy Policy.</p>
+                    
+                    <h3>4.4 With Business Partners</h3>
+                    <p>We may share your information with our business partners to offer you certain products, services, or promotions.</p>
+                    
+                    <h3>4.5 With Your Consent</h3>
+                    <p>We may disclose your personal information for any other purpose with your consent.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>5. Data Security</h2>
+                    <p>We implement appropriate technical and organizational security measures to protect your personal information. However, please remember that no method of transmission over the Internet or method of electronic storage is 100% secure.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>6. Your Data Protection Rights</h2>
+                    <p>Depending on your location, you may have the following data protection rights:</p>
+                    <ul>
+                        <li><strong>The right to access:</strong> You have the right to request copies of your personal data.</li>
+                        <li><strong>The right to rectification:</strong> You have the right to request correction of inaccurate information.</li>
+                        <li><strong>The right to erasure:</strong> You have the right to request deletion of your personal data.</li>
+                        <li><strong>The right to restrict processing:</strong> You have the right to request restriction of processing your personal data.</li>
+                        <li><strong>The right to data portability:</strong> You have the right to request transfer of your data to another organization.</li>
+                        <li><strong>The right to object:</strong> You have the right to object to our processing of your personal data.</li>
+                    </ul>
+                    <p>To exercise any of these rights, please contact us using the contact information provided below.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>7. Third-Party Websites</h2>
+                    <p>Our website may contain links to other websites that are not operated by us. We strongly advise you to review the Privacy Policy of every site you visit. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>8. Children's Privacy</h2>
+                    <p>Our services are not intended for individuals under the age of 18. We do not knowingly collect personal information from children under 18. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>9. Changes to This Privacy Policy</h2>
+                    <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.</p>
+                    <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>10. Contact Us</h2>
+                    <p>If you have any questions about this Privacy Policy, please contact us:</p>
+                    <ul>
+                        <li>By email: consultingcrew.pk@gmail.com</li>
+                        <li>By phone: +92 332 345 0433</li>
+                        <li>By mail: Consulting Crew, Karachi, Pakistan</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <div data-include="/includes/footer.html"></div>
-
-    <script>
-        document.addEventListener('includes-loaded', function() {
-            // Open cookie preferences modal
-            document.getElementById('openCookiePreferences')?.addEventListener('click', function() {
-                // This would typically open a cookie preferences modal
-                alert('In a production environment, this would open a cookie preferences modal.');
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <a href="index.html">
+                            <div class="logo-icon">CC</div>
+                            <div>
+                                <h3>Consulting Crew</h3>
+                                <span class="tagline">Empowering Smarter Decisions</span>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="footer-mission">Helping organizations make smarter decisions, build stronger brands, and achieve sustainable growth.</p>
+                </div>
                 
-                // Example implementation:
-                // const modal = document.getElementById('cookiePreferences');
-                // modal.style.display = 'block';
-            });
-        });
-    </script>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="service-data.html">Data & Business Intelligence</a></li>
+                            <li><a href="service-branding.html">Branding & Digital Growth</a></li>
+                            <li><a href="service-hr.html">HR Systems & Governance</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="process.html">Our Process</a></li>
+                            <li><a href="blog.html">Insights</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <div class="social-links">
+                            <a href="https://linkedin.com/company/consultingcrew" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://twitter.com/consultingcrew" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://youtube.com/@consultingcrew" target="_blank"><i class="fab fa-youtube"></i></a>
+                            <a href="https://instagram.com/consultingcrew" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope"></i> consultingcrew.pk@gmail.com</p>
+                            <p><i class="fas fa-phone"></i> +92 332 345 0433</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Karachi, Pakistan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Consulting Crew. All rights reserved.</p>
+                <p>The EDGE Framework™ is a trademark of Consulting Crew.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

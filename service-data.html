@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data & Business Intelligence Services | Consulting Crew - The EDGE Framework™</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/CC_fav.ico">
+    <link rel="icon" sizes="32x32" href="images/CC_fav.ico">
+    <link rel="icon" sizes="16x16" href="images/CC_fav.ico">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="images/CC_fav.ico" color="#0455bf">
+    <meta name="msapplication-TileColor" content="#0455bf">
+    <meta name="theme-color" content="#0455bf">
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Transform data into strategic insights with Consulting Crew's data analytics and business intelligence services">
+    <meta name="keywords" content="data analytics, business intelligence, data visualization, KPI dashboards, predictive analytics">
+</head>
+<body>
+    <!-- Cookie Consent Modal -->
+    <div class="cookie-consent-modal" id="cookieConsent">
+        <div class="cookie-content">
+            <h3>Cookie Policy</h3>
+            <p>We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By continuing to use this site, you consent to our use of cookies. <a href="cookie-policy.html" class="cookie-policy-link">Learn more</a></p>
+            <div class="cookie-buttons">
+                <button class="btn btn-primary" id="acceptCookies">Accept All</button>
+                <button class="btn btn-secondary" id="customizeCookies">Customize</button>
+                <button class="btn btn-outline" id="rejectCookies">Reject Non-Essential</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header" id="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/CC_logo.png" alt="Consulting Crew Logo" class="logo-img">
+                    <div class="logo-text">
+                        <h1 class="logo-title">Consulting Crew</h1>
+                        <p class="logo-tagline">Empowering Smarter Decisions</p>
+                    </div>
+                </a>
+            </div>
+            
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="about.html" class="nav-link"><i class="fas fa-building"></i> About</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="services.html" class="nav-link active dropdown-toggle">
+                            <i class="fas fa-cogs"></i> Services <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-grid">
+                                <a href="service-data.html" class="dropdown-card">
+                                    <i class="fas fa-chart-line"></i>
+                                    <div>
+                                        <h4>Data & BI</h4>
+                                        <p>Transform data into decisions</p>
+                                    </div>
+                                </a>
+                                <a href="service-branding.html" class="dropdown-card">
+                                    <i class="fas fa-rocket"></i>
+                                    <div>
+                                        <h4>Branding & Growth</h4>
+                                        <p>Accelerate digital presence</p>
+                                    </div>
+                                </a>
+                                <a href="service-hr.html" class="dropdown-card">
+                                    <i class="fas fa-users-cog"></i>
+                                    <div>
+                                        <h4>HR & Governance</h4>
+                                        <p>Scale with strong foundations</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="process.html" class="nav-link"><i class="fas fa-sitemap"></i> Process</a></li>
+                    <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Insights</a></li>
+                    <li><a href="contact.html" class="nav-link cta-link"><i class="fas fa-paper-plane"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container-lg">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+                <li><a href="services.html">Services</a></li>
+                <li>Data & Business Intelligence</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="page-hero" style="background: linear-gradient(135deg, #0455BF 0%, #0349a3 100%); color: white;">
+        <div class="container">
+            <h1>Data & Business Intelligence</h1>
+            <p>Turn Information into Advantage. Move from data noise to confident strategy.</p>
+        </div>
+    </section>
+
+    <!-- Service Content -->
+    <section class="section">
+        <div class="container">
+            <div class="service-detail-content">
+                <div class="service-intro">
+                    <h2>Transform Your Data into Strategic Insights</h2>
+                    <p>In today's data-driven world, information is power. But raw data alone isn't enough. We help you transform scattered numbers into clear, actionable insights that drive confident business decisions and sustainable growth.</p>
+                </div>
+                
+                <div class="service-tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="analytics">Data Analytics & Visualization</button>
+                        <button class="tab-btn" data-tab="bi">Business Intelligence & KPI Systems</button>
+                    </div>
+                    
+                    <div class="tab-content active" id="analytics">
+                        <div class="tab-header">
+                            <h3>Data Analytics & Visualization</h3>
+                            <p class="tab-tagline">Noise to Decision-Ready Insights</p>
+                        </div>
+                        <div class="tab-body">
+                            <p>We filter out the clutter in your data and transform scattered numbers into clear dashboards and actionable insights—so you can move from uncertainty to confident, impactful decisions.</p>
+                            
+                            <div class="benefits-grid">
+                                <div class="benefit">
+                                    <i class="fas fa-chart-line"></i>
+                                    <h4>Advanced Analytics</h4>
+                                    <p>Uncover hidden patterns and trends in your data.</p>
+                                </div>
+                                <div class="benefit">
+                                    <i class="fas fa-eye"></i>
+                                    <h4>Interactive Dashboards</h4>
+                                    <p>Real-time visualization of key metrics and performance.</p>
+                                </div>
+                                <div class="benefit">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <h4>Actionable Insights</h4>
+                                    <p>Clear recommendations based on data analysis.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="bi">
+                        <div class="tab-header">
+                            <h3>Business Intelligence & KPI Systems</h3>
+                            <p class="tab-tagline">Measure What Actually Matters</p>
+                        </div>
+                        <div class="tab-body">
+                            <p>We build focused dashboards and KPI frameworks that track true performance, align your team on goals, and directly inform strategic growth decisions.</p>
+                            
+                            <div class="benefits-grid">
+                                <div class="benefit">
+                                    <i class="fas fa-bullseye"></i>
+                                    <h4>KPI Framework Design</h4>
+                                    <p>Identify and track the metrics that truly matter.</p>
+                                </div>
+                                <div class="benefit">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    <h4>Performance Dashboards</h4>
+                                    <p>Real-time monitoring of business performance.</p>
+                                </div>
+                                <div class="benefit">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <h4>Strategic Alignment</h4>
+                                    <p>Align data insights with business objectives.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-includes">
+                    <h3>Our Data & BI Toolkit</h3>
+                    <div class="includes-grid">
+                        <div class="include-item">
+                            <i class="fas fa-database"></i>
+                            <h4>Data Analysis</h4>
+                            <p>Comprehensive analysis of your business data.</p>
+                        </div>
+                        <div class="include-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <h4>KPI Dashboards</h4>
+                            <p>Custom dashboards tracking key performance indicators.</p>
+                        </div>
+                        <div class="include-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <h4>Data Visualization</h4>
+                            <p>Interactive charts and graphs for clear insights.</p>
+                        </div>
+                        <div class="include-item">
+                            <i class="fas fa-crystal-ball"></i>
+                            <h4>Predictive Analytics</h4>
+                            <p>Forecast trends and future performance.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-study">
+                    <h3>Client Success Story</h3>
+                    <div class="case-content">
+                        <div class="case-text">
+                            <h4>Retail Chain Sales Optimization</h4>
+                            <p>A national retail chain was struggling with inconsistent sales data across 150+ locations. Our data analytics solution:</p>
+                            <ul>
+                                <li>Consolidated sales data from 15 different sources</li>
+                                <li>Reduced reporting time from 2 weeks to real-time</li>
+                                <li>Identified $2.3M in cost-saving opportunities</li>
+                                <li>Increased sales by 18% through data-driven pricing</li>
+                            </ul>
+                        </div>
+                        <div class="case-stats">
+                            <div class="stat">
+                                <h5>18%</h5>
+                                <p>Sales Increase</p>
+                            </div>
+                            <div class="stat">
+                                <h5>2.3M</h5>
+                                <p>Cost Savings</p>
+                            </div>
+                            <div class="stat">
+                                <h5>150+</h5>
+                                <p>Locations Integrated</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="process-teaser">
+                    <h3>Our Approach to Data Projects</h3>
+                    <p>We apply our proven EDGE Framework to ensure successful data transformation:</p>
+                    <div class="process-steps-mini">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <h4>Data Assessment</h4>
+                            <p>Evaluate current data infrastructure and quality.</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <h4>Strategy Design</h4>
+                            <p>Create tailored data strategy and KPI framework.</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <h4>Implementation</h4>
+                            <p>Deploy analytics tools and dashboards.</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <h4>Optimization</h4>
+                            <p>Continuous improvement and training.</p>
+                        </div>
+                    </div>
+                    <a href="process.html" class="btn btn-outline">Learn About Our Process</a>
+                </div>
+                
+                <div class="service-cta">
+                    <div class="cta-content">
+                        <h3>Ready to Transform Your Data into Strategic Advantage?</h3>
+                        <p>Schedule a free data strategy session to discuss your challenges and opportunities.</p>
+                        <a href="contact.html" class="btn btn-primary btn-large">Discuss Your Data Strategy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <a href="index.html">
+                            <div class="logo-icon">CC</div>
+                            <div>
+                                <h3>Consulting Crew</h3>
+                                <span class="tagline">Empowering Smarter Decisions</span>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="footer-mission">Helping organizations make smarter decisions, build stronger brands, and achieve sustainable growth.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="service-data.html">Data & Business Intelligence</a></li>
+                            <li><a href="service-branding.html">Branding & Digital Growth</a></li>
+                            <li><a href="service-hr.html">HR Systems & Governance</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="process.html">Our Process</a></li>
+                            <li><a href="blog.html">Insights</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <div class="social-links">
+                            <a href="https://linkedin.com/company/consultingcrew" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://twitter.com/consultingcrew" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://youtube.com/@consultingcrew" target="_blank"><i class="fab fa-youtube"></i></a>
+                            <a href="https://instagram.com/consultingcrew" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope"></i> consultingcrew.pk@gmail.com</p>
+                            <p><i class="fas fa-phone"></i> +92 332 345 0433</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Karachi, Pakistan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Consulting Crew. All rights reserved.</p>
+                <p>The EDGE Framework™ is a trademark of Consulting Crew.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
