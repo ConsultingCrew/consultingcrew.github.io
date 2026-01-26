@@ -1,1054 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Legal Disclaimer | Consulting Crew</title>
-  
-  <!-- Meta Descriptions -->
-  <meta name="description" content="Strategic consulting advisory firm specializing in data intelligence, digital transformation, and organizational excellence for SMEs and growth-stage companies.">
-  <meta name="keywords" content="strategic consulting, business advisory, data intelligence, digital transformation, growth strategy, organizational excellence, SME consulting">
-  
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Consulting Crew | Strategic Advisory for Growth Businesses">
-  <meta property="og:description" content="Strategic consulting advisory firm specializing in data intelligence, digital transformation, and organizational excellence for SMEs and growth-stage companies.">
-  <meta property="og:image" content="images/og-image.jpg">
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Prata:wght@400&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- CRITICAL CSS -->
-  <style>
-    .header {position: fixed; top: 0; width: 100%; z-index: 1030; background: white; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);}
-    .hero {position: relative; color: white; padding: 4rem 0;}
-    .hero__content {position: relative; z-index: 1; text-align: center;}
-    .main {opacity: 0; transition: opacity 0.3s ease;}
-    .main.loaded {opacity: 1;}
-    .header, .hero {opacity: 1 !important;}
-    body:not(.loaded) .main { opacity: 0; }
-    body.loaded .main { opacity: 1; }
-  </style>
-
-  <link rel="stylesheet" href="css/main.css">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Disclaimer | Consulting Crew</title>
+    
+    <!-- Meta Descriptions -->
+    <meta name="description" content="Legal disclaimer for Consulting Crew's advisory services, website content, and strategic insights.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/CC_fav.ico">
 </head>
-
 <body>
-<!-- HEADER -->
-<header class="header">
-  <div class="container">
-    <nav class="nav">
-      <a href="index.html" class="logo">
-        <div class="logo__image">
-          <img src="images/CC_Logo.png" alt="Consulting Crew" width="60" height="60" loading="eager">
-        </div>
-        <div class="logo__text">
-          <span class="logo__title">Consulting Crew</span>
-          <span class="logo__tagline">Empowering Your Business to Grow</span>
-        </div>
-      </a>
-
-<!-- Main Navigation -->
-<ul class="nav__menu" id="main-menu">
-  <!-- Home -->
-  <li class="nav__item">
-    <a href="index.html" class="nav__link">
-      <i class="fas fa-home nav__icon"></i>
-      <span class="nav__text">Home</span>
-    </a>
-  </li>
-  
-  <!-- About Us -->
-  <li class="nav__item has-dropdown">
-    <a href="about.html" class="nav__link">
-      <i class="fas fa-building nav__icon"></i>
-      <span class="nav__text">About Us</span>
-      <i class="fas fa-chevron-down nav__dropdown-icon"></i>
-    </a>
-    <div class="nav__dropdown">
-      <div class="dropdown__header">
-        <h4>About Us</h4>
-        <p>Learn about our strategic approach</p>
-      </div>
-      <a href="team.html" class="nav__dropdown-item">
-        <i class="fas fa-user-tie"></i>
-        <div>
-          <p class="dropdown-item__title">Leadership Team</p>
-          <span class="dropdown-item__desc">Meet our strategic advisors</span>
-        </div>
-      </a>
-      <a href="business-ethics.html" class="nav__dropdown-item">
-        <i class="fas fa-balance-scale"></i>
-        <div>
-          <span class="dropdown-item__title">Business Ethics</span>
-          <span class="dropdown-item__desc">Our commitment to integrity</span>
-        </div>
-      </a>
-      <a href="csr.html" class="nav__dropdown-item">
-        <i class="fas fa-handshake"></i>
-        <div>
-          <span class="dropdown-item__title">Corporate Responsibility</span>
-          <span class="dropdown-item__desc">Sustainable impact focus</span>
-        </div>
-      </a>
-    </div>
-  </li>
-  
-  <!-- Services Mega Menu -->
-  <li class="nav__item has-megamenu">
-    <a href="services.html" class="nav__link">
-      <i class="fas fa-chart-line nav__icon"></i>
-      <span class="nav__text">Services We Offer</span>
-      <i class="fas fa-chevron-down nav__dropdown-icon"></i>
-    </a>
-    <div class="nav__megamenu">
-      <div class="megamenu__grid">
-        <div class="megamenu__column">
-          <h4 class="megamenu__title">
-            <i class="fas fa-database text--blue"></i>
-            Data & Intelligence
-          </h4>
-          <a href="data-analysis.html" class="megamenu__item">
-            <i class="fas fa-chart-bar text--blue"></i>
-            <div>
-              <span class="megamenu__item-title">Data Intelligence</span>
-              <span class="megamenu__item-desc">Transform data into strategic assets</span>
-            </div>
-          </a>
-          <a href="analytics.html" class="megamenu__item">
-            <i class="fas fa-project-diagram text--blue"></i>
-            <div>
-              <span class="megamenu__item-title">Predictive Analytics</span>
-              <span class="megamenu__item-desc">Forward-looking insights</span>
-            </div>
-          </a>
-        </div>
-        
-        <div class="megamenu__column">
-          <h4 class="megamenu__title">
-            <i class="fas fa-laptop-code text--green"></i>
-            Digital Transformation
-          </h4>
-          <a href="digital-marketing.html" class="megamenu__item">
-            <i class="fas fa-bullhorn text--green"></i>
-            <div>
-              <span class="megamenu__item-title">Digital Marketing</span>
-              <span class="megamenu__item-desc">Optimize digital presence</span>
-            </div>
-          </a>
-          <a href="branding.html" class="megamenu__item">
-            <i class="fas fa-trademark text--green"></i>
-            <div>
-              <span class="megamenu__item-title">Branding Strategy</span>
-              <span class="megamenu__item-desc">Craft compelling brand narratives</span>
-            </div>
-          </a>
-        </div>
-        
-        <div class="megamenu__column">
-          <h4 class="megamenu__title">
-            <i class="fas fa-globe text--orange"></i>
-            Web Services
-          </h4>
-    
-          <a href="web-development.html" class="megamenu__item">
-            <i class="fas fa-code text--orange"></i>
-            <div>
-              <span class="megamenu__item-title">Web Development</span>
-              <span class="megamenu__item-desc">Digital solutions for online presence</span>
-            </div>
-          </a>
-          <a href="web-hosting.html" class="megamenu__item">
-            <i class="fas fa-server text--orange"></i>
-            <div>
-              <span class="megamenu__item-title">Web Hosting</span>
-              <span class="megamenu__item-desc">Reliable infrastructure for operations</span>
-            </div>
-          </a>
-        </div>
-
-        <div class="megamenu__column">
-          <h4 class="megamenu__title">
-            <i class="fas fa-users-cog text--purple"></i>
-            Organization Excellence
-          </h4>
-  
-          <a href="hr-services.html" class="megamenu__item">
-            <i class="fas fa-user-graduate text--purple"></i>
-            <div>
-              <span class="megamenu__item-title">HR Services</span>
-              <span class="megamenu__item-desc">Strategic HR Solutions for People Excellence</span>
-            </div>
-          </a>
-          <a href="consulting.html" class="megamenu__item">
-            <i class="fas fa-lightbulb text--purple"></i>
-            <div>
-              <span class="megamenu__item-title">Strategic Consulting</span>
-              <span class="megamenu__item-desc">Expert advisory services</span>
-            </div>
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </li>
-  
-  <!-- Client Impact -->
-  <li class="nav__item">
-    <a href="portfolio.html" class="nav__link">
-      <i class="fas fa-chart-pie nav__icon"></i>
-      <span class="nav__text">Portfolio</span>
-    </a>
-  </li>
-  
-  <!-- Insights -->
-  <li class="nav__item">
-    <a href="blog.html" class="nav__link">
-      <i class="fas fa-blog nav__icon"></i>
-      <span class="nav__text">Insights</span>
-    </a>
-  </li>
-
-  <!-- Contact -->
-  <li class="nav__item">
-    <a href="contact.html" class="nav__link">
-      <i class="fas fa-envelope nav__icon"></i>
-      <span class="nav__text">Contact</span>
-    </a>
-  </li>
-</ul>
-
-<!-- Right Side Actions -->
-<div class="nav__actions">
-  <!-- Search Toggle (Mobile) -->
-  <button class="nav__action-btn nav__action-search d--flex d--md-none" aria-label="Search">
-    <i class="fas fa-search"></i>
-  </button>
-  
-  <!-- Search Bar (Desktop) -->
-  <div class="nav__search d--none d--md-flex">
-    <form class="search-form--compact" id="headerSearchForm">
-      <div class="search-input-wrapper">
-        <input type="search" 
-               class="form-control search-input" 
-               placeholder="Search..." 
-               aria-label="Search">
-        <button type="submit" class="search-submit" aria-label="Submit search">
-          <i class="fas fa-search"></i>
-        </button>
-      </div>
-    </form>
-  </div>
-
-  <!-- Mobile Menu Toggle -->
-  <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-menu">
-    <span class="menu-icon">
-      <span class="menu-bar"></span>
-      <span class="menu-bar"></span>
-      <span class="menu-bar"></span>
-    </span>
-  </button>
-</div>
-
-  <!-- Mobile Search Overlay -->
-  <div class="mobile-search-overlay">
-    <div class="container">
-      <form class="search-form--mobile">
-        <div class="search-input-wrapper">
-          <i class="fas fa-search search-icon"></i>
-          <input type="search" 
-                 class="form-control search-input" 
-                 placeholder="Search strategic insights..." 
-                 aria-label="Search">
-          <button type="button" class="search-close" aria-label="Close search">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-        <div class="search-suggestions">
-          <p class="text--sm text--muted mb--sm">Popular searches:</p>
-          <div class="flex flex--wrap gap--xs">
-            <a href="data-analysis.html" class="badge badge--suggestion">Data Intelligence</a>
-            <a href="web-development.html" class="badge badge--suggestion">Digital Transformation</a>
-            <a href="digital-marketing.html" class="badge badge--suggestion">Growth Strategy</a>
-            <a href="hr-services.html" class="badge badge--suggestion">HR Services</a>
-            <a href="consulting.html" class="badge badge--suggestion">Strategic Consulting</a>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</header>
-
-<!-- Sticky Header Progress Indicator -->
-<div class="header-progress">
-  <div class="progress-bar"></div>
-</div>  
-
-    <!-- BREADCRUMBS -->
-    <section class="breadcrumbs">
-      <div class="container">
-        <nav aria-label="Breadcrumb">
-          <ol class="breadcrumb-list">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Legal</a></li>
-            <li class="breadcrumb-item active">Disclaimer</li>
-          </ol>
-        </nav>
-      </div>
-    </section>
-
-  <!-- MAIN CONTENT -->
-  <main class="main">
-    <!-- HERO -->
-    <section class="hero hero--small">
-      <div class="container">
-        <div class="hero__content text--center">
-          <h1 class="hero__title">Legal Disclaimer</h1>
-          <p class="hero__subtitle">
-            Important legal information regarding the use of our advisory services, website content, and strategic insights.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- DISCLAIMER CONTENT -->
-    <section class="section">
-      <div class="container">
-        <div class="max-w--wide mx--auto">
-          <!-- Important Notice -->
-          <div class="legal-disclaimer mb--xl">
-            <div class="flex items--center gap--md mb--sm">
-              <i class="fas fa-exclamation-triangle text--orange text--xl"></i>
-              <h3 class="text--xl font--semibold">Important Notice</h3>
-            </div>
-            <p class="paragraph-professional">
-              This disclaimer governs your use of Consulting Crew's website, services, and content. By engaging with our firm, you accept this disclaimer in full. If you disagree with any part of this disclaimer, you must not use our website or services.
-            </p>
-          </div>
-
-          <!-- Quick Summary -->
-          <div class="card bg--light p--lg mb--xl">
-            <h3 class="text--lg font--semibold mb--md">Disclaimer Summary</h3>
-            <div class="grid grid--2 gap--md">
-              <div class="flex items--start gap--sm">
-                <i class="fas fa-balance-scale text--blue mt--xs"></i>
-                <div>
-                  <h4 class="text--sm font--semibold">Professional Advice</h4>
-                  <p class="text--xs">Our content is for informational purposes only</p>
-                </div>
-              </div>
-              <div class="flex items--start gap--sm">
-                <i class="fas fa-chart-line text--blue mt--xs"></i>
-                <div>
-                  <h4 class="text--sm font--semibold">No Guarantees</h4>
-                  <p class="text--xs">Past performance doesn't guarantee future results</p>
-                </div>
-              </div>
-              <div class="flex items--start gap--sm">
-                <i class="fas fa-user-check text--blue mt--xs"></i>
-                <div>
-                  <h4 class="text--sm font--semibold">Client Responsibility</h4>
-                  <p class="text--xs">Final decisions rest with client leadership</p>
-                </div>
-              </div>
-              <div class="flex items--start gap--sm">
-                <i class="fas fa-shield-alt text--blue mt--xs"></i>
-                <div>
-                  <h4 class="text--sm font--semibold">Third-Party Content</h4>
-                  <p class="text--xs">We're not responsible for external links or content</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Section 1 -->
-          <div class="policy-section mb--xl" id="professional-services">
-            <h2 class="executive-heading executive-heading--sm mb--md">1. Professional Services Disclaimer</h2>
-            
-            <div class="card bg--blue-light p--lg mb--lg">
-              <h4 class="text--lg font--semibold mb--sm">Advisory Nature of Services</h4>
-              <p class="paragraph-professional--compact">
-                Consulting Crew provides strategic advisory services. Our recommendations are based on professional judgment, industry experience, and available information at the time of analysis. We do not provide:
-              </p>
-              <ul class="list--styled mt--sm">
-                <li>Legal advice or legal services</li>
-                <li>Financial or investment advice</li>
-                <li>Accounting or audit services</li>
-                <li>Guarantees of specific business outcomes</li>
-              </ul>
+    <!-- Header -->
+    <header class="header" id="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/CC_logo.png" alt="Consulting Crew Logo" class="logo-img">
+                    <div class="logo-text">
+                        <h1 class="logo-title">Consulting Crew</h1>
+                        <p class="logo-tagline">Empowering Smarter Decisions</p>
+                    </div>
+                </a>
             </div>
             
-            <p class="paragraph-professional">
-              Our advisory services are intended to support your decision-making process, not replace it. The ultimate responsibility for business decisions rests with your organization's leadership team. We strongly recommend consulting with appropriate legal, financial, and accounting professionals before implementing any strategic recommendations.
-            </p>
-          </div>
-
-          <!-- Section 2 -->
-          <div class="policy-section mb--xl" id="website-content">
-            <h2 class="executive-heading executive-heading--sm mb--md">2. Website Content Disclaimer</h2>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
             
-            <p class="paragraph-professional mb--md">
-              The information on this website is provided for general informational purposes only. While we strive to keep the information up-to-date and correct, we make no representations or warranties of any kind, express or implied, about:
-            </p>
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="about.html" class="nav-link"><i class="fas fa-building"></i> About</a></li>
+                    <li class="dropdown">
+                        <a href="services.html" class="nav-link dropdown-toggle">
+                            <i class="fas fa-cogs"></i> Services <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-grid">
+                                <a href="service-data.html" class="dropdown-card">
+                                    <i class="fas fa-chart-line"></i>
+                                    <div>
+                                        <h4>Data & BI</h4>
+                                        <p>Transform data into decisions</p>
+                                    </div>
+                                </a>
+                                <a href="service-branding.html" class="dropdown-card">
+                                    <i class="fas fa-rocket"></i>
+                                    <div>
+                                        <h4>Branding & Growth</h4>
+                                        <p>Accelerate digital presence</p>
+                                    </div>
+                                </a>
+                                <a href="service-hr.html" class="dropdown-card">
+                                    <i class="fas fa-users-cog"></i>
+                                    <div>
+                                        <h4>HR & Governance</h4>
+                                        <p>Scale with strong foundations</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="process.html" class="nav-link"><i class="fas fa-sitemap"></i> Process</a></li>
+                    <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Insights</a></li>
+                    <li><a href="contact.html" class="nav-link cta-link"><i class="fas fa-paper-plane"></i> Contact</a></li>
+                </ul>
+            </nav>
             
-            <div class="grid grid--2 gap--lg mb--lg">
-              <div class="card p--lg">
-                <h4 class="text--lg font--semibold mb--sm">Accuracy & Completeness</h4>
-                <p class="text--sm">We don't guarantee that website content is accurate, complete, or current. Information may contain technical inaccuracies or typographical errors.</p>
-              </div>
-              
-              <div class="card p--lg">
-                <h4 class="text--lg font--semibold mb--sm">Fitness for Purpose</h4>
-                <p class="text--sm">Content is not tailored to your specific circumstances. What works for one organization may not work for another.</p>
-              </div>
-            </div>
-            
-            <div class="legal-highlight">
-              <p><strong>No Professional-Client Relationship:</strong> Accessing or using our website does not create a professional-client relationship between you and Consulting Crew.</p>
-            </div>
-          </div>
-
-          <!-- Section 3 -->
-          <div class="policy-section mb--xl" id="case-studies-results">
-            <h2 class="executive-heading executive-heading--sm mb--md">3. Case Studies & Results Disclosure</h2>
-            
-            <p class="paragraph-professional mb--md">
-              Case studies and results presented on our website or in marketing materials are based on actual client engagements. However, please note:
-            </p>
-            
-            <table class="w--100 mb--lg">
-              <thead>
-                <tr class="bg--light">
-                  <th class="p--md text--left">Disclosure</th>
-                  <th class="p--md text--left">Explanation</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="border--b">
-                  <td class="p--md"><strong>Individual Results Vary</strong></td>
-                  <td class="p--md">Results depend on numerous factors including market conditions, organizational readiness, and implementation quality</td>
-                </tr>
-                <tr class="border--b">
-                  <td class="p--md"><strong>Timeframe Differences</strong></td>
-                  <td class="p--md">Results achieved in specific timeframes may not be replicable in different market conditions</td>
-                </tr>
-                <tr>
-                  <td class="p--md"><strong>Client Collaboration</strong></td>
-                  <td class="p--md">Success typically requires active client participation and commitment to implementation</td>
-                </tr>
-              </tbody>
-            </table>
-            
-            <div class="card bg--orange-light p--lg">
-              <h4 class="text--lg font--semibold mb--sm">Forward-Looking Statements</h4>
-              <p class="paragraph-professional--compact">
-                Some statements on our website may be forward-looking. These statements involve risks and uncertainties, and actual results may differ materially from those projected or implied.
-              </p>
-            </div>
-          </div>
-
-          <!-- Section 4 -->
-          <div class="policy-section mb--xl" id="third-party-content">
-            <h2 class="executive-heading executive-heading--sm mb--md">4. Third-Party Content & Links</h2>
-            
-            <p class="paragraph-professional mb--md">
-              Our website may include links to third-party websites, tools, or resources. These links are provided for your convenience only.
-            </p>
-            
-            <div class="grid grid--3 gap--md mb--lg">
-              <div class="text--center">
-                <i class="fas fa-external-link-alt text--blue text--2xl mb--sm"></i>
-                <p class="text--sm font--semibold">No Endorsement</p>
-                <p class="text--xs">Links don't imply endorsement</p>
-              </div>
-              <div class="text--center">
-                <i class="fas fa-unlink text--blue text--2xl mb--sm"></i>
-                <p class="text--sm font--semibold">No Control</p>
-                <p class="text--xs">We don't control third-party content</p>
-              </div>
-              <div class="text--center">
-                <i class="fas fa-shield text--blue text--2xl mb--sm"></i>
-                <p class="text--sm font--semibold">Your Responsibility</p>
-                <p class="text--xs">You access third-party sites at your own risk</p>
-              </div>
-            </div>
-            
-            <p class="paragraph-professional">
-              We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites or services. You acknowledge and agree that we shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods, or services available on or through any such websites or services.
-            </p>
-          </div>
-
-          <!-- Section 5 -->
-          <div class="policy-section mb--xl" id="intellectual-property">
-            <h2 class="executive-heading executive-heading--sm mb--md">5. Intellectual Property Rights</h2>
-            
-            <div class="card bg--light p--lg mb--lg">
-              <h4 class="text--lg font--semibold mb--sm">Ownership & Usage Rights</h4>
-              <div class="grid grid--2 gap--md">
-                <div>
-                  <h5 class="text--sm font--semibold mb--xs">We Own</h5>
-                  <ul class="list--styled">
-                    <li>Website design and layout</li>
-                    <li>Proprietary frameworks</li>
-                    <li>Brand trademarks</li>
-                    <li>Original research</li>
-                  </ul>
-                </div>
-                <div>
-                  <h5 class="text--sm font--semibold mb--xs">You May Use</h5>
-                  <ul class="list--styled">
-                    <li>Download resources for personal use</li>
-                    <li>Share insights with attribution</li>
-                    <li>Reference our work with permission</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            
-            <p class="paragraph-professional">
-              All intellectual property rights in our website, content, and proprietary frameworks are owned by or licensed to Consulting Crew. You may view, download, and print pages from the website for your own personal use, subject to the restrictions set out below and elsewhere in this disclaimer.
-            </p>
-            
-            <div class="legal-highlight mt--md">
-              <p><strong>Restrictions:</strong> You must not republish material from this website, sell or rent material, reproduce or duplicate material for commercial purposes, or redistribute content without our express written permission.</p>
-            </div>
-          </div>
-
-          <!-- Section 6 -->
-          <div class="policy-section mb--xl" id="limitation-liability">
-            <h2 class="executive-heading executive-heading--sm mb--md">6. Limitation of Liability</h2>
-            
-            <div class="card bg--red-light p--lg mb--lg">
-              <h4 class="text--lg font--semibold mb--sm">To the Maximum Extent Permitted by Law</h4>
-              <p class="paragraph-professional--compact">
-                Consulting Crew, its directors, employees, agents, or affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:
-              </p>
-            </div>
-            
-            <div class="grid grid--2 gap--md mb--lg">
-              <div class="card p--md">
-                <i class="fas fa-computer text--blue mb--sm"></i>
-                <p class="text--sm">Your access to or use of or inability to access or use the website</p>
-              </div>
-              <div class="card p--md">
-                <i class="fas fa-handshake text--blue mb--sm"></i>
-                <p class="text--sm">Any conduct or content of any third party on the website</p>
-              </div>
-              <div class="card p--md">
-                <i class="fas fa-database text--blue mb--sm"></i>
-                <p class="text--sm">Any content obtained from the website</p>
-              </div>
-              <div class="card p--md">
-                <i class="fas fa-chart-line text--blue mb--sm"></i>
-                <p class="text--sm">Business decisions made based on our advisory services</p>
-              </div>
-            </div>
-            
-            <p class="paragraph-professional">
-              This limitation of liability applies whether the alleged liability is based on contract, tort, negligence, strict liability, or any other basis, even if we have been advised of the possibility of such damage.
-            </p>
-          </div>
-
-          <!-- Section 7 -->
-          <div class="policy-section mb--xl" id="jurisdiction-governing">
-            <h2 class="executive-heading executive-heading--sm mb--md">7. Jurisdiction & Governing Law</h2>
-            
-            <div class="grid grid--2 gap--lg mb--lg">
-              <div class="card p--lg">
-                <h4 class="text--lg font--semibold mb--sm">Governing Law</h4>
-                <p class="text--sm">This disclaimer shall be governed by and construed in accordance with the laws of Pakistan.</p>
-              </div>
-              
-              <div class="card p--lg">
-                <h4 class="text--lg font--semibold mb--sm">Jurisdiction</h4>
-                <p class="text--sm">Any disputes relating to this disclaimer shall be subject to the exclusive jurisdiction of the courts of Karachi, Pakistan.</p>
-              </div>
-            </div>
-            
-            <p class="paragraph-professional">
-              If any provision of this disclaimer is found to be unenforceable or invalid under any applicable law, such unenforceability or invalidity shall not render this disclaimer unenforceable or invalid as a whole, and such provisions shall be deleted without affecting the remaining provisions herein.
-            </p>
-          </div>
-
-          <!-- Section 8 -->
-          <div class="policy-section mb--xl" id="revisions-updates">
-            <h2 class="executive-heading executive-heading--sm mb--md">8. Revisions & Updates</h2>
-            
-            <div class="card bg--light p--lg mb--lg">
-              <div class="flex items--center justify--between flex--column md:flex--row">
-                <div>
-                  <h4 class="text--lg font--semibold mb--sm">Disclaimer Updates</h4>
-                  <p class="text--sm">We may update this disclaimer from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons.</p>
-                </div>
-                <div class="mt--md md:mt--0">
-                  <div class="text--center">
-                    <div class="text--2xl font--bold text--blue">v2.1</div>
-                    <p class="text--xs">Current Version</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <p class="paragraph-professional">
-              The "Last Updated" date at the top of this page indicates when this disclaimer was last revised. Your continued use of our website or services after any changes to this disclaimer constitutes your acceptance of the revised terms.
-            </p>
-          </div>
-
-          <!-- Section 9 -->
-          <div class="policy-section" id="contact-information">
-            <h2 class="executive-heading executive-heading--sm mb--md">9. Contact Information</h2>
-            
-            <p class="paragraph-professional mb--md">
-              If you have any questions about this disclaimer or our legal terms, please contact us:
-            </p>
-            
-            <div class="grid grid--3 gap--lg">
-              <div class="card p--lg text--center">
-                <i class="fas fa-envelope text--blue text--2xl mb--sm"></i>
-                <h4 class="text--sm font--semibold mb--xs">Email</h4>
-                <a href="mailto:legal@consultingcrew.com" class="text--blue">legal@consultingcrew.com</a>
-              </div>
-              
-              <div class="card p--lg text--center">
-                <i class="fas fa-phone text--blue text--2xl mb--sm"></i>
-                <h4 class="text--sm font--semibold mb--xs">Phone</h4>
-                <a href="tel:+923323450433" class="text--blue">+92 332 3450433</a>
-              </div>
-              
-              <div class="card p--lg text--center">
-                <i class="fas fa-map-marker-alt text--blue text--2xl mb--sm"></i>
-                <h4 class="text--sm font--semibold mb--xs">Address</h4>
-                <p class="text--sm">Consulting Crew Headquarters<br>Karachi, Pakistan</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Acceptance Section -->
-          <div class="card bg--dark text--white p--lg mt--xl">
-            <div class="flex items--center justify--between flex--column md:flex--row">
-              <div>
-                <h3 class="text--xl font--semibold mb--sm">Disclaimer Acceptance</h3>
-                <p>By using our website or services, you acknowledge that you have read, understood, and agree to be bound by this disclaimer.</p>
-              </div>
-              <div class="mt--md md:mt--0">
-                <div class="flex items--center gap--md">
-                  <div class="text--center">
-                    <div class="text--sm font--semibold opacity--75">Last Updated</div>
-                    <div class="text--lg font--bold">Dec 2024</div>
-                  </div>
-                  <div class="text--center">
-                    <div class="text--sm font--semibold opacity--75">Effective</div>
-                    <div class="text--lg font--bold">Jan 2024</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-<!-- FOOTER -->
-<footer class="footer">
-  <!-- Footer Main -->
-  <div class="footer__main">
-    <div class="container">
-      <div class="footer__grid">
-        <!-- Column 1 - Company Info -->
-        <div class="footer__section">
-          <div class="footer__brand">
-            <div><a href="index.html" class="footer__logo">
-              <img src="images/CC_Logo.png" alt="Consulting Crew" width="40" height="40" loading="lazy"></div>
-              <div class="flex--wrap">
-                <h4 class="footer__logo-title">Consulting Crew</h4>
-                <span class="footer__logo-tagline">Empowering Your Business to Grow</span>
-              </div>
-            </a>
-          </div>
-          
-          <p class="footer__description">
-            We architect sustainable competitive advantage through data intelligence, digital transformation, and organizational excellence for growth-focused organizations.
-          </p>
-          
-          <!-- Trust Indicators -->
-          <div class="footer__trust">
-            <div class="trust-item">
-              <i class="fas fa-shield-alt"></i>
-              <span>Trusted Advisory Partner</span>
-            </div>
-            <div class="trust-item">
-              <i class="fas fa-award"></i>
-              <span>Industry Recognition</span>
-            </div>
-            <div class="trust-item">
-              <i class="fas fa-check-circle"></i>
-              <span>95% Client Retention</span>
-            </div>
-          </div>
-        
-        <!-- Newsletter -->
-        <div class="footer__section">
-          <div class="footer__newsletter">
-            <h4 class="footer__title">Stay Updated</h4>
-            
-            <!-----------
-            <p class="footer__newsletter-desc">
-              Receive exclusive strategic frameworks, market analysis, and growth insights directly from our advisory team.
-            </p>
-            --------->
-            
-            <form class="newsletter-form" id="footerNewsletter">
-              <div class="form-group">
-                <input type="email" 
-                       class="form-control" 
-                       placeholder="Your professional email" 
-                       required>
-                <button type="submit" class="btn btn--primary">
-                  <i class="fas fa-paper-plane"></i>
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
                 </button>
-              </div>
-              <div class="form-checkbox">
-                <input type="checkbox" id="newsletterConsent" required>
-                <label for="newsletterConsent">
-                  I agree to receive strategic insights and updates
-                </label>
-              </div>
-            </form>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Services Section -->
-<div class="footer__nav-section">
-  <h4 class="footer__title">
-    <i class="fas fa-chart-line"></i>
-    Our Services
-  </h4>
-  
-  <div class="footer__links-grid">
-    <!-- Data & Intelligence -->
-    <div class="services-category">
-      <h5 class="category-title">
-        <i class="fas fa-database"></i>
-        Data & Intelligence
-      </h5>
-      <ul class="footer__links">
-        <li>
-          <a href="data-analysis.html">
-            <i class="fas fa-chart-bar"></i>
-            Data Intelligence
-            <span class="link-badge">Featured</span>
-          </a>
-        </li>
-        <li>
-          <a href="analytics.html">
-            <i class="fas fa-project-diagram"></i>
-            Predictive Analytics
-          </a>
-        </li>
-      </ul>
-    </div>
-    
-    <!-- Digital Transformation -->
-    <div class="services-category">
-      <h5 class="category-title">
-        <i class="fas fa-laptop-code"></i>
-        Digital Transformation
-      </h5>
-      <ul class="footer__links">
-        <li>
-          <a href="digital-marketing.html">
-            <i class="fas fa-bullhorn"></i>
-            Digital Marketing
-          </a>
-        </li>
-        <li>
-          <a href="branding.html">
-            <i class="fas fa-trademark"></i>
-            Branding & Identity
-          </a>
-        </li>
-      </ul>
-    </div>
-    
-    <!-- Web Services -->
-    <div class="services-category">
-      <h5 class="category-title">
-        <i class="fas fa-globe"></i>
-        Web Services
-      </h5>
-      <ul class="footer__links">
-        <li>
-          <a href="web-development.html">
-            <i class="fas fa-code"></i>
-            Web Development
-          </a>
-        </li>
-        <li>
-          <a href="web-hosting.html">
-            <i class="fas fa-server"></i>
-            Web Hosting
-          </a>
-        </li>
-      </ul>
-    </div>
-    
-    <!-- Organizational Excellence -->
-    <div class="services-category">
-      <h5 class="category-title">
-        <i class="fas fa-users-cog"></i>
-        Organizational Excellence
-      </h5>
-      <ul class="footer__links">
-        <li>
-          <a href="hr-services.html">
-            <i class="fas fa-user-graduate"></i>
-            Talent Strategy
-          </a>
-        </li>
-        <li>
-          <a href="consulting.html">
-            <i class="fas fa-lightbulb"></i>
-            Strategic Consulting
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  
-</div>
-
-<!-- Company Section -->
-<div class="footer__nav-section">
-  <h4 class="footer__title">
-    <i class="fas fa-building"></i>
-    Our Company
-  </h4>
-  
-  <div class="footer__links-grid">
-    <!-- About & Team -->
-    <div class="services-category">
-      <h5 class="category-title">
-        <i class="fas fa-info-circle"></i>
-        About Us
-      </h5>
-      <ul class="footer__links">
-        <li>
-          <a href="about.html">
-            <i class="fas fa-chevron-right"></i>
-            Our Story
-          </a>
-        </li>
-        <li>
-          <a href="team.html">
-            <i class="fas fa-chevron-right"></i>
-            Leadership Team
-          </a>
-        </li>
-        <li>
-          <a href="careers.html">
-            <i class="fas fa-chevron-right"></i>
-            Careers
-            <span class="link-badge">Hiring</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    
-    <!-- Impact & Insights -->
-    <div class="services-category">
-      <h6 class="category-title">
-        <i class="fas fa-chart-pie"></i>
-        Impact & Insights
-      </h6>
-      <ul class="footer__links">
-        <li>
-          <a href="portfolio.html">
-            <i class="fas fa-chevron-right"></i>
-            Client Portfolio
-          </a>
-        </li>
-        <li>
-          <a href="blog.html">
-            <i class="fas fa-chevron-right"></i>
-            Strategic Insights
-          </a>
-        </li>
-        <li>
-          <a href="case-studies.html">
-            <i class="fas fa-chevron-right"></i>
-            Case Studies
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- Contact & Social -->
-<div class="footer__nav-section">
-  <h4 class="footer__title">
-    <i class="fas fa-envelope"></i>
-    Let's Engage
-  </h4>
-  
-  <div class="footer__contact-grid">
-    <div class="contact-method">
-      <div class="contact-method__icon">
-        <i class="fas fa-envelope"></i>
-      </div>
-      <div>
-        <p class="contact-method__info">
-          <a href="mailto:engage@consultingcrew.com" class="contact-method__link">
-            engage@consultingcrew.com
-          </a>
-        </p>
-      </div>
-    </div>
-    
-    <div class="contact-method">
-      <div class="contact-method__icon">
-        <i class="fas fa-phone"></i>
-      </div>
-      <div>
-        <p class="contact-method__info">
-          <a href="tel:+923323450433" class="contact-method__link">
-            +92 332 3450433
-          </a>
-        </p>
-      </div>
-    </div>
-
-    <div class="contact-method">
-      <div class="contact-method__icon">
-        <i class="fas fa-clock"></i>
-      </div>
-      <div>
-        <p class="contact-method__info">
-          <a class="contact-method__link">
-          Mon-Fri: 9:00 AM - 6:00 PM
-          </a>
-        </p>
-      </div>
-    </div>
-
-    <div class="contact-method">
-      <div class="contact-method__icon">
-        <i class="fas fa-map-marker-alt"></i>
-      </div>
-      <div>
-        <p class="contact-method__info">
-          <a class="contact-method__link">
-          Serving clients globally with headquarters in Pakistan
-          </a>
-        </p>
-      </div>
-    </div>
-  </div>
-
-          <!-- Social Media -->
-          <div class="footer__social">
-            <h5 class="footer__subtitle">Let's Connect</h5>
-            <div class="social-links">
-              <a href="https://linkedin.com/company/consultingcrew" class="social-link" aria-label="LinkedIn">
-                <i class="fab fa-linkedin-in"></i>
-                <span class="social-tooltip">Professional Network</span>
-              </a>
-              <a href="https://twitter.com/consultingcrew" class="social-link" aria-label="Twitter">
-                <i class="fab fa-twitter"></i>
-                <span class="social-tooltip">Industry Insights</span>
-              </a>
-              <a href="https://youtube.com/@consultingcrew" class="social-link" aria-label="YouTube">
-                <i class="fab fa-youtube"></i>
-                <span class="social-tooltip">Expert Webinars</span>
-              </a>
-              <a href="https://instagram.com/consultingcrew" class="social-link" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-                <span class="social-tooltip">Behind the Scenes</span>
-              </a>
             </div>
-          </div>
         </div>
+    </header>
 
-
-
-      </div>
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container-lg">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+                <li>Legal Disclaimer</li>
+            </ul>
+        </div>
     </div>
-  </div>
 
-  <!-- Footer Bottom -->
-  <div class="footer__bottom">
-    <div class="container">
-      <div class="footer__bottom-content">
-    
-        <div class="footer__copyright">
-          <p>&copy; <span id="currentYear"></span> Consulting Crew. All rights reserved.</p>
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="animate-fade-up">Legal Disclaimer</h1>
+            <p>Important legal information regarding our advisory services and website content</p>
         </div>
-        
-        <div class="footer__legal">
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <span>•</span>
-          <a href="terms-of-service.html">Terms of Service</a>
-          <span>•</span>
-          <a href="cookies-policy.html">Cookie Policy</a>
-          <span>•</span>
-          <a href="disclaimer.html">Disclaimer</a>
+    </section>
+
+    <!-- Disclaimer Content -->
+    <section class="section">
+        <div class="container">
+            <div class="legal-content">
+                <div class="policy-intro">
+                    <p>This disclaimer governs your use of Consulting Crew's website, services, and content. By engaging with our firm, you accept this disclaimer in full. If you disagree with any part of this disclaimer, you must not use our website or services.</p>
+                </div>
+                
+                <div class="legal-highlight">
+                    <p><strong>Important Notice:</strong> This information is for general guidance only and does not constitute professional advice. Always consult with qualified professionals for specific business decisions.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>1. Professional Services Disclaimer</h2>
+                    <p>Consulting Crew provides strategic advisory services. Our recommendations are based on professional judgment, industry experience, and available information at the time of analysis. We do not provide:</p>
+                    <ul>
+                        <li>Legal advice or legal services</li>
+                        <li>Financial or investment advice</li>
+                        <li>Accounting or audit services</li>
+                        <li>Guarantees of specific business outcomes</li>
+                    </ul>
+                    <p>Our advisory services are intended to support your decision-making process, not replace it. The ultimate responsibility for business decisions rests with your organization's leadership team.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>2. Website Content Disclaimer</h2>
+                    <p>The information on this website is provided for general informational purposes only. While we strive to keep the information up-to-date and correct, we make no representations or warranties of any kind, express or implied, about:</p>
+                    <ul>
+                        <li>The accuracy, completeness, or reliability of the information</li>
+                        <li>The suitability of the information for any particular purpose</li>
+                        <li>The uninterrupted availability of the website</li>
+                    </ul>
+                    <div class="legal-highlight">
+                        <p><strong>No Professional-Client Relationship:</strong> Accessing or using our website does not create a professional-client relationship between you and Consulting Crew.</p>
+                    </div>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>3. Case Studies & Results Disclosure</h2>
+                    <p>Case studies and results presented on our website or in marketing materials are based on actual client engagements. However, please note:</p>
+                    <ul>
+                        <li><strong>Individual Results Vary:</strong> Results depend on numerous factors including market conditions, organizational readiness, and implementation quality</li>
+                        <li><strong>Timeframe Differences:</strong> Results achieved in specific timeframes may not be replicable in different market conditions</li>
+                        <li><strong>Client Collaboration:</strong> Success typically requires active client participation and commitment to implementation</li>
+                    </ul>
+                    <p>Some statements on our website may be forward-looking. These statements involve risks and uncertainties, and actual results may differ materially from those projected or implied.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>4. Third-Party Content & Links</h2>
+                    <p>Our website may include links to third-party websites, tools, or resources. These links are provided for your convenience only.</p>
+                    <p>We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites or services. You acknowledge and agree that we shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods, or services available on or through any such websites or services.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>5. Intellectual Property Rights</h2>
+                    <p>All intellectual property rights in our website, content, and proprietary frameworks are owned by or licensed to Consulting Crew. You may view, download, and print pages from the website for your own personal use, subject to the restrictions set out below and elsewhere in this disclaimer.</p>
+                    <div class="legal-highlight">
+                        <p><strong>Restrictions:</strong> You must not republish material from this website, sell or rent material, reproduce or duplicate material for commercial purposes, or redistribute content without our express written permission.</p>
+                    </div>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>6. Limitation of Liability</h2>
+                    <p>To the maximum extent permitted by law, Consulting Crew, its directors, employees, agents, or affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:</p>
+                    <ul>
+                        <li>Your access to or use of or inability to access or use the website</li>
+                        <li>Any conduct or content of any third party on the website</li>
+                        <li>Any content obtained from the website</li>
+                        <li>Business decisions made based on our advisory services</li>
+                    </ul>
+                    <p>This limitation of liability applies whether the alleged liability is based on contract, tort, negligence, strict liability, or any other basis, even if we have been advised of the possibility of such damage.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>7. Jurisdiction & Governing Law</h2>
+                    <p>This disclaimer shall be governed by and construed in accordance with the laws of Pakistan. Any disputes relating to this disclaimer shall be subject to the exclusive jurisdiction of the courts of Karachi, Pakistan.</p>
+                    <p>If any provision of this disclaimer is found to be unenforceable or invalid under any applicable law, such unenforceability or invalidity shall not render this disclaimer unenforceable or invalid as a whole, and such provisions shall be deleted without affecting the remaining provisions herein.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>8. Revisions & Updates</h2>
+                    <p>We may update this disclaimer from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons.</p>
+                    <p>The "Last Updated" date at the top of this page indicates when this disclaimer was last revised. Your continued use of our website or services after any changes to this disclaimer constitutes your acceptance of the revised terms.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>9. Contact Information</h2>
+                    <p>If you have any questions about this disclaimer or our legal terms, please contact us:</p>
+                    <ul>
+                        <li>By email: consultingcrew.pk@gmail.com</li>
+                        <li>By phone: +92 332 345 0433</li>
+                        <li>By mail: Consulting Crew, Karachi, Pakistan</li>
+                    </ul>
+                    <div class="legal-highlight">
+                        <p><strong>Disclaimer Acceptance:</strong> By using our website or services, you acknowledge that you have read, understood, and agree to be bound by this disclaimer.</p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <button class="footer__back-to-top" id="footerBackToTop" aria-label="Back to top">
-          <i class="fas fa-chevron-up"></i>
-          <span>Back to Top</span>
-        </button>
-      </div>
-    </div>
-  </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="images/CC_logo.png" alt="Consulting Crew Logo" class="footer-logo-img">
+                            <div class="footer-logo-text">
+                                <h3>Consulting Crew</h3>
+                                <span class="footer-tagline">Empowering Smarter Decisions</span>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="footer-mission">Helping organizations make smarter decisions, build stronger brands, and achieve sustainable growth.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="service-data.html">Data & Business Intelligence</a></li>
+                            <li><a href="service-branding.html">Branding & Digital Growth</a></li>
+                            <li><a href="service-hr.html">HR Systems & Governance</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="process.html">Our Process</a></li>
+                            <li><a href="blog.html">Insights</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <div class="social-links">
+                            <a href="https://linkedin.com/company/consultingcrew" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://twitter.com/consultingcrew" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://youtube.com/@consultingcrew" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://instagram.com/consultingcrew" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope"></i> consultingcrew.pk@gmail.com</p>
+                            <p><i class="fas fa-phone"></i> +92 332 345 0433</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Karachi, Pakistan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Consulting Crew. All rights reserved.</p>
+                <p class="privacy-links">
+                    <a href="privacy-policy.html">Privacy Policy</a> | 
+                    <a href="terms.html">Terms of Service</a> |
+                    <a href="cookie-policy.html">Cookie Policy</a> |
+                    <a href="disclaimer.html">Disclaimer</a>
+                </p>
+            </div>
+        </div>
+    </footer>
 
-<!-- Chat Widget -->
-<div class="chat-widget">
-    <button class="chat-toggle" aria-label="Open chat">
-        <i class="fas fa-comments"></i>
-        <span class="chat-badge">Live</span>
+    <!-- Back to Top -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
     </button>
-    <div class="chat-window">
-        <div class="chat-header">
-            <h4>Strategic Advisory Support</h4>
-            <button class="chat-close" aria-label="Close chat">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="chat-body">
-            <div class="chat-message chat-message--bot">
-                <p>Hello! How can we assist with your strategic growth questions today?</p>
-            </div>
-        </div>
-        <div class="chat-input">
-            <input type="text" placeholder="Type your question..." aria-label="Chat message">
-            <button type="submit" aria-label="Send message">
-                <i class="fas fa-paper-plane"></i>
-            </button>
-        </div>
-    </div>
-</div>
-</footer>
 
-  <!-- Back to Top -->
-  <button id="backToTop" class="back-to-top" aria-label="Back to top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
-
-  <!-- JavaScript -->
-  <script src="js/main.js"></script>
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    <script>
+        // Current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Back to Top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuToggle.setAttribute('aria-expanded', mainNav.classList.contains('active'));
+        });
+        
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = themeToggle.querySelector('i');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.className = 'fas fa-sun';
+            } else {
+                icon.className = 'fas fa-moon';
+            }
+        });
+        
+        // Dropdown mobile behavior
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
