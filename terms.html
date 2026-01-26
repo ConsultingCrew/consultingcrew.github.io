@@ -4,8 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service | Consulting Crew</title>
+    
+  <link rel="stylesheet" href="css/main.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/CC_fav.ico">
+    <link rel="icon" sizes="32x32" href="images/CC_fav.ico">
+    <link rel="icon" sizes="16x16" href="images/CC_fav.ico">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="images/CC_fav.ico" color="#0455bf">
+    <meta name="msapplication-TileColor" content="#0455bf">
+    <meta name="theme-color" content="#0455bf">
+</head>
 <body>
+
+<!-- Loading Screen -->
+<div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+        <div class="loading-logo">
+            <img src="images/CC_logo.png" alt="Consulting Crew" width="100" height="100" loading="eager">
+        </div>
+        <div class="loading-progress">
+            <div class="progress-bar"></div>
+        </div>
+        <p class="loading-text">Loading...</p>
+    </div>
+</div>
+
     <!-- Cookie Consent Modal -->
     <div class="cookie-consent-modal" id="cookieConsent">
         <div class="cookie-content">
@@ -20,63 +49,69 @@
     </div>
 
     <!-- Header & Navigation -->
-    <header class="header" id="main-header">
-        <div class="container">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="images/CC_logo.png" alt="Consulting Crew Logo" class="logo-img">
-                    <div class="logo-text">
-                        <h1 class="logo-title">Consulting Crew</h1>
-                        <p class="logo-tagline">Empowering Smarter Decisions</p>
-                    </div>
-                </a>
-            </div>
-            
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
-                <ul>
-                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="about.html" class="nav-link"><i class="fas fa-building"></i> About</a></li>
-                    <li class="dropdown">
-                        <a href="services.html" class="nav-link dropdown-toggle">
-                            <i class="fas fa-cogs"></i> Services <i class="fas fa-chevron-down"></i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <div class="dropdown-grid">
-                                <a href="service-data.html" class="dropdown-card">
-                                    <i class="fas fa-chart-line"></i>
-                                    <div>
-                                        <h4>Data & BI</h4>
-                                        <p>Transform data into decisions</p>
-                                    </div>
-                                </a>
-                                <a href="service-branding.html" class="dropdown-card">
-                                    <i class="fas fa-rocket"></i>
-                                    <div>
-                                        <h4>Branding & Growth</h4>
-                                        <p>Accelerate digital presence</p>
-                                    </div>
-                                </a>
-                                <a href="service-hr.html" class="dropdown-card">
-                                    <i class="fas fa-users-cog"></i>
-                                    <div>
-                                        <h4>HR & Governance</h4>
-                                        <p>Scale with strong foundations</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-                    <li><a href="process.html" class="nav-link"><i class="fas fa-sitemap"></i> Process</a></li>
-                    <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Insights</a></li>
-                    <li><a href="contact.html" class="nav-link cta-link"><i class="fas fa-paper-plane"></i> Contact</a></li>
-                </ul>
-            </nav>
+<header class="header" id="main-header">
+    <div class="container">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/CC_logo.png" alt="Consulting Crew Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1 class="logo-title">Consulting Crew</h1>
+                    <p class="logo-tagline">Empowering Smarter Decisions</p>
+                </div>
+            </a>
         </div>
-    </header>
+        
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html" class="nav-link"><i class="fas fa-building"></i> About</a></li>
+                <li class="dropdown">
+                    <a href="services.html" class="nav-link dropdown-toggle">
+                        <i class="fas fa-cogs"></i> Services <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-grid">
+                            <a href="service-data.html" class="dropdown-card">
+                                <i class="fas fa-chart-line"></i>
+                                <div>
+                                    <h4>Data & BI</h4>
+                                    <p>Transform data into decisions</p>
+                                </div>
+                            </a>
+                            <a href="service-branding.html" class="dropdown-card">
+                                <i class="fas fa-rocket"></i>
+                                <div>
+                                    <h4>Branding & Growth</h4>
+                                    <p>Accelerate digital presence</p>
+                                </div>
+                            </a>
+                            <a href="service-hr.html" class="dropdown-card">
+                                <i class="fas fa-users-cog"></i>
+                                <div>
+                                    <h4>HR & Governance</h4>
+                                    <p>Scale with strong foundations</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="process.html" class="nav-link"><i class="fas fa-sitemap"></i> Process</a></li>
+                <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Insights</a></li>
+                <li><a href="contact.html" class="nav-link cta-link"><i class="fas fa-paper-plane"></i> Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-actions">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </div>
+</header>
 
     <!-- Breadcrumbs -->
     <div class="breadcrumbs">
@@ -215,10 +250,10 @@
                 <div class="footer-brand">
                     <div class="logo">
                         <a href="index.html">
-                            <div class="logo-icon">CC</div>
-                            <div>
+                            <img src="images/CC_logo.png" alt="Consulting Crew Logo" class="footer-logo-img">
+                            <div class="footer-logo-text">
                                 <h3>Consulting Crew</h3>
-                                <span class="tagline">Empowering Smarter Decisions</span>
+                                <span class="footer-tagline">Empowering Smarter Decisions</span>
                             </div>
                         </a>
                     </div>
@@ -257,10 +292,10 @@
                     <div class="footer-column">
                         <h4>Connect</h4>
                         <div class="social-links">
-                            <a href="https://linkedin.com/company/consultingcrew" target="_blank"><i class="fab fa-linkedin"></i></a>
-                            <a href="https://twitter.com/consultingcrew" target="_blank"><i class="fab fa-twitter"></i></a>
-                            <a href="https://youtube.com/@consultingcrew" target="_blank"><i class="fab fa-youtube"></i></a>
-                            <a href="https://instagram.com/consultingcrew" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://linkedin.com/company/consultingcrew" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://twitter.com/consultingcrew" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://youtube.com/@consultingcrew" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://instagram.com/consultingcrew" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         </div>
                         <div class="contact-info">
                             <p><i class="fas fa-envelope"></i> consultingcrew.pk@gmail.com</p>
@@ -271,13 +306,59 @@
                 </div>
             </div>
             
+            <!-- Copyright -->
             <div class="footer-bottom">
                 <p>&copy; <span id="currentYear"></span> Consulting Crew. All rights reserved.</p>
-                <p>The EDGE Framework™ is a trademark of Consulting Crew.</p>
+                <p class="privacy-links">
+                    <a href="privacy-policy.html">Privacy Policy</a> | 
+                    <a href="terms-of-service.html">Terms of Service</a> |
+                    <a href="cookies-policy.html">Cookies Policy</a>
+                </p>
             </div>
         </div>
     </footer>
+    <!-- Back to Top -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
-    <script src="script.js"></script>
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-toggle" id="chatToggle" aria-label="Open chat">
+            <i class="fas fa-comments"></i>
+            <span class="chat-badge">1</span>
+        </button>
+        
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">
+                <div class="chat-info">
+                    <div class="chat-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div>
+                        <h4>Consulting Crew AI</h4>
+                        <p>Typically replies instantly</p>
+                    </div>
+                </div>
+                <button class="chat-close" id="chatClose" aria-label="Close chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages loaded via JS -->
+            </div>
+            
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message..." aria-label="Chat message">
+                <button id="chatSend" aria-label="Send message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+                
 </body>
 </html>
