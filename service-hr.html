@@ -331,10 +331,10 @@
                 <div class="footer-brand">
                     <div class="logo">
                         <a href="index.html">
-                            <div class="logo-icon">CC</div>
-                            <div>
+                            <img src="images/CC_logo.png" alt="Consulting Crew Logo" class="footer-logo-img">
+                            <div class="footer-logo-text">
                                 <h3>Consulting Crew</h3>
-                                <span class="tagline">Empowering Smarter Decisions</span>
+                                <span class="footer-tagline">Empowering Smarter Decisions</span>
                             </div>
                         </a>
                     </div>
@@ -373,10 +373,10 @@
                     <div class="footer-column">
                         <h4>Connect</h4>
                         <div class="social-links">
-                            <a href="https://linkedin.com/company/consultingcrew" target="_blank"><i class="fab fa-linkedin"></i></a>
-                            <a href="https://twitter.com/consultingcrew" target="_blank"><i class="fab fa-twitter"></i></a>
-                            <a href="https://youtube.com/@consultingcrew" target="_blank"><i class="fab fa-youtube"></i></a>
-                            <a href="https://instagram.com/consultingcrew" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://linkedin.com/company/consultingcrew" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://twitter.com/consultingcrew" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://youtube.com/@consultingcrew" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://instagram.com/consultingcrew" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         </div>
                         <div class="contact-info">
                             <p><i class="fas fa-envelope"></i> consultingcrew.pk@gmail.com</p>
@@ -387,13 +387,58 @@
                 </div>
             </div>
             
+            <!-- Copyright -->
             <div class="footer-bottom">
                 <p>&copy; <span id="currentYear"></span> Consulting Crew. All rights reserved.</p>
-                <p>The EDGE Framework™ is a trademark of Consulting Crew.</p>
+                <p class="privacy-links">
+                    <a href="privacy-policy.html">Privacy Policy</a> | 
+                    <a href="terms-of-service.html">Terms of Service</a> |
+                    <a href="cookies-policy.html">Cookies Policy</a>
+                </p>
             </div>
         </div>
     </footer>
+    <!-- Back to Top -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
-    <script src="script.js"></script>
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-toggle" id="chatToggle" aria-label="Open chat">
+            <i class="fas fa-comments"></i>
+            <span class="chat-badge">1</span>
+        </button>
+        
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">
+                <div class="chat-info">
+                    <div class="chat-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div>
+                        <h4>Consulting Crew AI</h4>
+                        <p>Typically replies instantly</p>
+                    </div>
+                </div>
+                <button class="chat-close" id="chatClose" aria-label="Close chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages loaded via JS -->
+            </div>
+            
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message..." aria-label="Chat message">
+                <button id="chatSend" aria-label="Send message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
