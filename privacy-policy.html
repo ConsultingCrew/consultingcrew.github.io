@@ -4,36 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | Consulting Crew</title>
-<link rel="stylesheet" href="css/main.css">
-
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="images/CC_fav.ico">
-    <link rel="icon" sizes="32x32" href="images/CC_fav.ico">
-    <link rel="icon" sizes="16x16" href="images/CC_fav.ico">
-    <link rel="manifest" href="images/favicon/site.webmanifest">
-    <link rel="mask-icon" href="images/CC_fav.ico" color="#0455bf">
-    <meta name="msapplication-TileColor" content="#0455bf">
-    <meta name="theme-color" content="#0455bf">
+    <link rel="icon" href="images/CC_fav.ico">
 </head>
 <body>
-    <!-- Cookie Consent Modal -->
-    <div class="cookie-consent-modal" id="cookieConsent">
-        <div class="cookie-content">
-            <h3>Cookie Policy</h3>
-            <p>We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By continuing to use this site, you consent to our use of cookies. <a href="cookie-policy.html" class="cookie-policy-link">Learn more</a></p>
-            <div class="cookie-buttons">
-                <button class="btn btn-primary" id="acceptCookies">Accept All</button>
-                <button class="btn btn-secondary" id="customizeCookies">Customize</button>
-                <button class="btn btn-outline" id="rejectCookies">Reject Non-Essential</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Header & Navigation -->
+    <!-- Header -->
     <header class="header" id="main-header">
         <div class="container">
             <div class="logo">
@@ -89,6 +74,12 @@
                     <li><a href="contact.html" class="nav-link cta-link"><i class="fas fa-paper-plane"></i> Contact</a></li>
                 </ul>
             </nav>
+            
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -103,11 +94,9 @@
     </div>
 
     <!-- Hero Section -->
-<section class="hero" style="background: linear-gradient(rgba(9, 68, 145, 0.85), rgba(7, 46, 107, 0.9)), url('images/hero/main-hero.jpeg'); background-size: cover; background-position: center;">
+    <section class="page-hero">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-text text-white">
-                    <h1 class="hero-title animate-fade-up">Privacy Policy</h1>
+            <h1 class="animate-fade-up">Privacy Policy</h1>
             <p>Last updated: March 15, 2024</p>
         </div>
     </section>
@@ -308,59 +297,73 @@
                 </div>
             </div>
             
-            <!-- Copyright -->
             <div class="footer-bottom">
                 <p>&copy; <span id="currentYear"></span> Consulting Crew. All rights reserved.</p>
                 <p class="privacy-links">
                     <a href="privacy-policy.html">Privacy Policy</a> | 
-                    <a href="terms-of-service.html">Terms of Service</a> |
-                    <a href="cookies-policy.html">Cookies Policy</a>
+                    <a href="terms.html">Terms of Service</a> |
+                    <a href="cookie-policy.html">Cookie Policy</a>
                 </p>
             </div>
         </div>
     </footer>
+
     <!-- Back to Top -->
     <button id="backToTop" class="back-to-top" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
     </button>
 
-    <!-- Chat Widget -->
-    <div class="chat-widget">
-        <button class="chat-toggle" id="chatToggle" aria-label="Open chat">
-            <i class="fas fa-comments"></i>
-            <span class="chat-badge">1</span>
-        </button>
-        
-        <div class="chat-container" id="chatContainer">
-            <div class="chat-header">
-                <div class="chat-info">
-                    <div class="chat-avatar">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div>
-                        <h4>Consulting Crew AI</h4>
-                        <p>Typically replies instantly</p>
-                    </div>
-                </div>
-                <button class="chat-close" id="chatClose" aria-label="Close chat">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            
-            <div class="chat-messages" id="chatMessages">
-                <!-- Messages loaded via JS -->
-            </div>
-            
-            <div class="chat-input">
-                <input type="text" id="chatInput" placeholder="Type your message..." aria-label="Chat message">
-                <button id="chatSend" aria-label="Send message">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-
+    <!-- JavaScript -->
     <script src="js/script.js"></script>
-                
+    <script>
+        // Current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Back to Top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuToggle.setAttribute('aria-expanded', mainNav.classList.contains('active'));
+        });
+        
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = themeToggle.querySelector('i');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.className = 'fas fa-sun';
+            } else {
+                icon.className = 'fas fa-moon';
+            }
+        });
+        
+        // Dropdown mobile behavior
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
