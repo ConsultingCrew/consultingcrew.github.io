@@ -1,4 +1,4 @@
-// main.js - Complete Optimized JavaScript
+// main.js
 'use strict';
 
 (function() {
@@ -1174,4 +1174,132 @@
         openChat,
         closeChat
     };
+
 })();
+
+// 1. Debounce function for scroll/resize events
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+// 2. Throttle function
+function throttle(func, limit) {
+  let inThrottle;
+  return function() {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+}
+
+// 3. Optimize scroll event listeners
+function initOptimizedScrollEffects() {
+  const handleScroll = throttle(() => {
+    // Your existing scroll logic
+    if (window.pageYOffset > 50) {
+      DOM.header?.classList.add('scrolled');
+    } else {
+      DOM.header?.classList.remove('scrolled');
+    }
+    
+    if (DOM.backToTop) {
+      DOM.backToTop.classList.toggle('visible', window.pageYOffset > 300);
+    }
+  }, 100);
+  
+  window.addEventListener('scroll', handleScroll, { passive: true });
+}
+
+// 4. Optimize resize handler
+function initOptimizedResize() {
+  const handleResize = debounce(() => {
+    // Handle mobile menu adjustments
+    if (window.innerWidth > 768 && DOM.mainNav.classList.contains('active')) {
+      closeMobileMenu();
+    }
+    
+    // Reinitialize dropdown hover
+    handleDropdownHover();
+  }, 250);
+  
+  window.addEventListener('resize', handleResize);
+}
+
+// 5. Lazy load non-critical resources
+function lazyLoadResources() {
+  // Load Font Awesome async
+  const faLink = document.querySelector('link[href*="font-awesome"]');
+  if (faLink) {
+    faLink.rel = 'preload';
+    faLink.as = 'style';
+    faLink.onload = () => faLink.rel = 'stylesheet';
+  }
+  
+  // Load Google Fonts async
+  const fontLinks = document.querySelectorAll('link[href*="fonts.googleapis.com"]');
+  fontLinks.forEach(link => {
+    link.rel = 'preload';
+    link.as = 'style';
+    link.onload = () => link.rel = 'stylesheet';
+  });
+}
+
+// 6. Add Intersection Observer for animations
+function initIntersectionObserverAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  // Observe elements that should animate on scroll
+  document.querySelectorAll('.service-card, .process-step-card, .values-card').forEach(el => {
+    observer.observe(el);
+  });
+}
+
+// Update your init() function to include these
+function init() {
+  console.log('Initializing Consulting Crew website...');
+  
+  setCurrentYear();
+  initLoading();
+  initMobileMenu();
+  initOptimizedScrollEffects(); // Replace initScrollEffects
+  initOptimizedResize(); // Add this
+  initCookieConsent();
+  initForms();
+  initLazyLoading();
+  initThemeToggle();
+  initIntersectionObserverAnimations(); // Replace initAnimations
+  initChatWidget();
+  initServiceWorker();
+  lazyLoadResources(); // Add this
+  
+  setupEventListeners();
+  
+  setTimeout(() => {
+    DOM.body.classList.add('loaded');
+    console.log('Page loaded and initialized successfully');
+  }, CONFIG.loadingDelay);
+}
