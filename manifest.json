@@ -1,0 +1,10 @@
+{
+    "name": "Consulting Crew",
+    "short_name": "ConsultingCrew",
+    "description": "Strategic consulting advisory firm",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#0455bf",
+    "icons": []
+}
