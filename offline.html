@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline | Consulting Crew</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #0455bf, #032761);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .offline-content {
+            max-width: 500px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        button {
+            padding: 12px 24px;
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: white;
+            color: #0455bf;
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-content">
+        <h1>You're Offline</h1>
+        <p>Don't worry! You can still browse previously viewed pages. Check your connection and try again.</p>
+        <div class="actions">
+            <button onclick="window.location.reload()">Retry Connection</button>
+            <button onclick="window.history.back()">Go Back</button>
+        </div>
+    </div>
+</body>
+</html>
