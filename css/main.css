@@ -2845,3 +2845,256 @@ p {
     .articles-grid { gap: var(--space-md); }
     .article-card { padding: var(--space-lg); }
 }
+
+/* Add to main.css after .edge-framework-visual */
+.framework-intro {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.framework-intro h2 {
+  color: var(--blue-dark);
+  margin-bottom: 20px;
+}
+
+.framework-intro p {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* Process Phase Styling */
+.detailed-process {
+  display: grid;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.process-phase {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 30px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.process-phase:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.phase-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.phase-number {
+  width: 40px;
+  height: 40px;
+  background: var(--blue);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.process-phase:nth-child(2) .phase-number {
+  background: var(--orange);
+}
+
+.process-phase:nth-child(3) .phase-number {
+  background: var(--green);
+}
+
+.process-phase:nth-child(4) .phase-number {
+  background: var(--purple);
+}
+
+.process-phase:nth-child(5) .phase-number {
+  background: var(--blue-dark);
+}
+
+.process-phase:nth-child(6) .phase-number {
+  background: var(--orange);
+}
+
+.phase-activities {
+  margin-top: 25px;
+  padding-top: 25px;
+  border-top: 1px solid var(--light-gray);
+}
+
+.phase-activities h4 {
+  margin-bottom: 15px;
+  color: var(--blue-dark);
+}
+
+.phase-activities ul {
+  list-style-position: inside;
+  margin-bottom: 0;
+}
+
+.phase-activities li {
+  margin-bottom: 8px;
+}
+
+/* Case Study Styling */
+.process-case-study {
+  background: var(--blue-light);
+  border-radius: var(--border-radius);
+  padding: 40px;
+  margin-top: 50px;
+}
+
+.case-header h3 {
+  color: var(--blue-dark);
+  margin-bottom: 10px;
+}
+
+.case-subtitle {
+  color: var(--gray-color);
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.case-timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.timeline-item {
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-radius: var(--border-radius);
+}
+
+.timeline-phase {
+  background: var(--blue);
+  color: white;
+  padding: 5px 15px;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.timeline-item:nth-child(2) .timeline-phase {
+  background: var(--orange);
+}
+
+.timeline-item:nth-child(3) .timeline-phase {
+  background: var(--green);
+}
+
+.timeline-item:nth-child(4) .timeline-phase {
+  background: var(--purple);
+}
+
+.case-results {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid var(--light-gray);
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.result {
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-radius: var(--border-radius);
+}
+
+.result h5 {
+  font-size: 2rem;
+  color: var(--blue);
+  margin-bottom: 5px;
+}
+
+.result p {
+  color: var(--gray-color);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Missing from other pages */
+.breadcrumb {
+  margin-bottom: 30px;
+}
+
+.breadcrumb a {
+  color: var(--blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.position {
+  color: var(--gray-color);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Add to main.css for performance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Improve image loading */
+img {
+  content-visibility: auto;
+}
+
+/* Better hover effects */
+.service-card, .values-card, .process-step-card {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Smooth scrolling enhancement */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Better focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .header, .footer, .chat-widget, .back-to-top, .cta-section {
+    display: none !important;
+  }
+  
+  .section {
+    padding: 20px 0 !important;
+  }
+}
