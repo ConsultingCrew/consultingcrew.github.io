@@ -9,6 +9,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- PWA Support -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0455bf">
+    
+    <!-- Preload Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+       
+    <!-- Critical CSS -->
+    <style>
+        /* Critical styles to prevent layout shift */
+        .header { opacity: 0; }
+        .loading-screen { display: block; }
+        body.loaded .header { opacity: 1; transition: opacity 0.3s; }
+        body.loaded .loading-screen { display: none; }
+    </style>
     
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="images/CC_fav.ico">
@@ -511,5 +527,6 @@
 </body>
 
 </html>
+
 
 
