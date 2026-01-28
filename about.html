@@ -471,9 +471,32 @@
             </div>
         </div>
     </div>
+<script>
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/sw.js')
+                .then(function(registration) {
+                    console.log('ServiceWorker registration successful');
+                })
+                .catch(function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+        });
+    }
+    
+    // Initialize font size from localStorage
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedFontSize = localStorage.getItem('fontSize');
+        if (savedFontSize) {
+            document.documentElement.style.fontSize = savedFontSize + '%';
+        }
+    });
+</script>
 
     <script src="js/script.js"></script>
 
 </body>
 
 </html>
+
