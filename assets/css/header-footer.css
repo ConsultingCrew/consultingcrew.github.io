@@ -666,10 +666,6 @@ body.header-scrolled {
 }
 
 @media (max-width: 480px) {
-    .logo-content {
-        display: none;
-    }
-    
     .logo-img {
         height: 40px;
     }
@@ -1199,3 +1195,4 @@ body.header-scrolled {
     }
 
 }
+
