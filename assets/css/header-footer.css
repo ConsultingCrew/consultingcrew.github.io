@@ -1044,11 +1044,14 @@ body.header-scrolled {
     .footer-heading::after {
         left: 50%;
         transform: translateX(-50%);
+align-items: left;
+justify-content: left;
     }
     
     .footer-col {
         text-align: left;
         align-items: left;
+        justify-content:left;
     }
     
     .footer-links a {
