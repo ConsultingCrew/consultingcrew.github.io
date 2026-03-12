@@ -1052,7 +1052,7 @@ body.header-scrolled {
     }
     
     .footer-links a {
-        justify-content: center;
+        justify-content:left;
         width: auto;
     }
     
@@ -1079,8 +1079,8 @@ body.header-scrolled {
     }
     
     .footer-legal {
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: row;
+        gap: 5px;
     }
 }
 
