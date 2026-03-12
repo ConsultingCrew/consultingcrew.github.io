@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Process - Consulting Crew | The EDGE Framework™</title>
+    <meta name="description" content="Discover our proven EDGE Framework™ methodology for sustainable business growth. From insight to impact with our data-driven approach.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/variables-base.css">
+    <link rel="stylesheet" href="assets/css/header-footer.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/fixes.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+    
+    <style>
+        /* Process-specific styles */
+        .process-hero {
+            padding: 140px 0 119px;
+            background: linear-gradient(135deg, rgba(92,192,19,0.05) 0%, rgba(255,255,255,1) 100%);
+            text-align: center;
+        }
+        
+        .framework-differentiators {
+            padding: var(--space-xl) 0;
+            background: var(--white);
+        }
+        
+        .differentiator-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-md);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .differentiator-card {
+            text-align: center;
+            padding: var(--space-lg) var(--space-sm);
+        }
+        
+        .differentiator-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-md);
+        }
+        
+        .differentiator-card h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+        }
+        .differentiator-card p { 
+            font-size: 1rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .service-process {
+            padding: var(--space-xl) 0;
+            background: var(--light-gray);
+        }
+        
+        .process-cycle {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--space-lg);
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;}
+        
+        .process-step-cycle {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            position: relative;
+            z-index: 2;}
+        
+        .step-circle {
+            width: 92px;
+            height: 92px;
+            background: var(--white);
+            border: 4px solid var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-md);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            position: relative;
+            transition: all var(--transition-fast);}
+        
+        .process-step-cycle:hover .step-circle {
+            background: var(--primary-blue);
+            color: var(--white);
+            transform: scale(1.1);}
+        
+        .step-connector {
+            position: absolute;
+            top: 45px;
+            left: 50%;
+            width: 101%;
+            height: 4px;
+            background: var(--primary-blue);
+            z-index: -1;}
+        
+        .process-step-cycle:last-child .step-connector {
+            display: none;}
+        
+        .benefits-section {
+            padding: var(--space-xl) 0;
+            background: var(--white);}
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);}
+        
+        .benefit-card {
+            background: var(--light-gray);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-fast);}
+        
+        .benefit-card:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-5px);}
+        
+        .benefit-card:hover h3,
+        .benefit-card:hover p {
+            color: var(--white);}
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-md);}
+        
+            
+        @media (max-width: 992px) {
+            .differentiator-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .process-cycle {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .step-connector {
+                width: 4px;
+                height: 100%;
+                left: 60px;
+                top: 50%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div id="header-container"></div>
+    
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="index.html">Home</a></li>
+                <li class="current">Our Process</li>
+            </ol>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero process-hero">
+            <img src="assets/images/hero/h_about_us.jpg" class="hero-bg" alt="Background">
+            <div class="hero-overlay"></div>
+     <div class="container">
+            <div class="hero-content" style="color: white">
+                <h1 class="hero-title animate-left">The EDGE Framework</h1>
+                <p class="hero-subtitle animate-left" style="animation-delay: 0.2s"><strong>From Insight to Impact.</strong><br> Our disciplined, data-driven methodology for sustainable business growth.</p>
+                <p class="hero-description animate-fade" style="animation-delay: 0.4s">Our engagements are delivered through the Consulting Crew EDGE Framework—a disciplined, data-driven methodology designed to convert insight into measurable and sustainable business impact. We believe that strategy without execution is just theory, and execution without strategy is chaos.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- EDGE Framework Section -->
+    <section class="section edge-framework bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">The EDGE Framework Process</h2>
+                <p class="section-subtitle">A four-phase methodology designed to deliver measurable business impact</p>
+            </div>
+            
+            <div class="edge-steps detailed-steps">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Explore</h3>
+                        <p>Understand objectives, context, and opportunities through comprehensive stakeholder engagement.</p>
+                        <ul class="step-details">
+                            <li><strong>Stakeholder interviews</strong> to align on business objectives</li>
+                            <li><strong>Market analysis</strong> to identify opportunities</li>
+                            <li><strong>Competitive assessment</strong> to understand landscape</li>
+                            <li><strong>Opportunity assessment</strong> to prioritize initiatives</li>
+                        </ul>
+                    </div>
+                    <div class="step-line"></div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Diagnose</h3>
+                        <p>Analyze data, systems, and performance gaps to identify root causes and opportunities.</p>
+                        <ul class="step-details">
+                            <li><strong>Data analysis</strong> to uncover insights</li>
+                            <li><strong>Gap identification</strong> to pinpoint improvements</li>
+                            <li><strong>Root cause analysis</strong> to address core issues</li>
+                            <li><strong>Performance benchmarking</strong> against industry standards</li>
+                        </ul>
+                    </div>
+                    <div class="step-line"></div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Generate</h3>
+                        <p>Create actionable strategies, solutions, and roadmaps tailored to your specific needs.</p>
+                        <ul class="step-details">
+                            <li><strong>Solution design</strong> with innovative approaches</li>
+                            <li><strong>Strategy development</strong> for sustainable growth</li>
+                            <li><strong>Roadmap creation</strong> with clear milestones</li>
+                            <li><strong>Business case development</strong> with ROI analysis</li>
+                        </ul>
+                    </div>
+                    <div class="step-line"></div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Execute</h3>
+                        <p>Implement, optimize, and sustain measurable outcomes with continuous performance tracking.</p>
+                        <ul class="step-details">
+                            <li><strong>Implementation support</strong> for seamless execution</li>
+                            <li><strong>Performance tracking</strong> with real-time metrics</li>
+                            <li><strong>Continuous optimization</strong> based on feedback</li>
+                            <li><strong>Knowledge transfer</strong> for sustainable success</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why EDGE Section -->
+    <section class="framework-differentiators">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">What Makes EDGE Different?</h2>
+                <p class="section-subtitle">Our unique approach ensures successful outcomes for every engagement</p>
+            </div>
+            
+            <div class="differentiator-grid">
+                <div class="differentiator-card card animate-left">
+                    <div class="differentiator-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--primary-blue)">
+                            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                        </svg>
+                    </div>
+                    <h3>Iterative Process</h3>
+                    <p>Continuous feedback loops ensure alignment and adaptation throughout the engagement, allowing for course correction and optimization.</p>
+                </div>
+                
+                <div class="differentiator-card card animate-right">
+                    <div class="differentiator-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--primary-blue)">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                    </div>
+                    <h3>Data-Driven Decisions</h3>
+                    <p>Every decision is backed by rigorous data analysis and measurable insights, eliminating guesswork and ensuring optimal outcomes.</p>
+                </div>
+                
+                <div class="differentiator-card card animate-left">
+                    <div class="differentiator-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--primary-blue)">
+                            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                        </svg>
+                    </div>
+                    <h3>Collaborative Approach</h3>
+                    <p>We work as true partners with your team, fostering collaboration and knowledge transfer for sustainable success.</p>
+                </div>
+                
+                <div class="differentiator-card card animate-right">
+                    <div class="differentiator-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--primary-blue)">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3>Outcome Focused</h3>
+                    <p>Success is measured by tangible business impact and ROI, not just deliverables or completion of tasks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Service Delivery Process -->
+    <section class="service-process">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Our Service Delivery Process</h2>
+                <p class="section-subtitle">From insight to execution, our disciplined approach ensures every engagement delivers measurable business impact</p>
+            </div>
+            
+            <div class="process-cycle">
+                <div class="process-step-cycle">
+                    <div class="step-circle">1</div>
+                    <div class="step-connector"></div>
+                    <h3>Discover</h3>
+                    <p>Comprehensive analysis of business objectives, competitive landscape, and organizational context to establish strategic foundation.</p>
+                </div>
+                
+                <div class="process-step-cycle">
+                    <div class="step-circle">2</div>
+                    <div class="step-connector"></div>
+                    <h3>Define</h3>
+                    <p>Articulation of clear strategic objectives, success metrics, and implementation roadmap aligned with business priorities.</p>
+                </div>
+                
+                <div class="process-step-cycle">
+                    <div class="step-circle">3</div>
+                    <div class="step-connector"></div>
+                    <h3>Design</h3>
+                    <p>Creation of tailored, scalable strategic frameworks and solutions optimized for organizational context and market dynamics.</p>
+                </div>
+                
+                <div class="process-step-cycle">
+                    <div class="step-circle">4</div>
+                    <div class="step-connector"></div>
+                    <h3>Deliver</h3>
+                    <p>Precision implementation with rigorous project governance, stakeholder engagement, and quality assurance protocols.</p>
+                </div>
+                
+                <div class="process-step-cycle">
+                    <div class="step-circle">5</div>
+                    <h3>Drive</h3>
+                    <p>Continuous optimization, performance monitoring, and strategic adaptation to ensure sustained impact and value creation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Benefits of Our Process</h2>
+                <p class="section-subtitle">Why organizations choose our structured approach</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card animate-fade" style="animation-delay: 0.1s">
+                    <div class="benefit-icon"><i class="fas fa-bullseye"></i></div> 
+                    <h3>Clear Direction</h3>
+                    <p>Well-defined roadmap with measurable milestones and clear success criteria ensures everyone is aligned and moving in the same direction.</p>
+                </div>
+                
+                <div class="benefit-card animate-fade" style="animation-delay: 0.2s">
+                    <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Measurable Results</h3>
+                    <p>Built-in measurement frameworks track progress and demonstrate ROI at every stage, ensuring accountability and value delivery.</p>
+                </div>
+                
+                <div class="benefit-card animate-fade" style="animation-delay: 0.3s">
+                    <div class="benefit-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h3>Adaptive Flexibility</h3>
+                    <p>Iterative approach allows for course correction based on feedback and changing market conditions, ensuring relevance and effectiveness.</p>
+                </div>
+                
+                <div class="benefit-card animate-fade" style="animation-delay: 0.4s">
+                    <div class="benefit-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>Collaborative Partnership</h3>
+                    <p>Working alongside your team builds internal capability and ensures sustainable success beyond our engagement.</p>
+                </div>
+                
+                <div class="benefit-card animate-fade" style="animation-delay: 0.5s">
+                    <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Efficient Execution</h3>
+                    <p>Structured methodology eliminates wasted effort and accelerates time-to-value through focused, prioritized initiatives.</p>
+                </div>
+                
+                <div class="benefit-card animate-fade" style="animation-delay: 0.6s">
+                    <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Risk Mitigation</h3>
+                    <p>Proactive identification and management of risks throughout the process ensures smooth execution and minimizes surprises.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+     <section class="section cta bg-gradient">
+        <img src="assets/images/featured_art.jpg" class="cta-bg" alt="Background" loading="lazy">
+        <div class="cta-overlay"></div>
+        <div class="container">
+            <div class="cta-content text-center">
+                <h2 class="cta-title">Ready to Experience Our Process?</h2>
+                <p class="cta-subtitle">Let's discuss how our EDGE Framework™ can drive sustainable growth for your business.</p>
+                <a href="contact.html" class="btn btn-large btn-orange animate-pulse">Start Your Journey</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
+    
+    <!-- JavaScript Files -->
+    <script src="assets/js/header-footer.js" defer></script>
+    <script src="assets/js/animations.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Consulting Crew | Get Your Free Consultation</title>
+    <meta name="description" content="Get in touch with Consulting Crew for strategic advisory services. Schedule a free consultation to discuss how we can help your business grow.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/variables-base.css">
+    <link rel="stylesheet" href="assets/css/header-footer.css">
+    <link rel="stylesheet" href="assets/css/forms.css">
+    <link rel="stylesheet" href="assets/css/fixes.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+</head>
+<body>
+    <!-- Header -->
+    <div id="header-container"></div>
+    
+    <main>
+        <!-- Breadcrumbs -->
+        <div class="breadcrumbs">
+            <div class="container">
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="current" aria-current="page">Contact Us</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- Hero Section -->
+        <section class="hero contact-hero">
+            <img src="assets/images/hero/h_contact-us.avif" class="hero-bg" alt="Background">
+            <div class="hero-overlay"></div>
+
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Get in Touch</h1>
+                    <p class="hero-subtitle">Ready to empower smarter decisions for your business?</p>
+                    <p class="hero-description">Let's discuss how we can help you translate ambition into execution and results. Reach out to schedule your free consultation.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Information Section -->
+        <section id="consultation" class="contact-info-wrapper">
+            <div class="container">
+                <div class="contact-info-header">
+                    <h2 class="contact-info-title">Contact Information</h2>
+                    <p class="contact-info-subtitle">Get in touch with us through any of the following channels</p>
+                </div>
+                
+                <div class="contact-details">
+                    <div class="contact-detail">
+                        <div class="detail-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
+                            </svg>
+                        </div>
+                        <div class="detail-content">
+                            <h3>Email Us</h3>
+                            <p>consultingcrew.pk@gmail.com</p>
+                            <a href="mailto:consultingcrew.pk@gmail.com" class="detail-link">Send an email</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="detail-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                        </div>
+                        <div class="detail-content">
+                            <h3>Call Us</h3>
+                            <p>+92 (21) 332-3450433</p>
+                            <a href="tel:+92213323450433" class="detail-link">Call now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="detail-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </div>
+                        <div class="detail-content">
+                            <h3>Global Coverage</h3>
+                            <p>Based in Karachi, Pakistan. Serving clients worldwide.</p>
+                            <a href="#" class="detail-link">View our global clients</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Form Section -->
+        <section id="contactform" class="contact-form-section">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2 class="form-title">Send Us a Message</h2>
+                    <p class="form-subtitle">Fill out the form below and we'll get back to you within 24 hours.</p>
+                </div>
+                
+                <form id="contactform" class="contact-form" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name" class="form-label form-label--required">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-input" required placeholder="Your full name">
+                            <div class="error-message" id="nameError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label form-label--required">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" required placeholder="your.email@example.com">
+                            <div class="error-message" id="emailError"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company" class="form-label">Company Name</label>
+                            <input type="text" id="company" name="company" class="form-input" placeholder="Your company name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="Your phone number">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service" class="form-label form-label--required">Service Interest</label>
+                        <select id="service" name="service" class="form-select" required>
+                            <option value="" disabled selected>Select a service</option>
+                            <option value="data-intelligence">Data & Intelligence</option>
+                            <option value="digital-transformation">Digital Transformation</option>
+                            <option value="branding-identity">Branding & Identity</option>
+                            <option value="hr-consulting">HR Consulting</option>
+                            <option value="web-services">Web Services</option>
+                            <option value="multiple">Multiple Services</option>
+                            <option value="not-sure">Not Sure / General Inquiry</option>
+                        </select>
+                        <div class="error-message" id="serviceError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="form-label form-label--required">Your Message</label>
+                        <textarea id="message" name="message" class="form-textarea" rows="5" required placeholder="Tell us about your project or business challenge..."></textarea>
+                        <div class="error-message" id="messageError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter" checked>
+                            <label for="newsletter">Subscribe to our newsletter for strategic insights and updates</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <span class="submit-text">Send Message</span>
+                            <span class="loading-spinner" style="display: none;" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" stroke-dasharray="60 60" stroke-linecap="round">
+                                        <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="1s" repeatCount="indefinite"/>
+                                    </circle>
+                                </svg>
+                            </span>
+                        </button>
+                        <p class="form-note">We typically respond within 24 hours</p>
+                    </div>
+                </form>
+                
+                <div class="form-success" id="successMessage" style="display: none;" role="alert">
+                    <div class="success-icon" aria-hidden="true">✓</div>
+                    <h3>Thank You!</h3>
+                    <p>Your message has been sent successfully. We'll get back to you within 24 hours.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Find answers to common questions about working with us</p>
+                </div>
+                
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How quickly can we start working together?
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We can typically begin initial discussions within 24-48 hours of your inquiry. The formal engagement start date depends on project scope and complexity, but we aim to begin active work within 1-2 weeks of agreement.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            What is your typical engagement length?
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Engagements vary based on project scope. Strategy projects typically last 4-8 weeks, while implementation projects can range from 8 weeks to several months. We offer both fixed-scope projects and ongoing retainer arrangements.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Do you work with international clients?
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, we serve clients globally. We work remotely with international clients and can arrange on-site visits when necessary. Our team is experienced in cross-cultural collaboration and time zone management.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            What is your pricing model?
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We offer flexible pricing models including project-based fees, monthly retainers, and hourly consulting. After understanding your needs, we'll recommend the most suitable pricing structure that aligns with your budget and project requirements.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            What information do you need to provide a quote?
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>To provide an accurate quote, we typically need to understand your business objectives, current challenges, project scope, timeline, and budget considerations. We'll schedule a discovery call to gather this information.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA -->
+ <section class="cta contact-cta">
+        <img src="assets/images/featured_art.jpg" class="cta-bg" alt="Background" loading="lazy">
+        <div class="cta-overlay"></div>
+            <div class="container">
+                    <div class="cta-content">
+                        <h2 class="cta-title">Still Have Questions?</h2>
+                        <p class="cta-subtitle">We're here to help. Schedule a free 30-minute consultation to discuss your specific needs.</p>
+                        <div class="cta-buttons">
+                            <a href="contact.html#contactform" class="btn btn-primary btn-large">Schedule Free Consultation</a>
+                            <a href="services.html" class="btn btn-green btn-large">Explore Services</a>
+                        </div>
+                    </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <div id="footer-container"></div>
+    
+    <!-- JavaScript Files -->
+    <script src="assets/js/header-footer.js" defer></script>
+    <script src="assets/js/animations.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    
+    <!-- Contact form specific JS -->
+    <script>
+        (function() {
+            'use strict';
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                const contactForm = document.getElementById('contactForm');
+                const successMessage = document.getElementById('successMessage');
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const submitText = submitBtn.querySelector('.submit-text');
+                const loadingSpinner = submitBtn.querySelector('.loading-spinner');
+                
+                // FAQ Accordion
+                const faqQuestions = document.querySelectorAll('.faq-question');
+                
+                faqQuestions.forEach(question => {
+                    question.addEventListener('click', function() {
+                        const faqItem = this.closest('.faq-item');
+                        const answer = faqItem.querySelector('.faq-answer');
+                        const icon = this.querySelector('.faq-icon');
+                        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                        
+                        // Close other open items
+                        document.querySelectorAll('.faq-item.active').forEach(item => {
+                            if (item !== faqItem) {
+                                item.classList.remove('active');
+                                item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                                item.querySelector('.faq-answer').style.maxHeight = null;
+                                item.querySelector('.faq-icon').textContent = '+';
+                            }
+                        });
+                        
+                        // Toggle current item
+                        faqItem.classList.toggle('active');
+                        this.setAttribute('aria-expanded', !isExpanded);
+                        
+                        if (faqItem.classList.contains('active')) {
+                            answer.style.maxHeight = answer.scrollHeight + 'px';
+                            icon.textContent = '−';
+                        } else {
+                            answer.style.maxHeight = null;
+                            icon.textContent = '+';
+                        }
+                    });
+                });
+                
+                // Form validation and submission
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Reset previous errors
+                    clearErrors();
+                    
+                    // Validate form
+                    if (validateForm()) {
+                        // Show loading state
+                        submitText.style.display = 'none';
+                        loadingSpinner.style.display = 'inline-block';
+                        submitBtn.disabled = true;
+                        
+                        // Simulate form submission
+                        setTimeout(() => {
+                            // Hide form and show success message
+                            contactForm.style.display = 'none';
+                            successMessage.style.display = 'block';
+                            
+                            // Reset form
+                            contactForm.reset();
+                            
+                            // Reset button state
+                            submitText.style.display = 'inline';
+                            loadingSpinner.style.display = 'none';
+                            submitBtn.disabled = false;
+                        }, 1500);
+                    }
+                });
+                
+                function validateForm() {
+                    let isValid = true;
+                    const requiredFields = ['name', 'email', 'service', 'message'];
+                    
+                    requiredFields.forEach(fieldId => {
+                        const field = document.getElementById(fieldId);
+                        const error = document.getElementById(fieldId + 'Error');
+                        
+                        if (!field.value.trim()) {
+                            error.textContent = 'This field is required';
+                            field.classList.add('error');
+                            isValid = false;
+                        } else if (fieldId === 'email' && !isValidEmail(field.value)) {
+                            error.textContent = 'Please enter a valid email address';
+                            field.classList.add('error');
+                            isValid = false;
+                        }
+                    });
+                    
+                    return isValid;
+                }
+                
+                function clearErrors() {
+                    const errorMessages = document.querySelectorAll('.error-message');
+                    const errorInputs = document.querySelectorAll('.form-input.error, .form-select.error, .form-textarea.error');
+                    
+                    errorMessages.forEach(error => error.textContent = '');
+                    errorInputs.forEach(input => input.classList.remove('error'));
+                }
+                
+                function isValidEmail(email) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    return emailRegex.test(email);
+                }
+                
+                // Real-time validation
+                const formInputs = contactForm.querySelectorAll('.form-input, .form-select, .form-textarea');
+                
+                formInputs.forEach(input => {
+                    input.addEventListener('input', function() {
+                        const error = document.getElementById(this.id + 'Error');
+                        if (error) {
+                            error.textContent = '';
+                            this.classList.remove('error');
+                        }
+                    });
+                    
+                    // Validate on blur for better UX
+                    input.addEventListener('blur', function() {
+                        if (this.hasAttribute('required') && !this.value.trim()) {
+                            const error = document.getElementById(this.id + 'Error');
+                            error.textContent = 'This field is required';
+                            this.classList.add('error');
+                        } else if (this.id === 'email' && this.value.trim() && !isValidEmail(this.value)) {
+                            const error = document.getElementById(this.id + 'Error');
+                            error.textContent = 'Please enter a valid email address';
+                            this.classList.add('error');
+                        }
+                    });
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
