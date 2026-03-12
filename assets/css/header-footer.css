@@ -156,6 +156,7 @@ body.header-scrolled {
 .logo-text {
     font-size: 1.4rem;
     font-weight: 700;
+    color: var(--primary-blue);
     background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1196,4 +1197,5 @@ body.header-scrolled {
         transform: translateX(0);
         opacity: 1;
     }
+
 }
