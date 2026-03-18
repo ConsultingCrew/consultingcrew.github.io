@@ -436,9 +436,8 @@
     }
 
 .introduction {
-    background: var(--white);
     padding: 1rem;
-    text-align: left;
+    text-align: center;
     margin: 0 auto; }
 
 .intro-image {
@@ -446,7 +445,7 @@
     padding: 1rem 0;}
 
     
-    .edge-steps {
+.edge-steps {
         grid-template-columns: 1fr;
     }
     
