@@ -441,6 +441,10 @@
     text-align: left;
     margin: 0 auto; }
 
+.intro-image {
+    position: relative;
+    padding: 1rem 0;}
+
     
     .edge-steps {
         grid-template-columns: 1fr;
