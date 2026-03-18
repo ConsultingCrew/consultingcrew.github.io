@@ -434,6 +434,13 @@
         width: 100%;
         max-width: 280px;
     }
+
+.introduction {
+    background: var(--white);
+    padding: 2rem;
+    text-align: left;
+    margin: 0 auto; }
+
     
     .edge-steps {
         grid-template-columns: 1fr;
