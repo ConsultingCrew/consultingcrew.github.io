@@ -9,6 +9,7 @@
     --primary-orange: #FF5500;
     --primary-green: #00a816;
     --footer-bg: #1A202C;
+    --secondary: #0056b3;
     
     /* Background Variations */
     --light-blue: rgba(130, 171, 224, 0.14);
@@ -143,6 +144,7 @@ img {
 .bg-light-blue { background-color: var(--light-blue); }
 .bg-light-green { background-color: var(--light-green); }
 .bg-light-orange { background-color: var(--light-orange); }
+.bg-light-gray { background-color: var(--light-gray); }
 .bg-dark { background: linear-gradient(135deg, var(--dark-blue) 0%, #022B5F 100%); color: var(--white); }
 .bg-gradient { background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%); }
 
@@ -254,9 +256,9 @@ img {
 .section-label {
     display: inline-block;
     padding: var(--space-xs) var(--space-md);
-    font-size: 10.9rem;
+    font-size: 0.9rem;
     border-radius: var(--radius-xl);
-    color: var(--light-blue);
+    color: var(--primary-blue);
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 600;
@@ -363,6 +365,12 @@ img {
     line-height: 1.5;
 }
 
+/* Hero variant for about/team pages */
+.about-hero {
+    background: linear-gradient(135deg, #003d7c, #0056b3);
+    color: white;
+}
+
 /* ===== CTA SECTION (Base) ===== */
 .cta {
     position: relative;
@@ -422,11 +430,149 @@ img {
     flex-wrap: wrap;
 }
 
-/* ============================================
-   ANIMATIONS.CSS - Animation Styles
-   ============================================ */
+/* ===== ANIMATIONS ===== */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
 
-/* Loading State */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes shimmer {
+    from {
+        transform: translateX(-100%) rotate(30deg);
+    }
+    to {
+        transform: translateX(100%) rotate(30deg);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes progress {
+    to {
+        width: var(--progress, 100%);
+    }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--primary-blue); }
+}
+
+@keyframes loadingPulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Animation Classes */
+.animate-left {
+    animation: slideLeft 0.6s ease-out;
+}
+
+.animate-up {
+    animation: fadeUp 0.6s ease-out;
+}
+
+.animate-fade {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.animate-right {
+    animation: slideInRight 0.6s ease-out;
+}
+
+/* ===== LOADING STATE ===== */
 body.loading {
     overflow: hidden;
 }
@@ -445,13 +591,6 @@ body.loading::before {
     pointer-events: none;
 }
 
-@keyframes fadeOut {
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
 /* Scroll Animations */
 [data-animate] {
     opacity: 0;
@@ -459,7 +598,6 @@ body.loading::before {
     will-change: opacity, transform;
 }
 
-/* Stagger Children */
 [data-stagger] > * {
     opacity: 0;
     transform: translateY(20px);
@@ -476,46 +614,16 @@ body.loading::before {
     box-shadow: var(--shadow-lg);
 }
 
-/* Float Animation */
 .float-animation {
     animation: float 6s ease-in-out infinite;
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-/* Pulse Animation */
 .pulse-animation {
     animation: pulse 2s ease-in-out infinite;
 }
 
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-}
-
-/* Rotate Animation */
 .rotate-animation {
     animation: rotate 10s linear infinite;
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
 }
 
 /* Shimmer Effect */
@@ -539,15 +647,6 @@ body.loading::before {
     );
     transform: rotate(30deg);
     animation: shimmer 3s infinite;
-}
-
-@keyframes shimmer {
-    from {
-        transform: translateX(-100%) rotate(30deg);
-    }
-    to {
-        transform: translateX(100%) rotate(30deg);
-    }
 }
 
 /* Counter Animation */
@@ -579,12 +678,6 @@ body.loading::before {
     animation: spin 0.8s linear infinite;
 }
 
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 /* Progress Bar Animation */
 .progress-bar {
     position: relative;
@@ -604,12 +697,6 @@ body.loading::before {
     animation: progress 2s ease forwards;
 }
 
-@keyframes progress {
-    to {
-        width: var(--progress, 100%);
-    }
-}
-
 /* Typewriter Effect */
 .typewriter {
     overflow: hidden;
@@ -618,20 +705,6 @@ body.loading::before {
     animation: typing 3.5s steps(40, end),
                blink-caret 0.75s step-end infinite;
 }
-
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-}
-
-@keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: var(--primary-blue); }
-}
-
-/* ============================================
-   ADDITIONS FROM FIXES.CSS
-   ============================================ */
 
 /* ===== LOADING PLACEHOLDERS ===== */
 .loading-placeholder {
@@ -642,12 +715,6 @@ body.loading::before {
         var(--light-gray) 75%);
     background-size: 200% 100%;
     border-radius: var(--radius-md);
-}
-
-@keyframes loadingPulse {
-    0% { opacity: 0.6; }
-    50% { opacity: 1; }
-    100% { opacity: 0.6; }
 }
 
 /* ===== COMPONENT ERROR ===== */
@@ -675,7 +742,6 @@ body.loading::before {
 }
 
 /* ===== BROWSER-SPECIFIC FIXES ===== */
-/* Fix for sticky hover on mobile */
 @media (hover: none) and (pointer: coarse) {
     .card:hover,
     .btn:hover,
@@ -685,7 +751,6 @@ body.loading::before {
     }
 }
 
-/* Fix for flexbox gap in older browsers */
 @supports not (gap: 1rem) {
     .grid,
     .flex,
@@ -766,6 +831,10 @@ body.loading::before {
     h1 { font-size: 3rem; }
     h2 { font-size: 2.2rem; }
     h3 { font-size: 1.8rem; }
+    
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 992px) {
