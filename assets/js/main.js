@@ -1,21 +1,8 @@
-/**
- * ============================================
- * CONSULTING CREW - MAIN APPLICATION
- * ============================================
- * Core entry point that initializes all components
- * @version 1.0.0
- */
 
 // ============================================
 // UTILITY FUNCTIONS
 // ============================================
 
-/**
- * Debounce function to limit function calls
- * @param {Function} func - Function to debounce
- * @param {number} wait - Wait time in milliseconds
- * @returns {Function} Debounced function
- */
 const debounce = (func, wait) => {
     let timeout;
     return function executedFunction(...args) {
@@ -28,12 +15,6 @@ const debounce = (func, wait) => {
     };
 };
 
-/**
- * Throttle function to limit execution rate
- * @param {Function} func - Function to throttle
- * @param {number} limit - Time limit in milliseconds
- * @returns {Function} Throttled function
- */
 const throttle = (func, limit) => {
     let inThrottle;
     return function(...args) {
@@ -59,11 +40,6 @@ const isInViewport = (element, offset = 0) => {
     );
 };
 
-/**
- * Smooth scroll to element
- * @param {string|HTMLElement} target - Target element or selector
- * @param {number} offset - Offset from top in pixels
- */
 const smoothScroll = (target, offset = 100) => {
     const element = typeof target === 'string' ? document.querySelector(target) : target;
     if (element) {
@@ -74,21 +50,12 @@ const smoothScroll = (target, offset = 100) => {
     }
 };
 
-/**
- * Validate email format
- * @param {string} email - Email to validate
- * @returns {boolean} True if valid
- */
+
 const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 };
 
-/**
- * Format date to readable string
- * @param {Date|string} date - Date to format
- * @returns {string} Formatted date
- */
 const formatDate = (date) => {
     const d = new Date(date);
     return d.toLocaleDateString('en-US', {
@@ -126,10 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // ============================================
 // COMPONENT: MOBILE MENU
 // ============================================
-
-/**
- * Initialize mobile menu functionality
- */
 const initMobileMenu = () => {
     const toggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
@@ -183,9 +146,6 @@ const initMobileMenu = () => {
 // COMPONENT: DROPDOWNS
 // ============================================
 
-/**
- * Initialize dropdown menus
- */
 const initDropdowns = () => {
     const dropdowns = document.querySelectorAll('.dropdown');
     
@@ -248,12 +208,6 @@ const initDropdowns = () => {
 // COMPONENT: FILTERING (Generic)
 // ============================================
 
-/**
- * Generic filter initialization
- * @param {string} filterSelector - Filter buttons selector
- * @param {string} itemSelector - Items to filter selector
- * @param {string} categoryAttr - Category attribute name
- */
 const initFilter = (filterSelector, itemSelector, categoryAttr = 'data-category') => {
     const filterButtons = document.querySelectorAll(filterSelector);
     const items = document.querySelectorAll(itemSelector);
@@ -315,9 +269,7 @@ const initFilter = (filterSelector, itemSelector, categoryAttr = 'data-category'
     });
 };
 
-/**
- * Initialize all filter components
- */
+
 const initFilters = () => {
     // Services filter
     if (document.querySelector('.services-filter')) {
@@ -336,12 +288,59 @@ const initFilters = () => {
 };
 
 // ============================================
+// BACK TO TOP BUTTON
+// ============================================
+
+(function() {
+    'use strict';
+    
+    const backToTopButton = document.getElementById('backToTop');
+    
+    if (!backToTopButton) return;
+    
+    // Show/hide button based on scroll position
+    const toggleBackToTop = () => {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    };
+    
+    // Smooth scroll to top
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+    
+    // Throttle scroll event for performance
+    let ticking = false;
+    const handleScroll = () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                toggleBackToTop();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    };
+    
+    // Add event listeners
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    backToTopButton.addEventListener('click', scrollToTop);
+    
+    // Initial check
+    toggleBackToTop();
+})();
+
+
+// ============================================
 // COMPONENT: FORMS
 // ============================================
 
-/**
- * Initialize contact form
- */
+
 const initContactForm = () => {
     const contactForm = document.getElementById('contactForm');
     const successMessage = document.getElementById('successMessage');
