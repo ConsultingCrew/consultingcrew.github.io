@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulting Crew - Empowering Smarter Decisions</title>
+    <title>Consulting Crew - Corporate Social Responsibility</title>
     <meta name="description" content="Strategic advisory firm helping organizations translate ambition into execution and results. Empowering smarter decisions for startups, SMEs, and growth-focused businesses.">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <!-- CSS Files -->
     <link rel="stylesheet" href="assets/css/variables-base.css">
@@ -22,14 +25,150 @@
     <link rel="preload" as="image" href="assets/images/why_us.jpg">
     <link rel="preload" as="image" href="assets/images/featured_art.jpg">
     
+    <style>
+        :root {
+            --secondary: #0056b3;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        .card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--secondary, #0056b3);
+            margin-bottom: 1.5rem;
+        }
+        
+        .card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card p {
+            flex-grow: 1;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        
+        .hero {
+            padding: 0 10px;
+            background-color: var(--secondary);
+            min-height: 400px;
+        }
+        
+        .bg-light {
+            background: #f8f9fa;
+        }
+        
+        .section-header {
+            text-align: center;
+        }
+        
+        .section-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .section-spacing {
+            padding: 4rem 0;
+        }
+        
+         /* Commitment section */
+        .commitment-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .hero {
+                padding: 2rem 0;
+            }
+            
+            .section-header h1 {
+                font-size: 1.75rem;
+            }
+        }
+        
+        /* Animation */
+        .animate-up {
+            animation: fadeUp 0.6s ease-out;
+        }
+        
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <!-- Header Container -->
     <div id="header-container"></div>
 
-    <!-- Breadcrumbs -->
-    <div class="breadcrumbs">
+<div class="breadcrumbs">
         <div class="container">
             <ol>
                 <li><a href="index.html">Home</a></li>
@@ -37,53 +176,71 @@
                 <li aria-current="page">CSR</li>
             </ol>
         </div>
-    </div>
+</div>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h1>Corporate Social <span class="highlight">Responsibility</span></h1>
-        <p>Committed to making a positive impact on society and the environment.</p>
-      </div>
-    </section>
 
-    <section class="csr-content">
-      <div class="container">
-        <div class="services-grid">
-          <div class="service-card">
-            <i class="fas fa-graduation-cap" aria-hidden="true"></i>
-            <h3>Education & Skill Development</h3>
-            <p>We support local educational initiatives and provide pro-bono consulting to non-profits focused on youth empowerment and digital literacy.</p>
-          </div>
-          <div class="service-card">
-            <i class="fas fa-leaf" aria-hidden="true"></i>
-            <h3>Environmental Sustainability</h3>
-            <p>We promote sustainable business practices and reduce our carbon footprint through remote consulting and paperless operations.</p>
-          </div>
-          <div class="service-card">
-            <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
-            <h3>Community Engagement</h3>
-            <p>Our team volunteers time and expertise to help small businesses and startups in underprivileged communities.</p>
-          </div>
-          <div class="service-card">
-            <i class="fas fa-balance-scale" aria-hidden="true"></i>
-            <h3>Ethical Business Practices</h3>
-            <p>We advocate for transparency, fairness, and integrity in all business dealings, both within our firm and with clients.</p>
-          </div>
+    <main>
+        <section class="hero bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h1>Corporate Social Responsibility</h1>
+                    <p class="section-subtitle">Committed to making a positive impact on society and the environment.</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="section-spacing">
+            <div class="container">
+                <div class="grid grid-4 animate-up">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                        </div>
+                        <h4>Education & Skill Development</h4>
+                        <p>We support local educational initiatives and provide pro-bono consulting to non-profits focused on youth empowerment and digital literacy.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-leaf" aria-hidden="true"></i>
+                        </div>
+                        <h4>Environmental Sustainability</h4>
+                        <p>We promote sustainable business practices and reduce our carbon footprint through remote consulting and paperless operations.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
+                        </div>
+                        <h4>Community Engagement</h4>
+                        <p>Our team volunteers time and expertise to help small businesses and startups in underprivileged communities.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-balance-scale" aria-hidden="true"></i>
+                        </div>
+                        <h4>Ethical Business Practices</h4>
+                        <p>We advocate for transparency, fairness, and integrity in all business dealings, both within our firm and with clients.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div style="margin-top: 3rem; background: var(--light); padding: 2rem; border-radius: 8px;">
-          <h3>Our Commitment</h3>
-          <p>At Consulting Crew, we believe that businesses have a responsibility to give back to the communities that support them. We integrate CSR into our core operations and encourage our clients to adopt sustainable and ethical practices. Through our work, we aim to create lasting positive change.</p>
+        <div class="section-spacing bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Commitment</h2>
+                    <p class="commitment-text">At Consulting Crew, we believe that businesses have a responsibility to give back to the communities that support them. We integrate CSR into our core operations and encourage our clients to adopt sustainable and ethical practices. Through our work, we aim to create lasting positive change.</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </section>
-  </main>
+    </main>
 
-    <!-- Footer Container -->
     <div id="footer-container"></div>
     
-    <!-- JavaScript Files -->
     <script src="assets/js/header-footer.js" defer></script>
     <script src="assets/js/animations.js" defer></script>
     <script src="assets/js/main.js" defer></script>
+</body>
+</html>

@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulting Crew - Empowering Smarter Decisions</title>
+    <title>Consulting Crew - Ethics & Integrity</title>
     <meta name="description" content="Strategic advisory firm helping organizations translate ambition into execution and results. Empowering smarter decisions for startups, SMEs, and growth-focused businesses.">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <!-- CSS Files -->
     <link rel="stylesheet" href="assets/css/variables-base.css">
@@ -22,74 +25,240 @@
     <link rel="preload" as="image" href="assets/images/why_us.jpg">
     <link rel="preload" as="image" href="assets/images/featured_art.jpg">
     
-</head>
+    <style>
+        :root {
+            --secondary: #0056b3;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-md);
+            max-width: 1200px;
+            margin: 0 auto;        }
+                
+        .card {
+            text-align: center;
+            padding: var(--space-lg) var(--space-sm);
+        }
+        
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-md);
+        }
+        
+        .card h3 {
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
+            flex-grow: 1;
+        }
 
+        .card p {
+          font-size: 1rem;
+          margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-spacing {
+                padding: 2rem 1rem;
+            }
+            
+            .principles-list {
+                padding: 1rem;
+            }
+        }
+        
+        /* Hero section */
+        .hero {
+            padding: 4rem 0;
+        }
+        
+        .bg-light {
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+        }
+        
+        .section-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .highlight {
+            color: #0056b3;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #3d3c3c;
+        }
+        
+        .section-spacing {
+            padding: 4rem 2rem;
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--secondary, #0056b3);
+            margin-bottom: 1.5rem;
+        }
+        
+        .principles-list {
+            list-style: none;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0rem;
+        }
+        
+        .principles-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .principles-list li i {
+            color: var(--secondary, #0056b3);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            margin-top: 0.125rem;
+        }
+                
+        /* Animation */
+        .animate-up {
+            animation: fadeUp 0.6s ease-out;
+        }
+        
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
 <body>
-    <!-- Header Container -->
     <div id="header-container"></div>
 
-    <!-- Breadcrumbs -->
     <div class="breadcrumbs">
         <div class="container">
             <ol>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li aria-current="page">Ethics</li>
+                <li class="current">Bsuiness Ethics</li>
             </ol>
         </div>
     </div>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h1>Ethics & <span class="highlight">Integrity</span></h1>
-        <p>Our commitment to the highest standards of professional conduct.</p>
-      </div>
-    </section>
+    <main>
+        <section class="hero bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h1>Ethics & <span class="highlight">Integrity</span></h1>
+                    <p class="section-subtitle">Our commitment to the highest standards of professional conduct.</p>
+                </div>
+            </div>
+        </section>
 
-    <section class="ethics-content">
-      <div class="container">
-        <div class="services-grid">
-          <div class="service-card">
-            <i class="fas fa-shield-alt" aria-hidden="true"></i>
-            <h3>Confidentiality</h3>
-            <p>We treat all client information with utmost discretion and sign NDAs to protect your data and trade secrets.</p>
-          </div>
-          <div class="service-card">
-            <i class="fas fa-handshake" aria-hidden="true"></i>
-            <h3>Transparency</h3>
-            <p>We maintain open communication about methodologies, pricing, and potential conflicts of interest.</p>
-          </div>
-          <div class="service-card">
-            <i class="fas fa-gavel" aria-hidden="true"></i>
-            <h3>Compliance</h3>
-            <p>We adhere to all applicable laws and regulations, and we help clients navigate compliance challenges.</p>
-          </div>
-          <div class="service-card">
-            <i class="fas fa-heart" aria-hidden="true"></i>
-            <h3>Client First</h3>
-            <p>We prioritize our clients' interests and deliver unbiased recommendations that drive real value.</p>
-          </div>
+        <div class="section section-spacing">
+            <div class="container">
+                <div class="grid grid-4 animate-up">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                        </div>
+                        <h3>Confidentiality</h3>
+                        <p>We treat all client information with utmost discretion and sign NDAs to protect your data and trade secrets.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-handshake" aria-hidden="true"></i>
+                        </div>
+                        <h3>Transparency</h3>
+                        <p>We maintain open communication about methodologies, pricing, and potential conflicts of interest.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-gavel" aria-hidden="true"></i>
+                        </div>
+                        <h3>Compliance</h3>
+                        <p>We adhere to all applicable laws and regulations, and we help clients navigate compliance challenges.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-heart" aria-hidden="true"></i>
+                        </div>
+                        <h3>Client First</h3>
+                        <p>We prioritize our clients' interests and deliver unbiased recommendations that drive real value.</p>
+                    </div>  
+                </div>
+            </div>
         </div>
 
-        <div style="margin-top: 3rem;">
-          <h2>Our Ethical Principles</h2>
-          <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 1rem; display: flex; align-items: center;"><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 1rem;" aria-hidden="true"></i> <strong>Integrity:</strong> We do what we say and say what we do.</li>
-            <li style="margin-bottom: 1rem; display: flex; align-items: center;"><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 1rem;" aria-hidden="true"></i> <strong>Objectivity:</strong> Our advice is based on data and facts, not personal gain.</li>
-            <li style="margin-bottom: 1rem; display: flex; align-items: center;"><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 1rem;" aria-hidden="true"></i> <strong>Professional Competence:</strong> We continuously develop our skills and knowledge.</li>
-            <li style="margin-bottom: 1rem; display: flex; align-items: center;"><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 1rem;" aria-hidden="true"></i> <strong>Confidentiality:</strong> We protect client information as if it were our own.</li>
-            <li style="margin-bottom: 1rem; display: flex; align-items: center;"><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 1rem;" aria-hidden="true"></i> <strong>Professional Behavior:</strong> We comply with laws and avoid any action that discredits the profession.</li>
-          </ul>
+        <div class="section section-spacing">
+            <div class="container">
+                <h2 class="section-title text-center">Our Ethical Principles</h2>
+                <ul class="principles-list">
+                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Integrity:</strong> We do what we say and say what we do.</li>
+                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Objectivity:</strong> Our advice is based on data and facts, not personal gain.</li>
+                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Professional Competence:</strong> We continuously develop our skills and knowledge.</li>
+                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Confidentiality:</strong> We protect client information as if it were our own.</li>
+                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Professional Behavior:</strong> We comply with laws and avoid any action that discredits the profession.</li>
+                </ul>
+            </div>
         </div>
-      </div>
-    </section>
-  </main>
+    </main>
 
-      <!-- Footer Container -->
     <div id="footer-container"></div>
-    
-    <!-- JavaScript Files -->
+
     <script src="assets/js/header-footer.js" defer></script>
     <script src="assets/js/animations.js" defer></script>
     <script src="assets/js/main.js" defer></script>
+</body>
+</html>

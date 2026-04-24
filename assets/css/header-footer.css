@@ -51,7 +51,10 @@ body.header-scrolled {
     padding-top: var(--header-height-scrolled);
 }
 
+
+
 /* ===== BREADCRUMBS ===== */
+
 .breadcrumbs {
     position: relative;
     z-index: 10;
@@ -63,21 +66,19 @@ body.header-scrolled {
     display: block;
     visibility: visible;
     width: 100%;
-}
+        }
 
 .breadcrumbs .container {
-    padding: 0 var(--space-md);
-}
+    padding: 0 var(--space-md);}
 
 .breadcrumbs ol {
+    list-style: none;
     display: flex;
     flex-wrap: wrap;
-    list-style: none;
-    gap: 8px;
+    gap: 0.5rem;
     margin: 0;
-    padding: 0;
-}
-
+    padding: 0;        }
+        
 .breadcrumbs li {
     display: flex;
     align-items: center;
@@ -88,19 +89,18 @@ body.header-scrolled {
 .breadcrumbs li:not(:last-child)::after {
     content: '/';
     margin-left: 8px;
-    color: var(--medium-gray);
-}
+    color: var(--medium-gray);}
 
 .breadcrumbs a {
-    color: var(--medium-gray);
     text-decoration: none;
-    transition: color 0.3s ease;
-}
-
+    color: var(--dark-gray);
+    text-decoration: none;
+    transition: color 0.3s ease;   }
+        
 .breadcrumbs a:hover {
-    color: var(--dark-blue);
-}
-
+    text-decoration: underline;
+    color: var(--dark-blue);  }
+        
 .breadcrumbs .current {
     color: var(--primary-blue);
     font-weight: 600;
