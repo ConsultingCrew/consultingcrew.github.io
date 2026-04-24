@@ -13,168 +13,9 @@
     <link rel="stylesheet" href="assets/css/variables-base.css">
     <link rel="stylesheet" href="assets/css/header-footer.css">
     <link rel="stylesheet" href="assets/css/home.css">
-    <link rel="stylesheet" href="assets/css/fixes.css">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
-    
-    <style>
-        .process-hero {
-            padding: 140px 0 119px;
-            background: linear-gradient(135deg, rgba(92,192,19,0.05) 0%, rgba(255,255,255,1) 100%);
-            text-align: center;
-        }
-        
-        .framework-differentiators {
-            padding: var(--space-xl) 0;
-            background: var(--white);
-        }
-        
-        .differentiator-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--space-md);
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .differentiator-card {
-            text-align: center;
-            padding: var(--space-lg) var(--space-sm);
-        }
-        
-        .differentiator-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--light-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto var(--space-md);
-        }
-        
-        .differentiator-card h3 {
-            color: var(--primary-blue);
-            font-size: 1.5rem;
-            margin-bottom: var(--space-sm);
-        }
-        .differentiator-card p { 
-            font-size: 1rem;
-            margin-bottom: var(--space-md);
-        }
-
-        .service-process {
-            padding: var(--space-xl) 0;
-            background: var(--light-gray);
-        }
-        
-        .process-cycle {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: var(--space-lg);
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;}
-        
-        .process-step-cycle {
-            flex: 1;
-            min-width: 150px;
-            text-align: center;
-            position: relative;
-            z-index: 2;}
-        
-        .step-circle {
-            width: 92px;
-            height: 92px;
-            background: var(--white);
-            border: 4px solid var(--primary-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto var(--space-md);
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-blue);
-            position: relative;
-            transition: all var(--transition-fast);}
-        
-        .process-step-cycle:hover .step-circle {
-            background: var(--primary-blue);
-            color: var(--white);
-            transform: scale(1.1);}
-        
-        .step-connector {
-            position: absolute;
-            top: 45px;
-            left: 50%;
-            width: 101%;
-            height: 4px;
-            background: var(--primary-blue);
-            z-index: -1;}
-        
-        .process-step-cycle:last-child .step-connector {
-            display: none;}
-        
-        .benefits-section {
-            padding: var(--space-xl) 0;
-            background: var(--white);}
-        
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-md);}
-        
-        .benefit-card {
-            background: var(--light-gray);
-            padding: var(--space-lg);
-            border-radius: var(--radius-lg);
-            transition: all var(--transition-fast);}
-        
-        .benefit-card:hover {
-            background: var(--primary-blue);
-            color: var(--white);
-            transform: translateY(-5px);}
-        
-        .benefit-card:hover h3,
-        .benefit-card:hover p {
-            color: var(--white);}
-        
-        .benefit-icon {
-            font-size: 2.5rem;
-            margin-bottom: var(--space-md);}
-        
-            
-        @media (max-width: 992px) {
-            .differentiator-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .benefits-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .process-cycle {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .step-connector {
-                width: 4px;
-                height: 100%;
-                left: 60px;
-                top: 50%;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Header -->
@@ -193,10 +34,10 @@
     
     <!-- Hero Section -->
     <section class="hero process-hero">
-            <img src="assets/images/hero/h_about_us.jpg" class="hero-bg" alt="Background">
-            <div class="hero-overlay"></div>
-     <div class="container">
-            <div class="hero-content" style="color: white">
+        <img src="assets/images/hero/h_about_us.jpg" class="hero-bg" alt="Background">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
                 <h1 class="hero-title animate-left">The EDGE Framework</h1>
                 <p class="hero-subtitle animate-left" style="animation-delay: 0.2s"><strong>From Insight to Impact.</strong><br> Our disciplined, data-driven methodology for sustainable business growth.</p>
                 <p class="hero-description animate-fade" style="animation-delay: 0.4s">Our engagements are delivered through the Consulting Crew EDGE Framework—a disciplined, data-driven methodology designed to convert insight into measurable and sustainable business impact. We believe that strategy without execution is just theory, and execution without strategy is chaos.</p>
@@ -383,7 +224,7 @@
             
             <div class="benefits-grid">
                 <div class="benefit-card animate-fade" style="animation-delay: 0.1s">
-                    <div class="benefit-icon"><i class="fas fa-bullseye"></i></div> 
+                    <div class="benefit-icon"><i class="fas fa-bullseye"></i></div>
                     <h3>Clear Direction</h3>
                     <p>Well-defined roadmap with measurable milestones and clear success criteria ensures everyone is aligned and moving in the same direction.</p>
                 </div>
@@ -407,39 +248,4 @@
                 </div>
                 
                 <div class="benefit-card animate-fade" style="animation-delay: 0.5s">
-                    <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
-                    <h3>Efficient Execution</h3>
-                    <p>Structured methodology eliminates wasted effort and accelerates time-to-value through focused, prioritized initiatives.</p>
-                </div>
-                
-                <div class="benefit-card animate-fade" style="animation-delay: 0.6s">
-                    <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Risk Mitigation</h3>
-                    <p>Proactive identification and management of risks throughout the process ensures smooth execution and minimizes surprises.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- CTA Section -->
-     <section class="section cta bg-gradient">
-        <img src="assets/images/featured_art.jpg" class="cta-bg" alt="Background" loading="lazy">
-        <div class="cta-overlay"></div>
-        <div class="container">
-            <div class="cta-content text-center">
-                <h2 class="cta-title">Ready to Experience Our Process?</h2>
-                <p class="cta-subtitle">Let's discuss how our EDGE Framework™ can drive sustainable growth for your business.</p>
-                <a href="contact.html" class="btn btn-large btn-orange animate-pulse">Start Your Journey</a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer will be loaded here -->
-    <div id="footer-container"></div>
-    
-    <!-- JavaScript Files -->
-    <script src="assets/js/header-footer.js" defer></script>
-    <script src="assets/js/animations.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
-</body>
-</html>
+                    <div class="benefit-icon"><i class="fas fa-bolt"></i></
