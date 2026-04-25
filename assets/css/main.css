@@ -2122,6 +2122,266 @@ img {
 }
 
 /* ============================================
+ * LEGAL-PAGES.CSS - Privacy Policy, Terms, etc.
+ * ============================================
+ 
+
+/* ===== LEGAL HERO ===== */
+.legal-hero {
+    position: relative;
+    padding: 100px 0 60px;
+    background: linear-gradient(135deg, rgba(84, 144, 223, 0.178) 0%, rgba(64, 189, 32, 0.151) 100%);
+    text-align: center;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+}
+
+.legal-hero-content h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--dark-blue);
+    margin-bottom: var(--space-xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+}
+
+.legal-hero-content h1 i {
+    color: var(--primary-orange);
+    font-size: 2.5rem;
+    margin-right: 12px;
+}
+
+.legal-hero-content p {
+    font-size: 1.1rem;
+    color: var(--medium-gray);
+}
+
+/* ===== LEGAL CONTENT ===== */
+.legal-content-section {
+    padding: var(--space-xl) 0;
+    background: var(--white);
+}
+
+.legal-content-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Cards */
+.legal-content-wrapper .card {
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--light-gray);
+    transition: all var(--transition-fast);
+}
+
+.legal-content-wrapper .card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: transparent;
+}
+
+/* Introduction */
+.legal-intro {
+    background: linear-gradient(135deg, var(--light-blue), var(--white));
+    border-left: 40px solid black;
+}
+
+.legal-intro p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--dark-gray);
+    margin-bottom: var(--space-md);
+}
+
+/* Policy Sections */
+.policy-section {
+    scroll-margin-top: 100px;
+}
+
+.policy-section h2 {
+    font-size: 1.8rem;
+    color: var(--dark-blue);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--light-gray);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.policy-section h2 i {
+    color: var(--primary-blue);
+    font-size: 1.8rem;
+}
+
+.policy-section h3 {
+    font-size: 1.3rem;
+    color: var(--primary-blue);
+    margin: var(--space-lg) 0 var(--space-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.policy-section h3 i {
+    color: var(--primary-orange);
+    font-size: 1.2rem;
+}
+
+.policy-section p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--medium-gray);
+    margin-bottom: var(--space-md);
+}
+
+/* Styled Lists */
+.styled-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-lg);
+}
+
+.styled-list li {
+    padding: 8px 0 8px 28px;
+    color: var(--medium-gray);
+    font-size: 1rem;
+    line-height: 1.6;
+    position: relative;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.styled-list li:last-child {
+    border-bottom: none;
+}
+
+.styled-list li i {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: var(--primary-green);
+    font-size: 0.9rem;
+}
+
+.styled-list li strong {
+    color: var(--dark-blue);
+    font-weight: 600;
+}
+
+/* Contact List */
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-md) 0 0;
+}
+
+.contact-list li {
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    border-bottom: 1px solid var(--light-gray);
+    font-size: 1.1rem;
+}
+
+.contact-list li:last-child {
+    border-bottom: none;
+}
+
+.contact-list li i {
+    width: 24px;
+    color: var(--primary-blue);
+    font-size: 1.2rem;
+}
+
+.contact-list li strong {
+    color: var(--dark-blue);
+    min-width: 80px;
+}
+
+.contact-list li a {
+    color: var(--medium-gray);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.contact-list li a:hover {
+    color: var(--primary-orange);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .legal-hero {
+        padding: 80px 0 40px;
+    }
+    
+    .legal-content-wrapper .card {
+        padding: var(--space-lg);
+    }
+    
+    .policy-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .policy-section h3 {
+        font-size: 1.2rem;
+    }
+    
+    .contact-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+    
+    .contact-list li i {
+        width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .legal-hero-content h1 {
+        flex-direction: column;
+        gap: var(--space-xs);
+    }
+    
+    .legal-content-wrapper .card {
+        padding: var(--space-md);
+    }
+    
+    .policy-section h2 {
+        font-size: 1.3rem;
+    }
+    
+    .styled-list li {
+        padding-left: 24px;
+        font-size: 0.95rem;
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    .legal-hero {
+        background: none;
+        padding: 2rem 0;
+    }
+    
+    .legal-content-wrapper .card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+    }
+    
+    .policy-section h2 i,
+    .policy-section h3 i,
+    .styled-list li i {
+        display: none;
+    }
+}
+
+/* ============================================
    17. RESPONSIVE BREAKPOINTS
    ============================================ */
 
