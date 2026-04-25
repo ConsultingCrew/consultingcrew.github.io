@@ -3405,3 +3405,125 @@ img {
         grid-template-columns: 1fr;
     }
 }
+
+/* ============================================
+   GLOBAL RESPONSIVE TYPOGRAPHY & SPACING
+   ============================================ */
+@media (max-width: 992px) {
+  h1 { font-size: 2.4rem; }
+  h2 { font-size: 1.9rem; }
+  h3 { font-size: 1.6rem; }
+  h4 { font-size: 1.3rem; }
+  .section { padding: var(--space-lg) 0; }
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.6rem; }
+  h3 { font-size: 1.4rem; }
+  .section { padding: var(--space-md) 0; }
+}
+
+/* ============================================
+   HOME PAGE RESPONSIVE
+   ============================================ */
+@media (max-width: 992px) {
+  .hero-home {
+    padding: 100px 0 0 0;
+    min-height: auto;
+  }
+  .hero-home .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-home-title {
+    font-size: 2.2rem;
+  }
+  .hero-home-description {
+    max-width: 100%;
+  }
+  .floating-shapes {
+    display: none;
+  }
+
+  .introduction {
+    padding: var(--space-lg) var(--space-md);
+  }
+  .intro-content h3 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .edge-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .step-line {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-home-title {
+    font-size: 1.8rem;
+  }
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-cta .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .edge-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   INSIGHTS HERO HEADING
+   ============================================ */
+@media (max-width: 768px) {
+  .insights-hero .hero-title {
+    font-size: 2rem;                /* override h1 inheritance */
+  }
+}
+
+/* ============================================
+   ETHICS & CSR HEADING SCALING
+   ============================================ */
+@media (max-width: 768px) {
+  .ethics-hero h1,
+  .csr-hero h1 {
+    font-size: 2rem;
+  }
+}
+
+/* ============================================
+   ETHICS / CSR GRID CONSISTENCY
+   ============================================ */
+@media (max-width: 768px) {
+  .ethics-grid-4,
+  .csr-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+/* (Remove or adjust the existing 600px breakpoint if you prefer 768px) */
+
+/* ============================================
+   GENERIC COMPONENT TWEAKS
+   ============================================ */
+@media (max-width: 480px) {
+  .client-logo {
+    min-height: 100px;
+  }
+  .post-image {
+    height: 200px;
+  }
+  .blog-post-content h2 {
+    font-size: 1.6rem;
+  }
+  .blog-post-content h3 {
+    font-size: 1.3rem;
+  }
+}
