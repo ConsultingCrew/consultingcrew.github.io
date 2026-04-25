@@ -32,9 +32,6 @@ const debounce = (func, wait) => {
     };
 };
 
-/**
- * Throttle function for scroll events
- */
 const throttle = (func, limit) => {
     let inThrottle;
     let lastResult;
@@ -48,11 +45,8 @@ const throttle = (func, limit) => {
     };
 };
 
-
 const safeRemoveElement = (element) => {
     if (!element) return;
-    
-    // Clone and replace to remove all event listeners
     const newElement = element.cloneNode(true);
     if (element.parentNode) {
         element.parentNode.replaceChild(newElement, element);
@@ -60,11 +54,10 @@ const safeRemoveElement = (element) => {
     return newElement;
 };
 
-
 const showLoadingPlaceholders = () => {
     const headerContainer = document.getElementById('header-container');
     const footerContainer = document.getElementById('footer-container');
-    
+
     if (headerContainer && !headerContainer.innerHTML.trim()) {
         headerContainer.innerHTML = `
             <div class="loading-placeholder" 
@@ -75,7 +68,7 @@ const showLoadingPlaceholders = () => {
             </div>
         `;
     }
-    
+
     if (footerContainer && !footerContainer.innerHTML.trim()) {
         footerContainer.innerHTML = `
             <div class="loading-placeholder" 
@@ -94,39 +87,28 @@ const showLoadingPlaceholders = () => {
 
 const loadComponent = async (containerId, filePath, retries = 3) => {
     const container = document.getElementById(containerId);
-    
     if (!container) {
         console.warn(`Container #${containerId} not found`);
         return false;
     }
-    
+
     for (let attempt = 1; attempt <= retries; attempt++) {
         try {
             const response = await fetch(filePath, {
                 cache: 'default',
-                headers: {
-                    'Cache-Control': 'max-age=3600'
-                }
+                headers: { 'Cache-Control': 'max-age=3600' }
             });
-            
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const html = await response.text();
             container.innerHTML = html;
-            
-            // Dispatch event for component loaded
+
             window.dispatchEvent(new CustomEvent('componentLoaded', { 
                 detail: { containerId, filePath, success: true }
             }));
-            
             console.log(`✓ Component loaded: ${containerId}`);
             return true;
-            
         } catch (error) {
             console.error(`Attempt ${attempt}/${retries} - Error loading ${filePath}:`, error);
-            
             if (attempt === retries) {
                 container.innerHTML = createFallbackComponent(containerId);
                 window.dispatchEvent(new CustomEvent('componentLoaded', { 
@@ -134,19 +116,14 @@ const loadComponent = async (containerId, filePath, retries = 3) => {
                 }));
                 return false;
             }
-            
-            // Wait before retry (exponential backoff)
             await new Promise(resolve => setTimeout(resolve, 1000 * attempt));
         }
     }
-    
     return false;
 };
 
-
 const createFallbackComponent = (containerId) => {
     const currentYear = new Date().getFullYear();
-    
     if (containerId === 'header-container') {
         return `
             <header class="main-header fallback-header" role="banner">
@@ -173,7 +150,6 @@ const createFallbackComponent = (containerId) => {
             </header>
         `;
     }
-    
     if (containerId === 'footer-container') {
         return `
             <footer class="main-footer fallback-footer" role="contentinfo">
@@ -190,19 +166,13 @@ const createFallbackComponent = (containerId) => {
             </footer>
         `;
     }
-    
     return '<div class="component-error">Component failed to load</div>';
 };
 
-
 const ensureFontAwesome = () => {
-    if (document.querySelector('link[href*="font-awesome"], link[href*="fontawesome"]')) {
-        return; // Already loaded
-    }
-    
-    // Check if already added to avoid duplicates
+    if (document.querySelector('link[href*="font-awesome"], link[href*="fontawesome"]')) return;
     if (window.__fontAwesomeLoaded) return;
-    
+
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
@@ -221,30 +191,23 @@ const ensureFontAwesome = () => {
 let mobileMenuCleanup = null;
 
 const initMobileMenu = () => {
-    // Clean up existing instance
     if (mobileMenuCleanup) {
         mobileMenuCleanup();
         mobileMenuCleanup = null;
     }
-    
+
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
-    
     if (!menuToggle || !navMenu) return;
-    
-    // Clean up old event listeners by cloning
+
     const newMenuToggle = safeRemoveElement(menuToggle);
     const newNavMenu = document.querySelector('.nav-menu');
-    
     if (!newMenuToggle || !newNavMenu) return;
-    
-    // Track state
+
     let isMenuOpen = false;
-    
-    // Toggle function
+
     const toggleMenu = (shouldOpen = !isMenuOpen) => {
         isMenuOpen = shouldOpen;
-        
         if (isMenuOpen) {
             newNavMenu.classList.add('active');
             newMenuToggle.classList.add('active');
@@ -257,45 +220,37 @@ const initMobileMenu = () => {
             document.body.style.overflow = '';
         }
     };
-    
-    // Click handler
+
     const handleToggleClick = (e) => {
         e.preventDefault();
         e.stopPropagation();
         toggleMenu();
     };
-    
-    // Close menu when clicking on nav links
+
     const handleNavLinkClick = () => {
-        if (isMenuOpen) {
-            toggleMenu(false);
-        }
+        if (isMenuOpen) toggleMenu(false);
     };
-    
-    // Close menu on escape key
+
     const handleKeyDown = (e) => {
         if (e.key === 'Escape' && isMenuOpen) {
             toggleMenu(false);
             newMenuToggle.focus();
         }
     };
-    
-    // Handle resize (close menu on desktop)
+
     const handleResize = debounce(() => {
         if (window.innerWidth > CONFIG.MOBILE_BREAKPOINT && isMenuOpen) {
             toggleMenu(false);
         }
     }, CONFIG.RESIZE_DEBOUNCE_MS);
-    
-    // Add event listeners
+
     newMenuToggle.addEventListener('click', handleToggleClick);
     newNavMenu.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', handleNavLinkClick);
     });
     document.addEventListener('keydown', handleKeyDown);
     window.addEventListener('resize', handleResize);
-    
-    // Store cleanup function
+
     mobileMenuCleanup = () => {
         newMenuToggle.removeEventListener('click', handleToggleClick);
         newNavMenu.querySelectorAll('.nav-link').forEach(link => {
@@ -307,67 +262,56 @@ const initMobileMenu = () => {
     };
 };
 
-
 let dropdownCleanup = null;
 
 const initDropdowns = () => {
-    // Clean up existing instance
     if (dropdownCleanup) {
         dropdownCleanup();
         dropdownCleanup = null;
     }
-    
+
     const dropdowns = document.querySelectorAll('.dropdown');
     if (!dropdowns.length) return;
-    
+
     const cleanupFunctions = [];
     const isMobile = () => window.innerWidth <= CONFIG.MOBILE_BREAKPOINT;
-    
+
     dropdowns.forEach(dropdown => {
         const toggle = dropdown.querySelector('.dropdown-toggle');
         const menu = dropdown.querySelector('.dropdown-menu');
-        
         if (!toggle || !menu) return;
-        
+
         let isOpen = false;
         let hoverTimeout = null;
-        
+
         const openDropdown = () => {
             if (isOpen) return;
             isOpen = true;
             dropdown.classList.add('open');
             toggle.setAttribute('aria-expanded', 'true');
         };
-        
+
         const closeDropdown = () => {
             if (!isOpen) return;
             isOpen = false;
             dropdown.classList.remove('open');
             toggle.setAttribute('aria-expanded', 'false');
         };
-        
-        // Desktop hover handlers
+
         const handleMouseEnter = () => {
             if (hoverTimeout) clearTimeout(hoverTimeout);
-            if (!isMobile()) {
-                openDropdown();
-            }
+            if (!isMobile()) openDropdown();
         };
-        
+
         const handleMouseLeave = () => {
             if (hoverTimeout) clearTimeout(hoverTimeout);
-            if (!isMobile()) {
-                hoverTimeout = setTimeout(closeDropdown, 150);
-            }
+            if (!isMobile()) hoverTimeout = setTimeout(closeDropdown, 150);
         };
-        
-        // Mobile click handler
+
         const handleToggleClick = (e) => {
             if (isMobile()) {
                 e.preventDefault();
                 e.stopPropagation();
-                
-                // Close other dropdowns
                 dropdowns.forEach(d => {
                     if (d !== dropdown && d.classList.contains('open')) {
                         const otherToggle = d.querySelector('.dropdown-toggle');
@@ -375,37 +319,25 @@ const initDropdowns = () => {
                         if (otherToggle) otherToggle.setAttribute('aria-expanded', 'false');
                     }
                 });
-                
-                if (isOpen) {
-                    closeDropdown();
-                } else {
-                    openDropdown();
-                }
+                isOpen ? closeDropdown() : openDropdown();
             }
         };
-        
-        // Keyboard navigation
+
         const handleKeyDown = (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                if (isOpen) {
-                    closeDropdown();
-                } else {
-                    openDropdown();
-                }
+                isOpen ? closeDropdown() : openDropdown();
             } else if (e.key === 'Escape' && isOpen) {
                 closeDropdown();
                 toggle.focus();
             }
         };
-        
-        // Add event listeners
+
         dropdown.addEventListener('mouseenter', handleMouseEnter);
         dropdown.addEventListener('mouseleave', handleMouseLeave);
         toggle.addEventListener('click', handleToggleClick);
         toggle.addEventListener('keydown', handleKeyDown);
-        
-        // Store cleanup
+
         cleanupFunctions.push(() => {
             dropdown.removeEventListener('mouseenter', handleMouseEnter);
             dropdown.removeEventListener('mouseleave', handleMouseLeave);
@@ -414,8 +346,7 @@ const initDropdowns = () => {
             if (hoverTimeout) clearTimeout(hoverTimeout);
         });
     });
-    
-    // Close dropdowns when clicking outside
+
     const handleOutsideClick = (e) => {
         if (!e.target.closest('.dropdown')) {
             dropdowns.forEach(dropdown => {
@@ -425,16 +356,11 @@ const initDropdowns = () => {
             });
         }
     };
-    
     document.addEventListener('click', handleOutsideClick);
-    cleanupFunctions.push(() => {
-        document.removeEventListener('click', handleOutsideClick);
-    });
-    
-    // Handle resize (reinitialize for new screen size)
+    cleanupFunctions.push(() => document.removeEventListener('click', handleOutsideClick));
+
     const handleResize = debounce(() => {
         if (window.innerWidth > CONFIG.MOBILE_BREAKPOINT) {
-            // Close all dropdowns on desktop
             dropdowns.forEach(dropdown => {
                 dropdown.classList.remove('open');
                 const toggle = dropdown.querySelector('.dropdown-toggle');
@@ -442,104 +368,80 @@ const initDropdowns = () => {
             });
         }
     }, CONFIG.RESIZE_DEBOUNCE_MS);
-    
     window.addEventListener('resize', handleResize);
-    cleanupFunctions.push(() => {
-        window.removeEventListener('resize', handleResize);
-    });
-    
-    // Store master cleanup
-    dropdownCleanup = () => {
-        cleanupFunctions.forEach(cleanup => cleanup());
-    };
-};
+    cleanupFunctions.push(() => window.removeEventListener('resize', handleResize));
 
+    dropdownCleanup = () => cleanupFunctions.forEach(cleanup => cleanup());
+};
 
 let scrollCleanup = null;
 
 const initStickyHeader = () => {
-    // Clean up existing instance
     if (scrollCleanup) {
         scrollCleanup();
         scrollCleanup = null;
     }
-    
+
     const header = document.querySelector('.main-header');
-    if (!header) {
-        console.warn('Header not found for sticky functionality');
-        return;
-    }
-    
-    // Ensure header is always visible
+    if (!header) return;
+
     header.classList.add('header-visible');
     header.classList.remove('header-hidden');
-    
+
     let ticking = false;
     let lastScrollY = 0;
     let isVisible = true;
-    
-    // Handle scroll for background change and hide/show
+
     const handleScroll = () => {
         const currentScrollY = window.pageYOffset;
-        
-        // Update scrolled class for background (always active)
+
         if (currentScrollY > CONFIG.SCROLL_THRESHOLD) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
-        
-        // Hide/show header on scroll (only below threshold)
+
         if (currentScrollY > 200) {
             const scrollingDown = currentScrollY > lastScrollY;
-            
             if (scrollingDown && isVisible) {
-                // Scrolling down - hide header
                 header.style.transform = 'translateY(-100%)';
                 isVisible = false;
                 header.classList.add('header-hidden');
                 header.classList.remove('header-visible');
             } else if (!scrollingDown && !isVisible) {
-                // Scrolling up - show header
                 header.style.transform = 'translateY(0)';
                 isVisible = true;
                 header.classList.remove('header-hidden');
                 header.classList.add('header-visible');
             }
         } else if (!isVisible) {
-            // Near top - ensure header is visible
             header.style.transform = 'translateY(0)';
             isVisible = true;
             header.classList.remove('header-hidden');
             header.classList.add('header-visible');
         }
-        
+
         lastScrollY = currentScrollY;
         ticking = false;
     };
-    
+
     const throttledScroll = throttle(() => {
         if (!ticking) {
             requestAnimationFrame(handleScroll);
             ticking = true;
         }
-    }, 16); // ~60fps
-    
+    }, 16);
+
     window.addEventListener('scroll', throttledScroll, { passive: true });
-    
-    // Initial check
     handleScroll();
-    
-    // Update body padding when header height changes
+
     const updateBodyPadding = () => {
         const headerHeight = header.offsetHeight;
         document.body.style.paddingTop = `${headerHeight}px`;
     };
-    
     const resizeObserver = new ResizeObserver(debounce(updateBodyPadding, 100));
     resizeObserver.observe(header);
-    
-    // Store cleanup
+
     scrollCleanup = () => {
         window.removeEventListener('scroll', throttledScroll);
         resizeObserver.disconnect();
@@ -548,12 +450,9 @@ const initStickyHeader = () => {
     };
 };
 
-
 const initActiveLinks = () => {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    navLinks.forEach(link => {
+    document.querySelectorAll('.nav-link').forEach(link => {
         const href = link.getAttribute('href');
         if (href === currentPage || (currentPage === '' && href === 'index.html')) {
             link.classList.add('active');
@@ -563,9 +462,6 @@ const initActiveLinks = () => {
     });
 };
 
-/**
- * Set current year in footer
- */
 const initCurrentYear = () => {
     const yearElement = document.getElementById('current-year');
     if (yearElement && !yearElement.textContent) {
@@ -583,61 +479,43 @@ let componentsLoaded = false;
 const loadComponents = async () => {
     try {
         showLoadingPlaceholders();
-        
-        // Load components in parallel with error handling
+
         const [headerLoaded, footerLoaded] = await Promise.all([
             loadComponent('header-container', COMPONENT_PATHS.header),
             loadComponent('footer-container', COMPONENT_PATHS.footer)
         ]);
-        
+
         componentsLoaded = headerLoaded && footerLoaded;
-        
-        // Ensure Font Awesome is available
         ensureFontAwesome();
-        
-        // Initialize header functionality after components are loaded
+
         if (componentsLoaded) {
             setTimeout(() => {
-                // Clean up existing before reinitializing
                 if (isInitialized) {
                     if (mobileMenuCleanup) mobileMenuCleanup();
                     if (dropdownCleanup) dropdownCleanup();
                     if (scrollCleanup) scrollCleanup();
                 }
-                
                 initMobileMenu();
                 initDropdowns();
                 initStickyHeader();
                 initActiveLinks();
                 initCurrentYear();
-                
                 isInitialized = true;
             }, 100);
         }
-        
-        // Dispatch event when all components are loaded
+
         window.dispatchEvent(new CustomEvent('componentsLoaded', {
             detail: { success: componentsLoaded, headerLoaded, footerLoaded }
         }));
-        
         console.log(`✓ Components loaded: Header=${headerLoaded}, Footer=${footerLoaded}`);
-        
     } catch (error) {
         console.error('✗ Error loading components:', error);
-        
         window.dispatchEvent(new CustomEvent('componentsLoaded', {
             detail: { success: false, error: error.message }
         }));
     }
 };
 
-// ============================================
-// CLEANUP ON PAGE UNLOAD
-// ============================================
-
-/**
- * Clean up all event listeners and observers
- */
 const cleanupAll = () => {
     if (mobileMenuCleanup) mobileMenuCleanup();
     if (dropdownCleanup) dropdownCleanup();
@@ -645,28 +523,17 @@ const cleanupAll = () => {
     isInitialized = false;
 };
 
-// Listen for page unload to clean up
 window.addEventListener('beforeunload', cleanupAll);
-
-// Also clean up on page hide (for bfcache)
 document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-        cleanupAll();
-    }
+    if (document.hidden) cleanupAll();
 });
 
-// ============================================
-// INITIALIZATION
-// ============================================
-
-// Initialize on DOM ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', loadComponents);
 } else {
     loadComponents();
 }
 
-// Re-initialize on dynamic navigation (for SPA-like behavior)
 window.addEventListener('popstate', () => {
     setTimeout(() => {
         if (componentsLoaded) {
@@ -675,32 +542,6 @@ window.addEventListener('popstate', () => {
         }
     }, 100);
 });
-
-// ============================================
-// EXPORTS (for module environments)
-// ============================================
-
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        loadComponents,
-        loadComponent,
-        createFallbackComponent,
-        initMobileMenu,
-        initDropdowns,
-        initStickyHeader,
-        initActiveLinks,
-        initCurrentYear,
-        ensureFontAwesome,
-        debounce,
-        throttle,
-        cleanupAll,
-        CONFIG
-    };
-}
-
-// ============================================
-// GLOBAL API (for browser)
-// ============================================
 
 window.ConsultingCrew = window.ConsultingCrew || {};
 window.ConsultingCrew.HeaderFooter = {
@@ -712,7 +553,6 @@ window.ConsultingCrew.HeaderFooter = {
     getConfig: () => ({ ...CONFIG })
 };
 
-// Add loading animation styles if not present
 if (!document.getElementById('header-footer-styles')) {
     const style = document.createElement('style');
     style.id = 'header-footer-styles';
@@ -721,7 +561,6 @@ if (!document.getElementById('header-footer-styles')) {
             0% { background-position: 200% 0; }
             100% { background-position: -200% 0; }
         }
-        
         .sr-only {
             position: absolute;
             width: 1px;
@@ -732,19 +571,15 @@ if (!document.getElementById('header-footer-styles')) {
             clip: rect(0, 0, 0, 0);
             border: 0;
         }
-        
         .main-header {
             transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
         }
-        
         .main-header.header-hidden {
             transform: translateY(-100%);
         }
-        
         .main-header.header-visible {
             transform: translateY(0);
         }
-        
         .component-error {
             padding: 2rem;
             text-align: center;
