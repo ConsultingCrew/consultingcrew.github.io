@@ -130,6 +130,7 @@ img {
 /* Utility Classes */
 .text-center { text-align: center; }
 .text-right { text-align: right; }
+.text-darkgray {color: var(--dark-gray);}
 
 .mt-1 { margin-top: var(--space-sm); }
 .mt-2 { margin-top: var(--space-md); }
