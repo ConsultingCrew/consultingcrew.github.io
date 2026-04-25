@@ -2260,6 +2260,7 @@ img {
     min-height: auto;
     min-height: 63vh;
 }
+
 .insights-hero .hero-title {
     color: var(--dark-blue);
     background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
