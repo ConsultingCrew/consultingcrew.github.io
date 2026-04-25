@@ -5491,8 +5491,16 @@ img {
     min-height: auto;
 }
 
+.insights-hero p,
+.blog-post-hero p{
+    color: var(--dark-gray);
+}
 .blog-post-hero {
     padding: 120px 0 60px;
+}
+
+.blog-post-hero h1 {
+    font-size: 3rem;
 }
 
 /* Post meta styles */
