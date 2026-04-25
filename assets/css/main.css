@@ -3271,7 +3271,14 @@ img {
 /* ============================================
    INTERNAL PAGES – ETHICS, CSR, TEAM
    ============================================ */
-
+/* Generic hero block – used on CSR and any future page */
+.hero {
+    padding: var(--space-2xl) 0;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
 /* ----- Background Utility (used on ethics/csr) ----- */
 .bg-light-gray {
     background-color: var(--light-gray);
