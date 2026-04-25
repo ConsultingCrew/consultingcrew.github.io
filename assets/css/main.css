@@ -3824,7 +3824,7 @@ img {
 }
 
 .insights-hero .hero-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(1.5rem, 5vw, 3.5rem);
     line-height: 1.2;
     margin-bottom: var(--space-sm);
     background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
@@ -4123,7 +4123,7 @@ img {
 }
 
 .blog-post-content h2 {
-    font-size: 1.9rem;
+    font-size: 1.4rem;
     margin-top: var(--space-xl);
     margin-bottom: var(--space-md);
     color: var(--dark-blue);
@@ -5492,6 +5492,10 @@ img {
     min-height: auto;
 }
 
+.insights-hero h1 {
+    font-size: 1rem;
+}
+
 .insights-hero p,
 .blog-post-hero p{
     color: var(--dark-gray);
@@ -5501,7 +5505,7 @@ img {
 }
 
 .blog-post-hero h1 {
-    font-size: 3rem;
+    font-size: 0.3rem;
 }
 
 /* Post meta styles */
