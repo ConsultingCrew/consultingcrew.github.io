@@ -1,34 +1,5 @@
-/* ============================================
-   CONSULTING CREW - MASTER CSS v4.0
-   ============================================
-   TABLE OF CONTENTS:
-   1. VARIABLES & BASE STYLES
-   2. UTILITIES & HELPERS
-   3. TYPOGRAPHY & LINKS
-   4. BUTTONS & FORMS
-   5. GRID & LAYOUT
-   6. HEADER & NAVIGATION
-   7. FOOTER
-   8. HERO SECTIONS
-   9. CTA SECTIONS
-   10. CARDS & COMPONENTS
-   11. ANIMATIONS
-   12. HOME PAGE
-   13. ABOUT PAGE
-   14. SERVICES PAGE
-   15. PORTFOLIO PAGE
-   16. CONTACT & FORMS
-   17. LEGAL PAGES
-   18. INSIGHTS & BLOG (MAIN)
-   19. INSIGHTS ARTICLE CONTENT
-   20. RESPONSIVE BREAKPOINTS
-   21. PRINT STYLES
-   22. ACCESSIBILITY
-   ============================================ */
-
-/* ============================================
-   1. VARIABLES & BASE STYLES
-   ============================================ */
+ /* ===============================
+   VARIABLES & BASE STYLES =============================== */
 
 :root {
     /* Brand Colors */
@@ -113,7 +84,7 @@ body.header-scrolled {
 }
 
 /* ============================================
-   2. UTILITIES & HELPERS
+   UTILITIES & HELPERS
    ============================================ */
 
 .container {
@@ -919,11 +890,10 @@ img {
     margin: 0 auto;
 }
 
-/* ============================================
-   ABOUT.CSS - About Page Styles
-   ============================================ */
+/* =======================
+ About Us Page Styles
+   ============================= */
 
-/* ===== ABOUT HERO ===== */
 .about-hero {
     padding: 160px 0 100px;
     position: relative;
@@ -1658,9 +1628,9 @@ img {
 
 
 
-/* ============================================
+/* ===============================
    8. CTA SECTIONS
-   ============================================ */
+   ============================= */
 
 .cta {
     position: relative;
@@ -1773,7 +1743,7 @@ img {
     font-style: italic;
     color: var(--dark-blue);
     margin: 0;
-    padding-left: 40px;
+    padding: 40px;
 }
 .quote-box p::before {
     content: '"';
@@ -2042,8 +2012,7 @@ img {
 }
 
 /* ============================================
-   12. HOME PAGE STYLES
-   ============================================ */
+   HOME PAGE STYLES ============================================ */
 
 .hero-home {
     padding: 140px 0 0 72px;
@@ -2248,11 +2217,10 @@ img {
     text-align: center;
 }
 
-/* ============================================
-   13. INSIGHTS & BLOG (MAIN PAGE)
-   ============================================ */
+/* ≈=============================
+   INSIGHTS & BLOG (MAIN PAGE)
+================================= */
 
-/* Insights Hero */
 .insights-hero {
     padding: 120px 0 60px;
     background: linear-gradient(135deg, rgba(6, 74, 163, 0.05) 0%, rgba(255, 255, 255, 1) 100%);
