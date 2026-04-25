@@ -18,7 +18,6 @@
    14. BACK TO TOP & SKIP LINKS
    15. PRINT STYLES
    16. ACCESSIBILITY & DARK MODE
-   17. INTERNAL PAGES – ETHICS, CSR, TEAM
    ============================================ */
 
 
@@ -206,20 +205,6 @@ img {
     font-size: 1.1rem;
     max-width: 700px;
     margin: var(--space-md) auto 0;
-}
-
-/* Generic hero – used on CSR & similar pages */
-.hero {
-    padding: var(--space-2xl) 0;
-    min-height: 40vh;
-    display: flex;
-    align-items: center;
-    text-align: center;
-}
-
-/* Highlight utility (e.g., Ethics heading) */
-.highlight {
-    color: var(--primary-orange);
 }
 
 
@@ -1139,6 +1124,9 @@ img {
     font-size: 0.8rem;
     border-radius: var(--radius-md);
 }
+
+/* Keep original per‑page button styles, but scope them to avoid cross‑page leakage.
+   (already done inside Services, Portfolio, Insights sections below) */
 
 
 /* ----- MOBILE DROPDOWN (shared) ----- */
@@ -3281,10 +3269,10 @@ img {
 
 
 /* ============================================
-   17. INTERNAL PAGES – ETHICS, CSR, TEAM
+   INTERNAL PAGES – ETHICS, CSR, TEAM
    ============================================ */
 
-/* Background Utility (used on ethics/csr) */
+/* ----- Background Utility (used on ethics/csr) ----- */
 .bg-light-gray {
     background-color: var(--light-gray);
 }
@@ -3296,6 +3284,7 @@ img {
     text-align: center;
 }
 
+/* Ethics Grid */
 .ethics-grid-4 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -3328,6 +3317,7 @@ img {
     color: var(--primary-blue);
 }
 
+/* Principles list */
 .principles-list {
     list-style: none;
     padding: 0;
@@ -3400,17 +3390,16 @@ img {
     text-align: center;
 }
 
-/* ----- TEAM PAGE (with generic .about-hero already provided) ----- */
-/* Additional team-specific styles can be added here in the future */
+/* ----- TEAM PAGE (already uses .about-hero, .values-section; no extra classes needed) ----- */
 
-/* Responsive: ethics & CSR grids */
+/* ----- Responsive Overrides for Ethics & CSR ----- */
 @media (max-width: 992px) {
     .ethics-grid-4,
     .csr-grid-4 {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .ethics-grid-4,
     .csr-grid-4 {
         grid-template-columns: 1fr;
