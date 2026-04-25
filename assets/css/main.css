@@ -2763,7 +2763,7 @@ img {
 
 .service-hero .hero-title {
     font-size: 3rem;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xl);
     background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
