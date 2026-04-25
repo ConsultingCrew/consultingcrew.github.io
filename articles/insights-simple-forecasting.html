@@ -6,41 +6,31 @@
     <title>Simple Forecasting Techniques for Small Business: Predict Sales Without a PhD | Consulting Crew</title>
     <meta name="description" content="You don't need a data science degree to predict sales. Learn three easy forecasting methods that help small businesses plan better, reduce risk, and grow confidently.">
     
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Main CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
-    
-    <!-- Favicon -->
     <link rel="icon" href="assets/images/logo.png">
 </head>
 <body>
-
     <div id="header-container"></div>
 
-    <!-- Breadcrumbs -->
     <div class="breadcrumbs">
         <div class="container">
             <ol>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="insights.html">Insights</a></li>
-                <li class="current" aria-current="page">Forecasting for Small Business</li>
+                <li class="current">Forecasting for Small Business</li>
             </ol>
         </div>
     </div>
 
-    <!-- Blog Post Hero -->
-    <section class="hero insights-hero" style="padding: 120px 0 60px;">
+    <section class="hero insights-hero">
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title animate-left">Simple Forecasting Techniques for Small Business</h1>
                 <p class="hero-subtitle animate-left" style="animation-delay: 0.1s">You don't need a PhD to predict sales. Here are three easy methods to plan better.</p>
                 <div class="post-meta animate-fade" style="animation-delay: 0.2s">
-                    <span class="post-category">Data & Intelligence</span>
+                    <span class="post-category">Data & Analytics</span>
                     <span class="post-date"><i class="far fa-calendar-alt"></i> April 25, 2026</span>
                     <span class="post-read-time"><i class="far fa-clock"></i> 5 min read</span>
                 </div>
@@ -48,205 +38,86 @@
         </div>
     </section>
 
-    <!-- Article Content -->
     <section class="section blog-post-content">
         <div class="container">
             <article>
-                <!-- Lead hook -->
-                <p style="font-size: 1.3rem; font-weight: 500; color: var(--dark-blue); border-left: 4px solid var(--primary-orange); padding-left: 1.5rem; margin-bottom: 2rem;">
-                    Forecasting feels like a superpower reserved for big corporations with armies of data scientists. But here's the truth: <strong>small businesses can predict their future with surprising accuracy using nothing more than a spreadsheet and common sense.</strong>
-                </p>
+                <p class="article-lead">Forecasting feels like a superpower reserved for big corporations with armies of data scientists. But here's the truth: <strong>small businesses can predict their future with surprising accuracy using nothing more than a spreadsheet and common sense.</strong></p>
                 
-                <p>According to a study by the Small Business Administration, <strong>only 40% of small businesses use any formal forecasting method</strong>. The rest fly blind – ordering too much inventory, hiring too late, or missing growth opportunities. The good news? You don't need complex algorithms. These three techniques work with the data you already have.</p>
+                <p>According to a study by the Small Business Administration, <strong>only 40% of small businesses use any formal forecasting method</strong>. The rest fly blind – ordering too much inventory, hiring too late, or missing growth opportunities.</p>
 
-                <!-- Section 1: Why Forecast? -->
                 <h2><i class="fas fa-question-circle"></i> Why Bother Forecasting?</h2>
-                <p>If you've ever asked yourself any of these questions, you need a forecast:</p>
                 <ul class="styled-list">
                     <li><i class="fas fa-boxes"></i> "How much inventory should I order next month?"</li>
                     <li><i class="fas fa-users"></i> "Do I need to hire another person, or can we wait?"</li>
                     <li><i class="fas fa-chart-line"></i> "Will I have enough cash to cover expenses in Q4?"</li>
                     <li><i class="fas fa-bullhorn"></i> "Is this new marketing campaign actually working?"</li>
                 </ul>
-                <div class="quote-box" style="background: var(--light-blue);">
-                    <p style="font-style: normal;"><strong>📊 The bottom line:</strong> Forecasting doesn't have to be perfect. It just has to be <strong>better than guessing</strong> – which is what most small businesses are doing right now.</p>
+                <div class="quote-box">
+                    <p><strong>📊 The bottom line:</strong> Forecasting doesn't have to be perfect. It just has to be <strong>better than guessing</strong> – which is what most small businesses are doing right now.</p>
                 </div>
 
-                <!-- Section 2: Method 1 - Historical Average -->
-                <h2><i class="fas fa-calendar-alt"></i> Method 1: The Historical Average (The "What Happened Last Year?" Method)</h2>
-                <p>This is the simplest forecasting method – perfect for businesses with at least 12 months of sales history.</p>
-                
-                <div class="card" style="background: var(--light-gray); margin-bottom: 1.5rem;">
-                    <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem;"><i class="fas fa-calculator"></i> How it works:</h3>
+                <h2><i class="fas fa-calendar-alt"></i> Method 1: The Historical Average</h2>
+                <div class="card-gray">
+                    <h4><i class="fas fa-calculator"></i> How it works:</h4>
                     <p><strong>Step 1:</strong> Take your sales from the same month last year.<br>
-                    <strong>Step 2:</strong> Adjust for any known changes (price increases, new competitors, market trends).<br>
+                    <strong>Step 2:</strong> Adjust for known changes (price increases, new competitors).<br>
                     <strong>Step 3:</strong> That's your forecast.</p>
-                    <p style="margin-top: 1rem; background: var(--white); padding: 1rem; border-radius: var(--radius-md);"><strong>Example:</strong> You sold $25,000 in March last year. You've since raised prices by 10% and added a new marketing channel. Your March forecast = $25,000 × 1.10 × 1.05 = <strong>$28,875</strong>.</p>
+                    <p><strong>Example:</strong> You sold $25,000 last March. Raised prices 10% + new marketing channel (5% lift). Forecast = $25,000 × 1.10 × 1.05 = <strong>$28,875</strong>.</p>
                 </div>
-                
-                <p><strong>✅ Best for:</strong> Established businesses with seasonal patterns and at least one year of data.<br>
-                <strong>⚠️ Limitation:</strong> Assumes the past predicts the future – doesn't work well during rapid growth or market shifts.</p>
+                <p><strong>✅ Best for:</strong> Established businesses with seasonal patterns.<br>
+                <strong>⚠️ Limitation:</strong> Assumes the past predicts the future.</p>
 
-                <!-- Section 3: Method 2 - Sales Pipeline (The "What's in Your Funnel?" Method) -->
-                <h2><i class="fas fa-filter"></i> Method 2: The Sales Pipeline Forecast (For B2B & Service Businesses)</h2>
-                <p>If you have a sales team with a CRM or even a simple spreadsheet of leads, this method is for you.</p>
-                
-                <div class="card" style="background: var(--light-gray); margin-bottom: 1.5rem;">
-                    <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem;"><i class="fas fa-chart-simple"></i> How it works:</h3>
-                    <p><strong>Step 1:</strong> List every active opportunity in your pipeline.<br>
-                    <strong>Step 2:</strong> Assign a probability of closing (e.g., 90% for verbal commitment, 50% for proposal sent, 20% for initial meeting).<br>
-                    <strong>Step 3:</strong> Multiply each deal value by its probability, then sum them up.</p>
-                    <p style="margin-top: 1rem; background: var(--white); padding: 1rem; border-radius: var(--radius-md);"><strong>Example:</strong> <br>• Deal A: $10,000 × 80% = $8,000<br>• Deal B: $25,000 × 40% = $10,000<br>• Deal C: $5,000 × 100% = $5,000<br><strong>Total forecast = $23,000</strong></p>
+                <h2><i class="fas fa-filter"></i> Method 2: The Sales Pipeline Forecast</h2>
+                <div class="card-gray">
+                    <h4><i class="fas fa-chart-simple"></i> How it works:</h4>
+                    <p><strong>Step 1:</strong> List every active opportunity.<br>
+                    <strong>Step 2:</strong> Assign a probability of closing.<br>
+                    <strong>Step 3:</strong> Multiply each deal value by its probability, then sum.</p>
+                    <p><strong>Example:</strong><br>• Deal A: $10,000 × 80% = $8,000<br>• Deal B: $25,000 × 40% = $10,000<br>• Deal C: $5,000 × 100% = $5,000<br><strong>Total forecast = $23,000</strong></p>
                 </div>
-                
-                <p><strong>✅ Best for:</strong> B2B, agencies, consultants, and any business with a defined sales process.<br>
-                <strong>⚠️ Limitation:</strong> Only as good as your sales team's honesty about probabilities. Build a culture of accurate tracking.</p>
+                <p><strong>✅ Best for:</strong> B2B, agencies, consultants.<br>
+                <strong>⚠️ Limitation:</strong> Only as good as your sales team's honesty about probabilities.</p>
 
-                <div class="quote-box" style="background: var(--light-orange); border-left-color: var(--primary-orange); margin: 1.5rem 0;">
-                    <p style="font-style: normal;"><strong>🎯 Pro tip:</strong> Track your win rates by stage over time. If historically 50% of "proposal sent" deals close, use that real number, not a guess.</p>
+                <div class="quote-box">
+                    <p><strong>🎯 Pro tip:</strong> Track your win rates by stage over time. If historically 50% of "proposal sent" deals close, use that real number, not a guess.</p>
                 </div>
 
-                <!-- Section 4: Method 3 - Moving Average (The "Smooth Out the Noise" Method) -->
-                <h2><i class="fas fa-chart-line"></i> Method 3: Moving Average (The "Smooth Out the Noise" Method)</h2>
-                <p>When your sales bounce around – up one month, down the next – a moving average helps you see the real trend beneath the volatility.</p>
-                
-                <div class="card" style="background: var(--light-gray); margin-bottom: 1.5rem;">
-                    <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem;"><i class="fas fa-calculator"></i> How it works (3-month moving average):</h3>
+                <h2><i class="fas fa-chart-line"></i> Method 3: Moving Average</h2>
+                <div class="card-gray">
+                    <h4><i class="fas fa-calculator"></i> How it works (3-month moving average):</h4>
                     <p><strong>Step 1:</strong> Add the last 3 months of sales.<br>
                     <strong>Step 2:</strong> Divide by 3.<br>
                     <strong>Step 3:</strong> That's your forecast for next month.</p>
-                    <p style="margin-top: 1rem; background: var(--white); padding: 1rem; border-radius: var(--radius-md);"><strong>Example:</strong> <br>January: $20,000 | February: $25,000 | March: $18,000<br>Total = $63,000 ÷ 3 = <strong>$21,000 forecast for April</strong></p>
+                    <p><strong>Example:</strong><br>January: $20,000 | February: $25,000 | March: $18,000<br>Total = $63,000 ÷ 3 = <strong>$21,000 forecast for April</strong></p>
                 </div>
-                
-                <p><strong>✅ Best for:</strong> Businesses with high monthly volatility or less than 12 months of history.<br>
-                <strong>⚠️ Limitation:</strong> Reacts slowly to sudden changes (like a huge new client or a market crash).</p>
+                <p><strong>✅ Best for:</strong> Businesses with high monthly volatility.<br>
+                <strong>⚠️ Limitation:</strong> Reacts slowly to sudden changes.</p>
 
-                <!-- Comparison Table: Which Method Should You Use? -->
-                <h2><i class="fas fa-clipboard-list"></i> Which Method Should You Use?</h2>
-                <div class="table-responsive" style="overflow-x: auto; margin: 1.5rem 0;">
-                    <table style="width: 100%; border-collapse: collapse; background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);">
-                        <thead>
-                            <tr style="background: var(--dark-blue); color: white;">
-                                <th style="padding: 1rem; text-align: left;">Your Business Type</th>
-                                <th style="padding: 1rem; text-align: left;">Best Method</th>
-                                <th style="padding: 1rem; text-align: left;">Why</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-bottom: 1px solid var(--light-gray);">
-                                <td style="padding: 1rem; font-weight: 600;">Retail / E-commerce (1+ year history)</td>
-                                <td style="padding: 1rem;">Historical Average</td>
-                                <td style="padding: 1rem;">Seasonal patterns repeat year over year</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid var(--light-gray);">
-                                <td style="padding: 1rem; font-weight: 600;">B2B / Agency / Consulting</td>
-                                <td style="padding: 1rem;">Sales Pipeline</td>
-                                <td style="padding: 1rem;">Deals take time to close – pipeline visibility is key</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid var(--light-gray);">
-                                <td style="padding: 1rem; font-weight: 600;">New business (<12 months old)</td>
-                                <td style="padding: 1rem;">Moving Average</td>
-                                <td style="padding: 1rem;">Smooths out startup volatility</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid var(--light-gray);">
-                                <td style="padding: 1rem; font-weight: 600;">High‑growth / rapid scaling</td>
-                                <td style="padding: 1rem;">Combination (Pipeline + Moving Average)</td>
-                                <td style="padding: 1rem;">Neither method alone is accurate during hockey‑stick growth</td>
-                            </tr>
-                        </tbody>
-                     </table>
-                </div>
-
-                <!-- Real-world example -->
-                <div class="card" style="background: linear-gradient(135deg, var(--light-green), var(--white)); padding: 1.5rem; margin: 1.5rem 0;">
+                <div class="card-green clearfix">
                     <i class="fas fa-chart-line" style="color: var(--primary-green); font-size: 1.8rem; float: right; margin-left: 1rem;"></i>
-                    <strong style="font-size: 1.1rem;">📈 Real-world example: The Bakery That Stopped Wasting Dough</strong>
-                    <p style="margin-top: 0.5rem;">A small bakery used to bake the same amount every day – wasting 20% of their products. We implemented a <strong>7-day moving average forecast</strong> based on daily sales. They adjusted production daily and <strong>cut waste by 65% in one month</strong>, saving over $1,200 monthly.</p>
+                    <strong>📈 Real-world example: The Bakery That Stopped Wasting Dough</strong>
+                    <p>A small bakery used a 7-day moving average forecast and <strong>cut waste by 65% in one month</strong>, saving over $1,200 monthly.</p>
                 </div>
 
-                <!-- Section 5: Making It Actionable -->
-                <h2><i class="fas fa-clipboard-check"></i> Making Your Forecast Actionable: The 3-Step Review Process</h2>
-                <p>A forecast sitting in a spreadsheet is useless. Here's how to turn it into action:</p>
-                
-                <div class="card" style="margin-bottom: 1rem;">
-                    <h3 style="color: var(--primary-blue); margin-bottom: 0.25rem;">📅 Step 1: Review weekly (30 minutes)</h3>
-                    <p>Compare actual sales to forecast. Calculate variance = (Actual - Forecast) / Forecast. If variance > 15%, investigate why.</p>
-                </div>
-                
-                <div class="card" style="margin-bottom: 1rem;">
-                    <h3 style="color: var(--primary-blue); margin-bottom: 0.25rem;">📝 Step 2: Document assumptions</h3>
-                    <p>Write down what you assumed (e.g., "No major competitors entering market," "Marketing spend remains constant"). When assumptions change, update your forecast.</p>
-                </div>
-                
-                <div class="card" style="margin-bottom: 1rem;">
-                    <h3 style="color: var(--primary-blue); margin-bottom: 0.25rem;">🔁 Step 3: Update rolling 90-day forecast</h3>
-                    <p>Don't forecast a year ahead – it'll be wrong. Maintain a rolling 90-day forecast, updating it monthly with actual results.</p>
-                </div>
-
-                <!-- Simple Excel Template -->
-                <h2><i class="fas fa-file-excel"></i> Build Your Forecast in 10 Minutes (Excel/Google Sheets)</h2>
-                <div class="table-responsive" style="overflow-x: auto; margin: 1rem 0;">
-                    <table style="width: 100%; border-collapse: collapse; background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); font-size: 0.9rem;">
-                        <thead>
-                            <tr style="background: var(--dark-blue); color: white;">
-                                <th style="padding: 0.75rem;">Column A</th>
-                                <th style="padding: 0.75rem;">Column B</th>
-                                <th style="padding: 0.75rem;">Column C</th>
-                                <th style="padding: 0.75rem;">Column D</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-bottom: 1px solid var(--light-gray);"><td style="padding: 0.75rem;">Month</td><td style="padding: 0.75rem;">Actual Sales</td><td style="padding: 0.75rem;">Forecast</td><td style="padding: 0.75rem;">Variance</td></tr>
-                            <tr style="border-bottom: 1px solid var(--light-gray);"><td style="padding: 0.75rem;">January</td><td style="padding: 0.75rem;">$22,000</td><td style="padding: 0.75rem;">$21,500</td><td style="padding: 0.75rem;">+2%</td></tr>
-                            <tr style="border-bottom: 1px solid var(--light-gray);"><td style="padding: 0.75rem;">February</td><td style="padding: 0.75rem;">$24,000</td><td style="padding: 0.75rem;">$23,000</td><td style="padding: 0.75rem;">+4%</td></tr>
-                            <tr style="border-bottom: 1px solid var(--light-gray);"><td style="padding: 0.75rem;">March</td><td style="padding: 0.75rem;">$21,000</td><td style="padding: 0.75rem;">$22,500</td><td style="padding: 0.75rem;">-7%</td></tr>
-                            <tr><td style="padding: 0.75rem;"><strong>April (forecast)</strong></td><td style="padding: 0.75rem;">—</td><td style="padding: 0.75rem;"><strong>$22,333</strong></td><td style="padding: 0.75rem;">(3-month avg)</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p style="font-size: 0.9rem; margin-top: 0.5rem;">📝 <strong>Formula for D column:</strong> `=(B2-C2)/C2` formatted as percentage.<br>
-                📝 <strong>April forecast:</strong> `=AVERAGE(B2:B4)`</p>
-
-                <!-- Conclusion -->
-                <h2><i class="fas fa-rocket"></i> Conclusion: Start Simple, Then Improve</h2>
-                <p>The best forecast is the one you actually use. Start with the simplest method that fits your business – even if it's just "last month plus 5%." As you get comfortable, layer in more sophistication: adjust for seasonality, add leading indicators, or use a weighted pipeline.</p>
-                
-                <div class="quote-box" style="background: linear-gradient(135deg, var(--light-green), var(--white)); border-left-color: var(--primary-green); margin-top: 1rem;">
-                    <p style="font-style: normal; font-weight: 600;">🔑 <strong>The bottom line:</strong> A simple, consistent forecast beats a perfect forecast that you never update. Start today with whatever data you have – even if it's just your gut plus a spreadsheet.</p>
-                </div>
-
-                <!-- CTA -->
-                <div class="card" style="background: var(--light-blue); margin-top: 2rem; text-align: center;">
+                <div class="article-cta-box">
                     <i class="fas fa-chart-line" style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 1rem;"></i>
-                    <h3 style="color: var(--dark-blue);">Want a custom forecast model for your business?</h3>
+                    <h3>Want a custom forecast model for your business?</h3>
                     <p>Consulting Crew builds simple, practical forecasting tools tailored to your industry and data availability. No PhD required – just results.</p>
-                    <a href="contact.html" class="btn btn-primary" style="margin-top: 1rem;">Let's Build Your Forecast</a>
+                    <a href="contact.html" class="article-cta-btn">Let's Build Your Forecast</a>
                 </div>
 
-                <!-- Suggested Titles -->
-                <div class="card" style="background: var(--light-gray); margin-top: 2rem;">
-                    <h3 style="color: var(--dark-blue);"><i class="fas fa-lightbulb"></i> Share this insight</h3>
-                    <ul style="margin-left: 1.5rem; color: var(--medium-gray);">
-                        <li><i class="fas fa-arrow-right" style="color: var(--primary-orange); margin-right: 0.5rem;"></i> 3 Easy Forecasting Methods for Small Business Owners</li>
-                        <li><i class="fas fa-arrow-right" style="color: var(--primary-orange); margin-right: 0.5rem;"></i> Stop Guessing: Simple Sales Forecasting Anyone Can Do</li>
-                        <li><i class="fas fa-arrow-right" style="color: var(--primary-orange); margin-right: 0.5rem;"></i> How to Predict Sales Without a Data Science Degree</li>
-                    </ul>
-                </div>
-
-                <!-- Share Section -->
                 <div class="share-section">
-                    <h3 class="share-title">Share this article</h3>
+                    <h3 class="share-title">Share this insight</h3>
                     <div class="share-buttons">
-                        <a href="https://twitter.com/intent/tweet?text=Simple%20Forecasting%20Techniques%20for%20Small%20Business%20%7C%20Consulting%20Crew&url=https://consultingcrew.com/insights/simple-forecasting" class="share-button twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i> Twitter</a>
-                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://consultingcrew.com/insights/simple-forecasting&title=Simple%20Forecasting%20Techniques%20for%20Small%20Business" class="share-button linkedin" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://consultingcrew.com/insights/simple-forecasting" class="share-button facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i> Facebook</a>
+                        <a href="#" class="share-button twitter" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+                        <a href="#" class="share-button linkedin" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                        <a href="#" class="share-button facebook" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
                     </div>
                 </div>
             </article>
         </div>
     </section>
 
-    <!-- Related Insights -->
     <section class="section related-posts-section">
         <div class="container">
             <div class="section-header text-center">
@@ -270,28 +141,14 @@
                         <a href="insights-data-goldmine.html" class="related-post-link">Read more <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="related-post-card">
-                    <div class="related-post-image"><i class="fas fa-chart-line"></i></div>
-                    <div class="related-post-content">
-                        <span class="related-post-category">Analytics</span>
-                        <h4 class="related-post-title">Predictive analytics for small businesses</h4>
-                        <a href="#" class="related-post-link">Read more <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
     <div id="footer-container"></div>
-
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
+    <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
     <script src="assets/js/header-footer.js" defer></script>
     <script src="assets/js/animations.js" defer></script>
     <script src="assets/js/main.js" defer></script>
-    
 </body>
 </html>
