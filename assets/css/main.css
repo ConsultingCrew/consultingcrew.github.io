@@ -1,8 +1,4 @@
 /* ============================================
-   MAIN.CSS – Optimized & Conflict‑Free
-   ============================================ */
-
-/* ============================================
    1. VARIABLES & BASE STYLES
    ============================================ */
 :root {
@@ -3656,4 +3652,52 @@ img {
     .vision-card {
         box-shadow: 0 30px 50px rgba(234, 88, 12, 0.15);
     }
+}
+
+/* ============================================
+   ADDITIONAL INTERNAL PAGES (Team, CSR, Ethics, Process)
+   ============================================ */
+
+/* Generic inner-page hero – use on Team, CSR, Ethics, etc. */
+.page-hero {
+    padding: var(--space-2xl) 0 var(--space-xl);
+    text-align: center;
+    background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+}
+.page-hero .hero-title {
+    color: var(--dark-blue);
+    background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Team grid (if you use cards for each member) */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+}
+.team-member {
+    text-align: center;
+}
+.team-member img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: var(--space-sm);
+}
+
+/* CSR / Ethics content sections – already covered by .section, .card, .styled-list */
+
+/* Responsive tweaks for internal pages */
+@media (max-width: 992px) {
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 576px) {
+    .team-grid { grid-template-columns: 1fr; }
 }
