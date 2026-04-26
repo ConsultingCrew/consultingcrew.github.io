@@ -3658,7 +3658,6 @@ img {
    ADDITIONAL INTERNAL PAGES (Team, CSR, Ethics, Process)
    ============================================ */
 
-/* Generic inner-page hero – use on Team, CSR, Ethics, etc. */
 .page-hero {
     padding: var(--space-2xl) 0 var(--space-xl);
     text-align: center;
@@ -3675,29 +3674,135 @@ img {
     background-clip: text;
 }
 
-/* Team grid (if you use cards for each member) */
-.team-grid {
+.bg-light-gray {
+    background-color: var(--light-gray);
+}
+
+/* ----- ETHICS PAGE ----- */
+.ethics-hero {
+    background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+    padding: var(--space-2xl) 0 var(--space-xl);
+    text-align: center;
+}
+
+/* Ethics Grid */
+.ethics-grid-4 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-lg);
+    margin-top: var(--space-xl);
 }
-.team-member {
+
+.ethics-card {
+    text-align: center;
+    padding: var(--space-lg);
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+.ethics-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+.ethics-card-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto var(--space-md);
+    background: var(--light-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--primary-blue);
+}
+
+/* Principles list */
+.principles-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-xl) 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.principles-list li {
+    padding: 12px 0 12px 35px;
+    position: relative;
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+    border-bottom: 1px solid var(--light-gray);
+}
+.principles-list li:last-child {
+    border-bottom: none;
+}
+.principles-list li i {
+    position: absolute;
+    left: 0;
+    top: 14px;
+    color: var(--primary-green);
+    font-size: 1.2rem;
+}
+.principles-list li strong {
+    color: var(--dark-blue);
+    font-weight: 600;
+}
+
+/* ----- CSR PAGE ----- */
+.csr-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+}
+
+.csr-card {
+    text-align: center;
+    padding: var(--space-lg) var(--space-md);
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+.csr-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+.csr-card-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto var(--space-md);
+    background: var(--light-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--primary-green);
+}
+
+.commitment-text {
+    max-width: 800px;
+    margin: var(--space-lg) auto 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--medium-gray);
     text-align: center;
 }
-.team-member img {
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    margin-bottom: var(--space-sm);
-}
 
-/* CSR / Ethics content sections – already covered by .section, .card, .styled-list */
+/* ----- TEAM PAGE (already uses .about-hero, .values-section; no extra classes needed) ----- */
 
-/* Responsive tweaks for internal pages */
+/* ----- Responsive Overrides for Ethics & CSR ----- */
 @media (max-width: 992px) {
-    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .ethics-grid-4,
+    .csr-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
-@media (max-width: 576px) {
-    .team-grid { grid-template-columns: 1fr; }
+@media (max-width: 600px) {
+    .ethics-grid-4,
+    .csr-grid-4 {
+        grid-template-columns: 1fr;
+    }
 }
