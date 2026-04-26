@@ -3856,6 +3856,243 @@ img {
   background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
 }
 
+/* ============================================
+   PROCESS PAGE SPECIFIC STYLES
+   ============================================ */
+
+/* ----- Process Hero (refined, works with .hero-bg / .hero-overlay) ----- */
+.process-hero {
+  position: relative;
+  padding: 160px 0 100px;
+  min-height: 72vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.process-hero .hero-content {
+  color: var(--white);          /* white text over dark overlay */
+}
+.process-hero .hero-title {
+  color: var(--white);
+  font-size: 3.5rem;
+}
+.process-hero .hero-subtitle,
+.process-hero .hero-description {
+  color: rgba(255,255,255,0.9);
+}
+
+/* ----- EDGE Framework “detailed‑steps” modifier ----- */
+.edge-steps.detailed-steps .step-content {
+  text-align: left;
+}
+.edge-steps.detailed-steps .step-details {
+  list-style: none;
+  margin: var(--space-sm) 0 0;
+  padding: 0;
+}
+.edge-steps.detailed-steps .step-details li {
+  padding: 4px 0 4px 24px;
+  position: relative;
+  color: var(--medium-gray);
+  font-size: 0.9rem;
+}
+.edge-steps.detailed-steps .step-details li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--primary-green);
+}
+
+/* ----- Benefits Section (Process Page) ----- */
+.benefits-section {
+  padding: var(--space-xl) 0;
+  background: var(--white);
+}
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+.benefit-card {
+  text-align: center;
+  padding: var(--space-lg);
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+.benefit-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+.benefit-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto var(--space-md);
+  background: var(--light-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--primary-blue);
+}
+.benefit-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: var(--space-sm);
+  color: var(--dark-blue);
+}
+.benefit-card p {
+  color: var(--medium-gray);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ----- Framework Differentiators ----- */
+.framework-differentiators {
+  padding: var(--space-xl) 0;
+  background: var(--light-gray);
+}
+.differentiator-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+.differentiator-card {
+  text-align: center;
+  padding: var(--space-lg);
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+.differentiator-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+.differentiator-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto var(--space-md);
+  background: var(--light-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--primary-blue);
+}
+.differentiator-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: var(--space-sm);
+  color: var(--dark-blue);
+}
+.differentiator-card p {
+  color: var(--medium-gray);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ----- Service Delivery Process (Cycle) ----- */
+.service-process {
+  padding: var(--space-xl) 0;
+  background: var(--white);
+}
+.process-cycle {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: var(--space-xl);
+  flex-wrap: wrap;
+}
+.process-step-cycle {
+  flex: 1;
+  min-width: 140px;
+  text-align: center;
+  position: relative;
+}
+.step-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--primary-blue);
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-sm);
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 0 6px var(--white), 0 0 0 8px var(--light-gray);
+}
+.step-connector {
+  position: absolute;
+  top: 30px;                   /* half the circle height */
+  left: 50%;
+  width: calc(100% + 1rem);    /* extend to next circle */
+  height: 4px;
+  background: var(--light-gray);
+  z-index: 1;
+  margin-left: -50%;
+}
+.process-step-cycle:last-child .step-connector {
+  display: none;
+}
+.process-step-cycle h3 {
+  font-size: 1.25rem;
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-xs);
+  color: var(--dark-blue);
+}
+.process-step-cycle p {
+  font-size: 0.95rem;
+  color: var(--medium-gray);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive tweaks for process page */
+@media (max-width: 992px) {
+  .differentiator-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .process-hero {
+    padding: 120px 0 60px;
+    min-height: auto;
+  }
+  .benefits-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .process-cycle {
+    flex-direction: column;
+    align-items: center;
+  }
+  .step-connector {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  .differentiator-grid {
+    grid-template-columns: 1fr;
+  }
+  .process-step-cycle {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
 .contact-hero {
   padding: 160px 0 100px;
   position: relative;
