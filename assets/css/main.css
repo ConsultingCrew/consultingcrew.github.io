@@ -3963,7 +3963,7 @@ img {
 }
 .differentiator-card {
   text-align: center;
-  padding: var(--space-lg);
+  padding: var(--space-sm);
   background: var(--white);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
