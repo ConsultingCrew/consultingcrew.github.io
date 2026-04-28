@@ -8,14 +8,30 @@
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- CSS Files -->
+
+        <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
-    
+ 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+        
 </head>
+
 <body>
+  <!-- Loading Animation -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <div class="loading-logo">
+        <img src="assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+      </div>
+      <div class="loading-progress">
+        <div class="progress-bar"></div>
+      </div>
+      <p class="loading-text">Loading ...</p>
+    </div>
+  </div>
+
     <!-- Header -->
     <div id="header-container"></div>
     
@@ -96,15 +112,15 @@
         </section>
         
         <!-- Contact Form Section -->
-        <section id="contactform" class="contact-form-section">
+        <section id="contact-section" class="contact-form-section">
             <div class="form-container">
                 <div class="form-header">
                     <h2 class="form-title">Send Us a Message</h2>
                     <p class="form-subtitle">Fill out the form below and we'll get back to you within 24 hours.</p>
                 </div>
                 
-                <form id="contactform" class="contact-form" novalidate>
-                    <div class="form-row">
+                <form id="contactForm" class="contact-form" novalidate>
+                        <div class="form-row">
                         <div class="form-group">
                             <label for="name" class="form-label form-label--required">Full Name</label>
                             <input type="text" id="name" name="name" class="form-input" required placeholder="Your full name">
@@ -252,7 +268,7 @@
                         <h2 class="cta-title">Still Have Questions?</h2>
                         <p class="cta-subtitle">We're here to help. Schedule a free 30-minute consultation to discuss your specific needs.</p>
                         <div class="cta-buttons">
-                            <a href="contact.html#contactform" class="btn btn-primary btn-large">Schedule Free Consultation</a>
+                            <a href="#contact-section" class="btn btn-primary btn-large">Schedule Free Consultation</a>
                             <a href="services.html" class="btn btn-green btn-large">Explore Services</a>
                         </div>
                     </div>
@@ -268,145 +284,5 @@
     <script src="assets/js/animations.js" defer></script>
     <script src="assets/js/main.js" defer></script>
     
-    <!-- Contact form specific JS -->
-    <script>
-        (function() {
-            'use strict';
-            
-            document.addEventListener('DOMContentLoaded', function() {
-                const contactForm = document.getElementById('contactForm');
-                const successMessage = document.getElementById('successMessage');
-                const submitBtn = contactForm.querySelector('button[type="submit"]');
-                const submitText = submitBtn.querySelector('.submit-text');
-                const loadingSpinner = submitBtn.querySelector('.loading-spinner');
-                
-                // FAQ Accordion
-                const faqQuestions = document.querySelectorAll('.faq-question');
-                
-                faqQuestions.forEach(question => {
-                    question.addEventListener('click', function() {
-                        const faqItem = this.closest('.faq-item');
-                        const answer = faqItem.querySelector('.faq-answer');
-                        const icon = this.querySelector('.faq-icon');
-                        const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                        
-                        // Close other open items
-                        document.querySelectorAll('.faq-item.active').forEach(item => {
-                            if (item !== faqItem) {
-                                item.classList.remove('active');
-                                item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-                                item.querySelector('.faq-answer').style.maxHeight = null;
-                                item.querySelector('.faq-icon').textContent = '+';
-                            }
-                        });
-                        
-                        // Toggle current item
-                        faqItem.classList.toggle('active');
-                        this.setAttribute('aria-expanded', !isExpanded);
-                        
-                        if (faqItem.classList.contains('active')) {
-                            answer.style.maxHeight = answer.scrollHeight + 'px';
-                            icon.textContent = '−';
-                        } else {
-                            answer.style.maxHeight = null;
-                            icon.textContent = '+';
-                        }
-                    });
-                });
-                
-                // Form validation and submission
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Reset previous errors
-                    clearErrors();
-                    
-                    // Validate form
-                    if (validateForm()) {
-                        // Show loading state
-                        submitText.style.display = 'none';
-                        loadingSpinner.style.display = 'inline-block';
-                        submitBtn.disabled = true;
-                        
-                        // Simulate form submission
-                        setTimeout(() => {
-                            // Hide form and show success message
-                            contactForm.style.display = 'none';
-                            successMessage.style.display = 'block';
-                            
-                            // Reset form
-                            contactForm.reset();
-                            
-                            // Reset button state
-                            submitText.style.display = 'inline';
-                            loadingSpinner.style.display = 'none';
-                            submitBtn.disabled = false;
-                        }, 1500);
-                    }
-                });
-                
-                function validateForm() {
-                    let isValid = true;
-                    const requiredFields = ['name', 'email', 'service', 'message'];
-                    
-                    requiredFields.forEach(fieldId => {
-                        const field = document.getElementById(fieldId);
-                        const error = document.getElementById(fieldId + 'Error');
-                        
-                        if (!field.value.trim()) {
-                            error.textContent = 'This field is required';
-                            field.classList.add('error');
-                            isValid = false;
-                        } else if (fieldId === 'email' && !isValidEmail(field.value)) {
-                            error.textContent = 'Please enter a valid email address';
-                            field.classList.add('error');
-                            isValid = false;
-                        }
-                    });
-                    
-                    return isValid;
-                }
-                
-                function clearErrors() {
-                    const errorMessages = document.querySelectorAll('.error-message');
-                    const errorInputs = document.querySelectorAll('.form-input.error, .form-select.error, .form-textarea.error');
-                    
-                    errorMessages.forEach(error => error.textContent = '');
-                    errorInputs.forEach(input => input.classList.remove('error'));
-                }
-                
-                function isValidEmail(email) {
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    return emailRegex.test(email);
-                }
-                
-                // Real-time validation
-                const formInputs = contactForm.querySelectorAll('.form-input, .form-select, .form-textarea');
-                
-                formInputs.forEach(input => {
-                    input.addEventListener('input', function() {
-                        const error = document.getElementById(this.id + 'Error');
-                        if (error) {
-                            error.textContent = '';
-                            this.classList.remove('error');
-                        }
-                    });
-                    
-                    // Validate on blur for better UX
-                    input.addEventListener('blur', function() {
-                        if (this.hasAttribute('required') && !this.value.trim()) {
-                            const error = document.getElementById(this.id + 'Error');
-                            error.textContent = 'This field is required';
-                            this.classList.add('error');
-                        } else if (this.id === 'email' && this.value.trim() && !isValidEmail(this.value)) {
-                            const error = document.getElementById(this.id + 'Error');
-                            error.textContent = 'Please enter a valid email address';
-                            this.classList.add('error');
-                        }
-                    });
-                });
-            });
-        })();
-    </script>
 </body>
 </html>
