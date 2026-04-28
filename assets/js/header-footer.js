@@ -1,594 +1,261 @@
-// ============================================
-// CONFIGURATION
-// ============================================
-
 const COMPONENT_PATHS = {
-    header: 'components/header.html',
-    footer: 'components/footer.html'
+  header: 'components/header.html',
+  footer: 'components/footer.html'
 };
 
 const CONFIG = {
-    SCROLL_THRESHOLD: 50,
-    SCROLL_DEBOUNCE_MS: 10,
-    RESIZE_DEBOUNCE_MS: 250,
-    MOBILE_BREAKPOINT: 992,
-    HEADER_HEIGHT: 67,
-    HEADER_HEIGHT_SCROLLED: 60
+  MOBILE_BREAKPOINT: 992,
+  SCROLL_THRESHOLD: 50,
+  HEADER_HEIGHT: 67,
+  HEADER_HEIGHT_SCROLLED: 60,
 };
 
-// ============================================
-// UTILITY FUNCTIONS
-// ============================================
+// Utilities
+const throttle = (fn, delay) => { let last = 0; return (...args) => { const now = Date.now(); if (now - last >= delay) { last = now; fn(...args); } } };
+const debounce = (fn, delay) => { let timer; return (...args) => { clearTimeout(timer); timer = setTimeout(() => fn(...args), delay); } };
 
-const debounce = (func, wait) => {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-};
+// Placeholders
+function showPlaceholders() {
+  const headerEl = document.getElementById('header-container');
+  const footerEl = document.getElementById('footer-container');
+  const pulseAnim = 'background:linear-gradient(90deg,#f0f0f0,#e0e0e0,#f0f0f0);background-size:200% 100%;animation:loadingPulse 1.5s infinite';
+  if (headerEl) headerEl.innerHTML = `<div class="loading-placeholder" style="height:67px;${pulseAnim}"></div>`;
+  if (footerEl) footerEl.innerHTML = `<div class="loading-placeholder" style="height:400px;${pulseAnim};margin-top:40px"></div>`;
+}
 
-const throttle = (func, limit) => {
-    let inThrottle;
-    let lastResult;
-    return function(...args) {
-        if (!inThrottle) {
-            lastResult = func.apply(this, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-        return lastResult;
-    };
-};
-
-const safeRemoveElement = (element) => {
-    if (!element) return;
-    const newElement = element.cloneNode(true);
-    if (element.parentNode) {
-        element.parentNode.replaceChild(newElement, element);
-    }
-    return newElement;
-};
-
-const showLoadingPlaceholders = () => {
-    const headerContainer = document.getElementById('header-container');
-    const footerContainer = document.getElementById('footer-container');
-
-    if (headerContainer && !headerContainer.innerHTML.trim()) {
-        headerContainer.innerHTML = `
-            <div class="loading-placeholder" 
-                 style="height: 67px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: loadingPulse 1.5s infinite;"
-                 role="status" 
-                 aria-label="Loading header">
-                <span class="sr-only">Loading header...</span>
-            </div>
-        `;
-    }
-
-    if (footerContainer && !footerContainer.innerHTML.trim()) {
-        footerContainer.innerHTML = `
-            <div class="loading-placeholder" 
-                 style="height: 400px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: loadingPulse 1.5s infinite; margin-top: 40px;"
-                 role="status" 
-                 aria-label="Loading footer">
-                <span class="sr-only">Loading footer...</span>
-            </div>
-        `;
-    }
-};
-
-// ============================================
-// COMPONENT LOADING
-// ============================================
-
-const loadComponent = async (containerId, filePath, retries = 3) => {
-    const container = document.getElementById(containerId);
-    if (!container) {
-        console.warn(`Container #${containerId} not found`);
+// Load component with retry
+async function loadComponent(id, path, retries = 3) {
+  const container = document.getElementById(id);
+  if (!container) return false;
+  for (let i = 0; i < retries; i++) {
+    try {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      container.innerHTML = await res.text();
+      return true;
+    } catch (err) {
+      console.warn(`Failed to load ${id} (attempt ${i + 1}): ${err.message}`);
+      if (i === retries - 1) {
+        container.innerHTML = fallbackComponent(id);
         return false;
+      }
+      await new Promise(r => setTimeout(r, 1000));
     }
+  }
+}
 
-    for (let attempt = 1; attempt <= retries; attempt++) {
-        try {
-            const response = await fetch(filePath, {
-                cache: 'default',
-                headers: { 'Cache-Control': 'max-age=3600' }
-            });
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-            const html = await response.text();
-            container.innerHTML = html;
+function fallbackComponent(id) {
+  const year = new Date().getFullYear();
+  if (id === 'header-container') {
+    return `<header class="main-header"><div class="container"><nav class="navbar"><a href="index.html" class="logo">Consulting Crew</a><div class="nav-menu"><ul class="nav-list"><li><a href="index.html" class="nav-link active">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="insights.html">Insights</a></li><li><a href="contact.html" class="btn-primary">Contact</a></li></ul></div></nav></div></header>`;
+  }
+  return `<footer class="main-footer"><div class="container text-center"><p>© ${year} Consulting Crew</p><nav><a href="legal_privacy.html">Privacy</a> | <a href="legal_terms.html">Terms</a> | <a href="legal_cookies.html">Cookies</a></nav></div></footer>`;
+}
 
-            window.dispatchEvent(new CustomEvent('componentLoaded', { 
-                detail: { containerId, filePath, success: true }
-            }));
-            console.log(`✓ Component loaded: ${containerId}`);
-            return true;
-        } catch (error) {
-            console.error(`Attempt ${attempt}/${retries} - Error loading ${filePath}:`, error);
-            if (attempt === retries) {
-                container.innerHTML = createFallbackComponent(containerId);
-                window.dispatchEvent(new CustomEvent('componentLoaded', { 
-                    detail: { containerId, filePath, success: false, error: error.message }
-                }));
-                return false;
-            }
-            await new Promise(resolve => setTimeout(resolve, 1000 * attempt));
-        }
-    }
-    return false;
-};
-
-const createFallbackComponent = (containerId) => {
-    const currentYear = new Date().getFullYear();
-    if (containerId === 'header-container') {
-        return `
-            <header class="main-header fallback-header" role="banner">
-                <div class="container">
-                    <nav class="navbar" role="navigation" aria-label="Main navigation">
-                        <a href="index.html" class="logo" aria-label="Consulting Crew Home">
-                            <div class="logo-content">
-                                <span class="logo-text">Consulting Crew</span>
-                                <span class="logo-tagline">Empowering Smarter Decisions</span>
-                            </div>
-                        </a>
-                        <div class="nav-menu">
-                            <ul class="nav-list">
-                                <li><a href="index.html" class="nav-link active">Home</a></li>
-                                <li><a href="about.html" class="nav-link">About</a></li>
-                                <li><a href="services.html" class="nav-link">Services</a></li>
-                                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-                                <li><a href="insights.html" class="nav-link">Insights</a></li>
-                                <li><a href="contact.html" class="nav-link btn-primary">Contact</a></li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </header>
-        `;
-    }
-    if (containerId === 'footer-container') {
-        return `
-            <footer class="main-footer fallback-footer" role="contentinfo">
-                <div class="container">
-                    <div class="text-center">
-                        <p>&copy; ${currentYear} Consulting Crew. All rights reserved.</p>
-                        <nav aria-label="Footer navigation" class="footer-legal">
-                            <a href="legal_privacy.html">Privacy Policy</a>
-                            <a href="legal_terms.html">Terms of Service</a>
-                            <a href="legal_cookies.html">Cookie Policy</a>
-                        </nav>
-                    </div>
-                </div>
-            </footer>
-        `;
-    }
-    return '<div class="component-error">Component failed to load</div>';
-};
-
-const ensureFontAwesome = () => {
-    if (document.querySelector('link[href*="font-awesome"], link[href*="fontawesome"]')) return;
-    if (window.__fontAwesomeLoaded) return;
-
+// Ensure FontAwesome
+function ensureFA() {
+  if (!document.querySelector('link[href*="font-awesome"]')) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
     link.integrity = 'sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==';
     link.crossOrigin = 'anonymous';
-    link.referrerPolicy = 'no-referrer';
     document.head.appendChild(link);
-    window.__fontAwesomeLoaded = true;
-    console.log('✓ Font Awesome loaded');
-};
+  }
+}
 
-// ============================================
-// HEADER FUNCTIONALITY
-// ============================================
-
-let mobileMenuCleanup = null;
-
-const initMobileMenu = () => {
-    if (mobileMenuCleanup) {
-        mobileMenuCleanup();
-        mobileMenuCleanup = null;
-    }
-
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    if (!menuToggle || !navMenu) return;
-
-    const newMenuToggle = safeRemoveElement(menuToggle);
-    const newNavMenu = document.querySelector('.nav-menu');
-    if (!newMenuToggle || !newNavMenu) return;
-
-    let isMenuOpen = false;
-
-    const toggleMenu = (shouldOpen = !isMenuOpen) => {
-        isMenuOpen = shouldOpen;
-        if (isMenuOpen) {
-            newNavMenu.classList.add('active');
-            newMenuToggle.classList.add('active');
-            newMenuToggle.setAttribute('aria-expanded', 'true');
-            document.body.style.overflow = 'hidden';
-        } else {
-            newNavMenu.classList.remove('active');
-            newMenuToggle.classList.remove('active');
-            newMenuToggle.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
-        }
-    };
-
-    const handleToggleClick = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        toggleMenu();
-    };
-
-    const handleNavLinkClick = () => {
-        if (isMenuOpen) toggleMenu(false);
-    };
-
-    const handleKeyDown = (e) => {
-        if (e.key === 'Escape' && isMenuOpen) {
-            toggleMenu(false);
-            newMenuToggle.focus();
-        }
-    };
-
-    const handleResize = debounce(() => {
-        if (window.innerWidth > CONFIG.MOBILE_BREAKPOINT && isMenuOpen) {
-            toggleMenu(false);
-        }
-    }, CONFIG.RESIZE_DEBOUNCE_MS);
-
-    newMenuToggle.addEventListener('click', handleToggleClick);
-    newNavMenu.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', handleNavLinkClick);
-    });
-    document.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('resize', handleResize);
-
-    mobileMenuCleanup = () => {
-        newMenuToggle.removeEventListener('click', handleToggleClick);
-        newNavMenu.querySelectorAll('.nav-link').forEach(link => {
-            link.removeEventListener('click', handleNavLinkClick);
-        });
-        document.removeEventListener('keydown', handleKeyDown);
-        window.removeEventListener('resize', handleResize);
-        document.body.style.overflow = '';
-    };
-};
-
+// Header interactions (after component injection)
+let mobileCleanup = null;
 let dropdownCleanup = null;
 
-const initDropdowns = () => {
-    if (dropdownCleanup) {
-        dropdownCleanup();
-        dropdownCleanup = null;
-    }
+function initMobileMenu() {
+  mobileCleanup?.();
+  const toggle = document.querySelector('.mobile-menu-toggle');
+  const menu = document.querySelector('.nav-menu');
+  if (!toggle || !menu) return;
 
-    const dropdowns = document.querySelectorAll('.dropdown');
-    if (!dropdowns.length) return;
+  let open = false;
 
-    const cleanupFunctions = [];
-    const isMobile = () => window.innerWidth <= CONFIG.MOBILE_BREAKPOINT;
+  const setMenu = (state) => {
+    open = state;
+    toggle.classList.toggle('active', open);
+    menu.classList.toggle('active', open);
+    toggle.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
 
-    dropdowns.forEach(dropdown => {
-        const toggle = dropdown.querySelector('.dropdown-toggle');
-        const menu = dropdown.querySelector('.dropdown-menu');
-        if (!toggle || !menu) return;
+  const toggleMenu = () => setMenu(!open);
+  const closeMenu = () => open && setMenu(false);
 
-        let isOpen = false;
-        let hoverTimeout = null;
+  toggle.addEventListener('click', toggleMenu);
+  menu.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', closeMenu));
 
-        const openDropdown = () => {
-            if (isOpen) return;
-            isOpen = true;
-            dropdown.classList.add('open');
-            toggle.setAttribute('aria-expanded', 'true');
-        };
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && open) closeMenu();
+  });
 
-        const closeDropdown = () => {
-            if (!isOpen) return;
-            isOpen = false;
-            dropdown.classList.remove('open');
-            toggle.setAttribute('aria-expanded', 'false');
-        };
+  const mediaQuery = window.matchMedia(`(min-width: ${CONFIG.MOBILE_BREAKPOINT}px)`);
+  const handleBreakpoint = () => { if (mediaQuery.matches && open) closeMenu(); };
+  mediaQuery.addEventListener('change', handleBreakpoint);
 
-        const handleMouseEnter = () => {
-            if (hoverTimeout) clearTimeout(hoverTimeout);
-            if (!isMobile()) openDropdown();
-        };
+  mobileCleanup = () => {
+    toggle.removeEventListener('click', toggleMenu);
+    menu.querySelectorAll('.nav-link').forEach(link => link.removeEventListener('click', closeMenu));
+    mediaQuery.removeEventListener('change', handleBreakpoint);
+    document.body.style.overflow = '';
+  };
+}
 
-        const handleMouseLeave = () => {
-            if (hoverTimeout) clearTimeout(hoverTimeout);
-            if (!isMobile()) hoverTimeout = setTimeout(closeDropdown, 150);
-        };
+function initDropdowns() {
+  dropdownCleanup?.();
+  const dropdowns = document.querySelectorAll('.dropdown');
+  if (!dropdowns.length) return;
 
-        const handleToggleClick = (e) => {
-            if (isMobile()) {
-                e.preventDefault();
-                e.stopPropagation();
-                dropdowns.forEach(d => {
-                    if (d !== dropdown && d.classList.contains('open')) {
-                        const otherToggle = d.querySelector('.dropdown-toggle');
-                        d.classList.remove('open');
-                        if (otherToggle) otherToggle.setAttribute('aria-expanded', 'false');
-                    }
-                });
-                isOpen ? closeDropdown() : openDropdown();
-            }
-        };
+  const cleanups = [];
+  const mediaQuery = window.matchMedia(`(min-width: ${CONFIG.MOBILE_BREAKPOINT}px)`);
 
-        const handleKeyDown = (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                isOpen ? closeDropdown() : openDropdown();
-            } else if (e.key === 'Escape' && isOpen) {
-                closeDropdown();
-                toggle.focus();
-            }
-        };
+  dropdowns.forEach(dd => {
+    const toggle = dd.querySelector('.dropdown-toggle');
+    const menu = dd.querySelector('.dropdown-menu');
+    if (!toggle || !menu) return;
 
-        dropdown.addEventListener('mouseenter', handleMouseEnter);
-        dropdown.addEventListener('mouseleave', handleMouseLeave);
-        toggle.addEventListener('click', handleToggleClick);
-        toggle.addEventListener('keydown', handleKeyDown);
+    let open = false;
+    let timer = null;
 
-        cleanupFunctions.push(() => {
-            dropdown.removeEventListener('mouseenter', handleMouseEnter);
-            dropdown.removeEventListener('mouseleave', handleMouseLeave);
-            toggle.removeEventListener('click', handleToggleClick);
-            toggle.removeEventListener('keydown', handleKeyDown);
-            if (hoverTimeout) clearTimeout(hoverTimeout);
+    const show = () => {
+      if (!open) {
+        open = true;
+        dd.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+        // Close other dropdowns at same level
+        dropdowns.forEach(other => {
+          if (other !== dd && other.classList.contains('open')) {
+            other.classList.remove('open');
+            other.querySelector('.dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+          }
         });
+      }
+    };
+
+    const hide = () => {
+      if (open) {
+        open = false;
+        dd.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    };
+
+    const mouseEnter = () => mediaQuery.matches && (clearTimeout(timer), show());
+    const mouseLeave = () => mediaQuery.matches && (timer = setTimeout(hide, 150));
+
+    const clickHandler = (e) => {
+      if (!mediaQuery.matches) {
+        e.preventDefault();
+        open ? hide() : show();
+      }
+    };
+
+    const keyHandler = (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        mediaQuery.matches ? show() : (open ? hide() : show());
+      } else if (e.key === 'Escape' && open) {
+        hide();
+        toggle.focus();
+      }
+    };
+
+    dd.addEventListener('mouseenter', mouseEnter);
+    dd.addEventListener('mouseleave', mouseLeave);
+    toggle.addEventListener('click', clickHandler);
+    toggle.addEventListener('keydown', keyHandler);
+
+    cleanups.push(() => {
+      dd.removeEventListener('mouseenter', mouseEnter);
+      dd.removeEventListener('mouseleave', mouseLeave);
+      toggle.removeEventListener('click', clickHandler);
+      toggle.removeEventListener('keydown', keyHandler);
     });
+  });
 
-    const handleOutsideClick = (e) => {
-        if (!e.target.closest('.dropdown')) {
-            dropdowns.forEach(dropdown => {
-                dropdown.classList.remove('open');
-                const toggle = dropdown.querySelector('.dropdown-toggle');
-                if (toggle) toggle.setAttribute('aria-expanded', 'false');
-            });
-        }
-    };
-    document.addEventListener('click', handleOutsideClick);
-    cleanupFunctions.push(() => document.removeEventListener('click', handleOutsideClick));
-
-    const handleResize = debounce(() => {
-        if (window.innerWidth > CONFIG.MOBILE_BREAKPOINT) {
-            dropdowns.forEach(dropdown => {
-                dropdown.classList.remove('open');
-                const toggle = dropdown.querySelector('.dropdown-toggle');
-                if (toggle) toggle.setAttribute('aria-expanded', 'false');
-            });
-        }
-    }, CONFIG.RESIZE_DEBOUNCE_MS);
-    window.addEventListener('resize', handleResize);
-    cleanupFunctions.push(() => window.removeEventListener('resize', handleResize));
-
-    dropdownCleanup = () => cleanupFunctions.forEach(cleanup => cleanup());
-};
-
-let scrollCleanup = null;
-
-const initStickyHeader = () => {
-    if (scrollCleanup) {
-        scrollCleanup();
-        scrollCleanup = null;
+  // Close all on outside click
+  const closeAll = (e) => {
+    if (!e.target.closest('.dropdown')) {
+      dropdowns.forEach(dd => {
+        dd.classList.remove('open');
+        dd.querySelector('.dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+      });
     }
+  };
+  document.addEventListener('click', closeAll);
+  cleanups.push(() => document.removeEventListener('click', closeAll));
 
-    const header = document.querySelector('.main-header');
-    if (!header) return;
-
-    header.classList.add('header-visible');
-    header.classList.remove('header-hidden');
-
-    let ticking = false;
-    let lastScrollY = 0;
-    let isVisible = true;
-
-    const handleScroll = () => {
-        const currentScrollY = window.pageYOffset;
-
-        if (currentScrollY > CONFIG.SCROLL_THRESHOLD) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-
-        if (currentScrollY > 200) {
-            const scrollingDown = currentScrollY > lastScrollY;
-            if (scrollingDown && isVisible) {
-                header.style.transform = 'translateY(-100%)';
-                isVisible = false;
-                header.classList.add('header-hidden');
-                header.classList.remove('header-visible');
-            } else if (!scrollingDown && !isVisible) {
-                header.style.transform = 'translateY(0)';
-                isVisible = true;
-                header.classList.remove('header-hidden');
-                header.classList.add('header-visible');
-            }
-        } else if (!isVisible) {
-            header.style.transform = 'translateY(0)';
-            isVisible = true;
-            header.classList.remove('header-hidden');
-            header.classList.add('header-visible');
-        }
-
-        lastScrollY = currentScrollY;
-        ticking = false;
-    };
-
-    const throttledScroll = throttle(() => {
-        if (!ticking) {
-            requestAnimationFrame(handleScroll);
-            ticking = true;
-        }
-    }, 16);
-
-    window.addEventListener('scroll', throttledScroll, { passive: true });
-    handleScroll();
-
-    const updateBodyPadding = () => {
-        const headerHeight = header.offsetHeight;
-        document.body.style.paddingTop = `${headerHeight}px`;
-    };
-    const resizeObserver = new ResizeObserver(debounce(updateBodyPadding, 100));
-    resizeObserver.observe(header);
-
-    scrollCleanup = () => {
-        window.removeEventListener('scroll', throttledScroll);
-        resizeObserver.disconnect();
-        header.style.transform = '';
-        document.body.style.paddingTop = '';
-    };
-};
-
-const initActiveLinks = () => {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.nav-link').forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-};
-
-const initCurrentYear = () => {
-    const yearElement = document.getElementById('current-year');
-    if (yearElement && !yearElement.textContent) {
-        yearElement.textContent = new Date().getFullYear();
-    }
-};
-
-// ============================================
-// MAIN INITIALIZATION
-// ============================================
-
-let isInitialized = false;
-let componentsLoaded = false;
-
-const loadComponents = async () => {
-    try {
-        showLoadingPlaceholders();
-
-        const [headerLoaded, footerLoaded] = await Promise.all([
-            loadComponent('header-container', COMPONENT_PATHS.header),
-            loadComponent('footer-container', COMPONENT_PATHS.footer)
-        ]);
-
-        componentsLoaded = headerLoaded && footerLoaded;
-        ensureFontAwesome();
-
-        if (componentsLoaded) {
-            setTimeout(() => {
-                if (isInitialized) {
-                    if (mobileMenuCleanup) mobileMenuCleanup();
-                    if (dropdownCleanup) dropdownCleanup();
-                    if (scrollCleanup) scrollCleanup();
-                }
-                initMobileMenu();
-                initDropdowns();
-                initStickyHeader();
-                initActiveLinks();
-                initCurrentYear();
-                isInitialized = true;
-            }, 100);
-        }
-
-        window.dispatchEvent(new CustomEvent('componentsLoaded', {
-            detail: { success: componentsLoaded, headerLoaded, footerLoaded }
-        }));
-        console.log(`✓ Components loaded: Header=${headerLoaded}, Footer=${footerLoaded}`);
-    } catch (error) {
-        console.error('✗ Error loading components:', error);
-        window.dispatchEvent(new CustomEvent('componentsLoaded', {
-            detail: { success: false, error: error.message }
-        }));
-    }
-};
-
-const cleanupAll = () => {
-    if (mobileMenuCleanup) mobileMenuCleanup();
-    if (dropdownCleanup) dropdownCleanup();
-    if (scrollCleanup) scrollCleanup();
-    isInitialized = false;
-};
-
-window.addEventListener('beforeunload', cleanupAll);
-document.addEventListener('visibilitychange', () => {
-    if (document.hidden) cleanupAll();
-});
-
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', loadComponents);
-} else {
-    loadComponents();
+  dropdownCleanup = () => cleanups.forEach(fn => fn());
 }
 
-window.addEventListener('popstate', () => {
-    setTimeout(() => {
-        if (componentsLoaded) {
-            initActiveLinks();
-            initCurrentYear();
-        }
-    }, 100);
-});
+function initStickyHeader() {
+  const header = document.querySelector('.main-header');
+  if (!header) return;
 
-window.ConsultingCrew = window.ConsultingCrew || {};
-window.ConsultingCrew.HeaderFooter = {
-    loadComponents,
-    reload: loadComponents,
-    cleanup: cleanupAll,
-    version: '3.0.0',
-    isInitialized: () => isInitialized,
-    getConfig: () => ({ ...CONFIG })
-};
+  let lastScroll = 0;
+  const scrollHandler = throttle(() => {
+    const currentScroll = window.scrollY;
+    const scrolled = currentScroll > CONFIG.SCROLL_THRESHOLD;
+    header.classList.toggle('scrolled', scrolled);
 
-if (!document.getElementById('header-footer-styles')) {
-    const style = document.createElement('style');
-    style.id = 'header-footer-styles';
-    style.textContent = `
-        @keyframes loadingPulse {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
-        }
-        .main-header {
-            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
-        }
-        .main-header.header-hidden {
-            transform: translateY(-100%);
-        }
-        .main-header.header-visible {
-            transform: translateY(0);
-        }
-        .component-error {
-            padding: 2rem;
-            text-align: center;
-            background: #f8f9fa;
-            border-radius: 8px;
-            color: #666;
-            margin: 1rem 0;
-            border: 2px dashed #ff5500;
-        }
-    `;
-    document.head.appendChild(style);
+    if (currentScroll > 200 && currentScroll > lastScroll && currentScroll > header.offsetHeight) {
+      header.classList.add('header-hidden');
+    } else {
+      header.classList.remove('header-hidden');
+    }
+    lastScroll = currentScroll;
+  }, 16);
+
+  window.addEventListener('scroll', scrollHandler, { passive: true });
+
+  // Adjust body padding
+  const ro = new ResizeObserver(debounce(() => {
+    document.body.style.paddingTop = header.offsetHeight + 'px';
+  }, 100));
+  ro.observe(header);
 }
+
+function markActiveLink() {
+  const page = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-link').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === page || (page === '' && href === 'index.html')) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+}
+
+function setCurrentYear() {
+  const el = document.getElementById('current-year');
+  if (el && !el.textContent) el.textContent = new Date().getFullYear();
+}
+
+// Main initialisation
+(async function init() {
+  showPlaceholders();
+  const [headerOk, footerOk] = await Promise.all([
+    loadComponent('header-container', COMPONENT_PATHS.header),
+    loadComponent('footer-container', COMPONENT_PATHS.footer)
+  ]);
+  ensureFA();
+
+  // Small timeout to allow DOM to settle after injection
+  setTimeout(() => {
+    initMobileMenu();
+    initDropdowns();
+    initStickyHeader();
+    markActiveLink();
+    setCurrentYear();
+  }, 100);
+
+  window.dispatchEvent(new CustomEvent('componentsLoaded', {
+    detail: { headerOk, footerOk }
+  }));
+})();

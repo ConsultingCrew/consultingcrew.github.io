@@ -1,461 +1,272 @@
-// ============================================
-// UTILITY FUNCTIONS
-// ============================================
+// ===== UTILITY: throttle with requestAnimationFrame =====
+function rafThrottle(fn) {
+  let ticking = false;
+  return function (...args) {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        fn.apply(this, args);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  };
+}
 
-const debounce = (func, wait) => {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-};
+// ===== FILTER SYSTEM (delegated + CSS‑only) =====
+function initFilters() {
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
 
-const throttle = (func, limit) => {
-    let inThrottle;
-    return function(...args) {
-        if (!inThrottle) {
-            func.apply(this, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    };
-};
-
-const isInViewport = (element, offset = 0) => {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.top <= (window.innerHeight - offset) &&
-        rect.bottom >= offset
+    // Look for a shared wrapper with [data-filter-group] FIRST,
+    // then fall back to the nearest filter bar (legacy support)
+    const container = btn.closest(
+      '[data-filter-group], .filter-section, .insights-filter, .services-filter, .portfolio-filter'
     );
-};
+    if (!container) return;
 
-const smoothScroll = (target, offset = 100) => {
-    const element = typeof target === 'string' ? document.querySelector(target) : target;
-    if (element) {
-        window.scrollTo({
-            top: element.offsetTop - offset,
-            behavior: 'smooth'
-        });
-    }
-};
+    const filter = btn.dataset.filter;
+    const itemsSelector =
+      container.dataset.items ||
+      '.insight-card, .service-card, .portfolio-item, .filter-item';
+    const items = container.querySelectorAll(itemsSelector);
 
-const isValidEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-};
+    // Update active button
+    container
+      .querySelectorAll('.filter-btn')
+      .forEach((b) => b.classList.remove('active'));
+    btn.classList.add('active');
 
-const formatDate = (date) => {
-    const d = new Date(date);
-    return d.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
+    // Toggle visibility using a CSS class
+    items.forEach((item) => {
+      const cat = item.dataset.category;
+      const match = filter === 'all' || cat === filter;
+      item.classList.toggle('filtered-out', !match);
     });
-};
+  });
+}
 
-// ============================================
-// CORE INITIALIZATION
-// ============================================
+// ===== LOADING SCREEN  =====
+function initLoadingScreen() {
+  const screen = document.getElementById('loadingScreen');
+  if (!screen) return;
 
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('Consulting Crew - Application initialized');
+  const hide = () => {
+    if (!screen.classList.contains('hidden')) {
+      screen.classList.add('hidden');
+      setTimeout(() => {
+        screen.style.display = 'none';
+      }, 500);
+    }
+  };
 
-    // Initialise components (mobile menu, dropdowns, sticky header are handled by header-footer.js)
-    initFilterScrolledEffect();
-    initFilters();       // filter buttons on Services, Portfolio, Insights
-    initForms();         // contact & newsletter forms
-    initAccordions();    // FAQ
-    initSmoothScroll();  // smooth anchor links
-    initLazyLoading();
-    initCurrentYear();
-    initBackToTop();
-    // Ripple & parallax are initialised on window.load
-});
+  window.addEventListener('load', () => setTimeout(hide, 1000));
+   setTimeout(hide, 3000);
+}
 
-// ============================================
-// FILTER BAR COMPRESS + BLUR (Scroll Effect)
-// ============================================
+// ===== BACK TO TOP =====
+function initBackToTop() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
 
-const initFilterScrolledEffect = () => {
-    const filterBars = document.querySelectorAll('.filter-section, .insights-filter');
-    if (!filterBars.length) return;
+  const toggleVisibility = rafThrottle(() => {
+    btn.classList.toggle('visible', window.scrollY > 300);
+  });
 
-    const handleFilterScroll = throttle(() => {
-        const scrolled = window.pageYOffset > 20;
-        filterBars.forEach(bar => {
-            bar.classList.toggle('filter-section--scrolled', scrolled);
-            bar.classList.toggle('insights-filter--scrolled', scrolled);
-        });
-    }, 16);
+  window.addEventListener('scroll', toggleVisibility, { passive: true });
+  btn.addEventListener('click', () =>
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  );
+}
 
-    window.addEventListener('scroll', handleFilterScroll, { passive: true });
-    handleFilterScroll(); // run once on load
-};
+// ===== FAQ ACCORDION =====
+function initAccordions() {
+  document.addEventListener('click', (e) => {
+    const question = e.target.closest('.faq-question');
+    if (!question) return;
 
-// ============================================
-// COMPONENT: FILTERING (Generic – used by Services, Portfolio, Insights)
-// ============================================
+    const item = question.closest('.faq-item');
+    if (!item) return;
 
-const initFilter = (filterSelector, itemSelector, categoryAttr = 'data-category') => {
-    const filterButtons = document.querySelectorAll(filterSelector);
-    const items = document.querySelectorAll(itemSelector);
+    const isActive = item.classList.contains('active');
 
-    if (!filterButtons.length || !items.length) return;
-
-    const filterItems = (filterValue) => {
-        items.forEach(item => {
-            const itemCategory = item.getAttribute(categoryAttr);
-            const matches = filterValue === 'all' || itemCategory === filterValue;
-
-            item.style.display = 'block';
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(20px)';
-
-            setTimeout(() => {
-                item.style.opacity = matches ? '1' : '0';
-                item.style.transform = matches ? 'translateY(0)' : 'translateY(20px)';
-                if (!matches) {
-                    setTimeout(() => item.style.display = 'none', 300);
-                }
-            }, 10);
-        });
-    };
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-
-            const filterValue = button.getAttribute('data-filter') || 'all';
-            filterItems(filterValue);
-
-            // Accessibility announcement
-            const count = Array.from(items).filter(
-                item => filterValue === 'all' || item.getAttribute(categoryAttr) === filterValue
-            ).length;
-            const announcement = document.createElement('div');
-            announcement.setAttribute('aria-live', 'polite');
-            announcement.classList.add('sr-only');
-            announcement.textContent = `Showing ${count} items`;
-            document.body.appendChild(announcement);
-            setTimeout(() => announcement.remove(), 1000);
-        });
+    // Close others in the same accordion group
+    const container =
+      item.closest('.faq-accordion, .faq-list') || document;
+    container.querySelectorAll('.faq-item.active').forEach((other) => {
+      if (other !== item) {
+        other.classList.remove('active');
+        const otherAnswer = other.querySelector('.faq-answer');
+        if (otherAnswer) otherAnswer.style.maxHeight = null;
+        const otherIcon = other.querySelector('.faq-icon');
+        if (otherIcon) otherIcon.textContent = '+';
+        other
+          .querySelector('.faq-question')
+          ?.setAttribute('aria-expanded', 'false');
+      }
     });
 
-    items.forEach(item => {
-        item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-    });
-};
-
-const initFilters = () => {
-    if (document.querySelector('.services-filter')) {
-        initFilter('.services-filter .filter-btn', '.service-card');
+    // Toggle current
+    if (!isActive) {
+      item.classList.add('active');
+      const answer = item.querySelector('.faq-answer');
+      if (answer) answer.style.maxHeight = answer.scrollHeight + 'px';
+      const icon = item.querySelector('.faq-icon');
+      if (icon) icon.textContent = '−';
+      question.setAttribute('aria-expanded', 'true');
+    } else {
+      item.classList.remove('active');
+      const answer = item.querySelector('.faq-answer');
+      if (answer) answer.style.maxHeight = null;
+      const icon = item.querySelector('.faq-icon');
+      if (icon) icon.textContent = '+';
+      question.setAttribute('aria-expanded', 'false');
     }
-    if (document.querySelector('.portfolio-filter')) {
-        initFilter('.portfolio-filter .filter-btn', '.portfolio-item');
+  });
+}
+
+// ===== SMOOTH SCROLL =====
+function initSmoothScroll() {
+  document.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a[href^="#"]');
+    if (!anchor) return;
+    const target = document.querySelector(anchor.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
+
+// ===== FORM VALIDATION =====
+function initForms() {
+  const validateField = (field) => {
+    const err = document.getElementById(field.id + 'Error');
+    if (!err) return true;
+    if (!field.value.trim()) {
+      err.textContent = 'This field is required';
+      field.classList.add('error');
+      return false;
     }
-    if (document.querySelector('.insights-filter')) {
-        initFilter('.insights-filter .filter-btn', '.insight-card');
+    if (
+      field.type === 'email' &&
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)
+    ) {
+      err.textContent = 'Invalid email';
+      field.classList.add('error');
+      return false;
     }
-};
+    err.textContent = '';
+    field.classList.remove('error');
+    return true;
+  };
 
-// ============================================
-// BACK TO TOP BUTTON
-// ============================================
-
-const initBackToTop = () => {
-    const backToTopButton = document.getElementById('backToTop');
-    if (!backToTopButton) return;
-
-    let ticking = false;
-
-    const toggleBackToTop = () => {
-        if (window.pageYOffset > 300) {
-            backToTopButton.classList.add('show');
-        } else {
-            backToTopButton.classList.remove('show');
-        }
-    };
-
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            requestAnimationFrame(() => {
-                toggleBackToTop();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }, { passive: true });
-
-    backToTopButton.addEventListener('click', scrollToTop);
-    toggleBackToTop();
-};
-
-// ============================================
-// COMPONENT: FORMS
-// ============================================
-
-const initContactForm = () => {
-    const contactForm = document.getElementById('contactForm');
-    const successMessage = document.getElementById('successMessage');
-    if (!contactForm) return;
-
-    const validateField = (field) => {
-        const error = document.getElementById(field.id + 'Error');
-        if (!error) return true;
-
-        if (!field.value.trim()) {
-            error.textContent = 'This field is required';
-            field.classList.add('error');
-            return false;
-        }
-
-        if (field.id === 'email' && !isValidEmail(field.value)) {
-            error.textContent = 'Please enter a valid email address';
-            field.classList.add('error');
-            return false;
-        }
-
-        error.textContent = '';
-        field.classList.remove('error');
-        return true;
-    };
-
-    const validateForm = () => {
-        let isValid = true;
-        ['name', 'email', 'service', 'message'].forEach(fieldId => {
-            const field = document.getElementById(fieldId);
-            if (field && !validateField(field)) isValid = false;
-        });
-        return isValid;
-    };
-
-    contactForm.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(input => {
-        input.addEventListener('input', () => {
-            const error = document.getElementById(input.id + 'Error');
-            if (error) { error.textContent = ''; input.classList.remove('error'); }
-        });
-        input.addEventListener('blur', () => validateField(input));
-    });
+  // Contact form
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm
+      .querySelectorAll('input, select, textarea')
+      .forEach((input) => {
+        input.addEventListener('input', () => validateField(input));
+      });
 
     contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        if (!validateForm()) return;
+      e.preventDefault();
+      let valid = true;
+      ['name', 'email', 'service', 'message'].forEach((id) => {
+        const f = document.getElementById(id);
+        if (f && !validateField(f)) valid = false;
+      });
+      if (!valid) return;
 
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const submitText = submitBtn.querySelector('.submit-text');
-        const loadingSpinner = submitBtn.querySelector('.loading-spinner');
+      const btn = contactForm.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      // simulate async submission
+      await new Promise((r) => setTimeout(r, 1500));
+      contactForm.style.display = 'none';
+      document.getElementById('successMessage').style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('successMessage').style.display = 'none';
+        contactForm.style.display = '';
+        contactForm.reset();
+      }, 5000);
+      btn.disabled = false;
+    });
+  }
 
-        if (submitText) submitText.style.display = 'none';
-        if (loadingSpinner) loadingSpinner.style.display = 'inline-block';
-        submitBtn.disabled = true;
+  // Newsletter forms
+  document.querySelectorAll('.newsletter-form').forEach((form) => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const emailInput = form.querySelector('input[type="email"]');
+      if (
+        !emailInput ||
+        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)
+      ) {
+        alert('Enter a valid email');
+        return;
+      }
+      const btn = form.querySelector('button');
+      btn.disabled = true;
+      await new Promise((r) => setTimeout(r, 1000));
+      emailInput.value = '';
+      alert('Subscribed!');
+      btn.disabled = false;
+    });
+  });
+}
 
-        try {
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            contactForm.style.display = 'none';
-            if (successMessage) {
-                successMessage.style.display = 'block';
-                setTimeout(() => {
-                    successMessage.style.display = 'none';
-                    contactForm.style.display = 'block';
-                    contactForm.reset();
-                }, 5000);
-            }
-            contactForm.reset();
-        } catch (error) {
-            console.error('Form submission error:', error);
-            alert('There was an error submitting the form. Please try again.');
-        } finally {
-            if (submitText) submitText.style.display = 'inline';
-            if (loadingSpinner) loadingSpinner.style.display = 'none';
-            submitBtn.disabled = false;
+// ===== LAZY LOADING =====
+function initLazyLoad() {
+  if (!('IntersectionObserver' in window)) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        const src = img.dataset.src;
+        if (src) {
+          img.src = src;
+          img.removeAttribute('data-src');
         }
+        observer.unobserve(img);
+      }
     });
-};
+  });
+  document
+    .querySelectorAll('img[data-src]')
+    .forEach((img) => observer.observe(img));
+}
 
-const initNewsletterForm = () => {
-    const newsletterForm = document.querySelector('.newsletter-form');
-    if (!newsletterForm) return;
+// ===== RIPPLE EFFECT =====
+function initRipple() {
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.btn');
+    if (!btn) return;
 
-    newsletterForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const emailInput = newsletterForm.querySelector('input[type="email"]');
-        if (!emailInput || !isValidEmail(emailInput.value)) {
-            alert('Please enter a valid email address');
-            return;
-        }
+    const ripple = document.createElement('span');
+    const rect = btn.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    ripple.style.width = ripple.style.height = `${size}px`;
+    ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+    ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+    ripple.classList.add('ripple');
+    btn.appendChild(ripple);
+    ripple.addEventListener('animationend', () => ripple.remove());
+  });
+}
 
-        const submitBtn = newsletterForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Subscribing...';
-
-        try {
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            emailInput.value = '';
-            alert('Thank you for subscribing!');
-        } catch (error) {
-            console.error('Newsletter subscription error:', error);
-            alert('There was an error. Please try again.');
-        } finally {
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
-        }
-    });
-};
-
-const initForms = () => {
-    initContactForm();
-    initNewsletterForm();
-};
-
-// ============================================
-// COMPONENT: ACCORDIONS (FAQ)
-// ============================================
-
-const initAccordions = () => {
-    const accordions = document.querySelectorAll('.faq-accordion');
-    accordions.forEach(accordion => {
-        const questions = accordion.querySelectorAll('.faq-question');
-        questions.forEach(question => {
-            question.addEventListener('click', () => {
-                const faqItem = question.closest('.faq-item');
-                const answer = faqItem.querySelector('.faq-answer');
-                const icon = question.querySelector('.faq-icon');
-                const isActive = faqItem.classList.contains('active');
-
-                accordion.querySelectorAll('.faq-item.active').forEach(item => {
-                    if (item !== faqItem) {
-                        item.classList.remove('active');
-                        const otherAnswer = item.querySelector('.faq-answer');
-                        const otherIcon = item.querySelector('.faq-icon');
-                        if (otherAnswer) otherAnswer.style.maxHeight = null;
-                        if (otherIcon) otherIcon.textContent = '+';
-                    }
-                });
-
-                faqItem.classList.toggle('active');
-                if (!isActive) {
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
-                    if (icon) icon.textContent = '−';
-                    question.setAttribute('aria-expanded', 'true');
-                } else {
-                    answer.style.maxHeight = null;
-                    if (icon) icon.textContent = '+';
-                    question.setAttribute('aria-expanded', 'false');
-                }
-            });
-            question.setAttribute('aria-expanded', 'false');
-        });
-    });
-};
-
-// ============================================
-// COMPONENT: SMOOTH SCROLL (anchor links)
-// ============================================
-
-const initSmoothScroll = () => {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', (e) => {
-            const href = anchor.getAttribute('href');
-            if (href !== '#' && href.startsWith('#') && document.querySelector(href)) {
-                e.preventDefault();
-                smoothScroll(href, 100);
-            }
-        });
-    });
-};
-
-// ============================================
-// COMPONENT: LAZY LOADING
-// ============================================
-
-const initLazyLoading = () => {
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    const src = img.getAttribute('data-src');
-                    if (src) {
-                        img.src = src;
-                        img.removeAttribute('data-src');
-                    }
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
-        document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
-    } else {
-        document.querySelectorAll('img[data-src]').forEach(img => {
-            img.src = img.getAttribute('data-src');
-        });
-    }
-};
-
-// ============================================
-// COMPONENT: CURRENT YEAR
-// ============================================
-
-const initCurrentYear = () => {
-    const yearElement = document.getElementById('current-year');
-    if (yearElement) {
-        yearElement.textContent = new Date().getFullYear();
-    }
-};
-
-// ============================================
-// WINDOW LOAD: Parallax, Ripple, Sticky Header (already handled by header-footer.js)
-// ============================================
-
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-
-    // Ripple effect on buttons
-    const buttons = document.querySelectorAll('.btn');
-    buttons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            const ripple = document.createElement('span');
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            ripple.style.width = ripple.style.height = size + 'px';
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-            ripple.classList.add('ripple');
-            this.appendChild(ripple);
-            setTimeout(() => ripple.remove(), 600);
-        });
-    });
-
-    // Parallax (optional, already in animations.js but can be kept minimal)
-    console.log('Consulting Crew - All components initialized');
+// ===== INITIALISE EVERYTHING =====
+document.addEventListener('DOMContentLoaded', () => {
+  // Loading screen must be initialised here so that it can properly listen for the 'load' event
+  initLoadingScreen();
+  initFilters();
+  initBackToTop();
+  initAccordions();
+  initSmoothScroll();
+  initForms();
+  initLazyLoad();
 });
 
-// ============================================
-// EXPORTS (for module environments)
-// ============================================
-
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        debounce,
-        throttle,
-        isValidEmail,
-        smoothScroll,
-        initFilters,
-        initForms,
-        initAccordions,
-        initLazyLoading,
-        initCurrentYear,
-        initBackToTop
-    };
-}
+window.addEventListener('load', () => {
+  initRipple();
+  document.body.classList.add('loaded');
+});
