@@ -186,6 +186,13 @@
     </section>
   </div><!-- end wrapper -->
 
+  <!-- Success Stories Teaser -->
+  <section class="section success-stories-teaser">
+    <div class="container text-center">
+      <a href="portfolio.html" class="btn btn-large btn-outline"><i class="fas fa-folder-open"></i> See Our Client Success Stories</a>
+    </div>
+  </section>
+
   <!-- Service Process Section -->
   <section class="section process-section">
     <div class="container">
@@ -292,22 +299,16 @@
           const cat = item.dataset.category;
           if (filterVal === 'all' || cat === filterVal) {
             item.classList.remove('filtered-out');
-            item.style.display = '';           // visible again
+            item.style.display = '';
           } else {
             item.classList.add('filtered-out');
-            // Ensure they don't take up space in the grid
             item.style.display = 'none';
           }
         });
       });
     });
 
-    // Scroll reveal for service cards (if they have animate classes, they are handled by animations.js,
-    // but we add a fallback just in case)
-    // Actually, animations.js already reveals .animate-fade etc. No need to duplicate.
-    // However, the existing service cards do not have animate classes, so we need to trigger a reveal.
-    // Let's add a simple intersection observer only for service cards.
-
+    // Scroll reveal for service cards
     const serviceCards = wrapper.querySelectorAll('.service-card');
     if (serviceCards.length && 'IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
@@ -321,7 +322,6 @@
       }, { threshold: 0.1 });
 
       serviceCards.forEach(card => {
-        // Set initial hidden state
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
         card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
