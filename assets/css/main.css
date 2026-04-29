@@ -2,10 +2,10 @@
 @import 'header-footer.css';
 @import 'legal.css';
 @import 'animations.css';
-@import 'responsive.css';
 @import 'home.css';
 @import 'about.css';
 @import 'services.css';
 @import 'insights.css';
 @import 'portfolio.css';
 @import 'contact.css';
+@import 'responsive.css'; 
