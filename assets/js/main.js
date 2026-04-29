@@ -1,266 +1,312 @@
-// ===== UTILITY: throttle with requestAnimationFrame =====
-function rafThrottle(fn) {
-  let ticking = false;
-  return function (...args) {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        fn.apply(this, args);
-        ticking = false;
-      });
-      ticking = true;
-    }
-  };
+'use strict';
+
+/* ===============================
+   UTILITIES
+================================= */
+const Utils = {
+  rafThrottle(fn) {
+    let ticking = false;
+    return (...args) => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          fn(...args);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+  },
+
+  debounce(fn, delay = 200) {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => fn(...args), delay);
+    };
+  }
+};
+
+/* ===============================
+   TOAST
+================================= */
+function showToast(message, type = 'success') {
+  let container = document.querySelector('.toast-container');
+
+  if (!container) {
+    container = document.createElement('div');
+    container.className = 'toast-container';
+    document.body.appendChild(container);
+  }
+
+  const toast = document.createElement('div');
+  toast.className = `toast toast-${type}`;
+  toast.textContent = message;
+
+  container.appendChild(toast);
+
+  requestAnimationFrame(() => toast.classList.add('show'));
+
+  setTimeout(() => {
+    toast.classList.remove('show');
+    toast.addEventListener('transitionend', () => toast.remove(), { once: true });
+  }, 3000);
 }
 
-// ===== FILTER SYSTEM (delegated + CSS‑only) =====
+/* ===============================
+   FILTERS
+================================= */
 function initFilters() {
-  document.addEventListener('click', (e) => {
+  document.addEventListener('click', e => {
     const btn = e.target.closest('.filter-btn');
     if (!btn) return;
 
-    // Look for a shared wrapper with [data-filter-group] FIRST,
-    // then fall back to the nearest filter bar (legacy support)
-    const container = btn.closest(
-      '[data-filter-group], .filter-section, .insights-filter, .services-filter, .portfolio-filter'
-    );
+    const container = btn.closest('[data-filter-group], .filter-section');
     if (!container) return;
 
     const filter = btn.dataset.filter;
-    const itemsSelector =
-      container.dataset.items ||
-      '.insight-card, .service-card, .portfolio-item, .filter-item';
-    const items = container.querySelectorAll(itemsSelector);
+    const itemsSelector = container.dataset.items || '.filter-item';
+    const wrapper = container.closest('[data-filter-wrapper]') || document;
 
-    // Update active button
-    container
-      .querySelectorAll('.filter-btn')
-      .forEach((b) => b.classList.remove('active'));
+    const items = wrapper.querySelectorAll(itemsSelector);
+
+    container.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.remove('active');
+    });
+
     btn.classList.add('active');
 
-    // Toggle visibility using a CSS class
-    items.forEach((item) => {
-      const cat = item.dataset.category;
-      const match = filter === 'all' || cat === filter;
-      item.classList.toggle('filtered-out', !match);
+    items.forEach(item => {
+      const category = item.dataset.category;
+      const visible = filter === 'all' || category === filter;
+
+      item.classList.toggle('filtered-out', !visible);
+      item.setAttribute('aria-hidden', !visible);
     });
   });
 }
 
-// ===== LOADING SCREEN  =====
+/* ===============================
+   LOADING SCREEN
+================================= */
 function initLoadingScreen() {
   const screen = document.getElementById('loadingScreen');
   if (!screen) return;
 
+  let hidden = false;
+
   const hide = () => {
-    if (!screen.classList.contains('hidden')) {
-      screen.classList.add('hidden');
-      setTimeout(() => {
-        screen.style.display = 'none';
-      }, 500);
-    }
+    if (hidden) return;
+    hidden = true;
+
+    screen.classList.add('hidden');
+
+    setTimeout(() => {
+      screen.style.display = 'none';
+    }, 500);
   };
 
-  window.addEventListener('load', () => setTimeout(hide, 1000));
-   setTimeout(hide, 3000);
+  window.addEventListener('load', () => setTimeout(hide, 800));
+  setTimeout(hide, 4000);
 }
 
-// ===== BACK TO TOP =====
+/* ===============================
+   BACK TO TOP
+================================= */
 function initBackToTop() {
   const btn = document.getElementById('backToTop');
   if (!btn) return;
 
-  const toggleVisibility = rafThrottle(() => {
+  const scrollHandler = Utils.rafThrottle(() => {
     btn.classList.toggle('visible', window.scrollY > 300);
   });
 
-  window.addEventListener('scroll', toggleVisibility, { passive: true });
-  btn.addEventListener('click', () =>
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  );
+  window.addEventListener('scroll', scrollHandler, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 }
 
-// ===== FAQ ACCORDION =====
-function initAccordions() {
-  document.addEventListener('click', (e) => {
-    const question = e.target.closest('.faq-question');
-    if (!question) return;
+/* ===============================
+   FAQ
+================================= */
+function initFAQ() {
+  document.addEventListener('click', e => {
+    const trigger = e.target.closest('.faq-question');
+    if (!trigger) return;
 
-    const item = question.closest('.faq-item');
-    if (!item) return;
+    const item = trigger.closest('.faq-item');
+    const answer = item.querySelector('.faq-answer');
 
-    const isActive = item.classList.contains('active');
+    const open = item.classList.contains('active');
 
-    // Close others in the same accordion group
-    const container =
-      item.closest('.faq-accordion, .faq-list') || document;
-    container.querySelectorAll('.faq-item.active').forEach((other) => {
-      if (other !== item) {
-        other.classList.remove('active');
-        const otherAnswer = other.querySelector('.faq-answer');
-        if (otherAnswer) otherAnswer.style.maxHeight = null;
-        const otherIcon = other.querySelector('.faq-icon');
-        if (otherIcon) otherIcon.textContent = '+';
-        other
-          .querySelector('.faq-question')
-          ?.setAttribute('aria-expanded', 'false');
+    item.parentElement.querySelectorAll('.faq-item.active').forEach(el => {
+      if (el !== item) {
+        el.classList.remove('active');
+        el.querySelector('.faq-answer').style.maxHeight = null;
       }
     });
 
-    // Toggle current
-    if (!isActive) {
-      item.classList.add('active');
-      const answer = item.querySelector('.faq-answer');
-      if (answer) answer.style.maxHeight = answer.scrollHeight + 'px';
-      const icon = item.querySelector('.faq-icon');
-      if (icon) icon.textContent = '−';
-      question.setAttribute('aria-expanded', 'true');
-    } else {
+    if (open) {
       item.classList.remove('active');
-      const answer = item.querySelector('.faq-answer');
-      if (answer) answer.style.maxHeight = null;
-      const icon = item.querySelector('.faq-icon');
-      if (icon) icon.textContent = '+';
-      question.setAttribute('aria-expanded', 'false');
+      answer.style.maxHeight = null;
+    } else {
+      item.classList.add('active');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
     }
   });
 }
 
-// ===== SMOOTH SCROLL =====
+/* ===============================
+   SMOOTH SCROLL
+================================= */
 function initSmoothScroll() {
-  document.addEventListener('click', (e) => {
+  document.addEventListener('click', e => {
     const anchor = e.target.closest('a[href^="#"]');
     if (!anchor) return;
-    const target = document.querySelector(anchor.getAttribute('href'));
+
+    const href = anchor.getAttribute('href');
+    if (!href || href === '#') return;
+
+    const target = document.querySelector(href);
     if (!target) return;
+
     e.preventDefault();
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    target.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
   });
 }
 
-// ===== FORM VALIDATION =====
+/* ===============================
+   FORMS
+================================= */
 function initForms() {
-  const validateField = (field) => {
-    const err = document.getElementById(field.id + 'Error');
-    if (!err) return true;
-    if (!field.value.trim()) {
-      err.textContent = 'This field is required';
-      field.classList.add('error');
-      return false;
+
+  const validateField = field => {
+    const error = document.getElementById(field.id + 'Error');
+    if (!error) return true;
+
+    let valid = true;
+    let message = '';
+
+    const value = field.value.trim();
+
+    if (!value) {
+      valid = false;
+      message = 'Required field';
     }
-    if (
-      field.type === 'email' &&
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)
-    ) {
-      err.textContent = 'Invalid email';
-      field.classList.add('error');
-      return false;
+
+    if (valid && field.type === 'email') {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        valid = false;
+        message = 'Invalid email';
+      }
     }
-    err.textContent = '';
-    field.classList.remove('error');
-    return true;
+
+    field.classList.toggle('error', !valid);
+    error.textContent = message;
+
+    return valid;
   };
 
-  // Contact form
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm
-      .querySelectorAll('input, select, textarea')
-      .forEach((input) => {
-        input.addEventListener('input', () => validateField(input));
+  document.querySelectorAll('form').forEach(form => {
+
+    form.querySelectorAll('input, textarea, select').forEach(field => {
+      field.addEventListener('input', () => validateField(field));
+    });
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+
+      let valid = true;
+
+      form.querySelectorAll('input, textarea, select').forEach(field => {
+        if (!validateField(field)) valid = false;
       });
 
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      let valid = true;
-      ['name', 'email', 'service', 'message'].forEach((id) => {
-        const f = document.getElementById(id);
-        if (f && !validateField(f)) valid = false;
-      });
       if (!valid) return;
 
-      const btn = contactForm.querySelector('button[type="submit"]');
-      btn.disabled = true;
-      // simulate async submission
-      await new Promise((r) => setTimeout(r, 1500));
-      contactForm.style.display = 'none';
-      document.getElementById('successMessage').style.display = 'block';
-      setTimeout(() => {
-        document.getElementById('successMessage').style.display = 'none';
-        contactForm.style.display = '';
-        contactForm.reset();
-      }, 5000);
-      btn.disabled = false;
-    });
-  }
+      const btn = form.querySelector('button[type="submit"]');
+      if (btn) btn.disabled = true;
 
-  // Newsletter forms
-  document.querySelectorAll('.newsletter-form').forEach((form) => {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const emailInput = form.querySelector('input[type="email"]');
-      if (
-        !emailInput ||
-        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)
-      ) {
-        alert('Enter a valid email');
-        return;
-      }
-      const btn = form.querySelector('button');
-      btn.disabled = true;
-      await new Promise((r) => setTimeout(r, 1000));
-      emailInput.value = '';
-      alert('Subscribed!');
-      btn.disabled = false;
+      await new Promise(r => setTimeout(r, 1200));
+
+      form.reset();
+
+      if (btn) btn.disabled = false;
+
+      showToast('Form submitted successfully');
     });
   });
 }
 
-// ===== LAZY LOADING =====
+/* ===============================
+   LAZY LOAD
+================================= */
 function initLazyLoad() {
   if (!('IntersectionObserver' in window)) return;
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        const src = img.dataset.src;
-        if (src) {
-          img.src = src;
-          img.removeAttribute('data-src');
-        }
-        observer.unobserve(img);
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      const img = entry.target;
+      const src = img.dataset.src;
+
+      if (src) {
+        img.src = src;
+        img.onload = () => img.classList.add('loaded');
       }
+
+      observer.unobserve(img);
     });
+  }, {
+    rootMargin: '100px'
   });
-  document
-    .querySelectorAll('img[data-src]')
-    .forEach((img) => observer.observe(img));
+
+  document.querySelectorAll('img[data-src]').forEach(img => {
+    observer.observe(img);
+  });
 }
 
-// ===== RIPPLE EFFECT =====
+/* ===============================
+   RIPPLE
+================================= */
 function initRipple() {
-  document.addEventListener('click', (e) => {
+  document.addEventListener('click', e => {
     const btn = e.target.closest('.btn');
     if (!btn) return;
 
+    btn.querySelectorAll('.ripple').forEach(r => r.remove());
+
     const ripple = document.createElement('span');
+    ripple.className = 'ripple';
+
     const rect = btn.getBoundingClientRect();
     const size = Math.max(rect.width, rect.height);
+
     ripple.style.width = ripple.style.height = `${size}px`;
-    ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
-    ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
-    ripple.classList.add('ripple');
+    ripple.style.left = `${e.clientX - rect.left - size/2}px`;
+    ripple.style.top = `${e.clientY - rect.top - size/2}px`;
+
     btn.appendChild(ripple);
+
     ripple.addEventListener('animationend', () => ripple.remove());
   });
 }
 
-// ===== INITIALISE EVERYTHING =====
+/* ===============================
+   INIT
+================================= */
 document.addEventListener('DOMContentLoaded', () => {
-  // Loading screen must be initialised here so that it can properly listen for the 'load' event
   initLoadingScreen();
   initFilters();
   initBackToTop();
-  initAccordions();
+  initFAQ();
   initSmoothScroll();
   initForms();
   initLazyLoad();
@@ -268,5 +314,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('load', () => {
   initRipple();
-  document.body.classList.add('loaded');
 });

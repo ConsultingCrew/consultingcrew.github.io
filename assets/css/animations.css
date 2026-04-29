@@ -1,6 +1,6 @@
 
 /* ============================================
-   11. GLOBAL ANIMATIONS (no collisions)
+  GLOBAL ANIMATIONS
    ============================================ */
 @keyframes fadeIn {
     from { opacity: 0; }
