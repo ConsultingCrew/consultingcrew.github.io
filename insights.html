@@ -8,18 +8,31 @@
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="assets/images/logo.png">
-</head>
-<body>
 
+        <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+ 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+    
+</head>
+
+<body>
+  <!-- Loading Animation -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <div class="loading-logo">
+        <img src="assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+      </div>
+      <div class="loading-progress">
+        <div class="progress-bar"></div>
+      </div>
+      <p class="loading-text">Loading ...</p>
+    </div>
+  </div>
+
+    <!-- Header -->
     <div id="header-container"></div>
 
     <!-- Breadcrumbs -->
@@ -32,39 +45,41 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero insights-hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title animate-left">Insights & Resources</h1>
-                <p class="hero-subtitle animate-left text-darkgray" style="animation-delay: 0.1s">Strategic thinking, industry trends, and actionable insights</p>
-                <p class="hero-description animate-fade text-darkgray" style="animation-delay: 0.2s">Explore expert perspectives on data strategy, leadership, digital transformation, and sustainable growth from our team of consultants.</p>
-            </div>
-        </div>
-    </section>
+  <!-- Hero Section -->
+  <section class="hero insights-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title animate-left">Insights & Resources</h1>
+        <p class="hero-subtitle animate-left text-darkgray" style="animation-delay: 0.1s">Strategic thinking, industry trends, and actionable insights</p>
+        <p class="hero-description animate-fade text-darkgray" style="animation-delay: 0.2s">Explore expert perspectives on data strategy, leadership, digital transformation, and sustainable growth from our team of consultants.</p>
+      </div>
+    </div>
+  </section>
 
     <!-- Filter Section -->
-    <section class="section filter-section" style="padding: var(--space-md) 0;">
-        <div class="container">
-            <div class="insights-filter">
-                <button class="filter-btn active" data-filter="all"> All </button>
-                <button class="filter-btn" data-filter="data"><i class="fas fa-chart-line"></i> Data Analytics</button>
-                <button class="filter-btn" data-filter="branding"><i class="fas fa-palette"></i> Branding</button>
-                <button class="filter-btn" data-filter="hr"><i class="fas fa-users"></i> HR & Leadership</button>
-                <button class="filter-btn" data-filter="digital"><i class="fas fa-laptop-code"></i> Digital & Web</button>
-            </div>
+      <div data-filter-group data-items=".insight-card, .featured-article">
+
+    
+<section class="section filter-section" style="padding: var(--space-md) 0;">
+      <div class="container">
+        <div class="insights-filter">
+          <button class="filter-btn active" data-filter="all"> All </button>
+          <button class="filter-btn" data-filter="data"><i class="fas fa-chart-line"></i> Data Analytics</button>
+          <button class="filter-btn" data-filter="branding"><i class="fas fa-palette"></i> Branding</button>
+          <button class="filter-btn" data-filter="hr"><i class="fas fa-users"></i> HR & Leadership</button>
+          <button class="filter-btn" data-filter="digital"><i class="fas fa-laptop-code"></i> Digital & Web</button>
         </div>
+      </div>
     </section>
 
-    <!-- Featured Insights -->
+<!-- Featured Insights -->
     <section class="section featured-insights">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2 class="section-title">Featured Insights</h2>
-                <p class="section-subtitle">Must-read articles from our experts</p>
-            </div>
-            
-            <div class="featured-grid">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Featured Insights</h2>
+          <p class="section-subtitle">Must-read articles from our experts</p>
+        </div>
+        <div class="featured-grid">
                 <!-- Featured 1 -->
                 <div class="featured-article card animate-fade" data-category="data">
                     <div class="article-image">
@@ -85,7 +100,7 @@
                 </div>
                 
                 <!-- Featured 2 -->
-                <div class="featured-article card animate-fade" style="animation-delay: 0.1s" data-category="digital">
+                <div class="featured-article card animate-fade" data-category="digital">
                     <div class="article-image">
                         <div class="image-placeholder" aria-hidden="true">
                             <i class="fas fa-globe fa-4x"></i>
@@ -125,17 +140,16 @@
         </div>
     </section>
 
-    <!-- All Insights Grid -->
-    <section class="section insights-grid-section bg-light">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2 class="section-title">All Insights</h2>
-                <p class="section-subtitle">Browse our complete collection of articles by topic</p>
-            </div>
-            
-            <div class="insights-grid" id="insightsGrid">
+      <section class="section insights-grid-section bg-light">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">All Insights</h2>
+          <p class="section-subtitle">Browse our complete collection of articles by topic</p>
+        </div>
+        <div class="insights-grid" id="insightsGrid">
+
                 <!-- Data & Analytics Articles -->
-                <div class="insight-card card" data-category="data">
+                <div class="insight-card card animate-fade" data-category="data">
                     <div class="insight-image">
                         <div class="image-placeholder"><i class="fas fa-chart-line fa-3x"></i></div>
                     </div>
@@ -151,7 +165,7 @@
                     </div>
                 </div>
                 
-                <div class="insight-card card" data-category="data">
+                <div class="insight-card card animate-fade" data-category="data">
                     <div class="insight-image">
                         <div class="image-placeholder"><i class="fas fa-chart-simple fa-3x"></i></div>
                     </div>
@@ -167,7 +181,7 @@
                     </div>
                 </div>
                 
-                <div class="insight-card card" data-category="data">
+                <div class="insight-card card animate-fade" data-category="data">
                     <div class="insight-image">
                         <div class="image-placeholder"><i class="fas fa-filter fa-3x"></i></div>
                     </div>
@@ -184,7 +198,7 @@
                 </div>
                 
                 <!-- Branding Articles -->
-                <div class="insight-card card" data-category="branding">
+                <div class="insight-card card animate-fade" data-category="branding">
                     <div class="insight-image">
                         <div class="image-placeholder"><i class="fas fa-palette fa-3x"></i></div>
                     </div>
@@ -200,7 +214,7 @@
                     </div>
                 </div>
                 
-                <div class="insight-card card" data-category="branding">
+                <div class="insight-card card animate-fade" data-category="branding">
                     <div class="insight-image">
                         <div class="image-placeholder"><i class="fas fa-rocket fa-3x"></i></div>
                     </div>
@@ -217,7 +231,7 @@
                 </div>
                 
                 <!-- HR & Leadership Articles -->
-                <div class="insight-card card" data-category="hr">
+                <div class="insight-card card animate-fade" data-category="hr">
                     <div class="insight-image">
                         <div class="image-placeholder"><i class="fas fa-users fa-3x"></i></div>
                     </div>
@@ -233,7 +247,7 @@
                     </div>
                 </div>
                 
-                <div class="insight-card card" data-category="hr">
+                <div class="insight-card card animate-fade" data-category="hr">
                     <div class="insight-image">
                         <div class="image-placeholder"><i class="fas fa-user-tie fa-3x"></i></div>
                     </div>
@@ -249,13 +263,13 @@
                     </div>
                 </div>
                 
-                <div class="insight-card card" data-category="hr">
+                <div class="insight-card card animate-fade" data-category="hr">
                     <div class="insight-image">
                         <div class="image-placeholder"><i class="fas fa-chart-line fa-3x"></i></div>
                     </div>
                     <div class="insight-content">
                         <span class="insight-category"><i class="fas fa-users"></i> HR & Leadership</span>
-                        <h3 class="article-title">Scaling People Operations for Growth</h3>
+                        <h3 class="insight-title">Scaling People Operations for Growth</h3>
                         <p class="insight-excerpt">How to build resilient, people-first operational backbones that support sustainable scaling.</p>
                         <div class="insight-meta">
                             <span class="insight-date"><i class="far fa-calendar-alt"></i> February 28, 2024</span>
@@ -266,7 +280,7 @@
                 </div>
                 
                 <!-- Digital & Web Articles -->
-                <div class="insight-card card" data-category="digital">
+                <div class="insight-card card animate-fade" data-category="digital">
                     <div class="insight-image">
                         <div class="image-placeholder"><i class="fas fa-code fa-3x"></i></div>
                     </div>
@@ -282,7 +296,7 @@
                     </div>
                 </div>
                 
-                <div class="insight-card card" data-category="digital">
+                <div class="insight-card card animate-fade" data-category="digital">
                     <div class="insight-image">
                         <div class="image-placeholder"><i class="fas fa-bullhorn fa-3x"></i></div>
                     </div>
@@ -299,7 +313,7 @@
                 </div>
                 
                
-                <div class="insight-card card" data-category="data">
+                <div class="insight-card card animate-fade" data-category="data">
                     <div class="insight-image">
                         <div class="image-placeholder"><i class="fas fa-chart-line fa-3x"></i></div>
                     </div>
@@ -326,6 +340,7 @@
             </div> -->
         </div>
     </section>
+      </div>
 
     <!-- Resources Section -->
     <section class="section resources-section">
@@ -370,15 +385,15 @@
     </section>
 
     <!-- Newsletter Section -->
-    <section class="section newsletter-section">
+    <section class="section insights-newsletter-section">
         <div class="container">
-            <div class="newsletter-content">
-                <div class="newsletter-text">
-                    <h2 class="newsletter-title">Stay Updated</h2>
-                    <p class="newsletter-subtitle">Subscribe to our newsletter for the latest strategic insights and industry trends delivered to your inbox.</p>
+            <div class="insights-newsletter-content">
+                <div class="insights-newsletter-text">
+                    <h2 class="insights-newsletter-title">Stay Updated</h2>
+                    <p class="insights-newsletter-subtitle">Subscribe to our newsletter for the latest strategic insights and industry trends delivered to your inbox.</p>
      
                 </div>
-                <div class="newsletter-form">
+                <div class="insights-newsletter-form">
                     <form class="subscribe-form" id="insights-newsletter-form">
                         <div class="form-group">
                             <input type="email" placeholder="Your email address" class="form-input" required aria-label="Email address">
@@ -404,70 +419,62 @@
     <script src="assets/js/animations.js" defer></script>
     <script src="assets/js/main.js" defer></script>
     
-    <!-- Filter functionality -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const insightCards = document.querySelectorAll('.insight-card, .featured-article');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Update active state
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-                    
-                    const filterValue = button.getAttribute('data-filter');
-                    
-                    // Filter cards
-                    insightCards.forEach(card => {
-                        const category = card.getAttribute('data-category');
-                        if (filterValue === 'all' || category === filterValue) {
-                            card.style.display = 'block';
-                            setTimeout(() => {
-                                card.style.opacity = '1';
-                                card.style.transform = 'translateY(0)';
-                            }, 10);
-                        } else {
-                            card.style.opacity = '0';
-                            card.style.transform = 'translateY(20px)';
-                            setTimeout(() => {
-                                card.style.display = 'none';
-                            }, 300);
-                        }
-                    });
-                    
-                    // Announce filter change for screen readers
-                    const visibleCount = Array.from(insightCards).filter(
-                        card => filterValue === 'all' || card.getAttribute('data-category') === filterValue
-                    ).length;
-                    
-                    const announcement = document.createElement('div');
-                    announcement.setAttribute('aria-live', 'polite');
-                    announcement.classList.add('sr-only');
-                    announcement.textContent = `Showing ${visibleCount} articles`;
-                    document.body.appendChild(announcement);
-                    setTimeout(() => announcement.remove(), 1000);
-                });
-            });
-            
-            // Animate cards on scroll
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            insightCards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                observer.observe(card);
-            });
+  (function() {
+    const wrapper = document.querySelector('[data-filter-group]');
+    if (!wrapper) return;
+
+    const filterButtons = wrapper.querySelectorAll('.filter-btn');
+    const items = wrapper.querySelectorAll(
+      wrapper.dataset.items || '.insight-card, .featured-article'
+    );
+
+    // Filtering
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filterVal = btn.dataset.filter;
+
+        // Update active button
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Show/hide items
+        items.forEach(item => {
+          const cat = item.dataset.category;
+          if (filterVal === 'all' || cat === filterVal) {
+            item.classList.remove('filtered-out');
+            item.style.display = '';
+          } else {
+            item.classList.add('filtered-out');
+            item.style.display = 'none';
+          }
         });
-    </script>
+      });
+    });
+
+    // Scroll reveal for insight cards and featured articles
+    // (they already have animate-fade classes, but just in case, we also handle them)
+    const cards = wrapper.querySelectorAll('.insight-card, .featured-article');
+    if (cards.length && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      cards.forEach(card => {
+        // Don't override if already has animation classes? We'll set initial state anyway.
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(card);
+      });
+    }
+  })();
+</script>
 </body>
 </html>

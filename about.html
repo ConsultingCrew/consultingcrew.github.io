@@ -8,14 +8,34 @@
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- CSS Files -->
+
+        <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
-    
+ 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+    
+    <!-- Preload critical images -->
+    <link rel="preload" as="image" href="assets/images/why_us.jpg">
+    <link rel="preload" as="image" href="assets/images/featured_art.jpg">
+    
 </head>
+
 <body>
+  <!-- Loading Animation -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <div class="loading-logo">
+        <img src="assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+      </div>
+      <div class="loading-progress">
+        <div class="progress-bar"></div>
+      </div>
+      <p class="loading-text">Loading ...</p>
+    </div>
+  </div>
+
     <!-- Header -->
     <div id="header-container"></div>
     

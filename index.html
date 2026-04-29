@@ -8,12 +8,13 @@
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="assets/css/main.css">
+
+        <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+ 
     <!-- Favicon -->
-    <link rel="icon" href="assets/images/logo.png">
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
     
     <!-- Preload critical images -->
     <link rel="preload" as="image" href="assets/images/why_us.jpg">
@@ -22,7 +23,20 @@
 </head>
 
 <body>
-    <!-- Header Container -->
+  <!-- Loading Animation -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <div class="loading-logo">
+        <img src="assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+      </div>
+      <div class="loading-progress">
+        <div class="progress-bar"></div>
+      </div>
+      <p class="loading-text">Loading ...</p>
+    </div>
+  </div>
+
+    <!-- Header -->
     <div id="header-container"></div>
     
     <!-- Breadcrumbs -->
@@ -78,45 +92,45 @@
     <section class="section services-preview bg-light">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Strategic Solutions for Modern Business</h2>
+                <h3 class="section-title">Strategic Solutions for Modern Business</h3>
                 <p class="section-subtitle">Comprehensive solutions designed to drive your business forward with measurable impact.</p>
             </div>
             
             <div class="grid grid-4">
                 <div class="service-preview card animate-fade" style="animation-delay: 0.1s">
-                    <div class="service-icon">
+                    <div class="service-preview-icon">
                         <img src="assets/images/data_intelligence.png" alt="Data Analysis" class="img">
                     </div>
-                    <h3>Data Analysis</h3>
+                    <h4>Data Analysis</h4>
                     <p>Transform raw data into actionable business insights that drive strategic growth.</p>
-                    <a href="service-data-intelligence.html" class="service-link">Learn More →</a>
+                    <a href="service-data-intelligence.html" class="service-preview-link">Learn More →</a>
                 </div>
                 
                 <div class="service-preview card animate-fade" style="animation-delay: 0.2s">
-                    <div class="service-icon">
+                    <div class="service-preview-icon">
                         <img src="assets/images/digital_marketing.png" alt="Digital Marketing" class="img">
                     </div>
-                    <h3>Digital Marketing</h3>
+                    <h4>Digital Marketing</h4>
                     <p>Navigate digital innovation with confidence and strategy for enhanced customer experiences.</p>
-                    <a href="service-digital-transformation.html" class="service-link">Learn More →</a>
+                    <a href="service-digital-transformation.html" class="service-preview-link">Learn More →</a>
                 </div>
                 
                 <div class="service-preview card animate-fade" style="animation-delay: 0.3s">
-                    <div class="service-icon">
+                    <div class="service-preview-icon">
                         <img src="assets/images/branding_identity.png" alt="Branding & Identity" class="img">
                     </div>
-                    <h3>Branding & Identity</h3>
+                    <h4>Branding & Identity</h4>
                     <p>End-to-end digital marketing solutions that increase brand visibility and generate qualified leads.</p>
-                    <a href="service-branding-identity.html" class="service-link">Learn More →</a>
+                    <a href="service-branding-identity.html" class="service-preview-link">Learn More →</a>
                 </div>
                 
                 <div class="service-preview card animate-fade" style="animation-delay: 0.4s">
-                    <div class="service-icon">
+                    <div class="service-preview-icon">
                         <img src="assets/images/Web.png" alt="Web Solutions" class="img">
                     </div>
-                    <h3>Web Solutions</h3>
+                    <h4>Web Solutions</h4>
                     <p>Professional web solutions from concept to launch and beyond.</p>
-                    <a href="service-web-services.html" class="service-link">Learn More →</a>
+                    <a href="service-web-services.html" class="service-preview-link">Learn More →</a>
                 </div>
             </div>
             
