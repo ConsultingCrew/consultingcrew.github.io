@@ -9,13 +9,102 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <!-- Styles -->
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
  
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
     
+    <style>
+        /* Card Two-Column Layout */
+        .portfolio-item.card {
+            display: flex;
+            flex-direction: row;
+            overflow: hidden;
+            padding: 0;
+            transition: box-shadow 0.3s ease;
+        }
+        .portfolio-item.card:hover {
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+        .portfolio-image {
+            flex: 0 0 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f4f6f9;
+            min-height: 200px;
+        }
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #1a2b4c;
+        }
+        .portfolio-content {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .project-category {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #5a6d80;
+            margin-bottom: 10px;
+        }
+        .project-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.5rem;
+            margin: 0 0 12px 0;
+            color: #0b1a2f;
+        }
+        .project-description {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #3a4a5c;
+            margin-bottom: 18px;
+        }
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .tag {
+            background: #eef2f7;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #1a2b4c;
+            font-weight: 500;
+        }
+        .project-link {
+            font-weight: 600;
+            color: #0077cc;
+            text-decoration: none;
+            align-self: flex-start;
+            transition: color 0.2s;
+        }
+        .project-link:hover {
+            color: #004b8d;
+        }
+        @media (max-width: 768px) {
+            .portfolio-item.card {
+                flex-direction: column;
+            }
+            .portfolio-image {
+                flex: 0 0 auto;
+                height: 180px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -46,10 +135,9 @@
     </div>
     
     <!-- Hero Section -->
- <section class="hero about-hero">
-            <img src="assets/images/hero/h_about_us.jpg" class="hero-bg" alt="Background">
-            <div class="hero-overlay"></div>
-
+    <section class="hero about-hero">
+        <img src="assets/images/hero/h_about_us.jpg" class="hero-bg" alt="Background">
+        <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title animate-left">Our Portfolio</h1>
@@ -60,7 +148,6 @@
     </section>
     
    
-    
     <!-- Portfolio Filter -->
     <section class="section filter-section">
         <div class="container">
@@ -79,37 +166,84 @@
         <div class="container">
             <div class="portfolio-grid">
 
-                <!-- Data Analysis Project -->
+                <!-- Data Analysis Projects -->
                 <div class="portfolio-item card" data-category="data">
                     <div class="portfolio-image">
-                        <div class="image-placeholder data-analysis">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
+                        <div class="image-placeholder data-analysis"><i class="fas fa-users"></i></div>
                     </div>
                     <div class="portfolio-content">
                         <span class="project-category">Data Analysis</span>
-                        <h3 class="project-title">Real‑Time Analytics Dashboards</h3>
-                        <p class="project-description">Sales, receivables, HR, and production dashboards giving leadership clear, real‑time visibility into critical metrics.</p>
+                        <h3 class="project-title">HR Command Centre — Workforce Analytics</h3>
+                        <p class="project-description">Interactive Excel dashboard giving an HR consultancy instant visibility into attrition, diversity, and headcount trends.</p>
                         <div class="project-tags">
-                            <span class="tag">Executive Dashboards</span>
-                            <span class="tag">Real-time Insights</span>
-                            <span class="tag">Business Intelligence</span>
+                            <span class="tag">HR Analytics</span>
+                            <span class="tag">Attrition Tracking</span>
+                            <span class="tag">Strategic Advisory</span>
                         </div>
-                        <a href="portfolio/dashboards.html" class="project-link">View Case Study →</a>
+                        <a href="portfolio/hr-dashboard.html" class="project-link">View Case Study →</a>
                     </div>
                 </div>
 
-                <!-- Logo Design Project 1 -->
+                <div class="portfolio-item card" data-category="data">
+                    <div class="portfolio-image">
+                        <div class="image-placeholder data-analysis"><i class="fas fa-industry"></i></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="project-category">Data Analysis</span>
+                        <h3 class="project-title">Production Efficiency Tracker — Multi‑Factory Ops</h3>
+                        <p class="project-description">Single‑view dashboard comparing output, efficiency, and monthly trends across manufacturing plants.</p>
+                        <div class="project-tags">
+                            <span class="tag">Production KPIs</span>
+                            <span class="tag">Efficiency Targets</span>
+                            <span class="tag">Manufacturing</span>
+                        </div>
+                        <a href="portfolio/production-dashboard.html" class="project-link">View Case Study →</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item card" data-category="data">
+                    <div class="portfolio-image">
+                        <div class="image-placeholder data-analysis"><i class="fas fa-funnel-dollar"></i></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="project-category">Data Analysis</span>
+                        <h3 class="project-title">Sales Funnel & Revenue Dashboard</h3>
+                        <p class="project-description">Real‑time tracking of inquiries, leads, opportunities, and sales with profit and goal attainment metrics.</p>
+                        <div class="project-tags">
+                            <span class="tag">Pipeline Analytics</span>
+                            <span class="tag">Conversion Tracking</span>
+                            <span class="tag">Revenue Insights</span>
+                        </div>
+                        <a href="portfolio/sales-funnel-dashboard.html" class="project-link">View Case Study →</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item card" data-category="data">
+                    <div class="portfolio-image">
+                        <div class="image-placeholder data-analysis"><i class="fas fa-chart-bar"></i></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="project-category">Data Analysis</span>
+                        <h3 class="project-title">5‑Year Sales Trend Analysis</h3>
+                        <p class="project-description">Multi‑year, multi‑division dashboard enabling strategic regional and product‑line decisions with full trend visibility.</p>
+                        <div class="project-tags">
+                            <span class="tag">Trend Analysis</span>
+                            <span class="tag">Regional Breakdown</span>
+                            <span class="tag">Strategic Planning</span>
+                        </div>
+                        <a href="portfolio/5year-sales-dashboard.html" class="project-link">View Case Study →</a>
+                    </div>
+                </div>
+
+                <!-- Logo Design Projects -->
                 <div class="portfolio-item card" data-category="logo">
                     <div class="portfolio-image">
-                        <div class="image-placeholder logo-design">
-                            <i class="fas fa-flask"></i>
-                        </div>
+                        <div class="image-placeholder logo-design"><i class="fas fa-flask"></i></div>
                     </div>
                     <div class="portfolio-content">
                         <span class="project-category">Logo Design</span>
                         <h3 class="project-title">SES‑Chem — The Trading Athlete</h3>
-                        <p class="project-description">Bold, energetic logo and stationery system that reflects agility and competitiveness in chemical trading.</p>
+                        <p class="project-description">Bold, energetic logo and stationery system that captures speed and competitiveness in chemical trading.</p>
                         <div class="project-tags">
                             <span class="tag">Logo Design</span>
                             <span class="tag">Brand Identity</span>
@@ -119,17 +253,14 @@
                     </div>
                 </div>
 
-                <!-- Logo Design Project 2 -->
                 <div class="portfolio-item card" data-category="logo">
                     <div class="portfolio-image">
-                        <div class="image-placeholder logo-design">
-                            <i class="fas fa-tshirt"></i>
-                        </div>
+                        <div class="image-placeholder logo-design"><i class="fas fa-tshirt"></i></div>
                     </div>
                     <div class="portfolio-content">
                         <span class="project-category">Logo Design</span>
                         <h3 class="project-title">Adornments — Modern Fashion Identity</h3>
-                        <p class="project-description">Sleek, minimalist logo and social media templates for a contemporary fashion brand.</p>
+                        <p class="project-description">Sleek, minimalist logo and social media kit that resonates with fashion‑forward audiences.</p>
                         <div class="project-tags">
                             <span class="tag">Logo & Visuals</span>
                             <span class="tag">Social Media Kit</span>
@@ -139,32 +270,27 @@
                     </div>
                 </div>
 
-                <!-- Branding Project 1 -->
-                <div class="portfolio-item card" data-category="branding">
+                <div class="portfolio-item card" data-category="logo">
                     <div class="portfolio-image">
-                        <div class="image-placeholder branding">
-                            <i class="fas fa-building"></i>
-                        </div>
+                        <div class="image-placeholder logo-design"><i class="fas fa-couch"></i></div>
                     </div>
                     <div class="portfolio-content">
-                        <span class="project-category">Branding & Stationery</span>
-                        <h3 class="project-title">Dadex — Modernizing a 65‑Year Legacy</h3>
-                        <p class="project-description">Complete marketing collaterals redesign, social graphics, and annual reports for a piping systems manufacturer.</p>
+                        <span class="project-category">Logo Design</span>
+                        <h3 class="project-title">Trust Way Furnishings — Premium Brand & Web</h3>
+                        <p class="project-description">Refined logo and brand identity paired with a corporate website that elevated a Dubai furniture brand.</p>
                         <div class="project-tags">
-                            <span class="tag">Marketing Collaterals</span>
-                            <span class="tag">Annual Report</span>
-                            <span class="tag">Brand Modernization</span>
+                            <span class="tag">Logo & Branding</span>
+                            <span class="tag">Web Development</span>
+                            <span class="tag">Premium Furniture</span>
                         </div>
-                        <a href="portfolio/dadex.html" class="project-link">View Case Study →</a>
+                        <a href="portfolio/trust-way.html" class="project-link">View Case Study →</a>
                     </div>
                 </div>
 
-                <!-- Branding Project 2 -->
+                <!-- Branding Projects -->
                 <div class="portfolio-item card" data-category="branding">
                     <div class="portfolio-image">
-                        <div class="image-placeholder branding">
-                            <i class="fas fa-file-powerpoint"></i>
-                        </div>
+                        <div class="image-placeholder branding"><i class="fas fa-building"></i></div>
                     </div>
                     <div class="portfolio-content">
                         <span class="project-category">Branding & Stationery</span>
@@ -179,32 +305,27 @@
                     </div>
                 </div>
 
-                <!-- Branding Project 3 (also has web, but primary branding) -->
                 <div class="portfolio-item card" data-category="branding">
                     <div class="portfolio-image">
-                        <div class="image-placeholder branding">
-                            <i class="fas fa-couch"></i>
-                        </div>
+                        <div class="image-placeholder branding"><i class="fas fa-file-powerpoint"></i></div>
                     </div>
                     <div class="portfolio-content">
                         <span class="project-category">Branding & Stationery</span>
-                        <h3 class="project-title">Trust Way Furnishings — Premium Brand & Web</h3>
-                        <p class="project-description">Refined logo, brand identity, and a corporate website that elevated a Dubai furniture brand’s market presence.</p>
+                        <h3 class="project-title">Burhan Enterprises — Global Textile Identity</h3>
+                        <p class="project-description">Modern logo and comprehensive company profile that positions a textile supplier as a premium partner.</p>
                         <div class="project-tags">
-                            <span class="tag">Logo & Branding</span>
-                            <span class="tag">Web Development</span>
-                            <span class="tag">Premium Furniture</span>
+                            <span class="tag">Company Profile</span>
+                            <span class="tag">Logo Design</span>
+                            <span class="tag">Textile Export</span>
                         </div>
-                        <a href="portfolio/trust-way.html" class="project-link">View Case Study →</a>
+                        <a href="portfolio/burhan-enterprises.html" class="project-link">View Case Study →</a>
                     </div>
                 </div>
 
-                <!-- Web Development Project 1 -->
+                <!-- Web Development Projects -->
                 <div class="portfolio-item card" data-category="web">
                     <div class="portfolio-image">
-                        <div class="image-placeholder web-dev">
-                            <i class="fas fa-globe"></i>
-                        </div>
+                        <div class="image-placeholder web-dev"><i class="fas fa-globe"></i></div>
                     </div>
                     <div class="portfolio-content">
                         <span class="project-category">Web Development</span>
@@ -219,12 +340,9 @@
                     </div>
                 </div>
 
-                <!-- Web Development Project 2 -->
                 <div class="portfolio-item card" data-category="web">
                     <div class="portfolio-image">
-                        <div class="image-placeholder web-dev">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
+                        <div class="image-placeholder web-dev"><i class="fas fa-shopping-cart"></i></div>
                     </div>
                     <div class="portfolio-content">
                         <span class="project-category">Web Development</span>
@@ -239,52 +357,45 @@
                     </div>
                 </div>
 
+                <div class="portfolio-item card" data-category="web">
+                    <div class="portfolio-image">
+                        <div class="image-placeholder web-dev"><i class="fas fa-user-tie"></i></div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="project-category">Web Development</span>
+                        <h3 class="project-title">Muhammad Asif Iqbal — Personal Brand, Global Stage</h3>
+                        <p class="project-description">Crisp, modern personal portfolio website that elevates a senior data & marketing leader’s professional authority.</p>
+                        <div class="project-tags">
+                            <span class="tag">Personal Brand</span>
+                            <span class="tag">Portfolio Website</span>
+                            <span class="tag">Senior Leadership</span>
+                        </div>
+                        <a href="portfolio/asif-iqbal.html" class="project-link">View Case Study →</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
     
-     <!-- Clients Section -->
+    <!-- Clients Section -->
     <section class="section clients-section">
         <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">Some of Our Satisfied Clients</h2>
-                    <p class="section-subtitle">Trusted by growth-focused organizations across industries</p>
-                </div>
-                
-                <div class="clients-grid">
-                    <div class="client-logo">
-                        <img src="assets/images/clients/TW.jpg" alt="Trust Way Furnishing" loading="lazy">
-                        <span>Trust Way Furnishings</span>
-                    </div>
-                    <div class="client-logo">
-                        <img src="assets/images/clients/Decor.jpg" alt="Decor Redefined" loading="lazy">
-                        <span>Decor Redefined</span>
-                    </div>
-                    <div class="client-logo">
-                        <img src="assets/images/clients/Fahad-Logo.jpg" alt="Fahad Enterprises" loading="lazy">
-                        <span>Fahad Enterprises</span>
-                    </div>
-                    <div class="client-logo">
-                        <img src="assets/images/clients/OneStop.jpg" alt="One Stop Supplies" loading="lazy">
-                        <span>One Stop Supplies</span>
-                    </div>
-                    <div class="client-logo">
-                        <img src="assets/images/clients/SES.jpg" alt="SES Chemicals" loading="lazy">
-                        <span>SES Chemicals</span>
-                    </div>
-                    <div class="client-logo">
-                        <img src="assets/images/clients/Burhan.jpeg" alt="Burhan Enterprises" loading="lazy">
-                        <span>Burhan Enterprises</span>
-                    </div>
-                    <div class="client-logo">
-                        <img src="assets/images/clients/Adornments.jpg" alt="Adornments" loading="lazy">
-                        <span>Adornments</span>
-                    </div>
-                    <div class="client-logo">
-                        <img src="assets/images/clients.jpg" alt="Rnack" loading="lazy">  
-                        <span>Rnack Management</span>
-                    </div>
-                </div>
+            <div class="section-header text-center">
+                <h2 class="section-title">Some of Our Satisfied Clients</h2>
+                <p class="section-subtitle">Trusted by growth-focused organizations across industries</p>
+            </div>
+            <div class="clients-grid">
+                <div class="client-logo"><img src="assets/images/clients/TW.jpg" alt="Trust Way" loading="lazy"><span>Trust Way Furnishings</span></div>
+                <div class="client-logo"><img src="assets/images/clients/Decor.jpg" alt="Decor Redefined" loading="lazy"><span>Decor Redefined</span></div>
+                <div class="client-logo"><img src="assets/images/clients/Fahad-Logo.jpg" alt="Fahad Enterprises" loading="lazy"><span>Fahad Enterprises</span></div>
+                <div class="client-logo"><img src="assets/images/clients/OneStop.jpg" alt="One Stop Supplies" loading="lazy"><span>One Stop Supplies</span></div>
+                <div class="client-logo"><img src="assets/images/clients/SES.jpg" alt="SES Chemicals" loading="lazy"><span>SES Chemicals</span></div>
+                <div class="client-logo"><img src="assets/images/clients/Burhan.jpeg" alt="Burhan Enterprises" loading="lazy"><span>Burhan Enterprises</span></div>
+                <div class="client-logo"><img src="assets/images/clients/Adornments.jpg" alt="Adornments" loading="lazy"><span>Adornments</span></div>
+                <div class="client-logo"><img src="assets/images/clients.jpg" alt="Rnack Management" loading="lazy"><span>Rnack Management</span></div>
+                <div class="client-logo"><img src="assets/images/clients/asif-iqbal.jpg" alt="Muhammad Asif Iqbal" loading="lazy"><span>Muhammad Asif Iqbal</span></div>
+            </div>
         </div>
     </section>
 
@@ -292,44 +403,25 @@
     <section class="section testimonials-section bg-light">
         <div class="container">
             <div class="section-header text-center">
-                <h2 class="section-title">Client Testimonials</h2>
-                <p class="section-subtitle">What our clients say about working with us</p>
+                <h2 class="section-title">What Our Clients Say</h2>
             </div>
-            
             <div class="testimonials-grid">
                 <div class="testimonial-card card">
                     <div class="testimonial-content">
-                        <p class="testimonial-text">"Consulting Crew transformed our data analytics capabilities. Their dashboard provides insights we never had access to before."</p>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <h4>Ahmed Raza</h4>
-                                <p>CEO, Trust Way Furnishings</p>
-                            </div>
-                        </div>
+                        <p>“Working with Consulting Crew was seamless. They built us a website that truly represents our scale of operations.”</p>
+                        <div class="testimonial-author"><h4>Owner, Fahad Enterprises</h4></div>
                     </div>
                 </div>
-                
                 <div class="testimonial-card card">
                     <div class="testimonial-content">
-                        <p class="testimonial-text">"The branding work Consulting Crew delivered exceeded our expectations. Our brand identity now truly reflects our values."</p>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <h4>Sarah Khan</h4>
-                                <p>Marketing Director, Decor Redefined</p>
-                            </div>
-                        </div>
+                        <p>“Consulting Crew transformed how we present our business. The new profile and logo give us the confidence to approach top‑tier clients worldwide.”</p>
+                        <div class="testimonial-author"><h4>Owner, Burhan Enterprises</h4></div>
                     </div>
                 </div>
-                
                 <div class="testimonial-card card">
                     <div class="testimonial-content">
-                        <p class="testimonial-text">"Their web development team delivered a robust e-commerce platform that has increased our online sales by 150%."</p>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <h4>Bilal Ahmed</h4>
-                                <p>Operations Manager, Fahad Enterprises</p>
-                            </div>
-                        </div>
+                        <p>“The dashboard gave us an immediate, data‑backed view of where our client needed to act. It’s now the backbone of our HR strategy sessions.”</p>
+                        <div class="testimonial-author"><h4>Director, RNack Management</h4></div>
                     </div>
                 </div>
             </div>
@@ -337,7 +429,7 @@
     </section>
     
     <!-- CTA Section -->
-     <section class="section cta bg-gradient">
+    <section class="section cta bg-gradient">
         <img src="assets/images/hero/CTA.jpg" class="cta-bg" alt="Background" loading="lazy">
         <div class="cta-overlay"></div>
         <div class="container">
@@ -359,58 +451,25 @@
     <script src="assets/js/header-footer.js" defer></script>
     <script src="assets/js/animations.js" defer></script>
     <script src="assets/js/main.js" defer></script>
-    
-    <!-- Portfolio-specific JS -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Portfolio filtering functionality
             const filterButtons = document.querySelectorAll('.filter-btn');
             const portfolioItems = document.querySelectorAll('.portfolio-item');
-            
             filterButtons.forEach(button => {
                 button.addEventListener('click', () => {
-                    // Remove active class from all buttons
                     filterButtons.forEach(btn => btn.classList.remove('active'));
-                    
-                    // Add active class to clicked button
                     button.classList.add('active');
-                    
                     const filterValue = button.getAttribute('data-filter');
-                    
-                    // Show/hide portfolio items based on filter
                     portfolioItems.forEach(item => {
                         if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                            item.style.display = 'block';
-                            setTimeout(() => {
-                                item.style.opacity = '1';
-                                item.style.transform = 'translateY(0)';
-                            }, 10);
+                            item.style.display = 'flex';
+                            item.style.opacity = '1';
                         } else {
                             item.style.opacity = '0';
-                            item.style.transform = 'translateY(20px)';
-                            setTimeout(() => {
-                                item.style.display = 'none';
-                            }, 300);
+                            setTimeout(() => { item.style.display = 'none'; }, 300);
                         }
                     });
                 });
-            });
-            
-            // Animate portfolio items on scroll
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            portfolioItems.forEach(item => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(20px)';
-                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                observer.observe(item);
             });
         });
     </script>
