@@ -1,7 +1,72 @@
 /* ============================================
    PORTFOLIO & CASE STUDY PAGES – SINGLE CSS
    ============================================ */
+/* ============================================
+   CATEGORY COLOUR CODING (matching services)
+   ============================================ */
 
+.portfolio-item[data-category="data"] {
+    border-top: 4px solid var(--dark-blue);
+}
+.portfolio-item[data-category="data"] .portfolio-image {
+    background-color: var(--light-blue);
+}
+.portfolio-item[data-category="data"] .project-category,
+.portfolio-item[data-category="data"] .project-link {
+    color: var(--dark-blue);
+}
+
+/* Logo & Branding both use the services 'branding' green */
+.portfolio-item[data-category="logo"],
+.portfolio-item[data-category="branding"] {
+    border-top: 4px solid var(--primary-green);
+}
+.portfolio-item[data-category="logo"] .portfolio-image,
+.portfolio-item[data-category="branding"] .portfolio-image {
+    background-color: var(--light-green);
+}
+.portfolio-item[data-category="logo"] .project-category,
+.portfolio-item[data-category="branding"] .project-category,
+.portfolio-item[data-category="logo"] .project-link,
+.portfolio-item[data-category="branding"] .project-link {
+    color: var(--primary-green);
+}
+
+.portfolio-item[data-category="web"] {
+    border-top: 4px solid var(--primary-orange);
+}
+.portfolio-item[data-category="web"] .portfolio-image {
+    background-color: var(--light-orange);
+}
+.portfolio-item[data-category="web"] .project-category,
+.portfolio-item[data-category="web"] .project-link {
+    color: var(--primary-orange);
+}
+
+/* ============================================
+   FEATURED PROJECT BADGE
+   ============================================ */
+.portfolio-item.featured {
+    position: relative;
+    overflow: hidden; /* keeps ribbon contained */
+}
+.portfolio-item.featured::before {
+    content: "★ Featured";
+    position: absolute;
+    top: 12px;
+    right: -38px;
+    background: var(--primary-orange);
+    color: white;
+    padding: 5px 40px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transform: rotate(45deg);
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    line-height: 1.4;
+}
 /* ---------- Portfolio Main Grid – Two‑Column Cards ---------- */
 .portfolio-item.card {
     display: flex;
