@@ -254,10 +254,6 @@
         --space-xl: 3rem;
         --header-height: 58px;
     }
-
-    /* ===============================
-       TYPOGRAPHY
-    =============================== */
     h1 {
         font-size: 2rem;
     }
@@ -430,7 +426,7 @@
     }
 
     .hero-home-title {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 
     .process-step-cycle {
@@ -441,7 +437,7 @@
     .card,
     .service-card,
     .insight-card {
-        padding: 1.25rem;
+        padding: 1rem;
     }
 }
 
@@ -449,25 +445,22 @@
    MOBILE DEVICES
    ========================================================== */
 @media (max-width: 480px) {
-
-    /* ===============================
-       TYPOGRAPHY
-    =============================== */
+   
     h1 {
-        font-size: 1.8rem;
-    }
-
-    h2 {
         font-size: 1.5rem;
     }
 
+    h2 {
+        font-size: 1.3rem;
+    }
+
     h3 {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     .hero-home-title,
     .hero-title {
-        font-size: 1.7rem;
+        font-size: 1.5rem;
     }
 
     /* ===============================
@@ -489,7 +482,7 @@
        ABOUT PAGE
     =============================== */
     .about-hero .hero-title {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
 
     .about-hero .hero-subtitle {
@@ -521,8 +514,8 @@
     }
 
     .styled-list li {
-        padding-left: 24px;
-        font-size: 0.95rem;
+        padding-left: 19px;
+        font-size: 0.9rem;
     }
 
     /* ===============================
@@ -543,17 +536,17 @@
 @media (max-width: 360px) {
 
     h1 {
-        font-size: 1.65rem;
+        font-size: 1.4rem;
     }
 
     h2 {
-        font-size: 1.35rem;
+        font-size: 1.2rem;
     }
 
     .hero-home,
     .about-hero,
     .process-hero {
-        padding: 90px 0 50px;
+        padding: 63px 0 40px;
     }
 
     .btn {
@@ -561,8 +554,8 @@
     }
 
     .container {
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-left: 12px;
+        padding-right: 11px;
     }
 
     .hero-home-title {
@@ -707,7 +700,7 @@ svg {
 @media (max-width: 768px) {
 
     .section {
-        padding: 70px 0;
+        padding: 50px 0;
     }
 
     .container {
@@ -716,7 +709,7 @@ svg {
     }
 
     .section-header {
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
 }
 
@@ -748,7 +741,7 @@ svg {
 }
 
 /* ==========================================================
-   TIMELINE / PROCESS / EDGE FIX
+   TIMELINE / PROCESS / EDGE
 ========================================================== */
 
 @media (max-width: 768px) {
@@ -786,7 +779,7 @@ svg {
 }
 
 /* ==========================================================
-   HERO RESPONSIVE FIX
+   HERO RESPONSIVE
 ========================================================== */
 
 @media (max-width: 768px) {
@@ -797,7 +790,7 @@ svg {
     .process-hero,
     .legal-hero {
         min-height: auto;
-        padding: 110px 0 70px;
+        padding: 92px 0 63px;
     }
 
     .hero .container,
@@ -918,20 +911,20 @@ body {
 @media (max-width: 480px) {
 
     .container {
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-left: 12px;
+        padding-right: 11px;
     }
 
     .section {
-        padding: 60px 0;
+        padding: 40px 0;
     }
 
     .section-title {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
 
     .section-subtitle {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -942,11 +935,11 @@ body {
 @media (max-width: 360px) {
 
     h1 {
-        font-size: 1.7rem;
+        font-size: 1.4rem;
     }
 
     h2 {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 
     .btn {
@@ -956,6 +949,6 @@ body {
     .card,
     .service-card,
     .insight-card {
-        padding: 18px;
+        padding: 12px;
     }
 }
