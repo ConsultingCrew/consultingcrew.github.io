@@ -255,7 +255,7 @@ img {
 .loading-screen.hidden { opacity: 0; visibility: hidden; }
 .loading-content { display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .loading-logo { animation: pulse 2s infinite; margin-bottom: 1.5rem; }
-.loading-progress { width: 200px; height: 4px; background: rgba(255,255,255,0.15); border-radius: 2px; margin: 0 auto; overflow: hidden; }
+.loading-progress { width: 150px; height: 4px; background: rgba(255,255,255,0.15); border-radius: 2px; margin: 0 auto; overflow: hidden; }
 .progress-bar { height: 100%; background: var(--primary-green); animation: loading 3.5s ease-in-out infinite; }
 .loading-text { color: white; margin-top: var(--space-md); font-size: 1rem; opacity: 0.85; }
 
