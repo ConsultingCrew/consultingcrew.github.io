@@ -215,7 +215,7 @@ img {
 }
 
 .section-title {
-    margin-top: var(--space-sm);
+    margin-top: var(--space-md);
     position: relative;
     padding-bottom: var(--space-sm);
 }
@@ -234,7 +234,7 @@ img {
 
 .section-subtitle {
     color: var(--medium-gray);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     max-width: 700px;
     margin: var(--space-md) auto 0;
 }
