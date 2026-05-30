@@ -275,9 +275,8 @@ color: white;
 .sidebar h3::after,
 .sidebar h4::after {
     content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    display: block;
+    margin-top: 6px;
     width: 72px;
     height: 2px;
     background: var(--primary-blue);
