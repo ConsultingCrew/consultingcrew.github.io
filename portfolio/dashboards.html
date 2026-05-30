@@ -3,303 +3,236 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Real-time analytics dashboards for sales, finance, HR, and operations. Case studies and executive dashboard solutions from Consulting Crew.">
+  <meta name="keywords" content="analytics dashboards, business intelligence, sales dashboard, HR analytics, receivables dashboard">
   <title>Analytics Dashboards – Case Studies | Consulting Crew</title>
 
-      <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts with preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <!-- Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
- 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
-    
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/logo.png">
 </head>
-
 <body>
-    <!-- Header -->
-    <div id="header-container"></div>
 
-<main class="case-study-page">
+  <!-- Loading Animation -->
+  <div class="loading-screen" id="loadingScreen" aria-hidden="true">
+    <div class="loading-content">
+      <div class="loading-logo">
+        <img src="../assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+      </div>
+      <div class="loading-progress">
+        <div class="progress-bar"></div>
+      </div>
+      <p class="loading-text">Loading ...</p>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div id="header-container"></div>
+
+  <main class="case-study-page">
     <div class="container">
-      <nav class="breadcrumb">
-        <a href="../index.html"><i class="fas fa-home"></i> Home</a> <span class="separator">/</span>
-        <a href="../portfolio.html">Portfolio</a> <span class="separator">/</span>
-        <span class="current">Analytics Dashboards</span>
+      <nav class="breadcrumb" aria-label="Breadcrumb navigation">
+        <a href="../index.html"><i class="fas fa-home" aria-hidden="true"></i> Home</a>
+        <span class="separator" aria-hidden="true">/</span>
+        <a href="../portfolio.html">Portfolio</a>
+        <span class="separator" aria-hidden="true">/</span>
+        <span class="current" aria-current="page">Analytics Dashboards</span>
       </nav>
     </div>
 
-
-<section class="hero" style="background: linear-gradient(145deg, #e6ecf5, #ffffff); padding: 90px 20px; position: relative; overflow: hidden;">
-  <div class="container hero-content" style="max-width: 1200px; margin: 0 auto; text-align: center;">
-    
-    <i class="fas fa-chart-line" 
-       style="font-size: 5rem; color: var(--primary); margin-bottom: 1.5rem; display: inline-block; background: #ffffff; padding: 30px; border-radius: 50%; box-shadow: 0 20px 50px rgba(0,0,0,0.08);">
-    </i>
-
-    <h2 class="hero-title" 
-        style="font-size: 3rem; font-weight: 800; color: #1e293b; margin-bottom: 1rem; line-height: 1.2;">
-      Real-Time Visibility Dashboards
-    </h2>
-
-    <p class="hero-sub" 
-       style="font-size: 1.3rem; color: #64748b; max-width: 700px; margin: 0 auto;">
-      Transforming data into decisions
-    </p>
-  </div>
-</section>
-
-<section class="section" style="padding: 90px 20px; background: #f8fafc;">
-  <div class="container" style="max-width: 1200px; margin: 0 auto;">
-
-    <p class="lead" 
-       style="text-align: center; max-width: 800px; margin: 0 auto 4.5rem; font-size: 1.15rem; line-height: 1.9; color: #475569;">
-      We've built executive dashboards across industries, giving leadership teams clear, real-time visibility into critical business metrics.
-    </p>
-
-    <!-- Sales Dashboard -->
-    <div style="background: white; border-radius: 2rem; padding: 2.7rem; margin-bottom: 2.5rem; box-shadow: 0 20px 50px rgba(15,23,42,0.08); border: 1px solid #e2e8f0; transition: all 0.3s ease;">
-      <div style="display: flex; gap: 2.5rem; flex-wrap: wrap; align-items: center; justify-content: space-between;">
-
-        <div style="flex: 1; min-width: 300px;">
-          <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(37,99,235,0.08); color: var(--primary); padding: 10px 18px; border-radius: 999px; font-size: 0.9rem; font-weight: 700; margin-bottom: 1.3rem;">
-            <i class="fas fa-chart-simple"></i>
-            SALES ANALYTICS
-          </div>
-
-          <h3 style="font-size: 2rem; color: #0f172a; margin-bottom: 1.3rem;">
-            Sales Performance Dashboard
-          </h3>
-
-          <p style="margin-bottom: 12px; line-height: 1.8; color: #475569;">
-            <strong style="color: #0f172a;">Challenge:</strong> Lack of consolidated sales reporting.
-          </p>
-
-          <p style="margin-bottom: 12px; line-height: 1.8; color: #475569;">
-            <strong style="color: #0f172a;">Approach:</strong> Interactive dashboard integrating multiple data sources.
-          </p>
-
-          <p style="line-height: 1.8; color: #475569; margin-bottom: 1.8rem;">
-            <strong style="color: #0f172a;">Outcome:</strong> Clear sales visibility and faster reporting.
-          </p>
-
-          <a href="../portfolio/mtd-ytd-sales-dashboard.html"
-             style="display: inline-flex; align-items: center; gap: 10px; color: var(--primary); text-decoration: none; font-weight: 700;">
-            View detailed case study
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-
-        <div style="flex: 0 0 260px; text-align: center;">
-          <div style="background: linear-gradient(135deg, #eff6ff, #dbeafe); height: 180px; border-radius: 1.5rem; display: flex; align-items: center; justify-content: center; flex-direction: column; color: var(--primary); font-weight: 700;">
-            <i class="fas fa-chart-area" style="font-size: 3rem; margin-bottom: 12px;"></i>
-            Sales dashboard
-          </div>
-
-          <a href="../contact.html" 
-             class="btn btn-outline"
-             style="margin-top: 1.3rem; display: inline-block; padding: 13px 28px; border: 2px solid var(--primary); border-radius: 50px; color: var(--primary); text-decoration: none; font-weight: 700;">
-            Build yours
-          </a>
-        </div>
-
+    <!-- Hero Section -->
+    <section class="dashboard-hero">
+      <div class="container hero-content">
+        <i class="fas fa-chart-line hero-icon" aria-hidden="true"></i>
+        <h1 class="hero-title">Real-Time Visibility Dashboards</h1>
+        <p class="hero-sub">Transforming data into decisions</p>
       </div>
-    </div>
+    </section>
 
-    <!-- Receivables Dashboard -->
-    <div style="background: white; border-radius: 2rem; padding: 2.7rem; margin-bottom: 2.5rem; box-shadow: 0 20px 50px rgba(15,23,42,0.08); border: 1px solid #e2e8f0;">
-      <div style="display: flex; gap: 2.5rem; flex-wrap: wrap; align-items: center; justify-content: space-between;">
-
-        <div style="flex: 1; min-width: 300px;">
-          <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(16,185,129,0.08); color: var(--secondary); padding: 10px 18px; border-radius: 999px; font-size: 0.9rem; font-weight: 700; margin-bottom: 1.3rem;">
-            <i class="fas fa-credit-card"></i>
-            FINANCIAL VISIBILITY
-          </div>
-
-          <h3 style="font-size: 2rem; color: #0f172a; margin-bottom: 1.3rem;">
-            Receivables Dashboard
-          </h3>
-
-          <p style="margin-bottom: 12px; line-height: 1.8; color: #475569;">
-            <strong style="color: #0f172a;">Challenge:</strong> Difficulty tracking overdue receivables.
-          </p>
-
-          <p style="margin-bottom: 12px; line-height: 1.8; color: #475569;">
-            <strong style="color: #0f172a;">Approach:</strong> Receivables aging and credit monitoring dashboards.
-          </p>
-
-          <p style="line-height: 1.8; color: #475569; margin-bottom: 1.8rem;">
-            <strong style="color: #0f172a;">Outcome:</strong> Improved cash-flow visibility and collections management.
-          </p>
-
-          <a href="../case-studies/receivables-dashboard.html"
-             style="display: inline-flex; align-items: center; gap: 10px; color: var(--secondary); text-decoration: none; font-weight: 700;">
-            View detailed case study
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-
-        <div style="flex: 0 0 260px; text-align: center;">
-          <div style="background: linear-gradient(135deg, #ecfdf5, #d1fae5); height: 180px; border-radius: 1.5rem; display: flex; align-items: center; justify-content: center; flex-direction: column; color: var(--secondary); font-weight: 700;">
-            <i class="fas fa-file-invoice-dollar" style="font-size: 3rem; margin-bottom: 12px;"></i>
-            Aging report
-          </div>
-
-          <a href="../contact.html" 
-             class="btn btn-outline"
-             style="margin-top: 1.3rem; display: inline-block; padding: 13px 28px; border: 2px solid var(--secondary); border-radius: 50px; color: var(--secondary); text-decoration: none; font-weight: 700;">
-            Improve collections
-          </a>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- HR Analytics Dashboard -->
-    <div style="background: white; border-radius: 2rem; padding: 2.7rem; margin-bottom: 2.5rem; box-shadow: 0 20px 50px rgba(15,23,42,0.08); border: 1px solid #e2e8f0;">
-      <div style="display: flex; gap: 2.5rem; flex-wrap: wrap; align-items: center; justify-content: space-between;">
-
-        <div style="flex: 1; min-width: 300px;">
-          <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(139,92,246,0.08); color: var(--accent); padding: 10px 18px; border-radius: 999px; font-size: 0.9rem; font-weight: 700; margin-bottom: 1.3rem;">
-            <i class="fas fa-users"></i>
-            WORKFORCE INSIGHTS
-          </div>
-
-          <h3 style="font-size: 2rem; color: #0f172a; margin-bottom: 1.3rem;">
-            HR Analytics Dashboard
-          </h3>
-
-          <p style="margin-bottom: 12px; line-height: 1.8; color: #475569;">
-            <strong style="color: #0f172a;">Challenge:</strong> Limited visibility into workforce trends.
-          </p>
-
-          <p style="margin-bottom: 12px; line-height: 1.8; color: #475569;">
-            <strong style="color: #0f172a;">Approach:</strong> Workforce analytics dashboard integrating HR metrics.
-          </p>
-
-          <p style="line-height: 1.8; color: #475569; margin-bottom: 1.8rem;">
-            <strong style="color: #0f172a;">Outcome:</strong> Better HR planning and workforce monitoring.
-          </p>
-
-          <a href="../portfolio/hr-dashboard.html"
-             style="display: inline-flex; align-items: center; gap: 10px; color: var(--accent); text-decoration: none; font-weight: 700;">
-            View detailed case study
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-
-        <div style="flex: 0 0 260px; text-align: center;">
-          <div style="background: linear-gradient(135deg, #f5f3ff, #ede9fe); height: 180px; border-radius: 1.5rem; display: flex; align-items: center; justify-content: center; flex-direction: column; color: var(--accent); font-weight: 700;">
-            <i class="fas fa-user-chart" style="font-size: 3rem; margin-bottom: 12px;"></i>
-            HR metrics
-          </div>
-
-          <a href="../contact.html" 
-             class="btn btn-outline"
-             style="margin-top: 1.3rem; display: inline-block; padding: 13px 28px; border: 2px solid var(--accent); border-radius: 50px; color: var(--accent); text-decoration: none; font-weight: 700;">
-            Optimize workforce
-          </a>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Production Dashboard -->
-    <div style="background: white; border-radius: 2rem; padding: 2.7rem; margin-bottom: 2.5rem; box-shadow: 0 20px 50px rgba(15,23,42,0.08); border: 1px solid #e2e8f0;">
-      <div style="display: flex; gap: 2.5rem; flex-wrap: wrap; align-items: center; justify-content: space-between;">
-
-        <div style="flex: 1; min-width: 300px;">
-          <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(245,158,11,0.08); color: #f59e0b; padding: 10px 18px; border-radius: 999px; font-size: 0.9rem; font-weight: 700; margin-bottom: 1.3rem;">
-            <i class="fas fa-industry"></i>
-            OPERATIONS MONITORING
-          </div>
-
-          <h3 style="font-size: 2rem; color: #0f172a; margin-bottom: 1.3rem;">
-            Production Dashboard
-          </h3>
-
-          <p style="margin-bottom: 12px; line-height: 1.8; color: #475569;">
-            <strong style="color: #0f172a;">Challenge:</strong> Fragmented operational reporting.
-          </p>
-
-          <p style="margin-bottom: 12px; line-height: 1.8; color: #475569;">
-            <strong style="color: #0f172a;">Approach:</strong> Production monitoring dashboards tracking output and efficiency.
-          </p>
-
-          <p style="line-height: 1.8; color: #475569; margin-bottom: 1.8rem;">
-            <strong style="color: #0f172a;">Outcome:</strong> Improved operational visibility.
-          </p>
-
-          <a href="../portfolio/production-dashboard.html"
-             style="display: inline-flex; align-items: center; gap: 10px; color: #f59e0b; text-decoration: none; font-weight: 700;">
-            View detailed case study
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-
-        <div style="flex: 0 0 260px; text-align: center;">
-          <div style="background: linear-gradient(135deg, #fffbeb, #fef3c7); height: 180px; border-radius: 1.5rem; display: flex; align-items: center; justify-content: center; flex-direction: column; color: #f59e0b; font-weight: 700;">
-            <i class="fas fa-gauge-high" style="font-size: 3rem; margin-bottom: 12px;"></i>
-            OEE dashboard
-          </div>
-
-          <a href="../contact.html" 
-             class="btn btn-outline"
-             style="margin-top: 1.3rem; display: inline-block; padding: 13px 28px; border: 2px solid #f59e0b; border-radius: 50px; color: #f59e0b; text-decoration: none; font-weight: 700;">
-            Boost efficiency
-          </a>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- REFRESHED CTA -->
-    <div style="margin-top: 6rem; position: relative; overflow: hidden; border-radius: 2.5rem; background: linear-gradient(135deg, #0f172a, #1e293b); padding: 70px 40px; text-align: center; box-shadow: 0 30px 70px rgba(15,23,42,0.25);">
-      
-      <div style="position: absolute; top: -80px; right: -80px; width: 250px; height: 250px; background: rgba(255,255,255,0.05); border-radius: 50%;"></div>
-      <div style="position: absolute; bottom: -100px; left: -100px; width: 300px; height: 300px; background: rgba(59,130,246,0.12); border-radius: 50%;"></div>
-
-      <div style="position: relative; z-index: 2;">
-
-        <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.08); color: #93c5fd; padding: 12px 22px; border-radius: 999px; font-size: 0.9rem; font-weight: 700; margin-bottom: 1.8rem;">
-          <i class="fas fa-bolt"></i>
-          EXECUTIVE DASHBOARD SOLUTIONS
-        </div>
-
-        <h3 style="font-size: 3rem; line-height: 1.2; color: #ffffff; margin-bottom: 1.3rem; font-weight: 800;">
-          Ready to unlock<br>
-          real-time business visibility?
-        </h3>
-
-        <p style="max-width: 720px; margin: 0 auto 2.5rem; color: rgba(255,255,255,0.75); font-size: 1.15rem; line-height: 1.9;">
-          We design modern executive dashboards that bring together your most important business metrics into one powerful, decision-ready view.
+    <!-- Main Content -->
+    <section class="dashboard-section">
+      <div class="container">
+        
+        <p class="section-lead">
+          We've built executive dashboards across industries, giving leadership teams clear, real-time visibility into critical business metrics.
         </p>
 
-        <div style="display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;">
-          
-          <a href="../contact.html" 
-             style="display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #2563eb, #3b82f6); color: #ffffff; padding: 16px 34px; border-radius: 999px; text-decoration: none; font-weight: 700; box-shadow: 0 15px 35px rgba(37,99,235,0.35);">
-            Discuss Your Dashboard Needs
-            <i class="fas fa-arrow-right"></i>
-          </a>
-
-          <a href="../portfolio.html" 
-             style="display: inline-flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); color: #ffffff; padding: 16px 30px; border-radius: 999px; text-decoration: none; font-weight: 700; border: 1px solid rgba(255,255,255,0.12);">
-            Explore Case Studies
-          </a>
-
+        <!-- Sales Dashboard Card -->
+        <div class="dashboard-card">
+          <div class="dashboard-card-inner">
+            <div class="dashboard-card-content">
+              <div class="badge badge-sales">
+                <i class="fas fa-chart-simple" aria-hidden="true"></i>
+                SALES ANALYTICS
+              </div>
+              <h2 class="dashboard-card-title">Sales Performance Dashboard</h2>
+              <div class="dashboard-details">
+                <p><strong>Challenge:</strong> Lack of consolidated sales reporting.</p>
+                <p><strong>Approach:</strong> Interactive dashboard integrating multiple data sources.</p>
+                <p><strong>Outcome:</strong> Clear sales visibility and faster reporting.</p>
+              </div>
+              <a href="../portfolio/5year-sales-dashboard.html" class="link-arrow link-sales">
+                View detailed case study
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="dashboard-card-visual">
+              <div class="visual-placeholder visual-sales">
+                <i class="fas fa-chart-area" aria-hidden="true"></i>
+                <span>Sales dashboard</span>
+              </div>
+              <a href="../contact.html" class="btn btn-outline btn-outline-sales">
+                Build yours
+              </a>
+            </div>
+          </div>
         </div>
+
+        <!-- Receivables Dashboard Card -->
+        <div class="dashboard-card">
+          <div class="dashboard-card-inner">
+            <div class="dashboard-card-content">
+              <div class="badge badge-finance">
+                <i class="fas fa-credit-card" aria-hidden="true"></i>
+                FINANCIAL VISIBILITY
+              </div>
+              <h2 class="dashboard-card-title">Receivables Dashboard</h2>
+              <div class="dashboard-details">
+                <p><strong>Challenge:</strong> Difficulty tracking overdue receivables.</p>
+                <p><strong>Approach:</strong> Receivables aging and credit monitoring dashboards.</p>
+                <p><strong>Outcome:</strong> Improved cash-flow visibility and collections management.</p>
+              </div>
+              <a href="../portfolio/receivables-dashboard.html" class="link-arrow link-finance">
+                View detailed case study
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="dashboard-card-visual">
+              <div class="visual-placeholder visual-finance">
+                <i class="fas fa-file-invoice-dollar" aria-hidden="true"></i>
+                <span>Aging report</span>
+              </div>
+              <a href="../contact.html" class="btn btn-outline btn-outline-finance">
+                Improve collections
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- HR Analytics Dashboard Card -->
+        <div class="dashboard-card">
+          <div class="dashboard-card-inner">
+            <div class="dashboard-card-content">
+              <div class="badge badge-hr">
+                <i class="fas fa-users" aria-hidden="true"></i>
+                WORKFORCE INSIGHTS
+              </div>
+              <h2 class="dashboard-card-title">HR Analytics Dashboard</h2>
+              <div class="dashboard-details">
+                <p><strong>Challenge:</strong> Limited visibility into workforce trends.</p>
+                <p><strong>Approach:</strong> Workforce analytics dashboard integrating HR metrics.</p>
+                <p><strong>Outcome:</strong> Better HR planning and workforce monitoring.</p>
+              </div>
+              <a href="../portfolio/hr-dashboard.html" class="link-arrow link-hr">
+                View detailed case study
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="dashboard-card-visual">
+              <div class="visual-placeholder visual-hr">
+                <i class="fas fa-user-chart" aria-hidden="true"></i>
+                <span>HR metrics</span>
+              </div>
+              <a href="../contact.html" class="btn btn-outline btn-outline-hr">
+                Optimize workforce
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Production Dashboard Card -->
+        <div class="dashboard-card">
+          <div class="dashboard-card-inner">
+            <div class="dashboard-card-content">
+              <div class="badge badge-operations">
+                <i class="fas fa-industry" aria-hidden="true"></i>
+                OPERATIONS MONITORING
+              </div>
+              <h2 class="dashboard-card-title">Production Dashboard</h2>
+              <div class="dashboard-details">
+                <p><strong>Challenge:</strong> Fragmented operational reporting.</p>
+                <p><strong>Approach:</strong> Production monitoring dashboards tracking output and efficiency.</p>
+                <p><strong>Outcome:</strong> Improved operational visibility.</p>
+              </div>
+              <a href="../portfolio/production-dashboard.html" class="link-arrow link-operations">
+                View detailed case study
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="dashboard-card-visual">
+              <div class="visual-placeholder visual-operations">
+                <i class="fas fa-gauge-high" aria-hidden="true"></i>
+                <span>OEE dashboard</span>
+              </div>
+              <a href="../contact.html" class="btn btn-outline btn-outline-operations">
+                Boost efficiency
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-dashboard">
+          <div class="cta-shape cta-shape-1"></div>
+          <div class="cta-shape cta-shape-2"></div>
+          
+          <div class="cta-content">
+            <div class="cta-badge">
+              <i class="fas fa-bolt" aria-hidden="true"></i>
+              EXECUTIVE DASHBOARD SOLUTIONS
+            </div>
+            
+            <h2 class="cta-title">
+              Ready to unlock<br>
+              real-time business visibility?
+            </h2>
+            
+            <p class="cta-text">
+              We design modern executive dashboards that bring together your most important business metrics into one powerful, decision-ready view.
+            </p>
+            
+            <div class="cta-buttons">
+              <a href="../contact.html" class="btn btn-primary">
+                Discuss Your Dashboard Needs
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+              <a href="../portfolio.html" class="btn btn-secondary">
+                Explore Case Studies
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </div>
-
-  </div>
-</section>
-
+    </section>
   </main>
 
-  <div id="footer-placeholder"></div>
-  <button id="backToTop" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
-  <script src="../script.js"></script>
+    <div id="footer-container"></div>
+  
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+    <script src="../assets/js/header-footer.js" defer></script>
+    <script src="../assets/js/animations.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
 </body>
 </html>
