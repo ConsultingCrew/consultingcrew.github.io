@@ -287,7 +287,8 @@ img {
     color: var(--dark-gray);
     border-radius: var(--radius-lg);
     padding: var(--space-xs) var(--space-md);
-    gap:19px;
+   margin: 0 var(--space-lg);
+   justify-content: center;
 }
 .filter-btn:hover {
     background: var(--light-blue);
