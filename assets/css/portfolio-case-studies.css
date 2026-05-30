@@ -14,7 +14,6 @@
     background-color: var(--light-blue);
 }
 
-/* Logo & Branding both use the services 'branding' green */
 .portfolio-item[data-category="logo"],
 .portfolio-item[data-category="branding"] {
     border-top: 4px solid var(--primary-green);
@@ -28,6 +27,7 @@
 .portfolio-item[data-category="logo"] .project-link,
 .portfolio-item[data-category="branding"] .project-link {
     color: var(--primary-green);
+    background-color: var(--light-green);
 }
 
 .portfolio-item[data-category="web"] {
@@ -39,6 +39,7 @@
 .portfolio-item[data-category="web"] .project-category,
 .portfolio-item[data-category="web"] .project-link {
     color: var(--primary-orange);
+    background-color: var(--light-orange);
 }
 
 /* ============================================
