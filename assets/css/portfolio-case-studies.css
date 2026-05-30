@@ -167,7 +167,6 @@
     gap: 4px;
     padding: 11px 19px;
     border-radius: 19px;
-
 }
 .project-link:hover {
     color: var(--primary-orange);
