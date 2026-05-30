@@ -45,13 +45,13 @@
    ============================================ */
 .portfolio-item.featured {
     position: relative;
-    overflow: hidden; /* keeps ribbon contained */
+    overflow: hidden;
 }
 .portfolio-item.featured::before {
     content: "★ Featured";
     position: absolute;
     top: 12px;
-    right: -38px;
+    right: -30px;
     background: var(--primary-orange);
     color: white;
     padding: 5px 40px;
