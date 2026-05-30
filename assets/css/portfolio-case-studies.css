@@ -67,14 +67,14 @@
 /* ---------- Portfolio Main Grid – Two‑Column Cards ---------- */
 .portfolio-item.card {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     overflow: hidden;
     padding: 0;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
     border: 1px solid var(--light-gray);
     border-radius: var(--radius-lg);
     background: var(--white);
-    margin: 1.2rem 0;
+    margin: 2rem 0;
 }
 .portfolio-item.card:hover {
     box-shadow: var(--shadow-lg);
