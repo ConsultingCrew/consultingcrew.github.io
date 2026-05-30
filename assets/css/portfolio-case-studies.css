@@ -54,7 +54,7 @@
     right: -30px;
     background: var(--primary-orange);
     color: white;
-    padding: 5px 40px;
+    padding: 5px 30px;
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 1px;
@@ -67,13 +67,14 @@
 /* ---------- Portfolio Main Grid – Two‑Column Cards ---------- */
 .portfolio-item.card {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     overflow: hidden;
     padding: 0;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
     border: 1px solid var(--light-gray);
     border-radius: var(--radius-lg);
     background: var(--white);
+    margin: 1.2rem 0;
 }
 .portfolio-item.card:hover {
     box-shadow: var(--shadow-lg);
@@ -155,6 +156,10 @@
     display: inline-flex;
     align-items: center;
     gap: 4px;
+    background: var(--light-blue);
+    padding: 8px 16px;
+    border-radius: 19px;
+
 }
 .project-link:hover {
     color: var(--primary-orange);
