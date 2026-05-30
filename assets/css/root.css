@@ -288,7 +288,7 @@ img {
     border-radius: var(--radius-lg);
     padding: var(--space-xs) var(--space-md);
    margin: 0 var(--space-xs);
-   justify-content: center;
+  justify-items: center;
 }
 .filter-btn:hover {
     background: var(--light-blue);
