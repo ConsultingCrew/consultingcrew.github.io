@@ -280,7 +280,7 @@ color: white;
     left: 0;
     width: 72px;
     height: 2px;
-    background: var(--light-gray);
+    background: var(--primary-blue);
     border-radius: 2px;
 }
 
