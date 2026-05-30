@@ -57,7 +57,7 @@
     padding: 5px 40px;
     font-size: 0.7rem;
     font-weight: 700;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     transform: rotate(45deg);
     z-index: 10;
@@ -95,23 +95,24 @@
     justify-content: center;
     font-size: 3rem;
     color: var(--dark-blue);
-    opacity: 0.9;
-}
+    opacity: 0.9;}
+    
 .portfolio-content {
     flex: 1;
     padding: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-}
+    justify-content: center;}
+
 .project-category {
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--medium-gray);
     margin-bottom: 10px;
     font-weight: 600;
-}
+    padding: 5px 12px;
+    border-radius: 19px;}
+
 .project-title {
     font-family: var(--font-heading);
     font-size: 1.5rem;
@@ -147,7 +148,7 @@
 }
 .project-link {
     font-weight: 600;
-    color: var(--primary-blue);
+    color: var(--primary-green);
     text-decoration: none;
     align-self: flex-start;
     transition: color 0.2s, transform 0.2s;
