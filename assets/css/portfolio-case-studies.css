@@ -110,11 +110,11 @@
 .project-category {
     font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: .5px;
     margin-bottom: 10px;
-    font-weight: 600;
-    padding: 5px 12px;
-    border-radius: 19px;
+    font-weight: 700;
+    padding: 11px 19px;
+    border-radius: 25px;
     text-decoration: none;
     align-self: flex-start;
     transition: color 0.2s, transform 0.2s;
@@ -165,8 +165,8 @@
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    padding: 8px 16px;
-    border-radius: 12px;
+    padding: 11px 19px;
+    border-radius: 19px;
 
 }
 .project-link:hover {
