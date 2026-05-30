@@ -6,7 +6,7 @@
     --primary-blue: #0455BF;
     --dark-blue: #052874;
     --primary-orange: #FF5500;
-    --primary-green: #048f3e;
+    --primary-green: #078551;
     --footer-bg: #1A202C;
     --secondary: #0056b3;
 
@@ -280,13 +280,14 @@ img {
     font-weight: 500;
     cursor: pointer;
     transition: all var(--transition-fast);
-    border: 2px solid transparent;
+    border: 1px solid var(--primary-blue);
     display: inline-block;
     text-align: center;
     background: var(--light-blue);
     color: var(--dark-gray);
     border-radius: var(--radius-lg);
     padding: var(--space-xs) var(--space-md);
+    gap:19px;
 }
 .filter-btn:hover {
     background: var(--light-blue);
