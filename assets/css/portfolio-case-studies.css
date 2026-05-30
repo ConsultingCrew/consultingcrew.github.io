@@ -272,6 +272,18 @@ color: white;
     margin-top: 30px;
     color: var(--dark-blue);
 }
+.sidebar h3::after,
+.sidebar h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 72px;
+    height: 2px;
+    background: var(--light-gray);
+    border-radius: 2px;
+}
+
 .sidebar p {
     font-size: 0.95rem;
     color: var(--dark-gray);
