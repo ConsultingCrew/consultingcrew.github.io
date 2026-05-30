@@ -9,7 +9,7 @@
     background-color: var(--light-blue);
 }
 .portfolio-item[data-category="data"] .project-category,
-.portfolio-item[data-category="data"] .project-link,{
+.portfolio-item[data-category="data"] .project-link {
     color: var(--dark-blue);
     background-color: var(--light-blue);
 }
