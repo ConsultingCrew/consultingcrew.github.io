@@ -50,7 +50,7 @@
 .portfolio-item.featured::before {
     content: "★ Featured";
     position: absolute;
-    top: 12px;
+    top: 19px;
     right: -30px;
     background: var(--primary-orange);
     color: white;
