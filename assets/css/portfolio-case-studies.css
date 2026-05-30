@@ -262,7 +262,8 @@ color: white;
 .sidebar h3 {
     font-family: var(--font-heading);
     font-size: 1.4rem;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
+    margin-top: 30px;
     color: var(--dark-blue);
 }
 .sidebar p {
@@ -273,7 +274,7 @@ color: white;
 .sidebar ul {
     list-style: none;
     padding-left: 0;
-    margin: 15px 0;
+    margin: 12px 0;
 }
 .sidebar ul li {
     padding: 6px 0;
@@ -301,7 +302,7 @@ color: white;
     display: flex;
     align-items: baseline;
     gap: 5px;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--dark-blue);
     margin-bottom: 12px;
