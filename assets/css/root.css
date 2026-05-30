@@ -242,11 +242,10 @@ img {
 
 
 .intro-section {
-    padding: var(--space-xl) 0;
+    padding: var(--space-lg) 0;
     text-align: center;
     max-width: 720px;
     margin: 0 auto;
-    background: linear-gradient(135deg, rgba(4, 85, 191, 0.1) 0%, rgba(255, 255, 255, 1) 100%);
 }
 
 
