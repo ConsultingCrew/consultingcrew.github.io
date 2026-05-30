@@ -112,7 +112,14 @@
     margin-bottom: 10px;
     font-weight: 600;
     padding: 5px 12px;
-    border-radius: 19px;}
+    border-radius: 19px;
+    text-decoration: none;
+    align-self: flex-start;
+    transition: color 0.2s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    background: var(--light-blue);
+}
 
 .project-title {
     font-family: var(--font-heading);
@@ -149,7 +156,7 @@
 }
 .project-link {
     font-weight: 600;
-    color: var(--primary-green);
+    color: var(--primary-blue);
     text-decoration: none;
     align-self: flex-start;
     transition: color 0.2s, transform 0.2s;
