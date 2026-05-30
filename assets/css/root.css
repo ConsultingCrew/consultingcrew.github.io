@@ -283,13 +283,14 @@ img {
     border: 2px solid transparent;
     display: inline-block;
     text-align: center;
-    background: var(--light-gray);
+    background: var(--light-blue);
     color: var(--dark-gray);
     border-radius: var(--radius-lg);
     padding: var(--space-xs) var(--space-md);
 }
 .filter-btn:hover {
     background: var(--light-blue);
+    border: 2px solid var(--primary-blue);
     transform: translateY(-2px);
 }
 .filter-btn.active {
