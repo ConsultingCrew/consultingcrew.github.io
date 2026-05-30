@@ -9,7 +9,7 @@
 
     .hero-home-title,
     .hero-title {
-        font-size: clamp(2.5rem, 4vw, 4rem);
+        font-size: clamp(2rem, 4vw, 3rem);
     }
 
     .section {
@@ -29,7 +29,7 @@
 @media (max-width: 1200px) {
 
     h1 {
-        font-size: 2.3rem;
+        font-size: 2rem;
     }
 
     h2 {
@@ -85,11 +85,11 @@
        TYPOGRAPHY
     =============================== */
     h1 {
-        font-size: 2.1rem;
+        font-size: 2rem;
     }
 
     h2 {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
     }
 
     h3 {
@@ -98,7 +98,7 @@
 
     .hero-home-title,
     .hero-title {
-        font-size: clamp(2rem, 6vw, 3rem);
+        font-size: clamp(1.9rem, 6vw, 2.7rem);
     }
 
     /* ===============================

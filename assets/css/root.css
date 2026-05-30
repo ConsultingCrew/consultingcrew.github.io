@@ -236,7 +236,7 @@ img {
     color: var(--medium-gray);
     font-size: 1.2rem;
     max-width: 700px;
-    margin: var(--space-md) auto 0;
+    margin: var(--space-lg) auto 0;
 }
 
 /* ============================================
@@ -347,7 +347,7 @@ img {
     margin: 0 auto;
 }
 .hero .hero-title {
-    font-size: 3.3rem;
+    font-size: 3rem;
     margin-bottom: var(--space-md);
     color: var(--white);}
 
@@ -416,7 +416,7 @@ img {
    ============================================ */
 .btn {
     display: inline-block;
-    padding: var(--space-xs) var(--space-md);
+    padding: 0.5rem var(--space-md);
     border-radius: var(--radius-md);
     font-weight: 600;
     font-size: 1rem;
@@ -426,63 +426,73 @@ img {
     border: 2px solid transparent;
     font-family: var(--font-body);
     position: relative;
-    overflow: hidden;
-}
+    overflow: hidden;}
 
 .btn-primary {
     background-color: var(--primary-blue);
     color: var(--white);
-    border-color: var(--primary-blue);
-}
+    border-color: var(--primary-blue);}
+
 .btn-primary:hover {
     background-color: var(--dark-blue);
     border-color: var(--dark-blue);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
-    color: var(--white);
-}
+    color: var(--white);}
 
 .btn-secondary {
-    background-color: transparent;
+    background-color: var(--light-blue);
     color: var(--dark-blue);
-    border-color: var(--dark-blue);
-}
+    border-color: var(--dark-blue);}
+
 .btn-secondary:hover {
     background-color: var(--dark-blue);
     color: var(--white);
     transform: translateY(-2px);
-}
+    box-shadow: var(--shadow-md);}
 
 .btn-green {
-    background-color: var(--primary-green);
-    color: var(--white);
+    background-color: var(--light-green);
+    color: var(--primary-green);
     border-color: var(--primary-green);
-}
+    padding: 0.5rem var(--space-md);
+    border-radius: var(--radius-xl);
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;}
+
 .btn-green:hover {
-    background-color: #05a127;
+    background-color: var(--primary-green);
+    color: white;
     transform: translateY(-2px);
-}
+    box-shadow: var(--shadow-md);}
 
 .btn-orange {
-    background-color: var(--primary-orange);
-    color: var(--white);
+    background-color: var(--light-orange);
+    color: var(--primary-orange);
     border-color: var(--primary-orange);
-}
+    padding: 0.5rem var(--space-md);
+    border-radius: var(--radius-xl);
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;}
+
 .btn-orange:hover {
-    background-color: #e64a19;
+    background-color: var(--primary-orange);
     transform: translateY(-2px);
     color: var(--white);
-}
+    box-shadow: var(--shadow-md);}
 
 .btn-large {
-    padding: var(--space-sm) var(--space-lg);
-    font-size: 1.125rem;
-}
+    padding: var(--space-xs) var(--space-md);
+    font-size: 1rem;}
+
 .btn-small {
     padding: var(--space-xs) var(--space-md);
-    font-size: 0.9rem;
-}
-
+    font-size: 0.9rem;}
+    
 /* Ripple Effect */
 .btn .ripple {
     position: absolute;
