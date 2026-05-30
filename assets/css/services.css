@@ -4,7 +4,7 @@
 
 /* Category headings inside the services grid */
 .services-category-heading {
-    grid-column: 1 / -1;          /* full width of the grid */
+    grid-column: 1 / -1; 
     font-size: 1.8rem;
     border-bottom: 3px solid;
     padding: 0.9rem;
