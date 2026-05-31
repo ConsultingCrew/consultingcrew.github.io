@@ -268,7 +268,7 @@ margin-top:1 rem;
     font-weight: 500;
     color: var(--dark-blue);
     border-left: 4px solid var(--primary-orange);
-    padding-left: 1.5rem;
+    padding-left: 1.2rem;
     margin-bottom: 2rem;
 }
 .post-image {
@@ -285,9 +285,9 @@ margin-top:1 rem;
 .post-image i { font-size: 6rem; color: var(--primary-blue); opacity: 0.9; transition: transform var(--transition-medium); }
 
 /* Share Section */
-.share-section { margin-top: var(--space-xl); padding-top: var(--space-xl); border-top: 2px solid var(--light-gray); text-align: center; }
-.share-title { font-size: 1.25rem; margin-bottom: var(--space-md); color: var(--dark-blue); }
-.share-buttons { display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: wrap; }
+.share-section { margin-top: var(--space-md); padding-top: var(--space-md); border-top: 3px solid var(--light-gray); text-align: center; }
+.share-title { font-size: 1.2rem; margin-bottom: var(--space-md); color: var(--dark-blue); }
+.share-buttons { display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: nowrap; }
 .share-button {
     display: inline-flex;
     align-items: center;
