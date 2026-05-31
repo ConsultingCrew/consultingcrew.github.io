@@ -337,10 +337,11 @@ margin-top:1 rem;
     align-items: center;
     justify-content: space-between;
 }
-.insights-newsletter-text { flex: 1; min-width: 250px; }
+.insights-newsletter-text { flex: 1; min-width: 313px; }
 .insights-newsletter-title { font-size: 2rem; color: var(--dark-blue); margin-bottom: 0.5rem; }
 .insights-newsletter-subtitle { color: var(--medium-gray); font-size: 1rem; }
-.insights-newsletter-form { flex: 1; min-width: 280px; }
+.insights-newsletter-form { flex: 1; min-width: 280px;}
+.insights-newsletter-form. button {border-color: var(--primary-blue)}
 
 /* Article CTA Box, Quote, Insight Box, Author Box, etc. remain unchanged */
 .article-cta-box { text-align: center; background: var(--light-blue); padding: 2rem; border-radius: var(--radius-lg); margin: 2rem 0; }
