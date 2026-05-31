@@ -110,6 +110,7 @@
     font-size: 0.9rem;
     display: inline-flex;
     align-items: center;
+margin-top:1 rem;
     gap: var(--space-xs);
     transition: all var(--transition-fast);
 }
