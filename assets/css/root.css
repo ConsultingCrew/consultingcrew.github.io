@@ -673,7 +673,11 @@ img {
     font-size: 1rem;}
 
 .subscribe-form .btn {
-    padding: var(--space-xs) var(--space-md);}
+    padding: var(--space-xs) var(--space-md);
+
+color:var(--light-blue);
+border: 1px solid var(primary-blue);
+}
 
 .form-note {
     font-size: 0.8rem;
