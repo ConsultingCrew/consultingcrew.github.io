@@ -117,18 +117,6 @@ margin-top:1 rem;
 .article-link:hover { color: var(--primary-orange); }
 .article-link:hover i { transform: translateX(4px); }
 
-
-.insights-filter {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-md);
-    margin: 0;
-}
-.insights-filter .filter-btn {
-    padding: 7px 12px;
-}
-
 /* Insights Grid */
 .insights-grid {
     display: grid;

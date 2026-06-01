@@ -40,30 +40,8 @@
 .services-grid .services-category-heading.filtered-out {
     display: none;}
 
-/* Services filter  */
-.filter-section {
-    padding: var(--space-sm) 0;
-    background: var(--white);
-    position: sticky;
-    top: calc(var(--header-height) + 1px);
-    z-index: 99;
-    box-shadow: var(--shadow-sm);
-}
-.services-filter {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-    padding: var(--space-xs);
-}
-
-.services-filter .filter-btn {
-    padding: var(--space-xs) var(--space-md);
-}
-
-
 .services-grid-section {
-    padding: var(--space-xl) 0;
+    padding: var(--space-xs) 0;
     background: var(--white);
 }
 .services-grid {
@@ -232,24 +210,24 @@
 }
 .step-content-simple p {
     color: var(--medium-gray);
-    line-height: 1.6;
+    line-height: 1.5;
     margin-bottom: 0;
 }
 
 /* Industries Section */
 .industries-section {
-    padding: var(--space-xl) 0;
+    padding: var(--space-md);
     background: var(--white);
 }
 .industries-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-lg);
-    margin-top: var(--space-xl);
+    grid-template-columns: repeat(6, 2fr);
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
 }
 .industry-item {
     text-align: center;
-    padding: var(--space-lg);
+    padding: var(--space-sm);
     background: var(--light-gray);
     border-radius: var(--radius-lg);
     transition: all var(--transition-fast);
@@ -261,19 +239,19 @@
 }
 .industry-item-icon {
     font-size: 2.5rem;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
     color: var(--primary-orange);
 }
 .industry-item h3 {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     margin-bottom: var(--space-sm);
     color: var(--dark-blue);
 }
 .industry-item p {
     color: var(--medium-gray);
     font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 0;
+    line-height: 1.4;
+    margin: 0;
 }
 
 /* Service Detail Pages */
