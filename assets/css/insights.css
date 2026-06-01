@@ -110,6 +110,7 @@
     font-size: 0.9rem;
     display: inline-flex;
     align-items: center;
+margin-top:1 rem;
     gap: var(--space-xs);
     transition: all var(--transition-fast);
 }
@@ -122,10 +123,10 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: var(--space-md);
-    margin: var(--space-xs) 0;
+    margin: 0;
 }
 .insights-filter .filter-btn {
-    padding: 11px 25px;
+    padding: 7px 12px;
 }
 
 /* Insights Grid */
@@ -345,7 +346,7 @@
 .insights-newsletter-text { flex: 1; min-width: 250px; }
 .insights-newsletter-title { font-size: 2rem; color: var(--dark-blue); margin-bottom: 0.5rem; }
 .insights-newsletter-subtitle { color: var(--medium-gray); font-size: 1rem; }
-.insights-newsletter-form { flex: 1; min-width: 280px; }
+.insights-newsletter-form { flex: 1; min-width: 280px;}
 
 /* Article CTA Box, Quote, Insight Box, Author Box, etc. */
 .article-cta-box { text-align: center; background: var(--light-blue); padding: 2rem; border-radius: var(--radius-lg); margin: 2rem 0; }

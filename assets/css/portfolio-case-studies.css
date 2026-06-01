@@ -11,9 +11,9 @@
 .portfolio-item[data-category="data"] .project-category,
 .portfolio-item[data-category="data"] .project-link {
     color: var(--dark-blue);
+    background-color: var(--light-blue);
 }
 
-/* Logo & Branding both use the services 'branding' green */
 .portfolio-item[data-category="logo"],
 .portfolio-item[data-category="branding"] {
     border-top: 4px solid var(--primary-green);
@@ -27,6 +27,7 @@
 .portfolio-item[data-category="logo"] .project-link,
 .portfolio-item[data-category="branding"] .project-link {
     color: var(--primary-green);
+    background-color: var(--light-green);
 }
 
 .portfolio-item[data-category="web"] {
@@ -38,6 +39,7 @@
 .portfolio-item[data-category="web"] .project-category,
 .portfolio-item[data-category="web"] .project-link {
     color: var(--primary-orange);
+    background-color: var(--light-orange);
 }
 
 /* ============================================
@@ -45,16 +47,16 @@
    ============================================ */
 .portfolio-item.featured {
     position: relative;
-    overflow: hidden; /* keeps ribbon contained */
+    overflow: hidden;
 }
 .portfolio-item.featured::before {
     content: "★ Featured";
     position: absolute;
-    top: 12px;
-    right: -38px;
+    top: 19px;
+    right: -30px;
     background: var(--primary-orange);
     color: white;
-    padding: 5px 40px;
+    padding: 5px 30px;
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 1px;
@@ -74,6 +76,7 @@
     border: 1px solid var(--light-gray);
     border-radius: var(--radius-lg);
     background: var(--white);
+    margin: 2rem 0;
 }
 .portfolio-item.card:hover {
     box-shadow: var(--shadow-lg);
@@ -107,15 +110,23 @@
 .project-category {
     font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: .5px;
     margin-bottom: 10px;
-    font-weight: 600;
-    padding: 5px 12px;
-    border-radius: 19px;}
+    font-weight: 700;
+    padding: 11px 19px;
+    border-radius: 25px;
+    text-decoration: none;
+    align-self: flex-start;
+    transition: color 0.2s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    background: var(--light-blue);
+}
 
 .project-title {
     font-family: var(--font-heading);
     font-size: 1.5rem;
+    font-weight: 600;
     margin: 0 0 12px 0;
     color: var(--dark-blue);
     line-height: 1.3;
@@ -124,19 +135,19 @@
     font-size: 0.95rem;
     line-height: 1.5;
     color: var(--dark-gray);
-    margin-bottom: 18px;
+    margin-bottom: 19px;
     flex-grow: 1;
 }
 .project-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 20px;
+    gap: 12px;
+    margin-bottom: 19px;
 }
 .tag {
     background: var(--light-gray);
     padding: 4px 12px;
-    border-radius: 20px;
+    border-radius: 12px;
     font-size: 0.75rem;
     color: var(--dark-gray);
     font-weight: 500;
@@ -148,13 +159,14 @@
 }
 .project-link {
     font-weight: 600;
-    color: var(--primary-green);
     text-decoration: none;
     align-self: flex-start;
     transition: color 0.2s, transform 0.2s;
     display: inline-flex;
     align-items: center;
     gap: 4px;
+    padding: 11px 19px;
+    border-radius: 19px;
 }
 .project-link:hover {
     color: var(--primary-orange);
@@ -262,9 +274,27 @@ color: white;
 .sidebar h3 {
     font-family: var(--font-heading);
     font-size: 1.4rem;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     color: var(--dark-blue);
 }
+
+.sidebar h4 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    margin-top: 30px;
+    color: var(--dark-blue);
+}
+.sidebar h3::after,
+.sidebar h4::after {
+    content: '';
+    display: block;
+    margin-top: 6px;
+    width: 72px;
+    height: 2px;
+    background: var(--primary-blue);
+    border-radius: 2px;
+}
+
 .sidebar p {
     font-size: 0.95rem;
     color: var(--dark-gray);
@@ -273,7 +303,7 @@ color: white;
 .sidebar ul {
     list-style: none;
     padding-left: 0;
-    margin: 15px 0;
+    margin: 12px 0;
 }
 .sidebar ul li {
     padding: 6px 0;
@@ -301,7 +331,7 @@ color: white;
     display: flex;
     align-items: baseline;
     gap: 5px;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--dark-blue);
     margin-bottom: 12px;
