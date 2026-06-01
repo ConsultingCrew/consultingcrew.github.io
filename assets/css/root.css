@@ -605,18 +605,19 @@ img {
     padding: var(--space-xs) 0 var(--space-xs) 28px;
     color: var(--medium-gray);
     font-size: 1rem;
-    line-height: 1.6;
+    line-height: 1.5;
     position: relative;
     border-bottom: 1px solid var(--light-gray);
 }
 .styled-list li:last-child { border-bottom: none; }
+
 .styled-list li i {
     position: absolute;
     left: 0;
-    top: var(--space-xs);
+    top: 12px;
     color: var(--primary-green);
-    font-size: 0.9rem;
-}
+    font-size: 1.1rem;}
+
 .styled-list li strong {
     color: var(--dark-blue);
     font-weight: 600;

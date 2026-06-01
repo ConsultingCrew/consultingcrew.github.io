@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/css/main.css">
  
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo.png">
     
 </head>
 
@@ -47,6 +47,12 @@
 
     <section class="hero insights-hero">
         <div class="container">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="cta-shape cta-shape-1"></div>
+                <div class="cta-shape cta-shape-2"></div>
+
             <div class="hero-content">
                 <h1 class="hero-title animate-left">Stand Out or Fade Out:<br>The Need for Brand Identity</h1>
                 <p class="hero-subtitle animate-left" style="animation-delay: 0.1s">Why "good enough" is a one‑way ticket to obscurity – and how a soulful identity builds trust, loyalty, and price power</p>
@@ -166,5 +172,41 @@
     <script src="assets/js/header-footer.js" defer></script>
     <script src="assets/js/animations.js" defer></script>
     <script src="assets/js/main.js" defer></script>
+<script>
+(function() {
+    const pageUrl = encodeURIComponent(window.location.href);
+    const pageTitle = encodeURIComponent(document.title);
+    
+    // Define shareText for Twitter (add this line)
+    const shareText = encodeURIComponent('Simple Forecasting Techniques for Small Business - no PhD required!');
+    
+    // Twitter
+    const twitterBtn = document.getElementById('shareTwitter');
+    if (twitterBtn) {
+        twitterBtn.href = `https://twitter.com/intent/tweet?text=${shareText}&url=${pageUrl}`;
+    }
+    
+    // LinkedIn
+    const linkedinBtn = document.getElementById('shareLinkedin');
+    if (linkedinBtn) {
+        linkedinBtn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+    }
+    
+    // Facebook
+    const facebookBtn = document.getElementById('shareFacebook');
+    if (facebookBtn) {
+        facebookBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+    }
+    
+    // Email - mailto: protocol
+    const emailBtn = document.getElementById('shareEmail');
+    if (emailBtn) {
+        const emailSubject = encodeURIComponent('Check this out: Simple Forecasting Techniques for Small Business');
+        const emailBody = encodeURIComponent(`I thought you might find this interesting:\n\n${pageTitle}\n\n${window.location.href}\n\n— Sent from Consulting Crew`);
+        emailBtn.href = `mailto:?subject=${emailSubject}&body=${emailBody}`;
+    }
+})();
+</script>
+
 </body>
 </html>
