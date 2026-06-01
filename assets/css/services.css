@@ -63,12 +63,12 @@
     box-shadow: var(--shadow-sm);
 }
 .service-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
 }
 .service-card-icon {
-    width: 60px;
-    height: 60px;
+    width: 63px;
+    height: 63px;
     border-radius: var(--radius-md);
     display: flex;
     align-items: center;
@@ -122,6 +122,7 @@
     font-size: 1.3rem;
     margin-bottom: var(--space-sm);
 }
+
 .service-card p {
     font-size: 0.95rem;
     color: var(--medium-gray);
@@ -297,7 +298,7 @@
 }
 .capability-card {
     background: var(--white);
-    padding: var(--space-xl);
+    padding: var(--space-lg) var(--space-md);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
     border-top: 4px solid var(--primary-blue);
@@ -305,26 +306,39 @@
     height: 100%;
 }
 .capability-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     box-shadow: var(--shadow-md);
 }
 .capability-icon {
-    width: 60px;
-    height: 60px;
+    width: 63px;
+    height: 63px;
     background: var(--light-blue);
     border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    color: var(--primary-blue);
+    font-size: 2rem;
+    color: var(--dark-blue);
     margin-bottom: var(--space-md);
 }
 .capability-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: var(--space-md);
+    font-size: 1.3rem;
+    margin-bottom: var(--space-sm);
     color: var(--dark-blue);
 }
+/*
+.capability-card h3::after {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 18%;
+    transform: translateX(-50%);
+    width: 72px;
+    height: 3px;
+    background: var(--primary-orange);
+    border-radius: 2px;
+}
+*/
 .capability-features {
     list-style: none;
     padding: 0;
@@ -332,7 +346,7 @@
 }
 .capability-features li {
     padding: var(--space-xs) 0 var(--space-xs) 24px;
-    color: var(--medium-gray);
+    color: var(--dark-gray);
     font-size: 0.9rem;
     border-bottom: 1px solid var(--light-gray);
     position: relative;

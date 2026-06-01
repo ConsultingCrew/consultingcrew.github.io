@@ -5,21 +5,21 @@ HOME PAGE STYLES
     padding: 92px 0 0 72px;
     background: linear-gradient(135deg, var(--light-blue) 40%, var(--light-green) 100%);
     min-height: 92vh;
-    display: flex;
-}
+    display: flex;}
+
 .hero-home .container {
     display: grid;
     grid-template-columns: 2.5fr 1fr;
-    gap: 0;
-}
+    gap: 0;}
+
 .hero-home-title {
     font-size: 2rem;
-    line-height: 1.4;
+    line-height: 1.5;
     background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-blue) 72%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
+    background-clip: text;}
+
 .hero-home-description {
     font-size: 1.1rem;
     line-height: 1.6;
