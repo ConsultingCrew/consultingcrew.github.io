@@ -164,7 +164,7 @@
 
 .mission-card.animate-in,
 .vision-card.animate-in {
-    animation: slideUpFade 0.8s cubic-bezier(0.2,0.9,0.3,1) forwards; /* override later? but we now have combined animation on .mission-card itself, so we can remove .animate-in classes from those cards in HTML or keep but they will be overridden. Since .mission-card animation is specific, it will win. So we can drop .animate-in from mission/vision cards. But no harm. */
+    animation: slideUpFade 0.8s cubic-bezier(0.2,0.9,0.3,1) forwards;
 }
 
 .intent-card:hover {
