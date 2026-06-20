@@ -741,7 +741,7 @@ text-align: center !important;}
     .card:hover, .btn:hover, .service-card:hover, .portfolio-item:hover { transform: none !important; }
 }
 
-/* Dark mode as before */
+/* Dark mode */
 @media (prefers-color-scheme: dark) {
     .intent-section { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
     .intent-card { background: rgba(30, 41, 59, 0.95); border-color: rgba(255, 255, 255, 0.05); }
@@ -758,8 +758,7 @@ text-align: center !important;}
     outline: 3px solid var(--primary-blue);
     outline-offset: 2px;
 }
-
-/* Override for buttons and links to be more subtle */
+
 button:focus-visible,
 .btn:focus-visible,
 a:focus-visible,
@@ -768,6 +767,5 @@ a:focus-visible,
 .dropdown-toggle:focus-visible {
     outline: 3px solid var(--primary-orange);
     outline-offset: 3px;}
-
-/* Remove unwanted default outlines when using mouse */
+
 :focus:not(:focus-visible) {outline: none;}
