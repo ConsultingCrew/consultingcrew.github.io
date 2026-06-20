@@ -487,6 +487,7 @@
     =============================== */
     .about-hero .hero-title {
         font-size: 1.5rem;
+text-align: center!important;
     }
 
     .about-hero .hero-subtitle {
@@ -551,7 +552,7 @@
     .about-hero,
     .process-hero {
         padding: 63px 19px;
-        text-align: center;
+        text-align: center !important;
     }
 
     .btn {
