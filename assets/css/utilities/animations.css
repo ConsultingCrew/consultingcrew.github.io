@@ -1,3 +1,91 @@
+/* ============================================
+   LOADING SCREEN
+   ============================================ */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #1A202C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.loading-logo {
+    animation: pulse 2s ease-in-out infinite;
+    margin-bottom: 2rem;
+}
+
+.loading-logo img {
+    width: 80px;
+    height: 80px;
+    display: block;
+    border-radius: 12px;
+}
+
+.loading-progress {
+    width: 200px;
+    max-width: 80vw;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, var(--primary-green), #00c853);
+    border-radius: 4px;
+    animation: loading 3.5s ease-in-out infinite;
+    transform-origin: left;
+}
+
+.loading-text {
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    animation: pulse-text 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes pulse-text {
+    0%, 100% { opacity: 0.85; }
+    50% { opacity: 1; }
+}
+
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
+}
 
 /* ============================================
   GLOBAL ANIMATIONS

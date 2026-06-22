@@ -101,19 +101,25 @@ function initFilters() {
    LOADING SCREEN
 ================================= */
 function initLoadingScreen() {
-  const screen = document.getElementById('loadingScreen');
-  if (!screen) return;
+    const screen = document.getElementById('loadingScreen');
+    if (!screen) return;
 
-  let hidden = false;
-  const hide = () => {
-    if (hidden) return;
-    hidden = true;
-    screen.classList.add('hidden');
-    setTimeout(() => { screen.style.display = 'none'; }, 500);
-  };
+    let hidden = false;
 
-  window.addEventListener('load', () => setTimeout(hide, 800));
-  setTimeout(hide, 4000);
+    const hide = () => {
+        if (hidden) return;
+        hidden = true;
+        screen.classList.add('hidden');
+        setTimeout(() => {
+            screen.style.display = 'none';
+        }, 600);
+    };
+
+    window.addEventListener('load', () => {
+        setTimeout(hide, 600);
+    });
+
+    setTimeout(hide, 4000);
 }
 
 /* ===============================
