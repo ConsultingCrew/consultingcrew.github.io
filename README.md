@@ -1,60 +1,47 @@
 # Consulting Crew – Official Website
 
-[![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fconsultingcrew.com)](https://consultingcrew.com)
-[![GitHub last commit](https://img.shields.io/github/last-commit/consultingcrew/consultingcrew-website)](https://github.com/consultingcrew/consultingcrew-website)
-
-> **Empowering Smarter Decisions. Driving Sustainable Growth.**
-
-The official website for **Consulting Crew** – a strategic advisory firm helping organizations translate ambition into execution and results.
+> **PRIVATE & CONFIDENTIAL**
+>
+> This repository contains proprietary source code for Consulting Crew's official website. Unauthorized access is strictly prohibited.
 
 ---
 
 ## 📌 Overview
 
-**Consulting Crew** provides strategic advisory services including:
+**Consulting Crew** is a strategic advisory firm helping organizations translate ambition into execution and results.
 
-- 📊 **Data & Intelligence** – Dashboards, predictive analytics, BI strategy
-- 🚀 **Digital Transformation** – Digital marketing, technology integration, process automation
-- 🎨 **Branding & Identity** – Logo design, brand guidelines, stationery
-- 👥 **HR Consulting** – HR audits, policies, performance management
-- 💻 **Web Services** – Web development, hosting, maintenance
-
-This repository contains the complete source code for the company's website, built with a focus on **performance, accessibility, and maintainability**.
+This repository contains the complete source code for the company's website.
 
 ---
 
-## 🛠️ Technologies Used
+## 🔒 Access
 
-### Frontend
-| Technology | Version | Purpose |
-| :--- | :--- | :--- |
-| HTML5 | — | Semantic markup |
-| CSS3 | — | Styling with BEM methodology |
-| JavaScript (ES6+) | — | Interactivity, filters, animations |
-| Font Awesome | 6.4.0 | Icons |
-| Google Fonts | — | Merriweather & Mona Sans |
+This repository is **PRIVATE** and accessible only to authorized team members.
 
-### Architecture
-- **CSS:** Component-based architecture (SMACSS-inspired)
-- **JavaScript:** Modular, event-driven
-- **Performance:** Lazy loading, reduced motion support
+| Role | Access Level |
+| :--- | :--- |
+| Owner | Full access |
+| Team Members | Read/Write |
+| Unauthorized | ❌ No access |
 
-📄 **License**
-This project is the property of Consulting Crew. All rights reserved.
-Unauthorized copying, distribution, or use of this code is strictly prohibited without prior written consent.
+---
 
+## 📄 License
 
-📞 **Contact**
+**All Rights Reserved.**
+
+© 2024 Consulting Crew. All rights reserved.
+
+No part of this project may be reproduced, distributed, or transmitted in any form without prior written permission.
+
+---
+
+## 📞 Contact
+
 **Consulting Crew**
-🌐 Website: consultingcrew.com.pk
-📧 Email: consultingcrew.pk@gmail.com
-📱 Phone: +92 332 345 0433
-📍 Location: Karachi, Pakistan
+- Website: [consultingcrew.com](https://consultingcrew.com)
+- Email: [consultingcrew.pk@gmail.com](mailto:consultingcrew.pk@gmail.com)
 
-🙏 **Acknowledgments**
-Font Awesome – Icon library
-Google Fonts – Merriweather & Mona Sans
-Unsplash – Hero images (where applicable)
+---
 
-
-**Built with ❤️ by the Consulting Crew team.**
+**Built with ❤️ by the Consulting Crew team. All rights reserved.**
