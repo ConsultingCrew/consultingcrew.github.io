@@ -5,175 +5,195 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HR Consulting Services | Consulting Crew | Strategic HR Solutions</title>
     <meta name="description" content="Strategic HR solutions for building high-performing, engaged teams. Comprehensive HR consulting including Basic HR, Performance Management, and Talent Strategy.">
-    
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
- 
+    <link rel="stylesheet" href="/assets/css/main.css">
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/images/logo.png">
-    
+    <link rel="icon" type="image/svg+xml" href="/assets/images/logo.png">
 </head>
 
 <body>
-  <!-- Loading Animation -->
-  <div class="loading-screen" id="loadingScreen">
-    <div class="loading-content">
-      <div class="loading-logo">
-        <img src="assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
-      </div>
-      <div class="loading-progress">
-        <div class="progress-bar"></div>
-      </div>
-      <p class="loading-text">Loading ...</p>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="/assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="loading-text">Loading ...</p>
+        </div>
     </div>
-  </div>
 
     <!-- Header -->
     <div id="header-container"></div>
-    
+
     <!-- Breadcrumbs -->
     <div class="breadcrumbs">
         <div class="container">
             <ol>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/services.html">Services</a></li>
                 <li class="current">HR Consulting</li>
             </ol>
         </div>
     </div>
-    
-    <!-- Service Hero -->
-    <section class="hero about-hero">
-            <img src="assets/images/hero/h_hr.jpg" class="hero-bg" alt="Background">
-            <div class="hero-overlay"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title animate-left">HR Consulting</h1>
-                <p class="hero-subtitle animate-left" style="animation-delay: 0.2s">Strategic HR solutions for building high-performing teams</p>
-            </div>
+
+    <!-- Hero -->
+    <section class="hero hero--dark">
+        <img src="/assets/images/hero/h_hr.jpg" class="hero__bg" alt="HR Consulting services">
+        <div class="hero__overlay"></div>
+        <div class="hero__container">
+            <h1 class="hero__title">HR Consulting</h1>
+            <p class="hero__subtitle">Strategic HR solutions for building high-performing teams</p>
         </div>
     </section>
-    
-    <!-- Service Overview -->
-    <section class="section service-overview">
+
+    <!-- Overview -->
+    <section class="section">
         <div class="container">
-            <div class="service-overview-content">
+            <div class="intro intro--wide">
                 <h3>Your people are your competitive edge.</h3>
-            <br>
                 <p>We help startups and SMEs build simple, scalable HR frameworks that attract the right talent and create a culture you won't outgrow. No corporate bloat. Just practical HR that aligns your people strategy with your business goals.</p>
-            <br>
                 <p>From your first employee handbook to strategic talent management, we provide lean HR consulting for startups and SMEs. We'll help you hire better, retain longer, and build a workplace culture that drives performance — without slowing you down.</p>
             </div>
         </div>
     </section>
-    
-    <!-- Sub-Services Section -->
-    <section class="capabilities-section">
+
+    <!-- Solutions -->
+    <section class="section capabilities-section">
         <div class="container">
             <div class="section-header text-center">
                 <h2 class="section-title">Our HR Consulting Solutions</h2>
-                <p class="section-subtitle">Essential HR support for startups and small businesses to establish foundational HR practices and processes.</p>
+                <p class="section-subtitle">Essential HR support for startups and small businesses</p>
             </div>
-            
-            <div class="grid" style="display: flex; flex-direction:row; gap: 20px;">
-                <div class="card"><h5>HR Audits</h5><p>Comprehensive Audit of HR policies and procedures</p></div>
-                <div class="card"><h5>Performance Management Systems</h5><p>Implement effective performance evaluation systems</p></div>
-                <div class="card"><h4>Employee Engagement Programs</h4><p>Develop programs to boost morale and productivity</p></div>
-                <div class="card"><h4>Training and Development</h4><p>Develop employee skills and capabilities through targeted training and development programs</p></div>
-                <div class="card"><h4>HR Analytics</h4><p>Implement metrics and reporting systems</p></div>
-                <div class="card"><h4>HR Mannual</h4> <p>Develpment of HR Manuals for streamlined Organizational Communications</p></div>
+
+            <div class="grid grid-3">
+                <div class="capability-card" data-reveal>
+                    <div class="capability-icon"><i class="fas fa-clipboard-list"></i></div>
+                    <h3>HR Audits</h3>
+                    <p>Comprehensive audit of HR policies and procedures to ensure compliance and identify improvement areas.</p>
+                    <ul class="capability-features">
+                        <li><strong>Policy Review:</strong> Evaluate existing policies for gaps</li>
+                        <li><strong>Compliance Check:</strong> Ensure legal and regulatory compliance</li>
+                        <li><strong>Process Improvement:</strong> Identify efficiency opportunities</li>
+                        <li><strong>Risk Assessment:</strong> Identify and mitigate HR risks</li>
+                    </ul>
+                </div>
+
+                <div class="capability-card" data-reveal data-delay="100">
+                    <div class="capability-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3>HR Manual & Policies</h3>
+                    <p>Development of comprehensive HR manuals and policies for streamlined organizational communications.</p>
+                    <ul class="capability-features">
+                        <li><strong>Employee Handbook:</strong> Complete HR reference guide</li>
+                        <li><strong>Policy Documentation:</strong> Clear, enforceable policies</li>
+                        <li><strong>Procedure Manuals:</strong> Step-by-step HR processes</li>
+                        <li><strong>Employee Contracts:</strong> Standardized employment agreements</li>
+                    </ul>
+                </div>
+
+                <div class="capability-card" data-reveal data-delay="200">
+                    <div class="capability-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Performance Management Systems</h3>
+                    <p>Implement effective performance evaluation systems that drive employee growth and organizational success.</p>
+                    <ul class="capability-features">
+                        <li><strong>Performance Reviews:</strong> Structured evaluation frameworks</li>
+                        <li><strong>Goal Setting:</strong> Align individual and organizational goals</li>
+                        <li><strong>Feedback Systems:</strong> Continuous performance feedback</li>
+                        <li><strong>Career Development:</strong> Growth and progression planning</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-
-    <!-- Benefits Section -->
-    <section class="service-benefits">
+    <!-- Benefits -->
+    <section class="section service-benefits bg-light">
         <div class="container">
             <div class="section-header text-center">
                 <h2 class="section-title">Benefits of Professional HR Consulting</h2>
                 <p class="section-subtitle">How strategic HR solutions transform your organization</p>
             </div>
-            
-            <div class="grid" style="display: flex; flex-direction: row; gap: 20px;">
-                <div class="card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h4>Improved Talent Management</h4>
+
+            <div class="grid grid-3">
+                <div class="benefit-card card" data-reveal>
+                    <div class="benefit-card__icon"><i class="fas fa-users"></i></div>
+                    <h3>Improved Talent Management</h3>
                     <p>Attract, develop, and retain top talent that drives business success and innovation.</p>
                 </div>
-                
-                <div class="card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h4>Increased Productivity</h4>
+
+                <div class="benefit-card card" data-reveal data-delay="100">
+                    <div class="benefit-card__icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Increased Productivity</h3>
                     <p>Boost employee performance and productivity through effective management and development.</p>
                 </div>
-                
-                 <div class="card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h4>Reduced Risk</h4>
+
+                <div class="benefit-card card" data-reveal data-delay="200">
+                    <div class="benefit-card__icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Reduced Risk</h3>
                     <p>Minimize legal and compliance risks through proper HR policies and procedures.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Proven Results Section -->
+    <!-- Case Studies -->
     <section class="section proven-results">
         <div class="container">
             <div class="section-header text-center">
                 <h2 class="section-title">Proven Results</h2>
                 <p class="section-subtitle">Real client outcomes from our HR & analytics work</p>
             </div>
-            <div class="case-studies-grid">
-                <!-- HR Analytics Dashboard -->
-                <div class="case-study-card card">
-                    <div class="case-study-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
+
+            <div class="grid grid-3">
+                <div class="case-study-card card" data-reveal>
+                    <div class="case-study-icon" aria-hidden="true"><i class="fas fa-users"></i></div>
                     <h3 class="case-study-title">HR Analytics Dashboard</h3>
                     <p class="case-study-desc">Workforce metrics dashboard that gave HR leaders real‑time visibility into turnover, headcount, and engagement trends.</p>
-                    <a href="portfolio/dashboards.html" class="project-link">View Case Study →</a>
+                    <a href="/portfolio/dashboards.html" class="project-link">View Case Study →</a>
+                </div>
+                <div class="case-study-card card" data-reveal data-delay="100">
+                    <div class="case-study-icon" aria-hidden="true"><i class="fas fa-user-tie"></i></div>
+                    <h3 class="case-study-title">Performance Management System</h3>
+                    <p class="case-study-desc">Structured performance review framework that improved employee engagement and retention.</p>
+                    <a href="#" class="project-link">View Case Study →</a>
                 </div>
             </div>
         </div>
     </section>
-    <!-- End Proven Results -->
-    
-    <!-- CTA Section -->
-<section class="section cta bg-gradient">
-        <img src="assets/images/featured_art.jpg" class="cta-bg" alt="Background" loading="lazy">
-        <div class="cta-overlay"></div>
-        <div class="container">
-            <div class="cta-content">
-                <div class="cta-text">
-                    <h2 class="cta-title">Ready to Build a High-Performing Team?</h2>
-                    <p class="cta-subtitle">Let's discuss how our HR Consulting services can help you create a workplace culture that attracts top talent, drives performance, and supports business growth.</p>
-                </div>
-                <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-large btn-orange">Schedule HR Consultation</a>
-                    <a href="services.html" class="btn btn-large btn-secondary">View All Services</a>
-                </div>
+
+    <!-- CTA -->
+    <section class="cta cta--blue">
+        <img src="/assets/images/featured_art.jpg" class="cta__bg" alt="Background" loading="lazy">
+        <div class="cta__overlay"></div>
+        <div class="cta__container">
+            <h2 class="cta__title">Ready to Build a High-Performing Team?</h2>
+            <p class="cta__subtitle">Let's discuss how our HR Consulting services can help you create a workplace culture that attracts top talent, drives performance, and supports business growth.</p>
+            <div class="cta__buttons">
+                <a href="/contact.html" class="btn btn-orange">Schedule HR Consultation</a>
+                <a href="/services.html" class="btn btn-secondary">View All Services</a>
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <div id="footer-container"></div>
-    
-    <!-- JavaScript Files -->
-    <script src="assets/js/header-footer.js" defer></script>
-    <script src="assets/js/animations.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript Files -->
+    <script src="/assets/js/header-footer.js" defer></script>
+    <script src="/assets/js/animations.js" defer></script>
+    <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

@@ -5,82 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Transformation Services | Consulting Crew</title>
     <meta name="description" content="Navigate digital innovation with confidence and strategy. Comprehensive digital transformation including Digital Marketing, Technology Integration, and Process Automation.">
-    
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
- 
+    <link rel="stylesheet" href="/assets/css/main.css">
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/images/logo.png">
-    
+    <link rel="icon" type="image/svg+xml" href="/assets/images/logo.png">
 </head>
 
 <body>
-  <!-- Loading Animation (same as before) -->
-  <div class="loading-screen" id="loadingScreen">
-    <div class="loading-content">
-      <div class="loading-logo">
-        <img src="assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
-      </div>
-      <div class="loading-progress">
-        <div class="progress-bar"></div>
-      </div>
-      <p class="loading-text">Loading ...</p>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="/assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="loading-text">Loading ...</p>
+        </div>
     </div>
-  </div>
 
     <!-- Header -->
     <div id="header-container"></div>
-    
+
     <!-- Breadcrumbs -->
     <div class="breadcrumbs">
         <div class="container">
             <ol>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li class="current" aria-current="page">Digital Marketing</li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/services.html">Services</a></li>
+                <li class="current">Digital Marketing</li>
             </ol>
         </div>
     </div>
-    
-    <!-- Service Hero -->
- <section class="hero about-hero">
-            <img src="assets/images/hero/digital_marketing.jpg" class="hero-bg" alt="Background">
-            <div class="hero-overlay"></div>
 
-        <div class="container">
-            <h1 class="hero-title animate-left">Digital Transformation</h1>
-            <p class="hero-subtitle animate-left" style="animation-delay: 0.1s">Navigate digital innovation with confidence and strategy</p>
+    <!-- Hero -->
+    <section class="hero hero--dark">
+        <img src="/assets/images/hero/digital_marketing.jpg" class="hero__bg" alt="Digital Marketing services">
+        <div class="hero__overlay"></div>
+        <div class="hero__container">
+            <h1 class="hero__title">Digital Marketing</h1>
+            <p class="hero__subtitle">Navigate digital innovation with confidence and strategy</p>
         </div>
     </section>
-    
-    <!-- Service Overview -->
-    <section class="section intro-section">
+
+    <!-- Overview -->
+    <section class="section">
         <div class="container">
-              <h2>Future-Proof Your Business Through <br>Digital Innovation</h2>
+            <div class="intro intro--wide">
+                <h2>Future-Proof Your Business Through Digital Innovation</h2>
                 <p>Embrace the digital future with comprehensive transformation strategies that enhance customer experiences, streamline operations, and drive innovation across your organization through digital marketing and technology integration.</p>
                 <p>We guide organizations through comprehensive digital transformation journeys, combining strategic vision with practical implementation to create sustainable competitive advantages in the digital age.</p>
                 <p>Our approach focuses on aligning technology initiatives with business objectives, ensuring that digital investments deliver measurable ROI and drive meaningful organizational change.</p>
+            </div>
         </div>
     </section>
-    
-    <!-- Capabilities Section -->
-    <section class="capabilities-section">
+
+    <!-- Solutions -->
+    <section class="section capabilities-section">
         <div class="container">
             <div class="section-header text-center">
                 <h2 class="section-title">Our Digital Marketing Solutions</h2>
                 <p class="section-subtitle">Comprehensive services to digitize and future-proof your business</p>
             </div>
-            
-            <div class="capabilities-grid">
-                <!-- Digital Marketing -->
-                <div class="capability-card animate-fade" data-category="digital">
-                    <div class="capability-icon">
-                        <i class="fas fa-bullhorn"></i>
-                    </div>
+
+            <div class="grid grid-3">
+                <div class="capability-card" data-reveal>
+                    <div class="capability-icon"><i class="fas fa-bullhorn"></i></div>
                     <h3>Digital Marketing</h3>
                     <p>End-to-end digital marketing solutions that increase brand visibility and generate qualified leads.</p>
                     <ul class="capability-features">
@@ -92,12 +89,9 @@
                         <li><strong>Conversion Rate Optimization:</strong> Improve website conversion through testing</li>
                     </ul>
                 </div>
-                
-                <!-- Technology Integration -->
-                <div class="capability-card animate-fade" data-category="digital" style="animation-delay: 0.1s">
-                    <div class="capability-icon">
-                        <i class="fas fa-microchip"></i>
-                    </div>
+
+                <div class="capability-card" data-reveal data-delay="100">
+                    <div class="capability-icon"><i class="fas fa-microchip"></i></div>
                     <h3>Technology Integration</h3>
                     <p>Seamlessly integrate new technologies with your existing systems for enhanced capabilities.</p>
                     <ul class="capability-features">
@@ -107,12 +101,9 @@
                         <li><strong>Legacy Modernization:</strong> Update outdated systems for modern needs</li>
                     </ul>
                 </div>
-                
-                <!-- Process Automation -->
-                <div class="capability-card animate-fade" data-category="digital" style="animation-delay: 0.2s">
-                    <div class="capability-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
+
+                <div class="capability-card" data-reveal data-delay="200">
+                    <div class="capability-icon"><i class="fas fa-robot"></i></div>
                     <h3>Process Automation</h3>
                     <p>Automate repetitive tasks and streamline workflows for maximum efficiency.</p>
                     <ul class="capability-features">
@@ -125,72 +116,69 @@
             </div>
         </div>
     </section>
-    
-    <!-- Service Process -->
-    <section class="service-process-section">
+
+    <!-- Process -->
+    <section class="section service-process-section bg-light">
         <div class="container">
             <div class="section-header text-center">
                 <h2 class="section-title">Our Digital Transformation Process</h2>
                 <p class="section-subtitle">A structured approach to digitizing your business operations</p>
             </div>
-            
-            <div class="process-steps-detailed">
-                <div class="process-step-detailed animate-up">
-                    <div class="step-number-circle">1</div>
-                    <h3>Digital Maturity Assessment</h3>
-                    <p>Evaluate current digital capabilities and identify transformation opportunities aligned with business goals.</p>
+
+            <div class="steps steps--cycle">
+                <div class="step" data-reveal>
+                    <div class="step__number">1</div>
+                    <div class="step__connector"></div>
+                    <h3 class="step__title">Digital Maturity Assessment</h3>
+                    <p class="step__text">Evaluate current digital capabilities and identify transformation opportunities aligned with business goals.</p>
                 </div>
-                
-                <div class="process-step-detailed animate-up" style="animation-delay: 0.1s">
-                    <div class="step-number-circle">2</div>
-                    <h3>Transformation Strategy</h3>
-                    <p>Develop comprehensive digital strategy with clear objectives, roadmap, and success metrics.</p>
+
+                <div class="step" data-reveal data-delay="100">
+                    <div class="step__number">2</div>
+                    <div class="step__connector"></div>
+                    <h3 class="step__title">Transformation Strategy</h3>
+                    <p class="step__text">Develop comprehensive digital strategy with clear objectives, roadmap, and success metrics.</p>
                 </div>
-                
-                <div class="process-step-detailed animate-up" style="animation-delay: 0.2s">
-                    <div class="step-number-circle">3</div>
-                    <h3>Implementation Planning</h3>
-                    <p>Design detailed implementation plans with resource allocation, timeline, and change management.</p>
+
+                <div class="step" data-reveal data-delay="200">
+                    <div class="step__number">3</div>
+                    <div class="step__connector"></div>
+                    <h3 class="step__title">Implementation Planning</h3>
+                    <p class="step__text">Design detailed implementation plans with resource allocation, timeline, and change management.</p>
                 </div>
-                
-                <div class="process-step-detailed animate-up" style="animation-delay: 0.3s">
-                    <div class="step-number-circle">4</div>
-                    <h3>Execution & Optimization</h3>
-                    <p>Execute transformation while managing organizational change and continuously optimizing digital initiatives.</p>
+
+                <div class="step" data-reveal data-delay="300">
+                    <div class="step__number">4</div>
+                    <h3 class="step__title">Execution & Optimization</h3>
+                    <p class="step__text">Execute transformation while managing organizational change and continuously optimizing digital initiatives.</p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Benefits Section -->
-    <section class="service-benefits">
+
+    <!-- Benefits -->
+    <section class="section service-benefits">
         <div class="container">
             <div class="section-header text-center">
                 <h2 class="section-title">Benefits of Digital Transformation</h2>
                 <p class="section-subtitle">How digitization transforms your business capabilities</p>
             </div>
-            
-            <div class="benefits-grid">
-                <div class="benefit-item animate-fade">
-                    <div class="benefit-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
+
+            <div class="grid grid-3">
+                <div class="benefit-card card" data-reveal>
+                    <div class="benefit-card__icon"><i class="fas fa-bolt"></i></div>
                     <h3>Increased Agility</h3>
                     <p>Faster response to market changes and customer needs through digital capabilities and automated processes.</p>
                 </div>
-                
-                <div class="benefit-item animate-fade" style="animation-delay: 0.1s">
-                    <div class="benefit-icon">
-                        <i class="fas fa-user-check"></i>
-                    </div>
+
+                <div class="benefit-card card" data-reveal data-delay="100">
+                    <div class="benefit-card__icon"><i class="fas fa-user-check"></i></div>
                     <h3>Enhanced Customer Experience</h3>
                     <p>Seamless, personalized customer journeys across all digital touchpoints and channels.</p>
                 </div>
-                
-                <div class="benefit-item animate-fade" style="animation-delay: 0.2s">
-                    <div class="benefit-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
+
+                <div class="benefit-card card" data-reveal data-delay="200">
+                    <div class="benefit-card__icon"><i class="fas fa-chart-line"></i></div>
                     <h3>Operational Efficiency</h3>
                     <p>Automated processes and streamlined operations reducing costs, errors, and manual work.</p>
                 </div>
@@ -198,57 +186,62 @@
         </div>
     </section>
 
-    <!-- Proven Results Section -->
-    <section class="section proven-results">
+    <!-- Case Studies -->
+    <section class="section proven-results bg-light">
         <div class="container">
             <div class="section-header text-center">
                 <h2 class="section-title">Digital Transformation in Action</h2>
                 <p class="section-subtitle">Real outcomes from our digital engagements</p>
             </div>
-            <div class="case-studies-grid">
-                <!-- Dashboard Intelligence -->
-                <div class="case-study-card card">
-                    <div class="case-study-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
+
+            <div class="grid grid-3">
+                <div class="case-study-card card" data-reveal>
+                    <div class="case-study-icon" aria-hidden="true"><i class="fas fa-chart-line"></i></div>
                     <h3 class="case-study-title">Real‑Time Intelligence Dashboards</h3>
                     <p class="case-study-desc">Sales, HR, and production dashboards that turned scattered data into executive‑level visibility.</p>
-                    <a href="portfolio/dashboards.html" class="project-link">View Case Study →</a>
+                    <a href="/portfolio/dashboards.html" class="project-link">View Case Study →</a>
                 </div>
-                <!-- E‑commerce Platform -->
-                <div class="case-study-card card">
-                    <div class="case-study-icon">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
+                <div class="case-study-card card" data-reveal data-delay="100">
+                    <div class="case-study-icon" aria-hidden="true"><i class="fas fa-shopping-cart"></i></div>
                     <h3 class="case-study-title">SAGO – E‑commerce Transformation</h3>
                     <p class="case-study-desc">Custom online store that moved a traditional retailer to full digital commerce.</p>
-                    <a href="portfolio/sago.html" class="project-link">View Case Study →</a>
+                    <a href="/portfolio/sago.html" class="project-link">View Case Study →</a>
+                </div>
+                <div class="case-study-card card" data-reveal data-delay="200">
+                    <div class="case-study-icon" aria-hidden="true"><i class="fas fa-globe"></i></div>
+                    <h3 class="case-study-title">Fahad Enterprises – Digital Showroom</h3>
+                    <p class="case-study-desc">Corporate website acting as a 24/7 global showroom for textile exports.</p>
+                    <a href="/portfolio/fahad-enterprises.html" class="project-link">View Case Study →</a>
                 </div>
             </div>
         </div>
     </section>
-    <!-- End Proven Results -->
-    
-    <!-- CTA Section -->
-<section class="section cta bg-gradient">
-        <img src="assets/images/featured_art.jpg" class="cta-bg" alt="Background" loading="lazy">
-        <div class="cta-overlay"></div>
-        <div class="container">
-            <h2 class="cta-title animate-up">Ready to Transform Your Digital Future?</h2>
-            <p class="cta-subtitle animate-up" style="animation-delay: 0.1s">Let's discuss how our Digital Transformation services can future-proof your business and drive sustainable growth through innovative digital solutions.</p>
-            <div class="cta-buttons animate-up" style="animation-delay: 0.2s">
-                <a href="contact.html" class="btn btn-large btn-orange">Start Your Digital Journey</a>
-                <a href="services.html" class="btn btn-large btn-secondary">View All Services</a>
+
+    <!-- CTA -->
+    <section class="cta cta--green">
+        <img src="/assets/images/featured_art.jpg" class="cta__bg" alt="Background" loading="lazy">
+        <div class="cta__overlay"></div>
+        <div class="cta__container">
+            <h2 class="cta__title">Ready to Transform Your Digital Future?</h2>
+            <p class="cta__subtitle">Let's discuss how our Digital Transformation services can future-proof your business and drive sustainable growth.</p>
+            <div class="cta__buttons">
+                <a href="/contact.html" class="btn btn-orange">Start Your Digital Journey</a>
+                <a href="/services.html" class="btn btn-secondary">View All Services</a>
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <div id="footer-container"></div>
-    
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- JavaScript Files -->
-    <script src="assets/js/header-footer.js" defer></script>
-    <script src="assets/js/animations.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
+    <script src="/assets/js/header-footer.js" defer></script>
+    <script src="/assets/js/animations.js" defer></script>
+    <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

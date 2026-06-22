@@ -5,46 +5,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trust Way Furnishings — Premium Brand Presence | Consulting Crew</title>
     <meta name="description" content="Luxury logo, website, and stationery that opened the Dubai market for a high‑end furniture brand.">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="icon" type="image/svg+xml" href="../assets/images/icons/favicon-96x96.png">
-    <style>
-        .case-study-hero { background: linear-gradient(135deg, #0b1a2f 0%, #0036a3 100%); color: #fff; padding: 80px 0 60px; }
-        .case-study-hero h1 { font-family: 'Merriweather', serif; font-size: 2.3rem; }
-        .case-study-layout { display: grid; grid-template-columns: 1fr 380px; gap: 50px; padding: 60px 0; }
-        .sidebar { background: #f5f7fa; padding:40px 30px; border-radius: 8px; height: fit-content; }
-        .metric-highlight { display: flex; align-items: baseline; gap: 5px; font-size: 1.6rem; font-weight: 700; color: #0b1a2f; margin-bottom: 20px; }
-        .metric-label { font-size: 0.9rem; color: #5a6d80; font-weight: 400; }
-        .client-quote { font-style: italic; font-size: 1rem; border-left: 5px solid #052874; padding-left: 20px; margin: 30px 0; }
-        @media (max-width: 768px) { .case-study-layout { grid-template-columns: 1fr; } }
-    </style>
+    <link rel="stylesheet" href="../assets/css/portfolio-case-studies.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
 </head>
+
 <body>
-    <div id="header-container"></div>
-    <div class="breadcrumbs"><div class="container"><ol><li><a href="../index.html">Home</a></li><li><a href="../portfolio.html">Portfolio</a></li><li class="current">Trust Way</li></ol></div></div>
-    
-    <section class="case-study-hero"><div class="container"><h1>Trust Way Furnishings — Premium Brand Presence</h1><p style="opacity:0.9; max-width:700px;">A complete branding and digital solution that gave a Dubai furniture brand a refined, professional image.</p></div></section>
-    
-    <section class="container case-study-layout">
-        <div class="main-story">
-            <h2>Business Challenge</h2><p>Trust Way Furnishings offered premium furniture products but lacked a modern identity that reflected the quality of its offerings. The business required both branding and digital presence to support positioning in a competitive market.</p>
-            <h2>Consulting Crew Approach</h2><p>Consulting Crew developed a complete branding package supported by a professional website. The visual identity was designed to communicate elegance, professionalism, and consistency.</p>
-            <ul><li>Premium logo and identity development</li><li>Website design focused on visual presentation</li><li>Business stationery design</li><li>Consistent brand styling</li></ul>
-            <h2>Business Impact</h2>
-            <ul><li>Improved brand consistency across communication channels</li><li>Supported stronger presentation of premium furniture offerings</li><li>Created a professional online identity</li><li>Enhanced business credibility for new customer engagement</li></ul>
-            <div class="client-quote">“Consulting Crew understood exactly what we wanted. The branding and website gave us a more refined and professional image.” — Owner, Trust Way Furnishing</div>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="../assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="loading-text">Loading ...</p>
         </div>
-        <aside class="sidebar">
-            <h3 style="margin-top:0;">Project Details</h3>
-            <p><strong>Client:</strong> Trust Way Furnishings</p><p><strong>Industry:</strong> Furniture Retail</p><p><strong>Location:</strong> Dubai, UAE</p>
+    </div>
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="/portfolio.html">Portfolio</a></li>
+                <li class="current">Trust Way Furnishings</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Case Study Hero -->
+    <section class="case-study-hero">
+        <div class="container">
+            <h1>Trust Way Furnishings — Premium Brand Presence</h1>
+            <p>A complete branding and digital solution that gave a Dubai furniture brand a refined, professional image.</p>
+        </div>
+    </section>
+
+    <!-- Case Study Content -->
+    <section class="container case-study-layout">
+        <div class="main-story" data-reveal>
+            <h2>Business Challenge</h2>
+            <p>Trust Way offered premium furniture but lacked a brand identity reflecting elegance. Their outdated visual identity and absence of digital presence hindered discovery by high‑end customers.</p>
+
+            <h2>Consulting Crew Approach</h2>
+            <p>We developed a refined brand identity and digital presence:</p>
+            <ul>
+                <li>Modern, premium logo and identity</li>
+                <li>Visually rich corporate website</li>
+                <li>Professional stationery (business cards, etc.)</li>
+            </ul>
+
+            <h2>Business Impact</h2>
+            <ul>
+                <li>Successful digital market entry in Dubai</li>
+                <li>Premium brand positioning aligned with product quality</li>
+                <li>Consistent brand experience across all touchpoints</li>
+            </ul>
+
+            <div class="client-quote">
+                "Consulting Crew understood exactly what we wanted. They gave us a brand that finally matches the quality of our furniture."
+                <br><br>
+                <strong>— Owner, Trust Way Furnishings</strong>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" data-reveal data-delay="100">
+            <h3>Project Details</h3>
+            <p><strong>Client:</strong> Trust Way Furnishings</p>
+            <p><strong>Industry:</strong> Furniture Retail</p>
+            <p><strong>Location:</strong> Dubai, UAE</p>
+
             <h4>Services Provided</h4>
-            <ul><li>Brand Identity Design</li><li>Corporate identity system</li><li>Branded Stationery</li><li>Company Profile and Product Profile Creation</li><li>Website Development</li><li>Website Hosting</li></ul>
-            <a href="https://twfurnishings.com" class="btn btn-primary" style="margin-top:20px;" target="_blank" rel="noopener">Visit Live Website ↗</a>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Brand Identity Design</li>
+                <li><i class="fas fa-check-circle"></i> Corporate identity system</li>
+                <li><i class="fas fa-check-circle"></i> Branded Stationery</li>
+                <li><i class="fas fa-check-circle"></i> Website Development</li>
+                <li><i class="fas fa-check-circle"></i> Website Hosting</li>
+            </ul>
+
+            <a href="https://twfurnishings.com" class="btn btn-primary" style="width:100%; text-align:center;" target="_blank" rel="noopener">Visit Live Website ↗</a>
         </aside>
     </section>
-    <section class="container" style="margin-bottom:60px; text-align:center;"><img src="../assets/images/portfolio/trust-way-website.jpg" alt="Trust Way Website" style="max-width:100%; box-shadow:0 5px 30px rgba(0,0,0,0.1); border-radius:8px;"></section>
+
+    <!-- Gallery -->
+    <section class="container case-study-gallery" data-reveal>
+        <img src="../assets/images/portfolio/trust-way-website.jpg" alt="Trust Way Website" loading="lazy">
+    </section>
+
+    <!-- Related Projects -->
+    <section class="section related-posts-section bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Related Projects</h2>
+                <p class="section-subtitle">Explore similar branding & web case studies</p>
+            </div>
+            <div class="related-posts-grid">
+                <div class="related-post-card" data-reveal>
+                    <div class="related-post-image"><i class="fas fa-flask"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Branding</span>
+                        <h4 class="related-post-title">SES‑Chem — Translating Philosophy into Visual Identity</h4>
+                        <a href="/portfolio/ses-chem.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="related-post-card" data-reveal data-delay="100">
+                    <div class="related-post-image"><i class="fas fa-globe"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Web</span>
+                        <h4 class="related-post-title">Fahad Enterprises — Global Digital Showroom</h4>
+                        <a href="/portfolio/fahad-enterprises.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <div id="footer-container"></div>
-    <script src="../assets/js/header-footer.js" defer></script><script src="../assets/js/main.js" defer></script>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript Files -->
+    <script src="../assets/js/header-footer.js" defer></script>
+    <script src="../assets/js/animations.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
 </body>
 </html>

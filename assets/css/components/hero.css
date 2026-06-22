@@ -1,0 +1,271 @@
+/* ============================================
+   HERO COMPONENT – Unified System
+   ============================================ */
+
+/* ----- BASE HERO ----- */
+.hero {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-2xl) var(--space-sm);
+    min-height: 40vh;
+}
+
+.hero__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 72%);
+    opacity: 0.8;
+}
+
+.hero__container {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.hero__title {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+    line-height: 1.2;
+    color: var(--white);
+}
+
+.hero__subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: var(--space-lg);
+    color: var(--white);
+}
+
+.hero__description {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto var(--space-lg);
+    color: var(--white);
+}
+
+/* ----- MODIFIER: Dark Text (Light Background) ----- */
+.hero--light {
+    background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+    min-height: auto;
+    padding: 92px 0 60px;
+}
+.hero--light .hero__title {
+    color: var(--dark-blue);
+    background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.hero--light .hero__subtitle,
+.hero--light .hero__description {
+    color: var(--medium-gray);
+}
+.hero--light .hero__overlay {
+    display: none;
+}
+
+/* ----- MODIFIER: Homepage (Grid Layout) ----- */
+.hero--home {
+    padding: 92px 0 0 72px;
+    background: linear-gradient(135deg, var(--light-blue) 40%, var(--light-green) 100%);
+    min-height: 92vh;
+    text-align: left;
+    align-items: stretch;
+}
+.hero--home .hero__container {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    gap: 0;
+}
+.hero--home .hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.hero--home .hero__title {
+    font-size: 2rem;
+    line-height: 1.5;
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-blue) 72%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-sm);
+}
+.hero--home .hero__description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--dark-gray);
+    margin: var(--space-md) 0;
+    max-width: 77%;
+}
+.hero--home .hero__cta {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    margin-top: 4rem;
+}
+.hero--home .hero__visual {
+    position: relative;
+    height: 300px;
+}
+.hero--home .hero__overlay {
+    display: none;
+}
+
+/* ----- MODIFIER: Case Study (Detail Pages) ----- */
+.hero--case-study {
+    padding: 100px 0 70px;
+    background: linear-gradient(135deg, var(--dark-blue) 0%, #022B5F 100%);
+    text-align: left;
+    align-items: flex-start;
+    min-height: auto;
+}
+.hero--case-study .hero__container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.hero--case-study .hero__title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 15px;
+}
+.hero--case-study .hero__description {
+    opacity: 0.95;
+    max-width: 700px;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+.hero--case-study .hero__overlay {
+    opacity: 1;
+    background: rgba(0,0,0,0.2);
+}
+
+/* ----- MODIFIER: Process (Overlay with white text) ----- */
+.hero--process {
+    padding: 160px 0 100px;
+    min-height: var(--hero-min-height);
+}
+.hero--process .hero__title,
+.hero--process .hero__subtitle,
+.hero--process .hero__description {
+    color: var(--white);
+}
+
+/* ----- SHARED: Hero Stats (used in about) ----- */
+.hero__stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xl);
+    flex-wrap: wrap;
+    margin-top: var(--space-xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.hero__stat {
+    text-align: center;
+    min-width: 140px;
+}
+.hero__stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: var(--space-xs);
+    color: var(--white);
+}
+.hero__stat-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    opacity: 0.9;
+    color: var(--white);
+}
+
+/* ----- RESPONSIVE HERO ----- */
+@media (max-width: 992px) {
+    .hero--home {
+        padding: 92px 0 63px;
+        min-height: auto;
+    }
+    .hero--home .hero__container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .hero--home .hero__visual {
+        display: none;
+    }
+    .hero--home .hero__description {
+        max-width: 100%;
+    }
+    .hero--home .hero__cta {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 72px 0 50px;
+        min-height: auto;
+    }
+    .hero__title {
+        font-size: 2rem;
+    }
+    .hero__subtitle {
+        font-size: 1.2rem;
+    }
+    .hero--case-study {
+        padding: 80px 0 50px;
+    }
+    .hero--case-study .hero__title {
+        font-size: 1.5rem;
+    }
+    .hero--home {
+        padding: 72px 0 50px;
+    }
+    .hero--home .hero__title {
+        font-size: 1.5rem;
+    }
+    .hero__stats {
+        gap: var(--space-md);
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero__title {
+        font-size: 1.5rem;
+    }
+    .hero__subtitle {
+        font-size: 1rem;
+    }
+    .hero--home .hero__title {
+        font-size: 1.5rem;
+    }
+}

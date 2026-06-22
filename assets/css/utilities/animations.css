@@ -1,0 +1,141 @@
+
+/* ============================================
+  GLOBAL ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes slideLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+/* float-rotate moved to about section as aboutFloatRotate */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Animation Classes */
+.animate-fade { animation: fadeIn 0.6s ease-out forwards; }
+.animate-left { animation: slideLeft 0.6s ease-out forwards; }
+.animate-right { animation: slideRight 0.6s ease-out forwards; }
+.animate-up { animation: fadeUp 0.6s ease-out forwards; }
+.animate-in { animation: fadeUp 0.8s cubic-bezier(0.2, 0.9, 0.3, 1) forwards; }
+.float-animation { animation: float 6s ease-in-out infinite; }
+.pulse-animation { animation: pulse 2s ease-in-out infinite; }
+
+[style*="animation-delay"] { opacity: 0; animation-fill-mode: forwards; }
+
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.reveal-hidden.revealed {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+.reveal-hidden.animate-left { transform: translateX(-30px); }
+.reveal-hidden.animate-left.revealed { animation: slideLeft 0.6s ease-out forwards; }
+.reveal-hidden.animate-right { transform: translateX(30px); }
+.reveal-hidden.animate-right.revealed { animation: slideRight 0.6s ease-out forwards; }
+.reveal-hidden.animate-fade { opacity: 0; }
+.reveal-hidden.animate-fade.revealed { animation: fadeIn 0.6s ease-out forwards; }
+.sequence-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .animate-fade,
+    .animate-left,
+    .animate-right,
+    .animate-up,
+    .animate-in,
+    .reveal-hidden {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+
+    .loading-screen {
+        display: none !important;
+    }
+}
+
+/* Page transition */
+body.page-exit {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Mobile menu open */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* For mobile menu */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* For page transitions */
+body.page-exit {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* For reveal animations */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-hidden.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* For left/right variants */
+.reveal-hidden.animate-left {
+  transform: translateX(-30px);
+}
+.reveal-hidden.animate-left.revealed {
+  transform: translateX(0);
+}
+.reveal-hidden.animate-right {
+  transform: translateX(30px);
+}
+.reveal-hidden.animate-right.revealed {
+  transform: translateX(0);
+}

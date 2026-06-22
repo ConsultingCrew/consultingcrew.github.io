@@ -1,0 +1,28 @@
+/* ============================================
+   TABLES
+   ============================================ */
+.table-responsive {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+.insight-table {
+    width: 100%;
+    background: var(--white);
+    border-collapse: collapse;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+.insight-table thead tr {
+    background: var(--dark-blue);
+    color: white;
+}
+.insight-table th,
+.insight-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--light-gray);
+}
+.insight-table tr:last-child td {
+    border-bottom: none;
+}

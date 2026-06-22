@@ -3,86 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulting Crew - Our Team</title>
-    <meta name="description" content="Strategic advisory firm helping organizations translate ambition into execution and results. Empowering smarter decisions for startups, SMEs, and growth-focused businesses.">
+    <title>Our Team | Consulting Crew</title>
+    <meta name="description" content="Meet the dedicated professionals behind Consulting Crew. Our team brings diverse expertise and a shared passion for delivering excellence to our clients.">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <!-- Styles -->
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
- 
+    <link rel="stylesheet" href="/assets/css/main.css">
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
-    
+    <link rel="icon" type="image/svg+xml" href="/assets/images/logo.svg">
 </head>
 
 <body>
-  <!-- Loading Animation -->
-  <div class="loading-screen" id="loadingScreen">
-    <div class="loading-content">
-      <div class="loading-logo">
-        <img src="assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
-      </div>
-      <div class="loading-progress">
-        <div class="progress-bar"></div>
-      </div>
-      <p class="loading-text">Loading ...</p>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="/assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="loading-text">Loading ...</p>
+        </div>
     </div>
-  </div>
 
     <!-- Header -->
     <div id="header-container"></div>
 
+    <!-- Breadcrumbs -->
     <div class="breadcrumbs">
         <div class="container">
             <ol>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li aria-current="page">Our Team</li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about.html">About Us</a></li>
+                <li class="current">Our Team</li>
             </ol>
         </div>
     </div>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero about-hero">
-            <img src="assets/images/hero/h_about_us.jpg" class="hero-bg" alt="Background">
-            <div class="hero-overlay"></div>
-            <div class="container">
-                <h1 class="hero-title animate-left">Our Team</h1>
-                <p class="hero-subtitle animate-left" style="animation-delay: 0.2s">The dedicated professionals behind your success</p>
-            </div>
-        </section>
+    <!-- Hero Section -->
+    <section class="hero hero--light">
+        <div class="hero__container">
+            <h1 class="hero__title">Our Team</h1>
+            <p class="hero__subtitle">The dedicated professionals behind your success</p>
+        </div>
+    </section>
 
-        <!-- Team Philosophy Section -->
-        <section class="section values-section">
-            <div class="container">
-                <div class="section-header text-center">
-                    <p class="section-subtitle">At the heart of everything we do is a dedicated group of experienced professionals. Our team brings together a diverse range of expertise and a shared passion for delivering excellence. We believe that our collective knowledge and commitment to innovation are what allow us to tackle complex challenges and provide meaningful results for our clients.</p>
+    <!-- Team Philosophy -->
+    <section class="section values-section">
+        <div class="container">
+            <div class="section-header text-center" data-reveal>
+                <p class="section-subtitle">At the heart of everything we do is a dedicated group of experienced professionals. Our team brings together a diverse range of expertise and a shared passion for delivering excellence. We believe that our collective knowledge and commitment to innovation are what allow us to tackle complex challenges and provide meaningful results for our clients.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Our Journey -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header text-center" data-reveal>
+                <h2 class="section-title">Join Our Journey</h2>
+                <p class="section-subtitle">We are always looking for talented individuals who share our values and our drive for success. While we may not have a specific opening at this moment, we are constantly growing and evolving. If you believe your skills and experience would be a great fit for our culture, we invite you to <strong>submit your credentials</strong>. We keep all high-potential applications on file and will reach out as soon as a suitable opportunity arises.</p>
+                <div class="mt-3">
+                    <a href="/contact.html" class="btn btn-primary">Submit Your Application Here</a>
                 </div>
             </div>
-        </section>
-        
-        <!-- Join Our Journey CTA -->
-        <section class="section">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">Join Our Journey</h2>
-                    <p class="section-subtitle">We are always looking for talented individuals who share our values and our drive for success. While we may not have a specific opening at this moment, we are constantly growing and evolving. If you believe your skills and experience would be a great fit for our culture, we invite you to <strong>submit your credentials</strong>. We keep all high-potential applications on file and will reach out as soon as a suitable opportunity arises.</p>
-                    <div class="mt-3">
-                        <a href="contact.html" class="btn btn-primary">Submit Your Application Here</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
+    <!-- Footer -->
     <div id="footer-container"></div>
 
-    <script src="assets/js/header-footer.js" defer></script>
-    <script src="assets/js/animations.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript Files -->
+    <script src="/assets/js/header-footer.js" defer></script>
+    <script src="/assets/js/animations.js" defer></script>
+    <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

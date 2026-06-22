@@ -1,0 +1,117 @@
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--dark-blue);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.7rem; }
+h4 { font-size: 1.3rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+
+p {
+    margin-bottom: var(--space-sm);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-blue);
+    transition: color var(--transition-fast);
+}
+a:hover {
+    color: var(--primary-orange);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Section Styles */
+.section {
+    padding: var(--space-xl) 0;
+}
+.section-sm {
+    padding: var(--space-lg) 0;
+}
+
+.section-header {
+    margin-top: var(--space-xl);
+    text-align: center;
+}
+.section-label {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-md);
+    font-size: 0.9rem;
+    border-radius: var(--radius-xl);
+    background-color: var(--light-blue);
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+}
+.section-title {
+    margin-top: var(--space-sm);
+    position: relative;
+    padding-bottom: var(--space-sm);
+    font-size: 2.5rem;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92px;
+    height: 4px;
+    background: var(--primary-orange);
+    border-radius: 2px;
+}
+.section-title--left::after {
+    left: 0;
+    transform: none;
+}
+.section-subtitle {
+    color: var(--medium-gray);
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: var(--space-lg) auto 0;
+}
+
+/* Lists */
+.styled-list {
+    list-style: none;
+    margin: 0 0 var(--space-lg);
+}
+.styled-list li {
+    padding: var(--space-xs) 0 var(--space-xs) 28px;
+    color: var(--medium-gray);
+    font-size: 1rem;
+    line-height: 1.5;
+    position: relative;
+    border-bottom: 1px solid var(--light-gray);
+}
+.styled-list li:last-child {
+    border-bottom: none;
+}
+.styled-list li i {
+    position: absolute;
+    left: 0;
+    top: 12px;
+    color: var(--primary-green);
+    font-size: 1.1rem;
+}
+.styled-list li strong {
+    color: var(--dark-blue);
+    font-weight: 600;
+}

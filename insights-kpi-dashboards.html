@@ -4,72 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Implementing Effective KPI Dashboards: Best Practices That Drive Actionable Insights | Consulting Crew</title>
-    <meta name="description" content="Most dashboards are ignored within weeks. Learn how to design and implement KPI dashboards that actually drive decisions, action, and business results.">
-    
+    <meta name="description" content="Most KPI dashboards are abandoned within six weeks. Learn how to design and implement KPI dashboards that actually drive decisions, action, and business results.">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <!-- Styles -->
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
- 
+    <link rel="stylesheet" href="/assets/css/main.css">
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/images/logo.png">
-    
+    <link rel="icon" type="image/svg+xml" href="/assets/images/logo.png">
 </head>
 
 <body>
-  <!-- Loading Animation -->
-  <div class="loading-screen" id="loadingScreen">
-    <div class="loading-content">
-      <div class="loading-logo">
-        <img src="assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
-      </div>
-      <div class="loading-progress">
-        <div class="progress-bar"></div>
-      </div>
-      <p class="loading-text">Loading ...</p>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="/assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="loading-text">Loading ...</p>
+        </div>
     </div>
-  </div>
 
     <!-- Header -->
     <div id="header-container"></div>
 
+    <!-- Breadcrumbs -->
     <div class="breadcrumbs">
         <div class="container">
             <ol>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="insights.html">Insights</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/insights.html">Insights</a></li>
                 <li class="current">KPI Dashboards</li>
             </ol>
         </div>
     </div>
 
-    <section class="hero insights-hero">
-        <div class="container">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
-                <div class="cta-shape cta-shape-1"></div>
-                <div class="cta-shape cta-shape-2"></div>
-
-            <div class="hero-content">
-                <h1 class="hero-title animate-left">Implementing Effective KPI Dashboards<br>Best Practices for Actionable Insights</h1>
-                <p class="hero-subtitle animate-left" style="animation-delay: 0.1s">Stop building dashboards nobody uses. Start building tools that drive real decisions.</p>
-                <div class="post-meta animate-fade" style="animation-delay: 0.2s">
-                    <span class="post-category">Data & Analytics</span>
-                    <span class="post-date"><i class="far fa-calendar-alt"></i> April 25, 2026</span>
-                    <span class="post-read-time"><i class="far fa-clock"></i> 6 min read</span>
-                </div>
+    <!-- Hero Section -->
+    <section class="hero hero--light">
+        <div class="hero__container">
+            <h1 class="hero__title">Implementing Effective KPI Dashboards<br>Best Practices for Actionable Insights</h1>
+            <p class="hero__subtitle">Stop building dashboards nobody uses. Start building tools that drive real decisions.</p>
+            <div class="post-meta">
+                <span class="post-category">Data & Analytics</span>
+                <span class="post-date"><i class="far fa-calendar-alt"></i> April 25, 2026</span>
+                <span class="post-read-time"><i class="far fa-clock"></i> 6 min read</span>
             </div>
         </div>
     </section>
 
+    <!-- Blog Content -->
     <section class="section blog-post-content">
         <div class="container">
             <article>
-                <p class="article-lead">Most KPI dashboards are abandoned within <strong>six weeks</strong>. Why? They're cluttered, confusing, or disconnected from actual decisions. <strong>An effective dashboard doesn't just display data – it drives action.</strong></p>
-                
+                <p class="article-lead"><strong>Most KPI dashboards are abandoned within six weeks.</strong> Not because the data was wrong—but because the dashboards were cluttered, confusing, or disconnected from actual decisions. An effective dashboard doesn't just display data—it drives action.</p>
+
                 <p>According to a Gartner study, <strong>only 24% of employees</strong> have access to analytics tools that help them make decisions. Among those, even fewer actually use them daily. The gap isn't about technology – it's about <strong>design principles, KPI selection, and behavioral psychology</strong>.</p>
 
                 <h2><i class="fas fa-skull-crosswalk"></i> 1. Why Most Dashboards Fail (The 4 Deadly Sins)</h2>
@@ -79,17 +73,34 @@
                     <li><i class="fas fa-times-circle"></i> <strong>The "Set and Forget" Sin:</strong> Built once, never updated as business priorities shift.</li>
                     <li><i class="fas fa-times-circle"></i> <strong>The Data Swamp Sin:</strong> Stale, inaccurate, or inconsistent data destroys trust.</li>
                 </ul>
+
                 <div class="quote-box">
                     <p><strong>📊 The reality:</strong> A dashboard without a decision attached is just <strong>expensive wallpaper</strong>. Every metric must answer a specific question or trigger a specific action.</p>
                 </div>
 
                 <h2><i class="fas fa-cogs"></i> 2. The 5-Step Framework for Actionable Dashboards</h2>
-                <div class="framework-steps">
-                    <div class="framework-step"><h4><i class="fas fa-question-circle"></i> Step 1: Start with Decisions, Not Data</h4><p>Before picking a single metric, ask: <strong>"What decisions will this dashboard inform?"</strong></p></div>
-                    <div class="framework-step"><h4><i class="fas fa-filter"></i> Step 2: Apply the 3×3 Rule</h4><p>Three levels × three metrics per level = nine total KPIs.</p></div>
-                    <div class="framework-step"><h4><i class="fas fa-chart-line"></i> Step 3: Lead vs. Lag – Use Both</h4><p>Lagging indicators tell you what happened. Leading indicators predict what will happen.</p></div>
-                    <div class="framework-step"><h4><i class="fas fa-eye"></i> Step 4: Visual Hierarchy That Guides the Eye</h4><p>Most important KPI: largest, top-left. Use red/yellow/green thresholds.</p></div>
-                    <div class="framework-step"><h4><i class="fas fa-sync-alt"></i> Step 5: Build a Review Cadence</h4><p>Define daily, weekly, and monthly review rhythms with owners assigned.</p></div>
+
+                <div class="steps steps--framework">
+                    <div class="step" data-reveal>
+                        <h4 class="step__title"><span class="step__badge">1</span> Start with Decisions, Not Data</h4>
+                        <p class="step__text">Before picking a single metric, ask: <strong>"What decisions will this dashboard inform?"</strong></p>
+                    </div>
+                    <div class="step" data-reveal data-delay="100">
+                        <h4 class="step__title"><span class="step__badge">2</span> Apply the 3×3 Rule</h4>
+                        <p class="step__text">Three levels × three metrics per level = nine total KPIs. Any more and you lose focus.</p>
+                    </div>
+                    <div class="step" data-reveal data-delay="200">
+                        <h4 class="step__title"><span class="step__badge">3</span> Lead vs. Lag – Use Both</h4>
+                        <p class="step__text">Lagging indicators tell you what happened. Leading indicators predict what will happen.</p>
+                    </div>
+                    <div class="step" data-reveal data-delay="300">
+                        <h4 class="step__title"><span class="step__badge">4</span> Visual Hierarchy That Guides the Eye</h4>
+                        <p class="step__text">Most important KPI: largest, top-left. Use red/yellow/green thresholds for quick assessment.</p>
+                    </div>
+                    <div class="step" data-reveal data-delay="400">
+                        <h4 class="step__title"><span class="step__badge">5</span> Build a Review Cadence</h4>
+                        <p class="step__text">Define daily, weekly, and monthly review rhythms with owners assigned to each metric.</p>
+                    </div>
                 </div>
 
                 <div class="card-green clearfix">
@@ -110,26 +121,28 @@
                     </table>
                 </div>
 
-                <div class="article-cta-box">
-                    <i class="fas fa-chart-pie" style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 1rem;"></i>
-                    <h3>Ready to turn your data into decisions?</h3>
+                <!-- CTA Box -->
+                <div class="cta-box cta-box--green" data-reveal>
+                    <i class="fas fa-chart-pie" style="color: var(--primary-green);"></i>
+                    <h3>Ready to Turn Your Data into Decisions?</h3>
                     <p>Consulting Crew designs custom dashboards that align with your strategy, clean your data, and train your team to use insights daily.</p>
-                    <a href="contact.html" class="article-cta-btn">Request a Dashboard Audit</a>
+                    <a href="/contact.html" class="btn btn-green">Request a Dashboard Audit</a>
                 </div>
 
                 <div class="share-section">
                     <h3 class="share-title">Share this insight</h3>
-        <div class="share-buttons">
-            <a href="#" class="share-button twitter" target="_blank" rel="noopener noreferrer" id="shareTwitter"><i class="fab fa-twitter"></i> Twitter</a>
-            <a href="#" class="share-button linkedin" target="_blank" rel="noopener noreferrer" id="shareLinkedin"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-            <a href="#" class="share-button facebook" target="_blank" rel="noopener noreferrer" id="shareFacebook"><i class="fab fa-facebook-f"></i> Facebook</a>
-            <a href="#" class="share-button email" id="shareEmail"><i class="fas fa-envelope"></i> Email</a>
-        </div>
+                    <div class="share-buttons">
+                        <a href="#" class="share-button twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i> Twitter</a>
+                        <a href="#" class="share-button linkedin" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                        <a href="#" class="share-button facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i> Facebook</a>
+                        <a href="#" class="share-button email"><i class="fas fa-envelope"></i> Email</a>
+                    </div>
                 </div>
             </article>
         </div>
     </section>
 
+    <!-- Related Posts -->
     <section class="section related-posts-section">
         <div class="container">
             <div class="section-header text-center">
@@ -137,75 +150,45 @@
                 <p class="section-subtitle">Continue your data journey</p>
             </div>
             <div class="related-posts-grid">
-                <div class="related-post-card">
+                <div class="related-post-card" data-reveal>
                     <div class="related-post-image"><i class="fas fa-database"></i></div>
                     <div class="related-post-content">
                         <span class="related-post-category">Data Strategy</span>
-                        <h4 class="related-post-title">Your data is a goldmine – here's how to dig</h4>
-                        <a href="insights-data-goldmine.html" class="related-post-link">Read more <i class="fas fa-arrow-right"></i></a>
+                        <h4 class="related-post-title">Your Data is a Goldmine – Here's How to Dig</h4>
+                        <a href="/insights-data-goldmine.html" class="related-post-link">Read more <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="related-post-card">
+                <div class="related-post-card" data-reveal data-delay="100">
                     <div class="related-post-image"><i class="fas fa-chart-line"></i></div>
                     <div class="related-post-content">
                         <span class="related-post-category">Forecasting</span>
-                        <h4 class="related-post-title">Simple forecasting for small business</h4>
-                        <a href="insights-simple-forecasting.html" class="related-post-link">Read more <i class="fas fa-arrow-right"></i></a>
+                        <h4 class="related-post-title">Simple Forecasting for Small Business</h4>
+                        <a href="/insights-simple-forecasting.html" class="related-post-link">Read more <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="related-post-card">
+                <div class="related-post-card" data-reveal data-delay="200">
                     <div class="related-post-image"><i class="fas fa-filter"></i></div>
                     <div class="related-post-content">
                         <span class="related-post-category">Analytics</span>
                         <h4 class="related-post-title">Turning Data Noise into Strategic Insights</h4>
-                        <a href="insight-data-noise-strategic-insights.html" class="related-post-link">Read more <i class="fas fa-arrow-right"></i></a>
+                        <a href="/insight-data-noise-strategic-insights.html" class="related-post-link">Read more <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <div id="footer-container"></div>
-    <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
-    <script src="assets/js/header-footer.js" defer></script>
-    <script src="assets/js/animations.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
 
-<script>
-(function() {
-    const pageUrl = encodeURIComponent(window.location.href);
-    const pageTitle = encodeURIComponent(document.title);
-    
-    // Define shareText for Twitter (add this line)
-    const shareText = encodeURIComponent('Simple Forecasting Techniques for Small Business - no PhD required!');
-    
-    // Twitter
-    const twitterBtn = document.getElementById('shareTwitter');
-    if (twitterBtn) {
-        twitterBtn.href = `https://twitter.com/intent/tweet?text=${shareText}&url=${pageUrl}`;
-    }
-    
-    // LinkedIn
-    const linkedinBtn = document.getElementById('shareLinkedin');
-    if (linkedinBtn) {
-        linkedinBtn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
-    }
-    
-    // Facebook
-    const facebookBtn = document.getElementById('shareFacebook');
-    if (facebookBtn) {
-        facebookBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
-    }
-    
-    // Email - mailto: protocol
-    const emailBtn = document.getElementById('shareEmail');
-    if (emailBtn) {
-        const emailSubject = encodeURIComponent('Check this out: Simple Forecasting Techniques for Small Business');
-        const emailBody = encodeURIComponent(`I thought you might find this interesting:\n\n${pageTitle}\n\n${window.location.href}\n\n— Sent from Consulting Crew`);
-        emailBtn.href = `mailto:?subject=${emailSubject}&body=${emailBody}`;
-    }
-})();
-</script>
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
+    <!-- JavaScript Files -->
+    <script src="/assets/js/header-footer.js" defer></script>
+    <script src="/assets/js/animations.js" defer></script>
+    <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

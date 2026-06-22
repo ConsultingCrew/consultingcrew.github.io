@@ -5,32 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insights & Resources | Consulting Crew - Strategic Business Intelligence</title>
     <meta name="description" content="Explore expert insights on data strategy, branding, HR consulting, digital transformation, and business growth. Practical frameworks for smarter decisions.">
-    
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <!-- Styles -->
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
- 
+    <link rel="stylesheet" href="/assets/css/main.css">
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/images/logo.png">
-    
+    <link rel="icon" type="image/svg+xml" href="/assets/images/logo.png">
 </head>
 
 <body>
-  <!-- Loading Animation -->
-  <div class="loading-screen" id="loadingScreen">
-    <div class="loading-content">
-      <div class="loading-logo">
-        <img src="assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
-      </div>
-      <div class="loading-progress">
-        <div class="progress-bar"></div>
-      </div>
-      <p class="loading-text">Loading ...</p>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="/assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="loading-text">Loading ...</p>
+        </div>
     </div>
-  </div>
 
     <!-- Header -->
     <div id="header-container"></div>
@@ -39,315 +38,298 @@
     <div class="breadcrumbs">
         <div class="container">
             <ol>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li class="current" aria-current="page">Insights</li>
             </ol>
         </div>
     </div>
 
-  <!-- Hero Section -->
-  <section class="hero insights-hero">
-    <div class="container">
-      <div class="hero-content">
+    <!-- Hero Section -->
+    <section class="hero hero--light">
+        <div class="hero__container">
+            <h1 class="hero__title">Insights & Resources</h1>
+            <p class="hero__subtitle">Strategic thinking, industry trends, and actionable insights</p>
+            <p class="hero__description">Explore expert perspectives on data strategy, leadership, digital transformation, and sustainable growth from our team of consultants.</p>
+        </div>
+    </section>
 
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
-                <div class="cta-shape cta-shape-1"></div>
-                <div class="cta-shape cta-shape-2"></div>
+    <!-- Filter + Grid Wrapper -->
+    <div data-filter-wrapper data-items=".insight-card, .featured-article">
 
-        <h1 class="hero-title animate-left">Insights & Resources</h1>
-        <p class="hero-subtitle animate-left text-darkgray" style="animation-delay: 0.1s">Strategic thinking, industry trends, and actionable insights</p>
-        <p class="hero-description animate-fade text-darkgray" style="animation-delay: 0.2s">Explore expert perspectives on data strategy, leadership, digital transformation, and sustainable growth from our team of consultants.</p>
-      </div>
+        <!-- Filter Section -->
+        <section class="insights-filter-section">
+            <div class="container">
+                <div class="insights-filter">
+                    <button class="filter-btn active" data-filter="all">All Insights</button>
+                    <button class="filter-btn" data-filter="data"><i class="fas fa-chart-line"></i> Data Analytics</button>
+                    <button class="filter-btn" data-filter="branding"><i class="fas fa-palette"></i> Branding</button>
+                    <button class="filter-btn" data-filter="hr"><i class="fas fa-users"></i> HR & Leadership</button>
+                    <button class="filter-btn" data-filter="digital"><i class="fas fa-laptop-code"></i> Digital & Web</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Insights -->
+        <section class="section featured-insights">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Featured Insights</h2>
+                    <p class="section-subtitle">Must-read articles from our experts</p>
+                </div>
+
+                <div class="featured-grid">
+                    <!-- Featured 1 -->
+                    <div class="featured-article card" data-category="data" data-reveal>
+                        <div class="article-image">
+                            <div class="image-placeholder" aria-hidden="true">
+                                <i class="fas fa-chart-line fa-4x"></i>
+                            </div>
+                            <span class="article-category">Data & Analytics</span>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-date"><i class="far fa-calendar-alt"></i> April 24, 2026</span>
+                            <h3 class="article-title">Your Data is a Goldmine – But Most Businesses Don't Know How to Dig</h3>
+                            <p class="article-excerpt">Learn the 3 signs your data strategy is failing and how to unlock hidden growth with simple dashboards and predictive analytics.</p>
+                            <div class="article-meta">
+                                <span class="read-time"><i class="far fa-clock"></i> 6 min read</span>
+                                <a href="/insights-data-goldmine.html" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured 2 -->
+                    <div class="featured-article card" data-category="digital" data-reveal data-delay="100">
+                        <div class="article-image">
+                            <div class="image-placeholder" aria-hidden="true">
+                                <i class="fas fa-globe fa-4x"></i>
+                            </div>
+                            <span class="article-category">Digital & Web</span>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-date"><i class="far fa-calendar-alt"></i> April 24, 2026</span>
+                            <h3 class="article-title">Why Your Website Might Be Costing You Clients (And How to Fix It in 30 Days)</h3>
+                            <p class="article-excerpt">Slow load times, confusing navigation, and broken trust signals are silently killing your sales. Get a 30‑day rescue plan.</p>
+                            <div class="article-meta">
+                                <span class="read-time"><i class="far fa-clock"></i> 5 min read</span>
+                                <a href="/insights-website-fix.html" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured 3 -->
+                    <div class="featured-article card" data-category="branding" data-reveal data-delay="200">
+                        <div class="article-image">
+                            <div class="image-placeholder" aria-hidden="true">
+                                <i class="fas fa-palette fa-4x"></i>
+                            </div>
+                            <span class="article-category">Branding</span>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-date"><i class="far fa-calendar-alt"></i> April 25, 2026</span>
+                            <h3 class="article-title">Stand Out or Fade Out: The Need for Brand Identity</h3>
+                            <p class="article-excerpt">Why "good enough" is a one‑way ticket to obscurity – and how a soulful identity builds trust, loyalty, and price power.</p>
+                            <div class="article-meta">
+                                <span class="read-time"><i class="far fa-clock"></i> 4 min read</span>
+                                <a href="/insights-brand-identity.html" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Insights Grid -->
+        <section class="section insights-grid-section bg-light">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">All Insights</h2>
+                    <p class="section-subtitle">Browse our complete collection of articles by topic</p>
+                </div>
+
+                <div class="insights-grid" id="insightsGrid">
+                    <!-- Data & Analytics Articles -->
+                    <div class="insight-card card" data-category="data" data-reveal>
+                        <div class="insight-card__image">
+                            <div class="image-placeholder"><i class="fas fa-chart-line fa-3x"></i></div>
+                        </div>
+                        <div class="insight-card__content">
+                            <span class="insight-card__category"><i class="fas fa-chart-line"></i> Data & Analytics</span>
+                            <h3 class="insight-card__title">Implementing Effective KPI Dashboards</h3>
+                            <p class="insight-card__excerpt">Best practices for designing KPI dashboards that drive actionable insights and real business decisions.</p>
+                            <div class="insight-card__meta">
+                                <span><i class="far fa-calendar-alt"></i> April 25, 2026</span>
+                                <span><i class="far fa-clock"></i> 6 min read</span>
+                            </div>
+                            <a href="/insights-kpi-dashboards.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="insight-card card" data-category="data" data-reveal data-delay="100">
+                        <div class="insight-card__image">
+                            <div class="image-placeholder"><i class="fas fa-chart-simple fa-3x"></i></div>
+                        </div>
+                        <div class="insight-card__content">
+                            <span class="insight-card__category"><i class="fas fa-chart-line"></i> Data & Analytics</span>
+                            <h3 class="insight-card__title">Simple Forecasting Techniques for Small Business</h3>
+                            <p class="insight-card__excerpt">Three easy forecasting methods to predict sales, plan better, and reduce risk – no PhD required.</p>
+                            <div class="insight-card__meta">
+                                <span><i class="far fa-calendar-alt"></i> April 25, 2026</span>
+                                <span><i class="far fa-clock"></i> 5 min read</span>
+                            </div>
+                            <a href="/insights-simple-forecasting.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="insight-card card" data-category="data" data-reveal data-delay="200">
+                        <div class="insight-card__image">
+                            <div class="image-placeholder"><i class="fas fa-filter fa-3x"></i></div>
+                        </div>
+                        <div class="insight-card__content">
+                            <span class="insight-card__category"><i class="fas fa-chart-line"></i> Data & Analytics</span>
+                            <h3 class="insight-card__title">Turning Data Noise into Strategic Insights</h3>
+                            <p class="insight-card__excerpt">How to filter signal from noise and extract actionable intelligence from your data.</p>
+                            <div class="insight-card__meta">
+                                <span><i class="far fa-calendar-alt"></i> March 22, 2024</span>
+                                <span><i class="far fa-clock"></i> 7 min read</span>
+                            </div>
+                            <a href="/insight-data-noise-strategic-insights.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Branding Articles -->
+                    <div class="insight-card card" data-category="branding" data-reveal data-delay="300">
+                        <div class="insight-card__image">
+                            <div class="image-placeholder"><i class="fas fa-palette fa-3x"></i></div>
+                        </div>
+                        <div class="insight-card__content">
+                            <span class="insight-card__category"><i class="fas fa-palette"></i> Branding</span>
+                            <h3 class="insight-card__title">Why Your Brand is More Than a Logo</h3>
+                            <p class="insight-card__excerpt">Your brand is the sum of every experience. Learn how to build consistency that resonates and drives loyalty.</p>
+                            <div class="insight-card__meta">
+                                <span><i class="far fa-calendar-alt"></i> April 25, 2026</span>
+                                <span><i class="far fa-clock"></i> 6 min read</span>
+                            </div>
+                            <a href="/insights-brand-more-than-logo.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="insight-card card" data-category="branding" data-reveal data-delay="400">
+                        <div class="insight-card__image">
+                            <div class="image-placeholder"><i class="fas fa-rocket fa-3x"></i></div>
+                        </div>
+                        <div class="insight-card__content">
+                            <span class="insight-card__category"><i class="fas fa-palette"></i> Branding</span>
+                            <h3 class="insight-card__title">Building a Digital-First Brand Identity</h3>
+                            <p class="insight-card__excerpt">Crafting compelling brand identities that cut through digital noise and attract your ideal customers.</p>
+                            <div class="insight-card__meta">
+                                <span><i class="far fa-calendar-alt"></i> March 5, 2024</span>
+                                <span><i class="far fa-clock"></i> 7 min read</span>
+                            </div>
+                            <a href="/insight-digital-brand-identity.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- HR & Leadership Articles -->
+                    <div class="insight-card card" data-category="hr" data-reveal data-delay="500">
+                        <div class="insight-card__image">
+                            <div class="image-placeholder"><i class="fas fa-users fa-3x"></i></div>
+                        </div>
+                        <div class="insight-card__content">
+                            <span class="insight-card__category"><i class="fas fa-users"></i> HR & Leadership</span>
+                            <h3 class="insight-card__title">The Hidden Cost of DIY HR</h3>
+                            <p class="insight-card__excerpt">Informal HR leads to compliance risks, high turnover, and culture chaos. Learn the 5 warning signs.</p>
+                            <div class="insight-card__meta">
+                                <span><i class="far fa-calendar-alt"></i> April 24, 2026</span>
+                                <span><i class="far fa-clock"></i> 5 min read</span>
+                            </div>
+                            <a href="/insights-diy-hr-cost.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="insight-card card" data-category="hr" data-reveal data-delay="600">
+                        <div class="insight-card__image">
+                            <div class="image-placeholder"><i class="fas fa-user-tie fa-3x"></i></div>
+                        </div>
+                        <div class="insight-card__content">
+                            <span class="insight-card__category"><i class="fas fa-users"></i> HR & Leadership</span>
+                            <h3 class="insight-card__title">Building High-Performance Teams</h3>
+                            <p class="insight-card__excerpt">Strategies for creating and sustaining high-performance teams in distributed work environments.</p>
+                            <div class="insight-card__meta">
+                                <span><i class="far fa-calendar-alt"></i> April 25, 2026</span>
+                                <span><i class="far fa-clock"></i> 6 min read</span>
+                            </div>
+                            <a href="/insights-high-performance-teams.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="insight-card card" data-category="hr" data-reveal data-delay="700">
+                        <div class="insight-card__image">
+                            <div class="image-placeholder"><i class="fas fa-chart-line fa-3x"></i></div>
+                        </div>
+                        <div class="insight-card__content">
+                            <span class="insight-card__category"><i class="fas fa-users"></i> HR & Leadership</span>
+                            <h3 class="insight-card__title">Scaling People Operations for Growth</h3>
+                            <p class="insight-card__excerpt">How to build resilient, people-first operational backbones that support sustainable scaling.</p>
+                            <div class="insight-card__meta">
+                                <span><i class="far fa-calendar-alt"></i> February 28, 2024</span>
+                                <span><i class="far fa-clock"></i> 9 min read</span>
+                            </div>
+                            <a href="/insights-scaling-people-operations.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Digital & Web Articles -->
+                    <div class="insight-card card" data-category="digital" data-reveal data-delay="800">
+                        <div class="insight-card__image">
+                            <div class="image-placeholder"><i class="fas fa-code fa-3x"></i></div>
+                        </div>
+                        <div class="insight-card__content">
+                            <span class="insight-card__category"><i class="fas fa-laptop-code"></i> Digital & Web</span>
+                            <h3 class="insight-card__title">The EDGE Framework: From Strategy to Execution</h3>
+                            <p class="insight-card__excerpt">A deep dive into our proven methodology for bridging the strategy-execution gap in growing organizations.</p>
+                            <div class="insight-card__meta">
+                                <span><i class="far fa-calendar-alt"></i> February 22, 2024</span>
+                                <span><i class="far fa-clock"></i> 10 min read</span>
+                            </div>
+                            <a href="/edge-framework.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="insight-card card" data-category="digital" data-reveal data-delay="900">
+                        <div class="insight-card__image">
+                            <div class="image-placeholder"><i class="fas fa-bullhorn fa-3x"></i></div>
+                        </div>
+                        <div class="insight-card__content">
+                            <span class="insight-card__category"><i class="fas fa-laptop-code"></i> Digital & Web</span>
+                            <h3 class="insight-card__title">Content Strategy for Digital Growth</h3>
+                            <p class="insight-card__excerpt">Developing a content strategy that drives engagement, builds authority, and generates qualified leads.</p>
+                            <div class="insight-card__meta">
+                                <span><i class="far fa-calendar-alt"></i> February 12, 2024</span>
+                                <span><i class="far fa-clock"></i> 6 min read</span>
+                            </div>
+                            <a href="/insights-content-strategy-growth.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="insight-card card" data-category="data" data-reveal data-delay="1000">
+                        <div class="insight-card__image">
+                            <div class="image-placeholder"><i class="fas fa-chart-line fa-3x"></i></div>
+                        </div>
+                        <div class="insight-card__content">
+                            <span class="insight-card__category"><i class="fas fa-chess"></i> Strategy</span>
+                            <h3 class="insight-card__title">The Future of Data-Driven Decision Making</h3>
+                            <p class="insight-card__excerpt">How organizations can leverage advanced analytics to transform raw data into strategic competitive advantage.</p>
+                            <div class="insight-card__meta">
+                                <span><i class="far fa-calendar-alt"></i> March 15, 2024</span>
+                                <span><i class="far fa-clock"></i> 5 min read</span>
+                            </div>
+                            <a href="/insight-Future-of-Data-Driven-Decision-Making.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-  </section>
-
-    <!-- Filter Section -->
-      <div data-filter-group data-items=".insight-card, .featured-article">
-
-    
-<section class="insights-filter-section">
-      <div class="container">
-        <div class="insights-filter">
-          <button class="filter-btn active" data-filter="all"> All Insights </button>
-          <button class="filter-btn" data-filter="data"><i class="fas fa-chart-line"></i> Data Analytics</button>
-          <button class="filter-btn" data-filter="branding"><i class="fas fa-palette"></i> Branding</button>
-          <button class="filter-btn" data-filter="hr"><i class="fas fa-users"></i> HR & Leadership</button>
-          <button class="filter-btn" data-filter="digital"><i class="fas fa-laptop-code"></i> Digital & Web</button>
-        </div>
-      </div>
-    </section>
-
-<!-- Featured Insights -->
-    <section class="section featured-insights">
-      <div class="container">
-        <div class="section-header text-center">
-          <h2 class="section-title">Featured Insights</h2>
-          <p class="section-subtitle">Must-read articles from our experts</p>
-        </div>
-        <div class="featured-grid">
-                <!-- Featured 1 -->
-                <div class="featured-article card animate-fade" data-category="data">
-                    <div class="article-image">
-                        <div class="image-placeholder" aria-hidden="true">
-                            <i class="fas fa-chart-line fa-4x"></i>
-                        </div>
-                        <span class="article-category">Data & Analytics</span>
-                    </div>
-                    <div class="article-content">
-                        <span class="article-date"><i class="far fa-calendar-alt"></i> April 24, 2026</span>
-                        <h3 class="article-title">Your Data is a Goldmine – But Most Businesses Don't Know How to Dig</h3>
-                        <p class="article-excerpt">Learn the 3 signs your data strategy is failing and how to unlock hidden growth with simple dashboards and predictive analytics.</p>
-                        <div class="article-meta">
-                            <span class="read-time"><i class="far fa-clock"></i> 6 min read</span>
-                            <a href="insights-data-goldmine.html" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Featured 2 -->
-                <div class="featured-article card animate-fade" data-category="digital">
-                    <div class="article-image">
-                        <div class="image-placeholder" aria-hidden="true">
-                            <i class="fas fa-globe fa-4x"></i>
-                        </div>
-                        <span class="article-category">Digital & Web</span>
-                    </div>
-                    <div class="article-content">
-                        <span class="article-date"><i class="far fa-calendar-alt"></i> April 24, 2026</span>
-                        <h3 class="article-title">Why Your Website Might Be Costing You Clients (And How to Fix It in 30 Days)</h3>
-                        <p class="article-excerpt">Slow load times, confusing navigation, and broken trust signals are silently killing your sales. Get a 30‑day rescue plan.</p>
-                        <div class="article-meta">
-                            <span class="read-time"><i class="far fa-clock"></i> 5 min read</span>
-                            <a href="insights-website-fix.html" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Featured 3 -->
-                <div class="featured-article card animate-fade" style="animation-delay: 0.2s" data-category="branding">
-                    <div class="article-image">
-                        <div class="image-placeholder" aria-hidden="true">
-                            <i class="fas fa-palette fa-4x"></i>
-                        </div>
-                        <span class="article-category">Branding</span>
-                    </div>
-                    <div class="article-content">
-                        <span class="article-date"><i class="far fa-calendar-alt"></i> April 25, 2026</span>
-                        <h3 class="article-title">Stand Out or Fade Out: The Need for Brand Identity</h3>
-                        <p class="article-excerpt">Why "good enough" is a one‑way ticket to obscurity – and how a soulful identity builds trust, loyalty, and price power.</p>
-                        <div class="article-meta">
-                            <span class="read-time"><i class="far fa-clock"></i> 4 min read</span>
-                            <a href="insights-brand-identity.html" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-      <section class="section insights-grid-section bg-light">
-      <div class="container">
-        <div class="section-header text-center">
-          <h2 class="section-title">All Insights</h2>
-          <p class="section-subtitle">Browse our complete collection of articles by topic</p>
-        </div>
-        <div class="insights-grid" id="insightsGrid">
-
-                <!-- Data & Analytics Articles -->
-                <div class="insight-card card animate-fade" data-category="data">
-                    <div class="insight-image">
-                        <div class="image-placeholder"><i class="fas fa-chart-line fa-3x"></i></div>
-                    </div>
-                    <div class="insight-content">
-                        <span class="insight-category"><i class="fas fa-chart-line"></i> Data & Analytics</span>
-                        <h3 class="insight-title">Implementing Effective KPI Dashboards</h3>
-                        <p class="insight-excerpt">Best practices for designing KPI dashboards that drive actionable insights and real business decisions.</p>
-                        <div class="insight-meta">
-                            <span class="insight-date"><i class="far fa-calendar-alt"></i> April 25, 2026</span>
-                            <span class="read-time"><i class="far fa-clock"></i> 6 min read</span>
-                        </div>
-                        <a href="insights-kpi-dashboards.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <div class="insight-card card animate-fade" data-category="data">
-                    <div class="insight-image">
-                        <div class="image-placeholder"><i class="fas fa-chart-simple fa-3x"></i></div>
-                    </div>
-                    <div class="insight-content">
-                        <span class="insight-category"><i class="fas fa-chart-line"></i> Data & Analytics</span>
-                        <h3 class="insight-title">Simple Forecasting Techniques for Small Business</h3>
-                        <p class="insight-excerpt">Three easy forecasting methods to predict sales, plan better, and reduce risk – no PhD required.</p>
-                        <div class="insight-meta">
-                            <span class="insight-date"><i class="far fa-calendar-alt"></i> April 25, 2026</span>
-                            <span class="read-time"><i class="far fa-clock"></i> 5 min read</span>
-                        </div>
-                        <a href="insights-simple-forecasting.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <div class="insight-card card animate-fade" data-category="data">
-                    <div class="insight-image">
-                        <div class="image-placeholder"><i class="fas fa-filter fa-3x"></i></div>
-                    </div>
-                    <div class="insight-content">
-                        <span class="insight-category"><i class="fas fa-chart-line"></i> Data & Analytics</span>
-                        <h3 class="insight-title">Turning Data Noise into Strategic Insights</h3>
-                        <p class="insight-excerpt">How to filter signal from noise and extract actionable intelligence from your data.</p>
-                        <div class="insight-meta">
-                            <span class="insight-date"><i class="far fa-calendar-alt"></i> March 22, 2024</span>
-                            <span class="read-time"><i class="far fa-clock"></i> 7 min read</span>
-                        </div>
-                        <a href="insight-data-noise-strategic-insights.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Branding Articles -->
-                <div class="insight-card card animate-fade" data-category="branding">
-                    <div class="insight-image">
-                        <div class="image-placeholder"><i class="fas fa-palette fa-3x"></i></div>
-                    </div>
-                    <div class="insight-content">
-                        <span class="insight-category"><i class="fas fa-palette"></i> Branding</span>
-                        <h3 class="insight-title">Why Your Brand is More Than a Logo</h3>
-                        <p class="insight-excerpt">Your brand is the sum of every experience. Learn how to build consistency that resonates and drives loyalty.</p>
-                        <div class="insight-meta">
-                            <span class="insight-date"><i class="far fa-calendar-alt"></i> April 25, 2026</span>
-                            <span class="read-time"><i class="far fa-clock"></i> 6 min read</span>
-                        </div>
-                        <a href="insights-brand-more-than-logo.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <div class="insight-card card animate-fade" data-category="branding">
-                    <div class="insight-image">
-                        <div class="image-placeholder"><i class="fas fa-rocket fa-3x"></i></div>
-                    </div>
-                    <div class="insight-content">
-                        <span class="insight-category"><i class="fas fa-palette"></i> Branding</span>
-                        <h3 class="insight-title">Building a Digital-First Brand Identity</h3>
-                        <p class="insight-excerpt">Crafting compelling brand identities that cut through digital noise and attract your ideal customers.</p>
-                        <div class="insight-meta">
-                            <span class="insight-date"><i class="far fa-calendar-alt"></i> March 5, 2024</span>
-                            <span class="read-time"><i class="far fa-clock"></i> 7 min read</span>
-                        </div>
-                        <a href="insight-digital-brand-identity.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <!-- HR & Leadership Articles -->
-                <div class="insight-card card animate-fade" data-category="hr">
-                    <div class="insight-image">
-                        <div class="image-placeholder"><i class="fas fa-users fa-3x"></i></div>
-                    </div>
-                    <div class="insight-content">
-                        <span class="insight-category"><i class="fas fa-users"></i> HR & Leadership</span>
-                        <h3 class="insight-title">The Hidden Cost of DIY HR</h3>
-                        <p class="insight-excerpt">Informal HR leads to compliance risks, high turnover, and culture chaos. Learn the 5 warning signs.</p>
-                        <div class="insight-meta">
-                            <span class="insight-date"><i class="far fa-calendar-alt"></i> April 24, 2026</span>
-                            <span class="read-time"><i class="far fa-clock"></i> 5 min read</span>
-                        </div>
-                        <a href="insights-diy-hr-cost.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <div class="insight-card card animate-fade" data-category="hr">
-                    <div class="insight-image">
-                        <div class="image-placeholder"><i class="fas fa-user-tie fa-3x"></i></div>
-                    </div>
-                    <div class="insight-content">
-                        <span class="insight-category"><i class="fas fa-users"></i> HR & Leadership</span>
-                        <h3 class="insight-title">Building High-Performance Teams</h3>
-                        <p class="insight-excerpt">Strategies for creating and sustaining high-performance teams in distributed work environments.</p>
-                        <div class="insight-meta">
-                            <span class="insight-date"><i class="far fa-calendar-alt"></i> April 25, 2026</span>
-                            <span class="read-time"><i class="far fa-clock"></i> 6 min read</span>
-                        </div>
-                        <a href="insights-high-performance-teams.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <div class="insight-card card animate-fade" data-category="hr">
-                    <div class="insight-image">
-                        <div class="image-placeholder"><i class="fas fa-chart-line fa-3x"></i></div>
-                    </div>
-                    <div class="insight-content">
-                        <span class="insight-category"><i class="fas fa-users"></i> HR & Leadership</span>
-                        <h3 class="insight-title">Scaling People Operations for Growth</h3>
-                        <p class="insight-excerpt">How to build resilient, people-first operational backbones that support sustainable scaling.</p>
-                        <div class="insight-meta">
-                            <span class="insight-date"><i class="far fa-calendar-alt"></i> February 28, 2024</span>
-                            <span class="read-time"><i class="far fa-clock"></i> 9 min read</span>
-                        </div>
-                        <a href="insights-scaling-people-operations.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Digital & Web Articles -->
-                <div class="insight-card card animate-fade" data-category="digital">
-                    <div class="insight-image">
-                        <div class="image-placeholder"><i class="fas fa-code fa-3x"></i></div>
-                    </div>
-                    <div class="insight-content">
-                        <span class="insight-category"><i class="fas fa-laptop-code"></i> Digital & Web</span>
-                        <h3 class="insight-title">The EDGE Framework: From Strategy to Execution</h3>
-                        <p class="insight-excerpt">A deep dive into our proven methodology for bridging the strategy-execution gap in growing organizations.</p>
-                        <div class="insight-meta">
-                            <span class="insight-date"><i class="far fa-calendar-alt"></i> February 22, 2024</span>
-                            <span class="read-time"><i class="far fa-clock"></i> 10 min read</span>
-                        </div>
-                        <a href="edge-framework.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <div class="insight-card card animate-fade" data-category="digital">
-                    <div class="insight-image">
-                        <div class="image-placeholder"><i class="fas fa-bullhorn fa-3x"></i></div>
-                    </div>
-                    <div class="insight-content">
-                        <span class="insight-category"><i class="fas fa-laptop-code"></i> Digital & Web</span>
-                        <h3 class="insight-title">Content Strategy for Digital Growth</h3>
-                        <p class="insight-excerpt">Developing a content strategy that drives engagement, builds authority, and generates qualified leads.</p>
-                        <div class="insight-meta">
-                            <span class="insight-date"><i class="far fa-calendar-alt"></i> February 12, 2024</span>
-                            <span class="read-time"><i class="far fa-clock"></i> 6 min read</span>
-                        </div>
-                        <a href="insights-content-strategy-growth.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-               
-                <div class="insight-card card animate-fade" data-category="data">
-                    <div class="insight-image">
-                        <div class="image-placeholder"><i class="fas fa-chart-line fa-3x"></i></div>
-                    </div>
-                    <div class="insight-content">
-                        <span class="insight-category"><i class="fas fa-chess"></i> Strategy</span>
-                        <h3 class="insight-title">The Future of Data-Driven Decision Making</h3>
-                        <p class="insight-excerpt">How organizations can leverage advanced analytics to transform raw data into strategic competitive advantage.</p>
-                        <div class="insight-meta">
-                            <span class="insight-date"><i class="far fa-calendar-alt"></i> March 15, 2024</span>
-                            <span class="read-time"><i class="far fa-clock"></i> 5 min read</span>
-                        </div>
-                        <a href="insight-Future-of-Data-Driven-Decision-Making.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Pagination --
-            <div class="pagination" role="navigation" aria-label="Pagination">
-                <button class="pagination-btn active" aria-current="page">1</button>
-                <button class="pagination-btn">2</button>
-                <button class="pagination-btn">3</button>
-                <span class="pagination-ellipsis" aria-hidden="true">...</span>
-                <button class="pagination-btn">Next <i class="fas fa-arrow-right"></i></button>
-            </div> -->
-        </div>
-    </section>
-      </div>
 
     <!-- Resources Section -->
     <section class="section resources-section">
@@ -356,51 +338,47 @@
                 <h2 class="section-title">Free Resources</h2>
                 <p class="section-subtitle">Downloadable tools and templates to help your business grow</p>
             </div>
-            
+
             <div class="resources-grid">
-                <div class="resource-card card animate-fade">
+                <div class="resource-card card" data-reveal>
                     <div class="resource-icon" aria-hidden="true">
                         <i class="fas fa-file-alt fa-4x"></i>
                     </div>
                     <h4>Strategic Planning Template</h4>
-                    <br>
                     <p>Comprehensive template for developing and documenting your business strategy.</p>
-                    <a href="assets/Blueprint_for-success.docx" class="btn btn-secondary"><i class="fas fa-download"></i> Download PDF</a>
+                    <a href="/assets/Blueprint_for-success.docx" class="btn btn-secondary" download><i class="fas fa-download"></i> Download PDF</a>
                 </div>
-                
-                <div class="resource-card card animate-fade" style="animation-delay: 0.1s">
+
+                <div class="resource-card card" data-reveal data-delay="100">
                     <div class="resource-icon" aria-hidden="true">
                         <i class="fas fa-table fa-4x"></i>
                     </div>
                     <h4>KPI Dashboard Template</h4>
-                    <br>
                     <p>Excel template with pre-built dashboards for tracking key business metrics.</p>
-                    <a href="assets/Consulting_Crew_Executive_Dashboard_With_Charts.xlsx" class="btn btn-secondary"><i class="fas fa-download"></i> Download Excel</a>
+                    <a href="/assets/Consulting_Crew_Executive_Dashboard_With_Charts.xlsx" class="btn btn-secondary" download><i class="fas fa-download"></i> Download Excel</a>
                 </div>
-                
-                <div class="resource-card card animate-fade" style="animation-delay: 0.2s">
+
+                <div class="resource-card card" data-reveal data-delay="200">
                     <div class="resource-icon" aria-hidden="true">
                         <i class="fas fa-bullseye fa-4x"></i>
                     </div>
                     <h4>Goal Setting Framework</h4>
-                    <br>
                     <p>Step-by-step framework for setting and achieving strategic business goals.</p>
-                    <a href="assets/Strategic_Business_Goal_Framework.docx" class="btn btn-secondary"><i class="fas fa-download"></i> Download Guide</a>
+                    <a href="/assets/Strategic_Business_Goal_Framework.docx" class="btn btn-secondary" download><i class="fas fa-download"></i> Download Guide</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Newsletter Section -->
-    <section class="section insights-newsletter-section">
+    <section class="section newsletter-section newsletter--insights">
         <div class="container">
-            <div class="insights-newsletter-content">
-                <div class="insights-newsletter-text">
-                    <h2 class="insights-newsletter-title">Stay Updated</h2>
-                    <p class="insights-newsletter-subtitle">Subscribe to our newsletter for the latest strategic insights and industry trends delivered to your inbox.</p>
-     
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2 class="newsletter-title">Stay Updated</h2>
+                    <p class="newsletter-subtitle">Subscribe to our newsletter for the latest strategic insights and industry trends delivered to your inbox.</p>
                 </div>
-                <div class="insights-newsletter-form">
+                <div class="newsletter-form">
                     <form class="subscribe-form" id="insights-newsletter-form">
                         <div class="form-group">
                             <input type="email" placeholder="Your email address" class="form-input" required aria-label="Email address">
@@ -415,73 +393,15 @@
 
     <!-- Footer -->
     <div id="footer-container"></div>
-    
+
     <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 
     <!-- JavaScript Files -->
-    <script src="assets/js/header-footer.js" defer></script>
-    <script src="assets/js/animations.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
-    
-    <script>
-  (function() {
-    const wrapper = document.querySelector('[data-filter-group]');
-    if (!wrapper) return;
-
-    const filterButtons = wrapper.querySelectorAll('.filter-btn');
-    const items = wrapper.querySelectorAll(
-      wrapper.dataset.items || '.insight-card, .featured-article'
-    );
-
-    // Filtering
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filterVal = btn.dataset.filter;
-
-        // Update active button
-        filterButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        // Show/hide items
-        items.forEach(item => {
-          const cat = item.dataset.category;
-          if (filterVal === 'all' || cat === filterVal) {
-            item.classList.remove('filtered-out');
-            item.style.display = '';
-          } else {
-            item.classList.add('filtered-out');
-            item.style.display = 'none';
-          }
-        });
-      });
-    });
-
-    // Scroll reveal for insight cards and featured articles
-    // (they already have animate-fade classes, but just in case, we also handle them)
-    const cards = wrapper.querySelectorAll('.insight-card, .featured-article');
-    if (cards.length && 'IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-
-      cards.forEach(card => {
-        // Don't override if already has animation classes? We'll set initial state anyway.
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        observer.observe(card);
-      });
-    }
-  })();
-</script>
+    <script src="/assets/js/header-footer.js" defer></script>
+    <script src="/assets/js/animations.js" defer></script>
+    <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

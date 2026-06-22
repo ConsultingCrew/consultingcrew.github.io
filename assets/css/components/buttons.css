@@ -1,0 +1,88 @@
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+    display: inline-block;
+    padding: 0.5rem var(--space-md);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: 2px solid transparent;
+    font-family: var(--font-body);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-color: var(--primary-blue);
+}
+.btn-primary:hover {
+    background-color: var(--dark-blue);
+    border-color: var(--dark-blue);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    color: var(--white);
+}
+
+.btn-secondary {
+    background-color: var(--light-blue);
+    color: var(--dark-blue);
+    border-color: var(--dark-blue);
+}
+.btn-secondary:hover {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-green {
+    background-color: var(--light-green);
+    color: var(--primary-green);
+    border-color: var(--primary-green);
+}
+.btn-green:hover {
+    background-color: var(--primary-green);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-orange {
+    background-color: var(--light-orange);
+    color: var(--primary-orange);
+    border-color: var(--primary-orange);
+}
+.btn-orange:hover {
+    background-color: var(--primary-orange);
+    transform: translateY(-2px);
+    color: var(--white);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-large {
+    padding: var(--space-xs) var(--space-md);
+    font-size: 1rem;
+}
+.btn-small {
+    padding: var(--space-xs) var(--space-md);
+    font-size: 0.9rem;
+}
+
+/* Ripple Effect */
+.btn .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(0);
+    animation: ripple-animation 0.6s ease-out;
+    pointer-events: none;
+}
+@keyframes ripple-animation {
+    to { transform: scale(4); opacity: 0; }
+}

@@ -1,0 +1,15 @@
+/* ============================================
+   BACKGROUND UTILITIES
+   ============================================ */
+.bg-light { background-color: var(--light-gray); }
+.bg-light-blue { background-color: var(--light-blue); }
+.bg-light-green { background-color: var(--light-green); }
+.bg-light-orange { background-color: var(--light-orange); }
+.bg-dark { background: linear-gradient(135deg, var(--dark-blue) 0%, #022B5F 100%); color: var(--white); }
+.bg-gradient { background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%); }
+.bg-light-gray { background-color: var(--light-gray); }
+
+/* Insights specific */
+.bg-gradient-insights {
+    background: linear-gradient(135deg, rgba(84, 144, 223, 0.178) 40%, rgba(64, 189, 32, 0.151) 100%);
+}

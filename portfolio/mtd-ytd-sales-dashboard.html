@@ -4,82 +4,164 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MTD & YTD Sales Performance Dashboard | Consulting Crew</title>
-    <meta name="description" content="Structured monthly and yearly sales monitoring with product, region, and customer insights.">
+    <meta name="description" content="Structured monthly and yearly sales monitoring with product, region, and customer insights for faster business reviews.">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/portfolio-case-studies.css">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
 </head>
-<body>
-    <div id="header-container"></div>
-    <div class="breadcrumbs"><div class="container"><ol><li><a href="../index.html">Home</a></li><li><a href="../portfolio.html">Portfolio</a></li><li class="current">MTD & YTD Sales Dashboard</li></ol></div></div>
 
+<body>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="../assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="loading-text">Loading ...</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="/portfolio.html">Portfolio</a></li>
+                <li><a href="/service-data-intelligence.html">Data & Intelligence</a></li>
+                <li class="current">MTD & YTD Sales Dashboard</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Case Study Hero -->
     <section class="case-study-hero">
         <div class="container">
             <h1>MTD & YTD Sales Performance Dashboard</h1>
-            <p>Structured reporting that made monthly and yearly sales monitoring straightforward and accessible.</p>
+            <p>Structured monthly and yearly sales monitoring with product, region, and customer insights for faster business reviews.</p>
         </div>
     </section>
 
+    <!-- Case Study Content -->
     <section class="container case-study-layout">
-        <div class="main-story">
+        <div class="main-story" data-reveal>
             <h2>Business Challenge</h2>
-            <p>Sales reporting required manual review across multiple data points, making performance monitoring time‑consuming. Leadership needed a more structured reporting format.</p>
-            
+            <p>Sales teams struggled to track Month‑to‑Date (MTD) and Year‑to‑Date (YTD) performance metrics efficiently. Manual calculations and fragmented data sources made it difficult to conduct timely business reviews.</p>
+
             <h2>Consulting Crew Approach</h2>
-            <p>Consulting Crew developed a dashboard designed to monitor monthly and yearly sales performance.</p>
+            <p>We developed a structured sales dashboard that provides real‑time MTD and YTD metrics with comprehensive breakdowns.</p>
             <ul>
-                <li>MTD and YTD comparison</li>
-                <li>Product‑level performance</li>
-                <li>Region‑wise sales analysis</li>
-                <li>Customer insights</li>
-                <li>Payment‑term visibility</li>
+                <li>MTD and YTD sales tracking</li>
+                <li>Product‑level performance analysis</li>
+                <li>Regional sales breakdowns</li>
+                <li>Customer segmentation insights</li>
+                <li>Goal tracking and variance analysis</li>
             </ul>
-            
+
+            <h2>Key Dashboard Features</h2>
+            <ul>
+                <li><strong>MTD Performance:</strong> Current month sales vs. targets</li>
+                <li><strong>YTD Performance:</strong> Year‑to‑date progress against annual goals</li>
+                <li><strong>Product Breakdown:</strong> Sales by product category</li>
+                <li><strong>Regional Analysis:</strong> Performance by geography</li>
+                <li><strong>Customer Insights:</strong> Top customers and growth trends</li>
+                <li><strong>Variance Analysis:</strong> Performance gaps and reasons</li>
+            </ul>
+
             <h2>Business Impact</h2>
             <ul>
-                <li>Improved reporting accessibility</li>
-                <li>Simplified sales monitoring</li>
-                <li>Supported faster business reviews</li>
-                <li>Centralized key performance indicators</li>
+                <li><strong>Faster Reviews:</strong> Monthly business reviews conducted in minutes</li>
+                <li><strong>Goal Tracking:</strong> Clear visibility into progress against targets</li>
+                <li><strong>Informed Decisions:</strong> Data‑backed adjustments to sales strategy</li>
+                <li><strong>Team Alignment:</strong> Everyone aligned on current performance</li>
             </ul>
-            
-            <div class="client-quote">
-                “The dashboard made it much easier to review performance across different timeframes and regions.”
-            </div>
         </div>
-        
-        <aside class="sidebar">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" data-reveal data-delay="100">
             <h3>Project Details</h3>
-            <p><strong>Client:</strong> Confidential (Regional Distributor)</p>
-            <p><strong>Tools:</strong> Microsoft Excel</p>
-            <div class="metric-highlight">MTD & YTD <span class="metric-label">Comparison Views</span></div>
+            <p><strong>Client:</strong> Sales Organization</p>
+            <p><strong>Industry:</strong> B2B Sales</p>
+            <p><strong>Location:</strong> Pakistan</p>
+
+            <div class="metric-highlight">
+                <span>MTD</span>
+                <span class="metric-label">Monthly Performance Tracking</span>
+            </div>
+            <div class="metric-highlight">
+                <span>YTD</span>
+                <span class="metric-label">Year‑to‑Date Progress</span>
+            </div>
+
             <h4>Services Provided</h4>
             <ul>
-                <li><i class="fas fa-check-circle"></i> Strategic Sales Analytics</li>
                 <li><i class="fas fa-check-circle"></i> Dashboard Development</li>
-                <li><i class="fas fa-check-circle"></i> Data Modelling</li>
+                <li><i class="fas fa-check-circle"></i> KPI Design</li>
+                <li><i class="fas fa-check-circle"></i> Data Visualization</li>
+                <li><i class="fas fa-check-circle"></i> Training & Support</li>
             </ul>
+
+            <a href="/contact.html" class="btn btn-primary" style="width:100%; text-align:center;">Build Your Dashboard</a>
         </aside>
     </section>
 
-    <section class="container case-study-gallery">
-        <img src="../assets/images/dashboards/M-Y-reporting.jpg" alt="MTD & YTD Dashboard">
+    <!-- Gallery -->
+    <section class="container case-study-gallery" data-reveal>
+        <img src="../assets/images/portfolio/mtd-ytd-dashboard.jpg" alt="MTD & YTD Sales Dashboard" loading="lazy">
     </section>
 
-<!-- Footer -->
-<div id="footer-container"></div>
+    <!-- Related Projects -->
+    <section class="section related-posts-section bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Related Projects</h2>
+                <p class="section-subtitle">Explore similar data intelligence case studies</p>
+            </div>
+            <div class="related-posts-grid">
+                <div class="related-post-card" data-reveal>
+                    <div class="related-post-image"><i class="fas fa-funnel-dollar"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Data Analysis</span>
+                        <h4 class="related-post-title">Sales Funnel & Revenue Dashboard</h4>
+                        <a href="/portfolio/sales-funnel-dashboard.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="related-post-card" data-reveal data-delay="100">
+                    <div class="related-post-image"><i class="fas fa-chart-bar"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Data Analysis</span>
+                        <h4 class="related-post-title">5‑Year Sales Trend Dashboard</h4>
+                        <a href="/portfolio/5year-sales-dashboard.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Back to Top Button -->
-<button class="back-to-top" id="backToTop" aria-label="Back to top">
-    <i class="fas fa-arrow-up"></i>
-</button>
+    <!-- Footer -->
+    <div id="footer-container"></div>
 
-<!-- JavaScript Files -->
-<script src="assets/js/header-footer.js" defer></script>
-<script src="assets/js/animations.js" defer></script>
-<script src="assets/js/main.js" defer></script>
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
+    <!-- JavaScript Files -->
+    <script src="../assets/js/header-footer.js" defer></script>
+    <script src="../assets/js/animations.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
 </body>
 </html>

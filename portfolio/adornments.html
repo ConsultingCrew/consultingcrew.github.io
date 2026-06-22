@@ -5,16 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adornments — Modern Fashion Brand Identity | Consulting Crew</title>
     <meta name="description" content="Clean, modern logo and social media templates that resonate with contemporary fashion audiences.">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/portfolio-case-studies.css">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
 </head>
-<body>
-    <div id="header-container"></div>
-    <div class="breadcrumbs"><div class="container"><ol><li><a href="../index.html">Home</a></li><li><a href="../portfolio.html">Portfolio</a></li><li class="current">Adornments</li></ol></div></div>
 
+<body>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="../assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="loading-text">Loading ...</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="/portfolio.html">Portfolio</a></li>
+                <li class="current">Adornments</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Case Study Hero -->
     <section class="case-study-hero">
         <div class="container">
             <h1>Adornments — Modern Fashion Brand Identity</h1>
@@ -22,52 +54,96 @@
         </div>
     </section>
 
+    <!-- Case Study Content -->
     <section class="container case-study-layout">
-        <div class="main-story">
+        <div class="main-story" data-reveal>
             <h2>Business Challenge</h2>
-            <p>Adornments required a visual identity that better reflected a modern and fashion‑focused brand personality. The existing visuals lacked consistency and did not communicate a strong lifestyle positioning.</p>
-            
+            <p>Adornments positions itself as a brand for fashion enthusiasts, but its previous visual identity lacked the modern and stylish look required to appeal to contemporary audiences.</p>
+
             <h2>Consulting Crew Approach</h2>
-            <p>Consulting Crew developed a clean and modern brand system focused on visual consistency and social media presence.</p>
+            <p>We developed a sleek, minimalist visual identity designed to highlight the brand's fashion products while maintaining a sophisticated aesthetic.</p>
             <ul>
-                <li>Logo design</li>
-                <li>Brand visual identity</li>
-                <li>Social media templates</li>
-                <li>Digital styling framework</li>
+                <li>Creation of a modern logo and brand identity</li>
+                <li>Development of social media visual templates</li>
+                <li>Establishment of a cohesive visual style for digital marketing</li>
             </ul>
-            
+
             <h2>Business Impact</h2>
             <ul>
-                <li>Improved consistency across online platforms</li>
-                <li>Created a recognizable brand appearance</li>
-                <li>Supported stronger presentation on social media</li>
-                <li>Enhanced alignment with fashion audiences</li>
+                <li><strong>Modern Brand Identity:</strong> A visual style aligned with fashion industry trends</li>
+                <li><strong>Improved Social Media Presence:</strong> A consistent and professional Instagram and Facebook feed</li>
+                <li><strong>Stronger Brand Recognition:</strong> A distinctive look that customers easily recognize</li>
             </ul>
-            
+
             <div class="client-quote">
-                “The identity feels modern, clean, and aligned with the image we wanted to build.”
+                "They captured the vibe of our brand perfectly. The designs are clean, modern, and exactly what our customers love."
+                <br><br>
+                <strong>— Team, Adornments</strong>
             </div>
         </div>
-        
-        <aside class="sidebar">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" data-reveal data-delay="100">
             <h3>Project Details</h3>
             <p><strong>Client:</strong> Adornments</p>
             <p><strong>Industry:</strong> Fashion & Apparel</p>
+            <p><strong>Location:</strong> Regional</p>
+
             <h4>Services Provided</h4>
             <ul>
                 <li><i class="fas fa-check-circle"></i> Logo Design</li>
                 <li><i class="fas fa-check-circle"></i> Social Media Design</li>
-                <li><i class="fas fa-check-circle"></i> Brand Guidelines</li>
+                <li><i class="fas fa-check-circle"></i> Branding Guidelines</li>
             </ul>
+
+            <a href="/contact.html" class="btn btn-primary" style="width:100%; text-align:center;">Refresh Your Brand</a>
         </aside>
     </section>
 
-    <section class="container case-study-gallery">
-        <img src="../assets/images/portfolio/adornments-branding.jpg" alt="Adornments Branding">
+    <!-- Gallery -->
+    <section class="container case-study-gallery" data-reveal>
+        <img src="../assets/images/portfolio/adornments-branding.jpg" alt="Adornments Branding" loading="lazy">
     </section>
 
+    <!-- Related Projects -->
+    <section class="section related-posts-section bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Related Projects</h2>
+                <p class="section-subtitle">Explore similar branding case studies</p>
+            </div>
+            <div class="related-posts-grid">
+                <div class="related-post-card" data-reveal>
+                    <div class="related-post-image"><i class="fas fa-flask"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Branding</span>
+                        <h4 class="related-post-title">SES‑Chem — Translating Philosophy into Visual Identity</h4>
+                        <a href="/portfolio/ses-chem.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="related-post-card" data-reveal data-delay="100">
+                    <div class="related-post-image"><i class="fas fa-couch"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Branding</span>
+                        <h4 class="related-post-title">Trust Way Furnishings — Premium Brand Presence</h4>
+                        <a href="/portfolio/trust-way.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <div id="footer-container"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript Files -->
     <script src="../assets/js/header-footer.js" defer></script>
+    <script src="../assets/js/animations.js" defer></script>
     <script src="../assets/js/main.js" defer></script>
 </body>
 </html>

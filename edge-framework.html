@@ -4,81 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The EDGE Framework: From Strategy to Execution | Consulting Crew</title>
-    <meta name="description" content="A deep dive into our proven methodology for bridging the strategy-execution gap in growing organizations.">
-    
+    <meta name="description" content="70% of corporate strategies fail during execution. Discover the EDGE Framework™, our proven methodology for bridging the strategy-execution gap and driving sustainable growth.">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <!-- Styles -->
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
- 
+    <link rel="stylesheet" href="/assets/css/main.css">
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
-    
+    <link rel="icon" type="image/svg+xml" href="/assets/images/logo.png">
 </head>
 
 <body>
-  <!-- Loading Animation -->
-  <div class="loading-screen" id="loadingScreen">
-    <div class="loading-content">
-      <div class="loading-logo">
-        <img src="assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
-      </div>
-      <div class="loading-progress">
-        <div class="progress-bar"></div>
-      </div>
-      <p class="loading-text">Loading ...</p>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="/assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="loading-text">Loading ...</p>
+        </div>
     </div>
-  </div>
 
     <!-- Header -->
     <div id="header-container"></div>
 
+    <!-- Breadcrumbs -->
     <div class="breadcrumbs">
         <div class="container">
             <ol>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="insights.html">Insights</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/insights.html">Insights</a></li>
                 <li class="current">The EDGE Framework</li>
             </ol>
         </div>
     </div>
 
-    <section class="hero insights-hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title animate-left">The EDGE Framework<br>From Strategy to Execution</h1>
-                <p class="hero-subtitle animate-left" style="animation-delay: 0.1s">A deep dive into our proven methodology for bridging the strategy-execution gap</p>
-                <div class="post-meta animate-fade" style="animation-delay: 0.2s">
-                    <span class="post-category">Strategy</span>
-                    <span class="post-date"><i class="far fa-calendar-alt"></i> February 22, 2024</span>
-                    <span class="post-read-time"><i class="far fa-clock"></i> 10 min read</span>
-                </div>
+    <!-- Hero Section -->
+    <section class="hero hero--light">
+        <div class="hero__container">
+            <h1 class="hero__title">The EDGE Framework<br>From Strategy to Execution</h1>
+            <p class="hero__subtitle">A deep dive into our proven methodology for bridging the strategy-execution gap</p>
+            <div class="post-meta">
+                <span class="post-category">Strategy</span>
+                <span class="post-date"><i class="far fa-calendar-alt"></i> February 22, 2024</span>
+                <span class="post-read-time"><i class="far fa-clock"></i> 10 min read</span>
             </div>
         </div>
     </section>
 
+    <!-- Blog Content -->
     <section class="section blog-post-content">
         <div class="container">
             <article>
-                <p class="article-lead">Research shows that <strong>70% of corporate strategies fail during execution</strong>. This isn't due to bad ideas or poor planning—it's because most organizations lack a systematic approach to bridge the gap between strategy formulation and real-world implementation.</p>
-                
+                <p class="article-lead"><strong>70% of corporate strategies fail during execution.</strong> Not because of bad ideas or poor planning—but because most organizations lack a systematic approach to bridge the gap between strategy formulation and real-world implementation.</p>
+
                 <p>The EDGE Framework™ was developed through 8 years of work with 300+ companies to solve this exact problem. It provides a disciplined, repeatable methodology for converting strategic insight into measurable business impact.</p>
 
                 <div class="insight-box">
                     <h4><i class="fas fa-chart-line"></i> Research Insight</h4>
-                    <p>Companies using structured execution frameworks like EDGE achieve 2.3x higher strategy success rates and 40% faster time-to-impact.</p>
+                    <p>Companies using structured execution frameworks like EDGE achieve <strong>2.3x higher strategy success rates</strong> and <strong>40% faster time-to-impact</strong> than those without.</p>
                 </div>
 
                 <h2>EDGE Framework Overview: The 4-Phase Methodology</h2>
                 <p>EDGE stands for <strong>Explore, Diagnose, Generate, Execute</strong>—the four interconnected phases that form a continuous improvement cycle:</p>
-                
-                <div class="framework-steps">
-                    <div class="framework-step"><h4><span class="step-circle-sm">E</span> Explore</h4><p>Understand objectives, context, and opportunities through stakeholder alignment and market analysis. <strong>Key Output:</strong> Opportunity Map & Stakeholder Alignment</p></div>
-                    <div class="framework-step"><h4><span class="step-circle-sm">D</span> Diagnose</h4><p>Analyze data, systems, and performance gaps to identify root causes and leverage points. <strong>Key Output:</strong> Root Cause Analysis & Gap Assessment</p></div>
-                    <div class="framework-step"><h4><span class="step-circle-sm">G</span> Generate</h4><p>Create actionable strategies, roadmaps, and implementation plans based on diagnostic insights. <strong>Key Output:</strong> Strategic Roadmap & Action Plans</p></div>
-                    <div class="framework-step"><h4><span class="step-circle-sm">E</span> Execute</h4><p>Implement, optimize, and sustain outcomes through disciplined project management. <strong>Key Output:</strong> Results & Institutionalized Processes</p></div>
+
+                <div class="steps steps--framework">
+                    <div class="step" data-reveal>
+                        <h4 class="step__title"><span class="step__badge">E</span> Explore</h4>
+                        <p class="step__text">Understand objectives, context, and opportunities through stakeholder alignment and market analysis. <strong>Key Output:</strong> Opportunity Map & Stakeholder Alignment</p>
+                    </div>
+                    <div class="step" data-reveal data-delay="100">
+                        <h4 class="step__title"><span class="step__badge">D</span> Diagnose</h4>
+                        <p class="step__text">Analyze data, systems, and performance gaps to identify root causes and leverage points. <strong>Key Output:</strong> Root Cause Analysis & Gap Assessment</p>
+                    </div>
+                    <div class="step" data-reveal data-delay="200">
+                        <h4 class="step__title"><span class="step__badge">G</span> Generate</h4>
+                        <p class="step__text">Create actionable strategies, roadmaps, and implementation plans based on diagnostic insights. <strong>Key Output:</strong> Strategic Roadmap & Action Plans</p>
+                    </div>
+                    <div class="step" data-reveal data-delay="300">
+                        <h4 class="step__title"><span class="step__badge">E</span> Execute</h4>
+                        <p class="step__text">Implement, optimize, and sustain outcomes through disciplined project management. <strong>Key Output:</strong> Results & Institutionalized Processes</p>
+                    </div>
                 </div>
 
                 <div class="card-green clearfix">
@@ -100,53 +112,76 @@
                     </table>
                 </div>
 
-                <div class="article-cta-box">
+                <!-- CTA Box -->
+                <div class="cta-box cta-box--green" data-reveal>
+                    <i class="fas fa-rocket" style="color: var(--primary-green);"></i>
                     <h3>Ready to Close Your Strategy-Execution Gap?</h3>
                     <p>Our strategy team specializes in implementing the EDGE Framework to help growth companies turn strategic plans into measurable results.</p>
-                    <a href="contact.html" class="article-cta-btn">Schedule a Strategy Assessment</a>
+                    <a href="/contact.html" class="btn btn-green">Schedule a Strategy Assessment</a>
                 </div>
 
+                <!-- Share Section -->
                 <div class="share-section">
                     <h3 class="share-title">Share this insight</h3>
                     <div class="share-buttons">
-                        <a href="#" class="share-button twitter" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
-                        <a href="#" class="share-button linkedin" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-                        <a href="#" class="share-button facebook" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+                        <a href="#" class="share-button twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i> Twitter</a>
+                        <a href="#" class="share-button linkedin" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                        <a href="#" class="share-button facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i> Facebook</a>
+                        <a href="#" class="share-button email"><i class="fas fa-envelope"></i> Email</a>
                     </div>
                 </div>
             </article>
         </div>
     </section>
 
+    <!-- Related Posts -->
     <section class="section related-posts-section">
         <div class="container">
             <div class="section-header text-center">
                 <h2 class="section-title">More Insights</h2>
                 <p class="section-subtitle">Continue learning</p>
             </div>
+
             <div class="related-posts-grid">
-                <div class="related-post-card">
+                <div class="related-post-card" data-reveal>
                     <div class="related-post-image"><i class="fas fa-filter"></i></div>
                     <div class="related-post-content">
+                        <span class="related-post-category">Data & Analytics</span>
                         <h4 class="related-post-title">Turning Data Noise into Strategic Insights</h4>
-                        <a href="insight-data-noise-strategic-insights.html" class="related-post-link">Read more <i class="fas fa-arrow-right"></i></a>
+                        <a href="/insight-data-noise-strategic-insights.html" class="related-post-link">Read more <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="related-post-card">
+                <div class="related-post-card" data-reveal data-delay="100">
                     <div class="related-post-image"><i class="fas fa-chart-line"></i></div>
                     <div class="related-post-content">
-                        <h4 class="related-post-title">Predictive Analytics for Business Growth</h4>
-                        <a href="#" class="related-post-link">Read more <i class="fas fa-arrow-right"></i></a>
+                        <span class="related-post-category">Data & Analytics</span>
+                        <h4 class="related-post-title">The Future of Data-Driven Decision Making</h4>
+                        <a href="/insight-Future-of-Data-Driven-Decision-Making.html" class="related-post-link">Read more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="related-post-card" data-reveal data-delay="200">
+                    <div class="related-post-image"><i class="fas fa-rocket"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Strategy</span>
+                        <h4 class="related-post-title">Simple Forecasting for Small Business</h4>
+                        <a href="/insights-simple-forecasting.html" class="related-post-link">Read more <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <div id="footer-container"></div>
-    <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
-    <script src="assets/js/header-footer.js" defer></script>
-    <script src="assets/js/animations.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript Files -->
+    <script src="/assets/js/header-footer.js" defer></script>
+    <script src="/assets/js/animations.js" defer></script>
+    <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

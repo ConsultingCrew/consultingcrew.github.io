@@ -3,46 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Asif Iqbal — Personal Brand Portfolio | Consulting Crew</title>
-    <meta name="description" content="Clean personal portfolio website that communicates expertise and leadership for a senior data & marketing professional.">
+    <title>Muhammad Asif Iqbal — Personal Brand, Global Stage | Consulting Crew</title>
+    <meta name="description" content="Clean personal portfolio website that positions a senior analytics and marketing leader for global opportunities.">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/portfolio-case-studies.css">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
-    <style>
-        .case-study-hero { background: linear-gradient(135deg, #0b1a2f 0%, #1a2b4c 100%); color: #fff; padding: 80px 0 60px; }
-        .case-study-hero h1 { font-family: 'Merriweather', serif; font-size: 2.8rem; }
-        .case-study-layout { display: grid; grid-template-columns: 1fr 380px; gap: 50px; padding: 60px 0; }
-        .sidebar { background: #f5f7fa; padding: 30px; border-radius: 8px; height: fit-content; }
-        .metric-highlight { display: flex; align-items: baseline; gap: 5px; font-size: 1.6rem; font-weight: 700; color: #0b1a2f; margin-bottom: 20px; }
-        .metric-label { font-size: 0.9rem; color: #5a6d80; font-weight: 400; }
-        .client-quote { font-style: italic; font-size: 1.1rem; border-left: 4px solid #0077cc; padding-left: 20px; margin: 25px 0; }
-        @media (max-width: 768px) { .case-study-layout { grid-template-columns: 1fr; } }
-    </style>
 </head>
+
 <body>
-    <div id="header-container"></div>
-    <div class="breadcrumbs"><div class="container"><ol><li><a href="../index.html">Home</a></li><li><a href="../portfolio.html">Portfolio</a></li><li class="current">Muhammad Asif Iqbal</li></ol></div></div>
-    <section class="case-study-hero"><div class="container"><h1>Muhammad Asif Iqbal — Personal Brand Portfolio</h1><p style="opacity:0.9; max-width:700px;">A clean, modern personal website that positions a senior analytics and marketing leader on a global stage.</p></div></section>
-    <section class="container case-study-layout">
-        <div class="main-story">
-            <h2>Business Challenge</h2><p>An experienced data analytics and marketing professional required a personal website that communicated expertise, leadership experience, and measurable business contributions. Traditional résumé formats were not sufficient to present years of experience, strategic capability, and professional positioning.</p>
-            <h2>Consulting Crew Approach</h2><p>Consulting Crew designed a clean and modern personal portfolio website that highlights career achievements, professional strengths, and consulting capabilities. The site focused on presenting expertise in a structured and easy‑to‑navigate format.</p>
-            <ul><li>Personal brand positioning</li><li>Professional portfolio presentation</li><li>Skills and achievements organization</li><li>Mobile‑responsive design</li><li>Clear navigation for recruiters and collaborators</li></ul>
-            <h2>Business Impact</h2>
-            <ul><li>Created a professional digital identity</li><li>Improved visibility for professional networking</li><li>Provided a dedicated platform to showcase achievements</li><li>Supported stronger personal positioning in consulting and leadership spaces</li></ul>
-            <div class="client-quote">“The website presents my professional journey in a way that feels structured, credible, and modern.”</div>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="../assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="loading-text">Loading ...</p>
         </div>
-        <aside class="sidebar">
-            <h3 style="margin-top:0;">Project Details</h3>
-            <p><strong>Client:</strong> Muhammad Asif Iqbal</p><p><strong>Industry:</strong> Data Analytics & Marketing</p><p><strong>Tools:</strong> HTML/CSS/JS, GitHub Pages</p>
+    </div>
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="/portfolio.html">Portfolio</a></li>
+                <li class="current">Asif Iqbal</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Case Study Hero -->
+    <section class="case-study-hero">
+        <div class="container">
+            <h1>Muhammad Asif Iqbal — Personal Brand, Global Stage</h1>
+            <p>A clean personal portfolio website that positions a senior analytics and marketing leader for global opportunities.</p>
+        </div>
+    </section>
+
+    <!-- Case Study Content -->
+    <section class="container case-study-layout">
+        <div class="main-story" data-reveal>
+            <h2>Business Challenge</h2>
+            <p>A senior analytics and marketing leader needed a professional digital presence to support global career opportunities. The existing online footprint was fragmented and did not effectively communicate the breadth of expertise or leadership experience.</p>
+
+            <h2>Consulting Crew Approach</h2>
+            <p>We designed and developed a clean, professional portfolio website that serves as a comprehensive digital resume and thought leadership platform.</p>
+            <ul>
+                <li>Professional portfolio website development</li>
+                <li>Clean, modern design focused on readability</li>
+                <li>Strategic content organization</li>
+                <li>Mobile‑optimized experience</li>
+                <li>Clear presentation of expertise and achievements</li>
+            </ul>
+
+            <h2>Business Impact</h2>
+            <ul>
+                <li><strong>Professional Digital Presence:</strong> A centralized hub for career opportunities</li>
+                <li><strong>Enhanced Credibility:</strong> Polished presentation of leadership experience</li>
+                <li><strong>Global Accessibility:</strong> A professional platform accessible to international recruiters</li>
+                <li><strong>Personal Branding:</strong> Clear positioning as a senior analytics and marketing leader</li>
+            </ul>
+
+            <div class="client-quote">
+                "The website has significantly improved my professional presence. It's now the first thing I share with potential employers and partners."
+                <br><br>
+                <strong>— Muhammad Asif Iqbal</strong>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" data-reveal data-delay="100">
+            <h3>Project Details</h3>
+            <p><strong>Client:</strong> Muhammad Asif Iqbal</p>
+            <p><strong>Industry:</strong> Analytics & Marketing</p>
+            <p><strong>Location:</strong> Global</p>
+
             <h4>Services Provided</h4>
-            <ul><li>Personal Portfolio Website Development</li><li>Content Structuring</li><li>Mobile Optimization</li></ul>
-            <a href="https://asifiqbal-pk.github.io/" class="btn btn-primary" style="margin-top:20px;" target="_blank" rel="noopener">Visit Live Website ↗</a>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Personal Portfolio Website</li>
+                <li><i class="fas fa-check-circle"></i> Content Strategy</li>
+                <li><i class="fas fa-check-circle"></i> Mobile‑First Design</li>
+                <li><i class="fas fa-check-circle"></i> Professional Branding</li>
+            </ul>
+
+            <a href="#" class="btn btn-primary" style="width:100%; text-align:center;" target="_blank" rel="noopener">Visit Live Website ↗</a>
         </aside>
     </section>
-    <section class="container" style="margin-bottom:60px; text-align:center;"><img src="../assets/images/portfolio/asif-iqbal-website.jpg" alt="Asif Iqbal Portfolio Website" style="max-width:100%; box-shadow:0 5px 30px rgba(0,0,0,0.1); border-radius:8px;"></section>
+
+    <!-- Gallery -->
+    <section class="container case-study-gallery" data-reveal>
+        <img src="../assets/images/portfolio/asif-website.jpg" alt="Asif Iqbal Portfolio Website" loading="lazy">
+    </section>
+
+    <!-- Related Projects -->
+    <section class="section related-posts-section bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Related Projects</h2>
+                <p class="section-subtitle">Explore similar web development case studies</p>
+            </div>
+            <div class="related-posts-grid">
+                <div class="related-post-card" data-reveal>
+                    <div class="related-post-image"><i class="fas fa-globe"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Web</span>
+                        <h4 class="related-post-title">Fahad Enterprises — Global Digital Showroom</h4>
+                        <a href="/portfolio/fahad-enterprises.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="related-post-card" data-reveal data-delay="100">
+                    <div class="related-post-image"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Web</span>
+                        <h4 class="related-post-title">SAGO — Digital Retail Transformation</h4>
+                        <a href="/portfolio/sago.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <div id="footer-container"></div>
-    <script src="../assets/js/header-footer.js" defer></script><script src="../assets/js/main.js" defer></script>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript Files -->
+    <script src="../assets/js/header-footer.js" defer></script>
+    <script src="../assets/js/animations.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
 </body>
 </html>

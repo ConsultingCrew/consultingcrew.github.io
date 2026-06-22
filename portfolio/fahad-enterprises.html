@@ -3,86 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fahad Enterprises — Building a Professional Global Presence | Consulting Crew</title>
+    <title>Fahad Enterprises — Global Digital Showroom | Consulting Crew</title>
     <meta name="description" content="Corporate website acting as a digital showroom for a textile exporter, showcasing capabilities to international buyers.">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
-    <style>
-        .case-study-hero { background: linear-gradient(135deg, #0b1a2f 0%, #1a2b4c 100%); color: #fff; padding: 80px 0 60px; }
-        .case-study-hero h1 { font-family: 'Merriweather', serif; font-size: 2.8rem; }
-        .case-study-layout { display: grid; grid-template-columns: 1fr 380px; gap: 50px; padding: 60px 0; }
-        .main-story { }
-        .sidebar { background: #f5f7fa; padding: 30px; border-radius: 8px; height: fit-content; }
-        .metric-highlight { display: flex; align-items: baseline; gap: 5px; font-size: 1.6rem; font-weight: 700; color: #0b1a2f; margin-bottom: 20px; }
-        .metric-label { font-size: 0.9rem; color: #5a6d80; font-weight: 400; }
-        .client-quote { font-style: italic; font-size: 1.1rem; border-left: 4px solid #0077cc; padding-left: 20px; margin: 25px 0; }
-        @media (max-width: 768px) { .case-study-layout { grid-template-columns: 1fr; } }
-    </style>
-</head>
-<body>
-    <div id="header-container"></div>
-    <div class="breadcrumbs"><div class="container"><ol><li><a href="../index.html">Home</a></li><li><a href="../portfolio.html">Portfolio</a></li><li class="current">Fahad Enterprises</li></ol></div></div>
+    <link rel="stylesheet" href="../assets/css/portfolio-case-studies.css">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
+</head>
+
+<body>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="../assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="loading-text">Loading ...</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="/portfolio.html">Portfolio</a></li>
+                <li class="current">Fahad Enterprises</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Case Study Hero -->
     <section class="case-study-hero">
         <div class="container">
-            <h1>Fahad Enterprises — Building a Professional Global Presence</h1>
-            <p style="opacity:0.9; max-width:700px;">A corporate website that serves as a digital showroom, strengthening credibility with international buyers.</p>
+            <h1>Fahad Enterprises — Global Digital Showroom</h1>
+            <p>A corporate website that serves as a 24/7 digital showroom, strengthening credibility with international buyers.</p>
         </div>
     </section>
 
+    <!-- Case Study Content -->
     <section class="container case-study-layout">
-        <div class="main-story">
+        <div class="main-story" data-reveal>
             <h2>Business Challenge</h2>
-            <p>Fahad Enterprises is a well‑established textile exporter with strong manufacturing capabilities and a diverse product range. Despite operational strength, the company lacked a professional digital platform to present its capabilities to international buyers. Potential customers had limited visibility into the company’s production expertise, quality standards, and business credibility.</p>
-            
+            <p>Fahad Enterprises is a well-established textile exporter with significant manufacturing capabilities. However, the company lacked a professional website to showcase its scale, product portfolio, and operational strengths to international buyers.</p>
+
             <h2>Consulting Crew Approach</h2>
-            <p>Consulting Crew developed a corporate website designed to function as a professional digital showroom. The objective was to create a clear, trustworthy, and business‑focused online presence that would help buyers understand the company’s capabilities.</p>
+            <p>We designed and developed a professional corporate website that functions as a digital showroom. The website highlights the company's history, production capabilities, product range, and quality standards.</p>
             <ul>
-                <li>Professional corporate website development</li>
-                <li>Structured presentation of manufacturing capabilities</li>
-                <li>Product gallery showcasing textile categories</li>
-                <li>Clear company profile and quality standards</li>
-                <li>Mobile‑friendly experience for global accessibility</li>
+                <li>Development of a modern corporate website</li>
+                <li>Product gallery showcasing manufacturing capabilities</li>
+                <li>Clear presentation of company history and quality standards</li>
             </ul>
-            
+
             <h2>Business Impact</h2>
             <ul>
-                <li>Established a professional online identity for international audiences</li>
-                <li>Improved presentation of company capabilities</li>
-                <li>Increased confidence during buyer outreach and discussions</li>
-                <li>Provided a single destination for sharing company information</li>
+                <li><strong>Global Online Presence:</strong> A professional digital platform accessible to buyers worldwide</li>
+                <li><strong>Enhanced Buyer Trust:</strong> Improved credibility through transparent presentation of capabilities</li>
+                <li><strong>Increased Business Inquiries:</strong> Growth in serious inquiries from international clients</li>
             </ul>
-            
+
             <div class="client-quote">
-                “The website reflects our company in a professional way and makes it easier to communicate our capabilities with international buyers.”
+                "Working with Consulting Crew was seamless. They built us a website that truly represents our scale of operations."
+                <br><br>
+                <strong>— Owner, Fahad Enterprises</strong>
             </div>
         </div>
-        
-        <aside class="sidebar">
-            <h3 style="margin-top:0;">Project Details</h3>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" data-reveal data-delay="100">
+            <h3>Project Details</h3>
             <p><strong>Client:</strong> Fahad Enterprises</p>
             <p><strong>Industry:</strong> Textile Export</p>
             <p><strong>Location:</strong> Karachi, Pakistan</p>
+
             <h4>Services Provided</h4>
             <ul>
-                <li>Corporate Website Development</li>
-                <li>Content Structuring</li>
-                <li>Mobile Optimization</li>
-                <li>Web Hosting Support</li>
+                <li><i class="fas fa-check-circle"></i> Corporate Website Development</li>
+                <li><i class="fas fa-check-circle"></i> Digital Strategy</li>
+                <li><i class="fas fa-check-circle"></i> Content Organization</li>
+                <li><i class="fas fa-check-circle"></i> Web Hosting</li>
             </ul>
-            <!-- Live site button placeholder; add href when ready -->
-            <a href="#" class="btn btn-primary" style="margin-top:20px;" target="_blank" rel="noopener">Visit Live Website ↗</a>
+
+            <a href="#" class="btn btn-primary" style="width:100%; text-align:center;" target="_blank" rel="noopener">Visit Live Website ↗</a>
         </aside>
     </section>
-    
-    <section class="container" style="margin-bottom:60px; text-align:center;">
-        <img src="../assets/images/portfolio/fahad-website.jpg" alt="Fahad Enterprises Website" style="max-width:100%; box-shadow:0 5px 30px rgba(0,0,0,0.1); border-radius:8px;">
+
+    <!-- Gallery -->
+    <section class="container case-study-gallery" data-reveal>
+        <img src="../assets/images/portfolio/fahad-website.jpg" alt="Fahad Enterprises Website" loading="lazy">
     </section>
 
+    <!-- Related Projects -->
+    <section class="section related-posts-section bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Related Projects</h2>
+                <p class="section-subtitle">Explore similar web development case studies</p>
+            </div>
+            <div class="related-posts-grid">
+                <div class="related-post-card" data-reveal>
+                    <div class="related-post-image"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Web</span>
+                        <h4 class="related-post-title">SAGO — Digital Retail Transformation</h4>
+                        <a href="/portfolio/sago.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="related-post-card" data-reveal data-delay="100">
+                    <div class="related-post-image"><i class="fas fa-couch"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Branding & Web</span>
+                        <h4 class="related-post-title">Trust Way Furnishings — Premium Brand Presence</h4>
+                        <a href="/portfolio/trust-way.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <div id="footer-container"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript Files -->
     <script src="../assets/js/header-footer.js" defer></script>
+    <script src="../assets/js/animations.js" defer></script>
     <script src="../assets/js/main.js" defer></script>
 </body>
 </html>

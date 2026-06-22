@@ -4,33 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | Consulting Crew</title>
-    <meta name="description" content="Read Consulting Crew's privacy policy to understand how we collect, use, and protect your personal information.">
-    
+    <meta name="description" content="Read Consulting Crew's privacy policy to understand how we collect, use, and protect your personal information. Your privacy matters to us.">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <!-- Styles -->
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
- 
+    <link rel="stylesheet" href="/assets/css/main.css">
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/images/logo.png">
-    
+    <link rel="icon" type="image/svg+xml" href="/assets/images/logo.png">
 </head>
 
 <body>
-  <!-- Loading Animation -->
-  <div class="loading-screen" id="loadingScreen">
-    <div class="loading-content">
-      <div class="loading-logo">
-        <img src="assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
-      </div>
-      <div class="loading-progress">
-        <div class="progress-bar"></div>
-      </div>
-      <p class="loading-text">Loading ...</p>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="/assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="loading-text">Loading ...</p>
+        </div>
     </div>
-  </div>
 
     <!-- Header -->
     <div id="header-container"></div>
@@ -39,42 +38,35 @@
     <div class="breadcrumbs">
         <div class="container">
             <ol>
-                <li><a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li class="current" aria-current="page">Privacy Policy</li>
             </ol>
         </div>
     </div>
 
     <!-- Hero Section -->
-    <section class="legal-hero">
-        <div class="container">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-            <div class="cta-shape cta-shape-1"></div>
-            <div class="cta-shape cta-shape-2"></div>
-          
-        <div class="legal-hero-content">
-                <h1 class="animate-left"><i class="fas fa-shield-alt" aria-hidden="true"></i> Privacy Policy</h1>
-                <p class="animate-left" style="animation-delay: 0.1s">Last updated: March 15, 2024</p>
-            </div>
+    <section class="hero hero--light">
+        <div class="hero__container">
+            <h1 class="hero__title"><i class="fas fa-shield-alt" aria-hidden="true"></i> Privacy Policy</h1>
+            <p class="hero__subtitle">Last updated: March 15, 2024</p>
         </div>
     </section>
 
     <!-- Privacy Policy Content -->
-    <section class="legal-content-section">
+    <section class="section legal-content-section">
         <div class="container">
             <div class="legal-content-wrapper">
+
                 <!-- Introduction -->
-                <div class="card legal-intro animate-fade">
+                <div class="card legal-intro" data-reveal>
                     <p>Consulting Crew ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website consultingcrew.com or use our services.</p>
                     <p class="mb-0">Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site or use our services.</p>
                 </div>
-                
-                <!-- Policy Sections -->
-                <div class="policy-section card">
+
+                <!-- Section 1 -->
+                <div class="card policy-section" data-reveal data-delay="100">
                     <h2><i class="fas fa-database" aria-hidden="true"></i> 1. Information We Collect</h2>
-                    
+
                     <h3><i class="fas fa-user" aria-hidden="true"></i> 1.1 Personal Information</h3>
                     <p>We may collect personal information that you voluntarily provide to us when you:</p>
                     <ul class="styled-list">
@@ -89,7 +81,7 @@
                         <li><i class="fas fa-check-circle" aria-hidden="true"></i> Company information (name, size, industry)</li>
                         <li><i class="fas fa-check-circle" aria-hidden="true"></i> Any other information you choose to provide</li>
                     </ul>
-                    
+
                     <h3><i class="fas fa-laptop" aria-hidden="true"></i> 1.2 Automatically Collected Information</h3>
                     <p>When you visit our website, we automatically collect certain information about your device and your visit, including:</p>
                     <ul class="styled-list">
@@ -101,8 +93,9 @@
                         <li><i class="fas fa-check-circle" aria-hidden="true"></i> Other diagnostic data</li>
                     </ul>
                 </div>
-                
-                <div class="policy-section card">
+
+                <!-- Section 2 -->
+                <div class="card policy-section" data-reveal data-delay="200">
                     <h2><i class="fas fa-cogs" aria-hidden="true"></i> 2. How We Use Your Information</h2>
                     <p>We use the information we collect for various purposes, including:</p>
                     <ul class="styled-list">
@@ -116,8 +109,12 @@
                         <li><i class="fas fa-check-circle" aria-hidden="true"></i> To provide you with news, special offers, and general information about other services we offer</li>
                     </ul>
                 </div>
-                
-                <div class="policy-section card">
+
+                <!-- Sections 3-10 continue with same pattern -->
+                <!-- I'm showing the pattern – you can apply the same to all remaining sections -->
+
+                <!-- Section 3 -->
+                <div class="card policy-section" data-reveal data-delay="300">
                     <h2><i class="fas fa-gavel" aria-hidden="true"></i> 3. Legal Basis for Processing Personal Information</h2>
                     <p>We process personal information under the following conditions:</p>
                     <ul class="styled-list">
@@ -127,32 +124,35 @@
                         <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Legal obligations:</strong> When processing is necessary for compliance with a legal obligation</li>
                     </ul>
                 </div>
-                
-                <div class="policy-section card">
+
+                <!-- Section 4 -->
+                <div class="card policy-section" data-reveal data-delay="400">
                     <h2><i class="fas fa-share-alt" aria-hidden="true"></i> 4. Sharing Your Information</h2>
-                    
+
                     <h3><i class="fas fa-users" aria-hidden="true"></i> 4.1 With Service Providers</h3>
                     <p>We may share your information with service providers to monitor and analyze the use of our website, for payment processing, and to contact you.</p>
-                    
+
                     <h3><i class="fas fa-exchange-alt" aria-hidden="true"></i> 4.2 For Business Transfers</h3>
                     <p>We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.</p>
-                    
+
                     <h3><i class="fas fa-sitemap" aria-hidden="true"></i> 4.3 With Affiliates</h3>
                     <p>We may share your information with our affiliates, in which case we will require those affiliates to honor this Privacy Policy.</p>
-                    
+
                     <h3><i class="fas fa-handshake" aria-hidden="true"></i> 4.4 With Business Partners</h3>
                     <p>We may share your information with our business partners to offer you certain products, services, or promotions.</p>
-                    
+
                     <h3><i class="fas fa-pen" aria-hidden="true"></i> 4.5 With Your Consent</h3>
                     <p>We may disclose your personal information for any other purpose with your consent.</p>
                 </div>
-                
-                <div class="policy-section card">
+
+                <!-- Section 5 -->
+                <div class="card policy-section" data-reveal data-delay="500">
                     <h2><i class="fas fa-lock" aria-hidden="true"></i> 5. Data Security</h2>
                     <p>We implement appropriate technical and organizational security measures to protect your personal information. However, please remember that no method of transmission over the Internet or method of electronic storage is 100% secure.</p>
                 </div>
-                
-                <div class="policy-section card">
+
+                <!-- Section 6 -->
+                <div class="card policy-section" data-reveal data-delay="600">
                     <h2><i class="fas fa-balance-scale" aria-hidden="true"></i> 6. Your Data Protection Rights</h2>
                     <p>Depending on your location, you may have the following data protection rights:</p>
                     <ul class="styled-list">
@@ -165,24 +165,28 @@
                     </ul>
                     <p>To exercise any of these rights, please contact us using the contact information provided below.</p>
                 </div>
-                
-                <div class="policy-section card">
+
+                <!-- Section 7 -->
+                <div class="card policy-section" data-reveal data-delay="700">
                     <h2><i class="fas fa-external-link-alt" aria-hidden="true"></i> 7. Third-Party Websites</h2>
                     <p>Our website may contain links to other websites that are not operated by us. We strongly advise you to review the Privacy Policy of every site you visit. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.</p>
                 </div>
-                
-                <div class="policy-section card">
+
+                <!-- Section 8 -->
+                <div class="card policy-section" data-reveal data-delay="800">
                     <h2><i class="fas fa-child" aria-hidden="true"></i> 8. Children's Privacy</h2>
                     <p>Our services are not intended for individuals under the age of 18. We do not knowingly collect personal information from children under 18. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us.</p>
                 </div>
-                
-                <div class="policy-section card">
+
+                <!-- Section 9 -->
+                <div class="card policy-section" data-reveal data-delay="900">
                     <h2><i class="fas fa-clock" aria-hidden="true"></i> 9. Changes to This Privacy Policy</h2>
                     <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.</p>
                     <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
                 </div>
-                
-                <div class="policy-section card">
+
+                <!-- Section 10 -->
+                <div class="card policy-section" data-reveal data-delay="1000">
                     <h2><i class="fas fa-envelope" aria-hidden="true"></i> 10. Contact Us</h2>
                     <p>If you have any questions about this Privacy Policy, please contact us:</p>
                     <ul class="contact-list">
@@ -192,7 +196,7 @@
                 </div>
 
                 <!-- Footer Note -->
-                <div class="legal-footer animate-fade" style="animation-delay: 0.8s">
+                <div class="legal-footer" data-reveal data-delay="1100">
                     <p>
                         <i class="fas fa-file-alt" aria-hidden="true"></i>
                         This document was last updated on March 15, 2024
@@ -210,9 +214,14 @@
     <!-- Footer -->
     <div id="footer-container"></div>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- JavaScript Files -->
-    <script src="assets/js/header-footer.js" defer></script>
-    <script src="assets/js/animations.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
+    <script src="/assets/js/header-footer.js" defer></script>
+    <script src="/assets/js/animations.js" defer></script>
+    <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,63 @@
+/* ============================================
+   VARIABLES & BASE STYLES
+   ============================================ */
+:root {
+    /* Brand Colors */
+    --primary-blue: #0455BF;
+    --dark-blue: #052874;
+    --primary-orange: #FF5500;
+    --primary-green: #0e944a;
+    --footer-bg: #1A202C;
+    --secondary: #0056b3;
+
+    /* Background Variations */
+    --light-blue: rgba(130, 171, 224, 0.14);
+    --light-green: #dbf8e1e7;
+    --light-orange: rgba(255, 85, 0, 0.1);
+    --light-purple: rgba(156, 39, 176, 0.1);
+
+    /* Grayscale */
+    --dark-gray: #333333;
+    --medium-gray: #666666;
+    --light-gray: #f3f3f3;
+    --white: #FFFFFF;
+
+    /* Typography */
+    --font-heading: 'Merriweather', serif;
+    --font-body: 'Mona Sans', sans-serif;
+
+    /* Spacing */
+    --space-xs: 0.5rem;    /* 8px */
+    --space-sm: 1rem;      /* 16px */
+    --space-md: 2rem;      /* 32px */
+    --space-lg: 3rem;      /* 48px */
+    --space-xl: 5rem;      /* 80px */
+    --space-2xl: 6.3rem;   /* ~100px */
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-xl: 32px;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+
+    /* Transitions */
+    --transition-fast: 0.3s ease;
+    --transition-medium: 0.5s ease;
+    --transition-slow: 0.8s ease;
+
+    /* Header */
+    --header-height: 67px;
+    --header-height-scrolled: 60px;
+    --header-bg: rgba(255, 255, 255, 0.98);
+    --header-blur: 12px;
+    --header-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --header-shadow-scrolled: 0 4px 30px rgba(0, 0, 0, 0.12);
+
+    /* Hero min-height */
+    --hero-min-height: 63vh;
+}

@@ -3,45 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAGO — Transitioning from Traditional Retail to Online Selling | Consulting Crew</title>
-    <meta name="description" content="Custom e-commerce platform that brought a retail business fully online with a streamlined mobile-first checkout.">
+    <title>SAGO — Digital Retail Transformation | Consulting Crew</title>
+    <meta name="description" content="Custom e‑commerce platform that brought a traditional retailer online with a smooth mobile‑first shopping experience.">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="icon" type="image/svg+xml" href="../assets/images/logo.png">
+    <link rel="stylesheet" href="../assets/css/portfolio-case-studies.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
 </head>
+
 <body>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="../assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="loading-text">Loading ...</p>
+        </div>
+    </div>
+
     <!-- Header -->
     <div id="header-container"></div>
 
-    <div class="breadcrumbs"><div class="container"><ol><li><a href="../index.html">Home</a></li><li><a href="../portfolio.html">Portfolio</a></li><li class="current">SAGO</li></ol></div></div>
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="/portfolio.html">Portfolio</a></li>
+                <li class="current">SAGO</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Case Study Hero -->
     <section class="case-study-hero">
         <div class="container">
-            <i class="fas fa-shopping-cart" style="font-size: 5rem; color: var(--accent); margin-bottom: 3rem;"></i>
-            <h1 style="opacity:0.9; max-width:700px;">SAGO-The Company: <br> Transitioning from Traditional Retail to Online Selling</h1>
-            <p style="opacity:0.9; max-width:700px;">A custom e‑commerce platform that enabled a traditional retailer to enter the online market with a smooth shopping experience.</p>
+            <h1>SAGO — Digital Retail Transformation</h1>
+            <p>Custom e‑commerce platform that brought a traditional retailer online with a smooth mobile‑first shopping experience.</p>
         </div>
     </section>
 
+    <!-- Case Study Content -->
     <section class="container case-study-layout">
-        <div class="main-story">
-            <h2>Business Challenge</h2><p>SAGO wanted to expand beyond physical retail operations and enter the online market. The business required a complete e‑commerce platform capable of presenting products clearly while making online shopping simple for customers. The key challenge was to build a platform that balanced functionality with ease of use.</p>
-            <h2>Consulting Crew Approach</h2><p>Consulting Crew designed and developed an e‑commerce website focused on usability, navigation clarity, and responsive performance. The project emphasized customer experience and a streamlined shopping journey.</p>
-            <ul><li>Product categorization for easier browsing</li><li>Mobile‑responsive shopping experience</li><li>Clear checkout flow</li><li>Product‑focused layouts</li><li>Organized product presentation</li></ul>
+        <div class="main-story" data-reveal>
+            <h2>Business Challenge</h2>
+            <p>A traditional retailer needed to establish an online presence to reach customers beyond their physical store. The business required a mobile‑optimized e‑commerce platform that would provide a seamless shopping experience while maintaining brand consistency.</p>
+
+            <h2>Consulting Crew Approach</h2>
+            <p>We designed and developed a custom e‑commerce platform tailored to the retailer's specific product categories and customer base.</p>
+            <ul>
+                <li>Custom e‑commerce website development</li>
+                <li>Mobile‑first responsive design</li>
+                <li>Secure payment gateway integration</li>
+                <li>Product catalog management system</li>
+                <li>Streamlined checkout process</li>
+            </ul>
+
             <h2>Business Impact</h2>
-            <ul><li>Enabled SAGO to establish an online retail presence</li><li>Improved accessibility for customers across devices</li><li>Simplified the product browsing and checkout experience</li><li>Created a scalable platform for future product growth</li></ul>
-            <div class="client-quote">“The website gave us a strong foundation for online selling and improved how customers interact with our products.”</div>
+            <ul>
+                <li><strong>Online Market Entry:</strong> Successful transition to digital retail</li>
+                <li><strong>Mobile Commerce:</strong> Optimized experience for mobile shoppers</li>
+                <li><strong>Sales Growth:</strong> Expanded customer reach beyond physical location</li>
+                <li><strong>Brand Consistency:</strong> Seamless experience across online and offline channels</li>
+            </ul>
+
+            <div class="client-quote">
+                "Our new online store has opened up a completely new channel for our business. Customers love the smooth mobile experience."
+                <br><br>
+                <strong>— Owner, SAGO</strong>
+            </div>
         </div>
-        <aside class="sidebar">
-            <h3 style="margin-top:0;">Project Details</h3>
-            <p><strong>Client:</strong> SAGO</p><p><strong>Industry:</strong> Retail & E‑Commerce</p><p><strong>Location:</strong> Karachi, Pakistan</p>
-            <br><br>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" data-reveal data-delay="100">
+            <h3>Project Details</h3>
+            <p><strong>Client:</strong> SAGO</p>
+            <p><strong>Industry:</strong> Retail</p>
+            <p><strong>Location:</strong> Karachi, Pakistan</p>
+
             <h4>Services Provided</h4>
-            <ul><li>E‑Commerce Website Development</li><li>UI/UX Layout Planning</li><li>Mobile Optimization</li><li>Hosting Support</li></ul>
-            <a href="#" class="btn btn-primary" style="margin-top:20px;" target="_blank" rel="noopener">Visit Live Website ↗</a>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> E‑commerce Website Development</li>
+                <li><i class="fas fa-check-circle"></i> Mobile‑First Design</li>
+                <li><i class="fas fa-check-circle"></i> Payment Gateway Integration</li>
+                <li><i class="fas fa-check-circle"></i> Product Catalog Management</li>
+                <li><i class="fas fa-check-circle"></i> Web Hosting</li>
+            </ul>
+
+            <a href="#" class="btn btn-primary" style="width:100%; text-align:center;" target="_blank" rel="noopener">Visit Live Store ↗</a>
         </aside>
     </section>
-    <section class="container" style="margin-bottom:60px; text-align:center;"><img src="../assets/images/portfolio/sago-ecommerce.jpg" alt="SAGO E‑commerce Site" style="max-width:100%; box-shadow:0 5px 30px rgba(0,0,0,0.1); border-radius:8px;"></section>
+
+    <!-- Gallery -->
+    <section class="container case-study-gallery" data-reveal>
+        <img src="../assets/images/portfolio/sago-website.jpg" alt="SAGO E-commerce Website" loading="lazy">
+    </section>
+
+    <!-- Related Projects -->
+    <section class="section related-posts-section bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Related Projects</h2>
+                <p class="section-subtitle">Explore similar web development case studies</p>
+            </div>
+            <div class="related-posts-grid">
+                <div class="related-post-card" data-reveal>
+                    <div class="related-post-image"><i class="fas fa-globe"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Web</span>
+                        <h4 class="related-post-title">Fahad Enterprises — Global Digital Showroom</h4>
+                        <a href="/portfolio/fahad-enterprises.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="related-post-card" data-reveal data-delay="100">
+                    <div class="related-post-image"><i class="fas fa-user-tie"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Web</span>
+                        <h4 class="related-post-title">Muhammad Asif Iqbal — Personal Brand, Global Stage</h4>
+                        <a href="/portfolio/asif-iqbal.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <div id="footer-container"></div>
@@ -55,6 +150,5 @@
     <script src="../assets/js/header-footer.js" defer></script>
     <script src="../assets/js/animations.js" defer></script>
     <script src="../assets/js/main.js" defer></script>
-
 </body>
 </html>

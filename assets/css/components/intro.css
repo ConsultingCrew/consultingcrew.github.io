@@ -1,0 +1,72 @@
+/* ============================================
+   INTRO SECTIONS
+   ============================================ */
+
+/* ----- Centered Intro (Text only) ----- */
+.intro {
+    text-align: center;
+    max-width: 55%;
+    margin: 0 auto;
+}
+.intro h2 {
+    font-size: 2.1rem;
+    margin-bottom: 1.2rem;
+}
+.intro p {
+    font-size: 1rem;
+    color: var(--medium-gray);
+    line-height: 1.7;
+}
+/* Wide variant */
+.intro--wide {
+    max-width: 80%;
+}
+
+/* ----- Split Intro (Image + Text) ----- */
+.intro-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+}
+.intro-split__image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+}
+.intro-split__content h3 {
+    font-size: 2rem;
+    text-align: left;
+    margin-bottom: 2rem;
+}
+.intro-split__content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--dark-gray);
+    margin-bottom: var(--space-md);
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 992px) {
+    .intro-split {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    .intro-split__content h3 {
+        text-align: center;
+    }
+    .intro {
+        max-width: 80%;
+    }
+}
+@media (max-width: 600px) {
+    .intro {
+        max-width: 100%;
+    }
+    .intro h2 {
+        font-size: 1.5rem;
+    }
+    .intro-split__content h3 {
+        font-size: 1.5rem;
+    }
+}

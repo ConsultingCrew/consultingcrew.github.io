@@ -3,74 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Five‑Year Sales Trend Dashboard | Consulting Crew</title>
-    <meta name="description" content="Multi‑year trend analysis across regions and product categories to support long‑term business planning.">
+    <title>5‑Year Sales Trend Dashboard — Regional & Product Intelligence | Consulting Crew</title>
+    <meta name="description" content="Consolidated historical sales data into a unified analytic tool, revealing long‑term patterns across regions and product lines.">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/portfolio-case-studies.css">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
 </head>
-<body>
-    <div id="header-container"></div>
-    <div class="breadcrumbs"><div class="container"><ol><li><a href="../index.html">Home</a></li><li><a href="../portfolio.html">Portfolio</a></li><li class="current">Five‑Year Sales Trend Dashboard</li></ol></div></div>
 
+<body>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="../assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="loading-text">Loading ...</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="/portfolio.html">Portfolio</a></li>
+                <li><a href="/service-data-intelligence.html">Data & Intelligence</a></li>
+                <li class="current">5‑Year Sales Dashboard</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Case Study Hero -->
     <section class="case-study-hero">
         <div class="container">
-            <h1>Five‑Year Sales Trend Dashboard</h1>
-            <p>Bringing together multiple years of sales data to reveal long‑term patterns and guide strategic planning.</p>
+            <h1>5‑Year Sales Trend Dashboard</h1>
+            <p>Consolidated historical sales data into a unified analytic tool, revealing long‑term patterns across regions and product lines.</p>
         </div>
     </section>
 
+    <!-- Case Study Content -->
     <section class="container case-study-layout">
-        <div class="main-story">
+        <div class="main-story" data-reveal>
             <h2>Business Challenge</h2>
-            <p>Historical sales data existed across multiple files and reporting sources, limiting visibility into long‑term trends. Management needed a consolidated view for planning and analysis.</p>
-            
+            <p>Historical sales data was scattered across multiple spreadsheets, making it difficult to identify long‑term trends, seasonal patterns, or regional performance differences. Strategic planning was hindered by fragmented data.</p>
+
             <h2>Consulting Crew Approach</h2>
-            <p>Consulting Crew combined multiple years of sales data into a unified dashboard environment.</p>
+            <p>We consolidated 5 years of sales data into a unified dashboard that provides comprehensive trend analysis and strategic insights.</p>
             <ul>
-                <li>Trend analysis by year</li>
-                <li>Product category performance</li>
-                <li>Regional comparison</li>
-                <li>Sales office contribution analysis</li>
-                <li>Filtered business insights</li>
+                <li>Historical data consolidation across 5 years</li>
+                <li>Regional sales performance analysis</li>
+                <li>Product line trend tracking</li>
+                <li>Seasonal pattern identification</li>
+                <li>Interactive data exploration</li>
             </ul>
-            
+
+            <h2>Key Dashboard Features</h2>
+            <ul>
+                <li><strong>Year‑over‑Year Trends:</strong> 5‑year performance visualization</li>
+                <li><strong>Regional Breakdown:</strong> Sales performance by geography</li>
+                <li><strong>Product Line Analysis:</strong> Category‑level performance tracking</li>
+                <li><strong>Seasonal Patterns:</strong> Identification of recurring trends</li>
+                <li><strong>Growth Metrics:</strong> CAGR and growth rate calculations</li>
+                <li><strong>Interactive Filters:</strong> Drill down by year, region, or product</li>
+            </ul>
+
             <h2>Business Impact</h2>
             <ul>
-                <li>Improved long‑term reporting visibility</li>
-                <li>Reduced time spent gathering historical data</li>
-                <li>Supported structured business review discussions</li>
-                <li>Enabled easier access to trend information</li>
+                <li><strong>Strategic Planning:</strong> Data‑backed decisions supported by historical trends</li>
+                <li><strong>Resource Allocation:</strong> Better understanding of regional and product performance</li>
+                <li><strong>Forecast Accuracy:</strong> Improved predictions based on historical patterns</li>
+                <li><strong>Time Savings:</strong> Eliminated manual data consolidation efforts</li>
             </ul>
-            
-            <div class="client-quote">
-                “The dashboard helped bring multiple years of information into one place.”
-            </div>
         </div>
-        
-        <aside class="sidebar">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" data-reveal data-delay="100">
             <h3>Project Details</h3>
-            <p><strong>Client:</strong> BuildMac (Building Materials)</p>
-            <p><strong>Tools:</strong> Microsoft Excel</p>
-            <div class="metric-highlight">5 <span class="metric-label">Fiscal Years</span></div>
-            <div class="metric-highlight">3 <span class="metric-label">Divisions</span></div>
+            <p><strong>Client:</strong> Sales Organization</p>
+            <p><strong>Industry:</strong> B2B Sales</p>
+            <p><strong>Location:</strong> Pakistan</p>
+
+            <div class="metric-highlight">
+                <span>5+</span>
+                <span class="metric-label">Years of Data</span>
+            </div>
+            <div class="metric-highlight">
+                <span>10+</span>
+                <span class="metric-label">Regions Analyzed</span>
+            </div>
+            <div class="metric-highlight">
+                <span>20+</span>
+                <span class="metric-label">Product Categories</span>
+            </div>
+
             <h4>Services Provided</h4>
             <ul>
-                <li><i class="fas fa-check-circle"></i> Excel Dashboard Development</li>
                 <li><i class="fas fa-check-circle"></i> Data Consolidation</li>
-                <li><i class="fas fa-check-circle"></i> Strategic Sales Analytics</li>
+                <li><i class="fas fa-check-circle"></i> Dashboard Development</li>
+                <li><i class="fas fa-check-circle"></i> Trend Analysis</li>
+                <li><i class="fas fa-check-circle"></i> Training & Support</li>
             </ul>
+
+            <a href="/contact.html" class="btn btn-primary" style="width:100%; text-align:center;">Build Your Dashboard</a>
         </aside>
     </section>
 
-    <section class="container case-study-gallery">
-        <img src="../assets/images/dashboards/5year-sales-dashboard.jpg" alt="5‑Year Sales Dashboard">
+    <!-- Gallery -->
+    <section class="container case-study-gallery" data-reveal>
+        <img src="../assets/images/portfolio/5year-sales-dashboard.jpg" alt="5-Year Sales Trend Dashboard" loading="lazy">
     </section>
 
+    <!-- Related Projects -->
+    <section class="section related-posts-section bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Related Projects</h2>
+                <p class="section-subtitle">Explore similar data intelligence case studies</p>
+            </div>
+            <div class="related-posts-grid">
+                <div class="related-post-card" data-reveal>
+                    <div class="related-post-image"><i class="fas fa-funnel-dollar"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Data Analysis</span>
+                        <h4 class="related-post-title">Sales Funnel & Revenue Dashboard</h4>
+                        <a href="/portfolio/sales-funnel-dashboard.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="related-post-card" data-reveal data-delay="100">
+                    <div class="related-post-image"><i class="fas fa-calendar-check"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Data Analysis</span>
+                        <h4 class="related-post-title">MTD & YTD Sales Dashboard</h4>
+                        <a href="/portfolio/mtd-ytd-sales-dashboard.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <div id="footer-container"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript Files -->
     <script src="../assets/js/header-footer.js" defer></script>
+    <script src="../assets/js/animations.js" defer></script>
     <script src="../assets/js/main.js" defer></script>
 </body>
 </html>

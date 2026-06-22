@@ -1,242 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Real-time analytics dashboards for sales, finance, HR, and operations. Case studies and executive dashboard solutions from Consulting Crew.">
-  <meta name="keywords" content="analytics dashboards, business intelligence, sales dashboard, HR analytics, receivables dashboard">
-  <title>Analytics Dashboards – Case Studies | Consulting Crew</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboards Suite — Real‑Time Business Intelligence | Consulting Crew</title>
+    <meta name="description" content="Complete dashboard suite for sales, receivables, HR, and production – giving leadership real‑time visibility into business performance.">
 
-  <!-- Google Fonts with preconnect for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="../assets/css/main.css">
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/portfolio-case-studies.css">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="../assets/images/logo.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
 </head>
+
 <body>
-
-  <!-- Loading Animation -->
-  <div class="loading-screen" id="loadingScreen" aria-hidden="true">
-    <div class="loading-content">
-      <div class="loading-logo">
-        <img src="../assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
-      </div>
-      <div class="loading-progress">
-        <div class="progress-bar"></div>
-      </div>
-      <p class="loading-text">Loading ...</p>
-    </div>
-  </div>
-
-  <!-- Header -->
-  <div id="header-container"></div>
-
-  <main class="case-study-page">
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb navigation">
-        <a href="../index.html"><i class="fas fa-home" aria-hidden="true"></i> Home</a>
-        <span class="separator" aria-hidden="true">/</span>
-        <a href="../portfolio.html">Portfolio</a>
-        <span class="separator" aria-hidden="true">/</span>
-        <span class="current" aria-current="page">Analytics Dashboards</span>
-      </nav>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="../assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="loading-text">Loading ...</p>
+        </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="dashboard-hero">
-          <div class="shape shape-1"></div>
-          <div class="shape shape-2"></div>
-          <div class="shape shape-3"></div>
-          <div class="cta-shape cta-shape-1"></div>
-          <div class="cta-shape cta-shape-2"></div>
+    <!-- Header -->
+    <div id="header-container"></div>
 
-      <div class="container hero-content">
-        <i class="fas fa-chart-line hero-icon" aria-hidden="true"></i>
-        <h1 class="hero-title">Real-Time Visibility Dashboards</h1>
-        <p class="hero-sub">Transforming data into decisions</p>
-      </div>
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="/portfolio.html">Portfolio</a></li>
+                <li><a href="/service-data-intelligence.html">Data & Intelligence</a></li>
+                <li class="current">Analytics Dashboards</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Case Study Hero -->
+    <section class="case-study-hero">
+        <div class="container">
+            <h1>Analytics Dashboards Suite</h1>
+            <p>Sales, receivables, HR, and production dashboards that gave leadership real‑time visibility into business performance.</p>
+        </div>
     </section>
 
-    <!-- Main Content -->
-    <section class="dashboard-section">
-      <div class="container">
-        
-        <p class="section-lead">
-          We've built executive dashboards across industries, giving leadership teams clear, real-time visibility into critical business metrics.
-        </p>
+    <!-- Case Study Content -->
+    <section class="container case-study-layout">
+        <div class="main-story" data-reveal>
+            <h2>The Challenge</h2>
+            <p>Multiple organizations struggled with scattered data and manual reporting. Decision‑makers lacked real‑time visibility into key metrics, leading to delayed responses and missed opportunities.</p>
 
-        <!-- Sales Dashboard Card -->
-        <div class="dashboard-card">
-          <div class="dashboard-card-inner">
-            <div class="dashboard-card-content">
-              <div class="badge badge-sales">
-                <i class="fas fa-chart-simple" aria-hidden="true"></i>
-                SALES ANALYTICS
-              </div>
-              <h2 class="dashboard-card-title">Sales Performance Dashboard</h2>
-              <div class="dashboard-details">
-                <p><strong>Challenge:</strong> Lack of consolidated sales reporting.</p>
-                <p><strong>Approach:</strong> Interactive dashboard integrating multiple data sources.</p>
-                <p><strong>Outcome:</strong> Clear sales visibility and faster reporting.</p>
-              </div>
-              <a href="../portfolio/5year-sales-dashboard.html" class="link-arrow link-sales">
-                View detailed case study
-                <i class="fas fa-arrow-right" aria-hidden="true"></i>
-              </a>
+            <h2>Consulting Crew Approach</h2>
+            <p>We developed a suite of interactive dashboards that consolidates data from multiple sources into a single, unified view.</p>
+            <ul>
+                <li>Custom dashboard development for each business unit</li>
+                <li>Real‑time data visualization</li>
+                <li>KPI tracking and reporting systems</li>
+                <li>Executive‑level dashboards for leadership</li>
+            </ul>
+
+            <div class="grid grid-2" style="margin: 2rem 0;">
+                <div class="card card-light">
+                    <h4>Sales Dashboard</h4>
+                    <p>Pipeline tracking, conversion rates, revenue by region, and product performance.</p>
+                    <a href="/portfolio/sales-funnel-dashboard.html" class="article-link">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="card card-light">
+                    <h4>HR Analytics Dashboard</h4>
+                    <p>Headcount trends, attrition analysis, and workforce metrics for HR leadership.</p>
+                    <a href="/portfolio/hr-dashboard.html" class="article-link">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="card card-light">
+                    <h4>Production Dashboard</h4>
+                    <p>Multi‑factory production KPIs, efficiency metrics, and operational monitoring.</p>
+                    <a href="/portfolio/production-dashboard.html" class="article-link">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="card card-light">
+                    <h4>MTD & YTD Sales</h4>
+                    <p>Monthly and yearly sales tracking with product and regional breakdowns.</p>
+                    <a href="/portfolio/mtd-ytd-sales-dashboard.html" class="article-link">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
-            <div class="dashboard-card-visual">
-              <div class="visual-placeholder visual-sales">
-                <i class="fas fa-chart-area" aria-hidden="true"></i>
-                <span>Sales dashboard</span>
-              </div>
-              <a href="../contact.html" class="btn btn-outline btn-outline-sales">
-                Build yours
-              </a>
-            </div>
-          </div>
+
+            <h2>Business Impact</h2>
+            <ul>
+                <li><strong>Real‑Time Visibility:</strong> Immediate access to critical business metrics</li>
+                <li><strong>Faster Decisions:</strong> Reduced reporting time from days to minutes</li>
+                <li><strong>Data Accuracy:</strong> Single source of truth for all business units</li>
+                <li><strong>Operational Efficiency:</strong> Automated reporting and data consolidation</li>
+            </ul>
         </div>
 
-        <!-- Receivables Dashboard Card -->
-        <div class="dashboard-card">
-          <div class="dashboard-card-inner">
-            <div class="dashboard-card-content">
-              <div class="badge badge-finance">
-                <i class="fas fa-credit-card" aria-hidden="true"></i>
-                FINANCIAL VISIBILITY
-              </div>
-              <h2 class="dashboard-card-title">Receivables Dashboard</h2>
-              <div class="dashboard-details">
-                <p><strong>Challenge:</strong> Difficulty tracking overdue receivables.</p>
-                <p><strong>Approach:</strong> Receivables aging and credit monitoring dashboards.</p>
-                <p><strong>Outcome:</strong> Improved cash-flow visibility and collections management.</p>
-              </div>
-              <a href="../portfolio/receivables-dashboard.html" class="link-arrow link-finance">
-                View detailed case study
-                <i class="fas fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-            <div class="dashboard-card-visual">
-              <div class="visual-placeholder visual-finance">
-                <i class="fas fa-file-invoice-dollar" aria-hidden="true"></i>
-                <span>Aging report</span>
-              </div>
-              <a href="../contact.html" class="btn btn-outline btn-outline-finance">
-                Improve collections
-              </a>
-            </div>
-          </div>
-        </div>
+        <!-- Sidebar -->
+        <aside class="sidebar" data-reveal data-delay="100">
+            <h3>Dashboard Suite Overview</h3>
+            <p><strong>Total Dashboards:</strong> 5</p>
+            <p><strong>Business Units:</strong> Sales, HR, Production, Finance</p>
+            <p><strong>Tools Used:</strong> Microsoft Excel, Power Query, VBA</p>
 
-        <!-- HR Analytics Dashboard Card -->
-        <div class="dashboard-card">
-          <div class="dashboard-card-inner">
-            <div class="dashboard-card-content">
-              <div class="badge badge-hr">
-                <i class="fas fa-users" aria-hidden="true"></i>
-                WORKFORCE INSIGHTS
-              </div>
-              <h2 class="dashboard-card-title">HR Analytics Dashboard</h2>
-              <div class="dashboard-details">
-                <p><strong>Challenge:</strong> Limited visibility into workforce trends.</p>
-                <p><strong>Approach:</strong> Workforce analytics dashboard integrating HR metrics.</p>
-                <p><strong>Outcome:</strong> Better HR planning and workforce monitoring.</p>
-              </div>
-              <a href="../portfolio/hr-dashboard.html" class="link-arrow link-hr">
-                View detailed case study
-                <i class="fas fa-arrow-right" aria-hidden="true"></i>
-              </a>
+            <div class="metric-highlight">
+                <span>80%</span>
+                <span class="metric-label">Time Saved on Reporting</span>
             </div>
-            <div class="dashboard-card-visual">
-              <div class="visual-placeholder visual-hr">
-                <i class="fas fa-user-chart" aria-hidden="true"></i>
-                <span>HR metrics</span>
-              </div>
-              <a href="../contact.html" class="btn btn-outline btn-outline-hr">
-                Optimize workforce
-              </a>
+            <div class="metric-highlight">
+                <span>95%</span>
+                <span class="metric-label">Data Accuracy Improvement</span>
             </div>
-          </div>
-        </div>
 
-        <!-- Production Dashboard Card -->
-        <div class="dashboard-card">
-          <div class="dashboard-card-inner">
-            <div class="dashboard-card-content">
-              <div class="badge badge-operations">
-                <i class="fas fa-industry" aria-hidden="true"></i>
-                OPERATIONS MONITORING
-              </div>
-              <h2 class="dashboard-card-title">Production Dashboard</h2>
-              <div class="dashboard-details">
-                <p><strong>Challenge:</strong> Fragmented operational reporting.</p>
-                <p><strong>Approach:</strong> Production monitoring dashboards tracking output and efficiency.</p>
-                <p><strong>Outcome:</strong> Improved operational visibility.</p>
-              </div>
-              <a href="../portfolio/production-dashboard.html" class="link-arrow link-operations">
-                View detailed case study
-                <i class="fas fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-            <div class="dashboard-card-visual">
-              <div class="visual-placeholder visual-operations">
-                <i class="fas fa-gauge-high" aria-hidden="true"></i>
-                <span>OEE dashboard</span>
-              </div>
-              <a href="../contact.html" class="btn btn-outline btn-outline-operations">
-                Boost efficiency
-              </a>
-            </div>
-          </div>
-        </div>
+            <h4>Services Provided</h4>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Dashboard Development</li>
+                <li><i class="fas fa-check-circle"></i> Data Visualization</li>
+                <li><i class="fas fa-check-circle"></i> KPI Design</li>
+                <li><i class="fas fa-check-circle"></i> Training & Support</li>
+            </ul>
 
-        <!-- CTA Section -->
-        <div class="cta-dashboard">
-          <div class="cta-shape cta-shape-1"></div>
-          <div class="cta-shape cta-shape-2"></div>
-          
-          <div class="cta-content">
-            <div class="cta-badge">
-              <i class="fas fa-bolt" aria-hidden="true"></i>
-              EXECUTIVE DASHBOARD SOLUTIONS
-            </div>
-            
-            <h2 class="cta-title">
-              Ready to unlock<br>
-              real-time business visibility?
-            </h2>
-            
-            <p class="cta-text">
-              We design modern executive dashboards that bring together your most important business metrics into one powerful, decision-ready view.
-            </p>
-            
-            <div class="cta-buttons">
-              <a href="../contact.html" class="btn btn-primary">
-                Discuss Your Dashboard Needs
-                <i class="fas fa-arrow-right" aria-hidden="true"></i>
-              </a>
-              <a href="../portfolio.html" class="btn btn-secondary">
-                Explore Case Studies
-              </a>
-            </div>
-          </div>
-        </div>
-
-      </div>
+            <a href="/contact.html" class="btn btn-primary" style="width:100%; text-align:center;">Build Your Dashboard</a>
+        </aside>
     </section>
-  </main>
 
+    <!-- Related Projects -->
+    <section class="section related-posts-section bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Related Projects</h2>
+                <p class="section-subtitle">Explore individual dashboard case studies</p>
+            </div>
+            <div class="related-posts-grid">
+                <div class="related-post-card" data-reveal>
+                    <div class="related-post-image"><i class="fas fa-funnel-dollar"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Data Analysis</span>
+                        <h4 class="related-post-title">Sales Funnel & Revenue Dashboard</h4>
+                        <a href="/portfolio/sales-funnel-dashboard.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="related-post-card" data-reveal data-delay="100">
+                    <div class="related-post-image"><i class="fas fa-users"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Data Analysis</span>
+                        <h4 class="related-post-title">HR Analytics Dashboard</h4>
+                        <a href="/portfolio/hr-dashboard.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="related-post-card" data-reveal data-delay="200">
+                    <div class="related-post-image"><i class="fas fa-industry"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Data Analysis</span>
+                        <h4 class="related-post-title">Production Efficiency Dashboard</h4>
+                        <a href="/portfolio/production-dashboard.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <div id="footer-container"></div>
-  
-  <button id="backToTop" class="back-to-top" aria-label="Back to top">
-    <i class="fas fa-arrow-up" aria-hidden="true"></i>
-  </button>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript Files -->
     <script src="../assets/js/header-footer.js" defer></script>
     <script src="../assets/js/animations.js" defer></script>
     <script src="../assets/js/main.js" defer></script>

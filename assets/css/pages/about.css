@@ -1,0 +1,277 @@
+/* ============================================
+   ABOUT PAGE UNIQUE
+   ============================================ */
+
+.purpose-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+    margin: var(--space-xl) 0;
+}
+.purpose-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+    color: var(--dark-gray);
+}
+.purpose-quote {
+    margin: var(--space-lg) 0;
+    padding-left: var(--space-lg);
+    border-left: 4px solid var(--primary-orange);
+}
+.purpose-quote blockquote p {
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--dark-blue);
+    line-height: 1.5;
+    margin-bottom: var(--space-xs);
+}
+.purpose-quote cite {
+    font-style: normal;
+    color: var(--medium-gray);
+    font-weight: 500;
+}
+.purpose-image {
+    position: relative;
+    height: 440px;
+}
+.image-frame {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--light-blue) 0%, rgba(255,255,255,1) 100%);
+    border-radius: var(--radius-xl);
+    position: relative;
+    overflow: hidden;
+}
+.floating-element {
+    position: absolute;
+    border-radius: 20px;
+    background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+    opacity: 0.8;
+    animation: aboutFloatRotate 12s ease-in-out infinite;
+}
+.element-1 {
+    width: 119px;
+    height: 119px;
+    top: 20%;
+    left: 11%;
+}
+.element-2 {
+    width: 140px;
+    height: 150px;
+    bottom: 12%;
+    right: 25%;
+    background: linear-gradient(135deg, var(--primary-orange), #ffc061);
+    animation: aboutFloatRotate 12s ease-in-out infinite reverse;
+}
+.element-3 {
+    width: 80px;
+    height: 80px;
+    top: 40%;
+    right: 19%;
+    background: linear-gradient(135deg, var(--primary-green), #086d0a);
+    animation: aboutFloatRotate 11s ease-in-out infinite;
+}
+
+@keyframes aboutFloatRotate {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-20px) rotate(120deg); }
+    66% { transform: translateY(20px) rotate(240deg); }
+}
+
+/* Intent Section */
+.intent-section {
+    padding: var(--space-xl) 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    position: relative;
+    overflow: hidden;
+}
+.intent-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+    max-width: 920px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    align-items: start;
+}
+.intent-card {
+    text-align: center;
+    padding: var(--space-sm) var(--space-md);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08), 0 6px 12px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.5);
+}
+.intent-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 40px 60px rgba(0,0,0,0.12);
+}
+.mission-card {
+    border-top: 4px solid var(--primary-blue);
+}
+.vision-card {
+    border-top: 4px solid #07a721;
+}
+.intent-icon {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: var(--space-md) auto;
+}
+.mission-card .intent-icon {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    box-shadow: 0 10px 20px rgba(37,99,235,0.3);
+}
+.vision-card .intent-icon {
+    background: linear-gradient(135deg, #87e47f 0%, #0c6113 100%);
+    box-shadow: 0 10px 20px rgba(19,234,12,0.3);
+}
+.intent-icon svg {
+    width: 50px;
+    height: 50px;
+    fill: white;
+}
+.intent-card h3 {
+    font-size: 2.2rem;
+    margin-bottom: var(--space-md);
+}
+.mission-card h3 { color: var(--primary-blue); }
+.vision-card h3 { color: #07aa15; }
+.intent-card p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--dark-gray);
+    margin-bottom: 3rem;
+    font-weight: 500;
+}
+
+/* Values Section */
+.values-section {
+    padding: var(--space-xl);
+    background: var(--light-blue);
+}
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+}
+.value-item {
+    padding: var(--space-xl) var(--space-lg);
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    position: relative;
+    transition: all var(--transition-medium);
+    box-shadow: var(--shadow-sm);
+}
+.value-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+.value-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba(4,85,191,0.1);
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-md);
+    line-height: 1;
+}
+.value-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-md);
+    color: var(--dark-blue);
+    padding-right: 40px;
+}
+.value-item p {
+    color: var(--medium-gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* Approach Section */
+.approach-content {
+    color: var(--white);
+}
+.approach-features {
+    margin-top: var(--space-lg);
+}
+.feature {
+    display: flex;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+    align-items: flex-start;
+}
+.feature-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.feature-text h4 {
+    margin-bottom: var(--space-xs);
+    font-size: 1.1rem;
+    color: var(--white);
+}
+.feature-text p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.9);
+}
+
+.circular-chart {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xl);
+    flex-wrap: wrap;
+}
+.chart-item {
+    text-align: center;
+}
+.chart-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: conic-gradient(var(--primary-orange) calc(var(--percentage)*1%), rgba(255,255,255,0.1) 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0 auto var(--space-md);
+}
+.chart-circle::before {
+    content: '';
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    background: var(--dark-blue);
+    border-radius: 50%;
+}
+.chart-circle span {
+    position: relative;
+    z-index: 2;
+    color: var(--white);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+.chart-item p {
+    color: rgba(255,255,255,0.9);
+    font-size: 0.95rem;
+    margin: 0;
+    max-width: 150px;
+}

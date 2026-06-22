@@ -3,84 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sales Funnel & Revenue Dashboard | Consulting Crew</title>
-    <meta name="description" content="Real‑time sales performance monitoring from inquiry to conversion, including revenue and goal tracking.">
+    <title>Sales Funnel & Revenue Dashboard — Pipeline Tracking | Consulting Crew</title>
+    <meta name="description" content="Real‑time pipeline tracking from inquiry to conversion, with revenue, profit, and goal attainment always in focus.">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/portfolio-case-studies.css">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
 </head>
-<body>
-    <div id="header-container"></div>
-    <div class="breadcrumbs"><div class="container"><ol><li><a href="../index.html">Home</a></li><li><a href="../portfolio.html">Portfolio</a></li><li class="current">Sales Funnel Dashboard</li></ol></div></div>
 
+<body>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="../assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="loading-text">Loading ...</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="/portfolio.html">Portfolio</a></li>
+                <li><a href="/service-data-intelligence.html">Data & Intelligence</a></li>
+                <li class="current">Sales Funnel Dashboard</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Case Study Hero -->
     <section class="case-study-hero">
         <div class="container">
             <h1>Sales Funnel & Revenue Dashboard</h1>
-            <p>Visualizing sales progression, conversion rates, and goal attainment to support data‑driven decisions.</p>
+            <p>Real‑time pipeline tracking from inquiry to conversion, with revenue, profit, and goal attainment always in focus.</p>
         </div>
     </section>
 
+    <!-- Case Study Content -->
     <section class="container case-study-layout">
-        <div class="main-story">
+        <div class="main-story" data-reveal>
             <h2>Business Challenge</h2>
-            <p>Sales information was distributed across multiple reporting sources, making it difficult to monitor funnel performance and revenue progress. Leadership needed a more consolidated view.</p>
-            
+            <p>Sales teams lacked visibility into pipeline health and conversion metrics. Manual tracking made it difficult to identify bottlenecks, forecast accurately, or measure team performance against goals.</p>
+
             <h2>Consulting Crew Approach</h2>
-            <p>Consulting Crew developed a dashboard that visualized sales progression from inquiry to conversion.</p>
+            <p>We developed a comprehensive sales dashboard that provides end‑to‑end visibility into the sales funnel.</p>
             <ul>
-                <li>Funnel stage tracking</li>
-                <li>Revenue visibility</li>
-                <li>Conversion monitoring</li>
-                <li>Goal tracking</li>
-                <li>Monthly performance indicators</li>
+                <li>Pipeline tracking from inquiry to conversion</li>
+                <li>Revenue and profit analytics</li>
+                <li>Goal attainment monitoring</li>
+                <li>Sales team performance metrics</li>
+                <li>Conversion rate analysis</li>
             </ul>
-            
+
+            <h2>Key Dashboard Features</h2>
+            <ul>
+                <li><strong>Funnel Visualization:</strong> Clear view of deal stages and conversion rates</li>
+                <li><strong>Revenue Forecasting:</strong> Predictive analytics based on pipeline health</li>
+                <li><strong>Team Performance:</strong> Individual and team goal tracking</li>
+                <li><strong>Deal Velocity:</strong> Time‑to‑close metrics</li>
+                <li><strong>Win/Loss Analysis:</strong> Insights into deal outcomes</li>
+                <li><strong>Interactive Filters:</strong> Drill down by region, product, or sales rep</li>
+            </ul>
+
             <h2>Business Impact</h2>
             <ul>
-                <li>Improved understanding of sales progression</li>
-                <li>Supported performance monitoring</li>
-                <li>Simplified review of revenue metrics</li>
-                <li>Enabled quicker access to sales trends</li>
+                <li><strong>Improved Forecasting:</strong> More accurate revenue predictions</li>
+                <li><strong>Faster Decisions:</strong> Real‑time visibility into pipeline health</li>
+                <li><strong>Team Performance:</strong> Clear visibility into individual contributions</li>
+                <li><strong>Bottleneck Identification:</strong> Quick identification of funnel issues</li>
             </ul>
-            
-            <div class="client-quote">
-                “The dashboard made it easier to understand where sales activity was progressing.”
-            </div>
         </div>
-        
-        <aside class="sidebar">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" data-reveal data-delay="100">
             <h3>Project Details</h3>
-            <p><strong>Client:</strong> B2B Distributor</p>
-            <p><strong>Tools:</strong> Microsoft Excel</p>
-            <div class="metric-highlight">11.6% <span class="metric-label">Conversion Rate</span></div>
-            <div class="metric-highlight">$4,915 <span class="metric-label">Monthly Revenue</span></div>
+            <p><strong>Client:</strong> Sales Organization</p>
+            <p><strong>Industry:</strong> B2B Sales</p>
+            <p><strong>Location:</strong> Pakistan</p>
+
+            <div class="metric-highlight">
+                <span>30%</span>
+                <span class="metric-label">Improvement in Forecast Accuracy</span>
+            </div>
+            <div class="metric-highlight">
+                <span>25%</span>
+                <span class="metric-label">Faster Deal Closure</span>
+            </div>
+
             <h4>Services Provided</h4>
             <ul>
-                <li><i class="fas fa-check-circle"></i> Sales Analytics</li>
-                <li><i class="fas fa-check-circle"></i> Pipeline Tracking</li>
-                <li><i class="fas fa-check-circle"></i> Excel Dashboard Development</li>
+                <li><i class="fas fa-check-circle"></i> Dashboard Development</li>
+                <li><i class="fas fa-check-circle"></i> Pipeline Analytics</li>
+                <li><i class="fas fa-check-circle"></i> KPI Design</li>
+                <li><i class="fas fa-check-circle"></i> Training & Support</li>
             </ul>
+
+            <a href="/contact.html" class="btn btn-primary" style="width:100%; text-align:center;">Build Your Dashboard</a>
         </aside>
     </section>
 
-    <section class="container case-study-gallery">
-        <img src="../assets/images/dashboards/sales_funnel_dashboard.jpg" alt="Sales Funnel Dashboard">
+    <!-- Gallery -->
+    <section class="container case-study-gallery" data-reveal>
+        <img src="../assets/images/portfolio/sales-dashboard.jpg" alt="Sales Funnel Dashboard" loading="lazy">
     </section>
 
-<!-- Footer -->
-<div id="footer-container"></div>
+    <!-- Related Projects -->
+    <section class="section related-posts-section bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Related Projects</h2>
+                <p class="section-subtitle">Explore similar data intelligence case studies</p>
+            </div>
+            <div class="related-posts-grid">
+                <div class="related-post-card" data-reveal>
+                    <div class="related-post-image"><i class="fas fa-users"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Data Analysis</span>
+                        <h4 class="related-post-title">HR Analytics Dashboard</h4>
+                        <a href="/portfolio/hr-dashboard.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="related-post-card" data-reveal data-delay="100">
+                    <div class="related-post-image"><i class="fas fa-industry"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Data Analysis</span>
+                        <h4 class="related-post-title">Production Efficiency Dashboard</h4>
+                        <a href="/portfolio/production-dashboard.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Back to Top Button -->
-<button class="back-to-top" id="backToTop" aria-label="Back to top">
-    <i class="fas fa-arrow-up"></i>
-</button>
+    <!-- Footer -->
+    <div id="footer-container"></div>
 
-<!-- JavaScript Files -->
-<script src="assets/js/header-footer.js" defer></script>
-<script src="assets/js/animations.js" defer></script>
-<script src="assets/js/main.js" defer></script>
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
+    <!-- JavaScript Files -->
+    <script src="../assets/js/header-footer.js" defer></script>
+    <script src="../assets/js/animations.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
 </body>
 </html>

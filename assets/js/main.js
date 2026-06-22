@@ -16,7 +16,6 @@ const Utils = {
       }
     };
   },
-
   debounce(fn, delay = 200) {
     let timer;
     return (...args) => {
@@ -29,9 +28,8 @@ const Utils = {
 /* ===============================
    TOAST
 ================================= */
-function showToast(message, type = 'success') {
+function showToast(message, type = 'success', duration = 3000) {
   let container = document.querySelector('.toast-container');
-
   if (!container) {
     container = document.createElement('div');
     container.className = 'toast-container';
@@ -41,6 +39,7 @@ function showToast(message, type = 'success') {
   const toast = document.createElement('div');
   toast.className = `toast toast-${type}`;
   toast.textContent = message;
+  toast.setAttribute('role', 'alert');
 
   container.appendChild(toast);
 
@@ -49,37 +48,50 @@ function showToast(message, type = 'success') {
   setTimeout(() => {
     toast.classList.remove('show');
     toast.addEventListener('transitionend', () => toast.remove(), { once: true });
-  }, 3000);
+  }, duration);
 }
 
 /* ===============================
    FILTERS
 ================================= */
 function initFilters() {
-  document.addEventListener('click', e => {
+  document.addEventListener('click', function(e) {
     const btn = e.target.closest('.filter-btn');
     if (!btn) return;
 
-    const container = btn.closest('[data-filter-group], .filter-section');
-    if (!container) return;
+    // Find the wrapper
+    const wrapper = btn.closest('[data-filter-wrapper]');
+    if (!wrapper) {
+      console.warn('Filter button outside data-filter-wrapper');
+      return;
+    }
 
     const filter = btn.dataset.filter;
-    const itemsSelector = container.dataset.items || '.filter-item';
-    const wrapper = container.closest('[data-filter-wrapper]') || document;
-
+    const itemsSelector = wrapper.dataset.items || '.filter-item';
     const items = wrapper.querySelectorAll(itemsSelector);
 
-    container.querySelectorAll('.filter-btn').forEach(b => {
+    // Update active button
+    wrapper.querySelectorAll('.filter-btn').forEach(function(b) {
       b.classList.remove('active');
     });
-
     btn.classList.add('active');
 
-    items.forEach(item => {
+    // Filter items
+    items.forEach(function(item) {
       const category = item.dataset.category;
       const visible = filter === 'all' || category === filter;
 
+      // Method 1: Toggle class
       item.classList.toggle('filtered-out', !visible);
+
+      // Method 2: Direct style (backup)
+      if (!visible) {
+        item.style.display = 'none';
+      } else {
+        item.style.display = '';
+      }
+
+      // Accessibility
       item.setAttribute('aria-hidden', !visible);
     });
   });
@@ -93,16 +105,11 @@ function initLoadingScreen() {
   if (!screen) return;
 
   let hidden = false;
-
   const hide = () => {
     if (hidden) return;
     hidden = true;
-
     screen.classList.add('hidden');
-
-    setTimeout(() => {
-      screen.style.display = 'none';
-    }, 500);
+    setTimeout(() => { screen.style.display = 'none'; }, 500);
   };
 
   window.addEventListener('load', () => setTimeout(hide, 800));
@@ -137,22 +144,25 @@ function initFAQ() {
 
     const item = trigger.closest('.faq-item');
     const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('active');
 
-    const open = item.classList.contains('active');
-
+    // Close others
     item.parentElement.querySelectorAll('.faq-item.active').forEach(el => {
       if (el !== item) {
         el.classList.remove('active');
         el.querySelector('.faq-answer').style.maxHeight = null;
+        el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
       }
     });
 
-    if (open) {
+    if (isOpen) {
       item.classList.remove('active');
       answer.style.maxHeight = null;
+      trigger.setAttribute('aria-expanded', 'false');
     } else {
       item.classList.add('active');
       answer.style.maxHeight = answer.scrollHeight + 'px';
+      trigger.setAttribute('aria-expanded', 'true');
     }
   });
 }
@@ -164,19 +174,12 @@ function initSmoothScroll() {
   document.addEventListener('click', e => {
     const anchor = e.target.closest('a[href^="#"]');
     if (!anchor) return;
-
     const href = anchor.getAttribute('href');
     if (!href || href === '#') return;
-
     const target = document.querySelector(href);
     if (!target) return;
-
     e.preventDefault();
-
-    target.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 }
 
@@ -184,22 +187,20 @@ function initSmoothScroll() {
    FORMS
 ================================= */
 function initForms() {
-
-  const validateField = field => {
+  const validateField = (field) => {
     const error = document.getElementById(field.id + 'Error');
     if (!error) return true;
 
     let valid = true;
     let message = '';
-
     const value = field.value.trim();
 
-    if (!value) {
+    if (field.hasAttribute('required') && !value) {
       valid = false;
       message = 'Required field';
     }
 
-    if (valid && field.type === 'email') {
+    if (valid && field.type === 'email' && value) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(value)) {
         valid = false;
@@ -209,12 +210,11 @@ function initForms() {
 
     field.classList.toggle('error', !valid);
     error.textContent = message;
-
     return valid;
   };
 
   document.querySelectorAll('form').forEach(form => {
-
+    // Real-time validation
     form.querySelectorAll('input, textarea, select').forEach(field => {
       field.addEventListener('input', () => validateField(field));
     });
@@ -223,7 +223,6 @@ function initForms() {
       e.preventDefault();
 
       let valid = true;
-
       form.querySelectorAll('input, textarea, select').forEach(field => {
         if (!validateField(field)) valid = false;
       });
@@ -233,19 +232,27 @@ function initForms() {
       const btn = form.querySelector('button[type="submit"]');
       if (btn) btn.disabled = true;
 
+      // Simulate async submission
       await new Promise(r => setTimeout(r, 1200));
 
       form.reset();
 
-      if (btn) btn.disabled = false;
+      // Show success message
+      const successDiv = form.parentElement.querySelector('.form-success');
+      if (successDiv) {
+        successDiv.style.display = 'block';
+        successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        showToast('Form submitted successfully');
+      }
 
-      showToast('Form submitted successfully');
+      if (btn) btn.disabled = false;
     });
   });
 }
 
 /* ===============================
-   LAZY LOAD
+   LAZY LOAD (if using data-src)
 ================================= */
 function initLazyLoad() {
   if (!('IntersectionObserver' in window)) return;
@@ -253,24 +260,17 @@ function initLazyLoad() {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-
       const img = entry.target;
       const src = img.dataset.src;
-
       if (src) {
         img.src = src;
         img.onload = () => img.classList.add('loaded');
       }
-
       observer.unobserve(img);
     });
-  }, {
-    rootMargin: '100px'
-  });
+  }, { rootMargin: '100px' });
 
-  document.querySelectorAll('img[data-src]').forEach(img => {
-    observer.observe(img);
-  });
+  document.querySelectorAll('img[data-src]').forEach(img => observer.observe(img));
 }
 
 /* ===============================
@@ -294,7 +294,6 @@ function initRipple() {
     ripple.style.top = `${e.clientY - rect.top - size/2}px`;
 
     btn.appendChild(ripple);
-
     ripple.addEventListener('animationend', () => ripple.remove());
   });
 }

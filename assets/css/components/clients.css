@@ -1,0 +1,75 @@
+/* ============================================
+   CLIENT LOGOS
+   ============================================ */
+.clients {
+    overflow: hidden;
+    background: var(--white);
+}
+
+/* ----- Slider (Home page) ----- */
+.clients__slider {
+    display: flex;
+    gap: var(--space-lg);
+    overflow-x: auto;
+    padding: var(--space-md) 0;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+}
+.clients__slider::-webkit-scrollbar {
+    display: none;
+}
+
+.clients__item {
+    flex: 0 0 180px;
+    scroll-snap-align: start;
+    padding: var(--space-sm);
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 140px;
+    border: 1px solid var(--light-gray);
+    transition: all var(--transition-fast);
+}
+.clients__item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-blue);
+}
+.clients__item img {
+    width: 100%;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: var(--space-xs);
+}
+.clients__item span {
+    font-size: 0.85rem;
+    color: var(--medium-gray);
+    text-align: center;
+}
+
+/* ----- Grid (Portfolio page) ----- */
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+}
+.clients-grid .clients__item {
+    flex: none;
+    min-height: 100px;
+}
+
+@media (max-width: 992px) {
+    .clients-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 600px) {
+    .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

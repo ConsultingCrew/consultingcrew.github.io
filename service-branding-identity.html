@@ -5,87 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Branding & Identity Services | Consulting Crew</title>
     <meta name="description" content="Build a strong, cohesive brand identity that resonates with your target audience. Comprehensive branding solutions including strategy, design, and positioning.">
-    
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <!-- Styles -->
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
- 
+    <link rel="stylesheet" href="/assets/css/main.css">
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/images/logo.png">
-    
+    <link rel="icon" type="image/svg+xml" href="/assets/images/logo.png">
 </head>
 
 <body>
-  <!-- Loading Animation -->
-  <div class="loading-screen" id="loadingScreen">
-    <div class="loading-content">
-      <div class="loading-logo">
-        <img src="assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
-      </div>
-      <div class="loading-progress">
-        <div class="progress-bar"></div>
-      </div>
-      <p class="loading-text">Loading ...</p>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="/assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="loading-text">Loading ...</p>
+        </div>
     </div>
-  </div>
 
     <!-- Header -->
     <div id="header-container"></div>
-    
+
     <!-- Breadcrumbs -->
     <div class="breadcrumbs">
         <div class="container">
             <ol>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/services.html">Services</a></li>
                 <li class="current">Branding & Identity</li>
             </ol>
         </div>
     </div>
-    
-    <!-- Service Hero -->
- <section class="hero about-hero">
-            <img src="assets/images/hero/h_branding_pexels.jpeg" class="hero-bg" alt="Background">
-            <div class="hero-overlay"></div>
 
-        <div class="container">
-            <div class="service-hero">
-                <h1 class="hero-title animate-left">Branding & Identity</h1>
-                <p class="hero-subtitle animate-left" style="animation-delay: 0.2s">Build a strong, cohesive brand identity that resonates</p>
-
-            </div>
+    <!-- Hero -->
+    <section class="hero hero--dark">
+        <img src="/assets/images/hero/h_branding_pexels.jpeg" class="hero__bg" alt="Branding & Identity services">
+        <div class="hero__overlay"></div>
+        <div class="hero__container">
+            <h1 class="hero__title">Branding & Identity</h1>
+            <p class="hero__subtitle">Build a strong, cohesive brand identity that resonates</p>
         </div>
     </section>
-    
-    <!-- Service Overview -->
-    <section class="section intro-section">
+
+    <!-- Overview -->
+    <section class="section">
         <div class="container">
+            <div class="intro intro--wide">
                 <h2>Crafting Brands That Connect and Convert</h2>
                 <p>Create a memorable brand that connects with your audience and stands out in the market. Our comprehensive branding solutions help you establish a strong identity that reflects your values and drives business growth.</p>
                 <p>Your brand is more than just a logo - it's the complete experience your customers have with your business. We help you build a cohesive brand identity that tells your story, connects with your audience, and drives business success.</p>
                 <p>From strategic positioning to visual design and messaging, we create brands that are memorable, meaningful, and market-ready.</p>
+            </div>
         </div>
-
     </section>
-    
-    <!-- Sub-Services Section -->
-    <section class="capabilities-section">
+
+    <!-- Solutions -->
+    <section class="section capabilities-section">
         <div class="container">
             <div class="section-header text-center">
                 <h2 class="section-title">Our Branding & Identity Solutions</h2>
                 <p class="section-subtitle">Comprehensive services to build and strengthen your brand</p>
             </div>
-            
-            <div class="capabilities-grid">
 
-                <!-- Visual Identity -->
-                <div class="capability-card">
-                    <div class="capability-icon">
-                        <i class="fas fa-brush"></i>
-                    </div>
+            <div class="grid grid-3">
+                <div class="capability-card" data-reveal>
+                    <div class="capability-icon"><i class="fas fa-brush"></i></div>
                     <h3>Logo & Visual Identity Design</h3>
                     <p>Create distinctive visual identities that communicate your brand essence and resonate with your audience.</p>
                     <ul class="capability-features">
@@ -97,12 +89,9 @@
                         <li><strong>Photography Style:</strong> Define visual photography guidelines</li>
                     </ul>
                 </div>
-                
-                <!-- Brand Guidelines -->
-                <div class="capability-card">
-                    <div class="capability-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
+
+                <div class="capability-card" data-reveal data-delay="100">
+                    <div class="capability-icon"><i class="fas fa-book"></i></div>
                     <h3>Brand Guideline Creation</h3>
                     <p>Comprehensive brand guidelines that ensure consistent application of your brand across all touchpoints.</p>
                     <ul class="capability-features">
@@ -114,13 +103,9 @@
                         <li><strong>Tone of Voice Guide:</strong> Brand communication standards</li>
                     </ul>
                 </div>
-    
 
-                <!-- Stationery Design -->
-                <div class="capability-card">
-                    <div class="capability-icon">
-                        <i class="fas fa-print"></i>
-                    </div>
+                <div class="capability-card" data-reveal data-delay="200">
+                    <div class="capability-icon"><i class="fas fa-print"></i></div>
                     <h3>Brand Stationery & Collateral</h3>
                     <p>Professional business stationery and marketing collateral that reinforces your brand identity.</p>
                     <ul class="capability-features">
@@ -135,117 +120,93 @@
             </div>
         </div>
     </section>
-    
-    <!-- Benefits Section -->
-    <section class="service-benefits">
+
+    <!-- Benefits -->
+    <section class="section service-benefits bg-light">
         <div class="container">
             <div class="section-header text-center">
                 <h2 class="section-title">Benefits of Strong Branding</h2>
                 <p class="section-subtitle">How effective branding transforms your business</p>
             </div>
-            
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <div class="benefit-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
+
+            <div class="grid grid-3">
+                <div class="benefit-card card" data-reveal>
+                    <div class="benefit-card__icon"><i class="fas fa-star"></i></div>
                     <h3>Market Differentiation</h3>
                     <p>Stand out from competitors with a unique brand identity that captures attention and builds recognition.</p>
                 </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
+
+                <div class="benefit-card card" data-reveal data-delay="100">
+                    <div class="benefit-card__icon"><i class="fas fa-heart"></i></div>
                     <h3>Customer Loyalty</h3>
                     <p>Build emotional connections with customers that lead to increased loyalty, advocacy, and repeat business.</p>
                 </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
+
+                <div class="benefit-card card" data-reveal data-delay="200">
+                    <div class="benefit-card__icon"><i class="fas fa-chart-line"></i></div>
                     <h3>Business Value</h3>
                     <p>Increase your company's value through brand equity that supports premium pricing and business growth.</p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Proven Results Section -->
+
+    <!-- Case Studies -->
     <section class="section proven-results">
         <div class="container">
             <div class="section-header text-center">
                 <h2 class="section-title">Proven Results</h2>
                 <p class="section-subtitle">Real client outcomes from our branding & identity work</p>
             </div>
-            <div class="case-studies-grid">
-                <!-- Dadex -->
-                <div class="case-study-card card">
-                    <div class="case-study-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
+
+            <div class="grid grid-3">
+                <div class="case-study-card card" data-reveal>
+                    <div class="case-study-icon" aria-hidden="true"><i class="fas fa-building"></i></div>
                     <h3 class="case-study-title">Dadex</h3>
                     <p class="case-study-desc">Modernized a 65‑year legacy with redesigned marketing collaterals and social graphics.</p>
-                    <a href="portfolio/dadex.html" class="project-link">View Case Study →</a>
+                    <a href="/portfolio/dadex.html" class="project-link">View Case Study →</a>
                 </div>
-                <!-- Trust Way -->
-                <div class="case-study-card card">
-                    <div class="case-study-icon">
-                        <i class="fas fa-couch"></i>
-                    </div>
+                <div class="case-study-card card" data-reveal data-delay="100">
+                    <div class="case-study-icon" aria-hidden="true"><i class="fas fa-couch"></i></div>
                     <h3 class="case-study-title">Trust Way Furnishings</h3>
                     <p class="case-study-desc">Premium brand identity and stationery for a Dubai-based furniture retailer.</p>
-                    <a href="portfolio/trust-way.html" class="project-link">View Case Study →</a>
+                    <a href="/portfolio/trust-way.html" class="project-link">View Case Study →</a>
                 </div>
-                <!-- SES-Chem -->
-                <div class="case-study-card card">
-                    <div class="case-study-icon">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <h3 class="case-study-title">SES ‑Chem</h3>
-                    <p class="case-study-desc">Dynamic “Trading Athlete” logo and stationery system for chemical trading.</p>
-                    <a href="portfolio/ses-chem.html" class="project-link">View Case Study →</a>
-                </div>
-                <!-- One Stop Supplies -->
-                <div class="case-study-card card">
-                    <div class="case-study-icon">
-                        <i class="fas fa-file-powerpoint"></i>
-                    </div>
-                    <h3 class="case-study-title">One Stop Supplies</h3>
-                    <p class="case-study-desc">Brand identity and high‑impact corporate presentations that won bigger accounts.</p>
-                    <a href="portfolio/one-stop-supplies.html" class="project-link">View Case Study →</a>
+                <div class="case-study-card card" data-reveal data-delay="200">
+                    <div class="case-study-icon" aria-hidden="true"><i class="fas fa-flask"></i></div>
+                    <h3 class="case-study-title">SES‑Chem</h3>
+                    <p class="case-study-desc">Dynamic "Trading Athlete" logo and stationery system for chemical trading.</p>
+                    <a href="/portfolio/ses-chem.html" class="project-link">View Case Study →</a>
                 </div>
             </div>
         </div>
     </section>
-    <!-- End Proven Results -->
-    
-    <!-- CTA Section -->
-<section class="section cta bg-gradient">
-        <img src="assets/images/featured_art.jpg" class="cta-bg" alt="Background" loading="lazy">
-        <div class="cta-overlay"></div>
-        <div class="container">
-            <div class="cta-content">
-                <div class="cta-text">
-                    <h2 class="cta-title">Ready to Build a Brand That Stands Out?</h2>
-                    <p class="cta-subtitle">Let's discuss how our Branding & Identity services can create a powerful brand that connects with your audience and drives business success.</p>
-                </div>
-                <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-large btn-orange">Start Your Brand Journey</a>
-                    <a href="services.html" class="btn btn-large btn-secondary">View All Services</a>
-                </div>
+
+    <!-- CTA -->
+    <section class="cta cta--orange">
+        <img src="/assets/images/featured_art.jpg" class="cta__bg" alt="Background" loading="lazy">
+        <div class="cta__overlay"></div>
+        <div class="cta__container">
+            <h2 class="cta__title">Ready to Build a Brand That Stands Out?</h2>
+            <p class="cta__subtitle">Let's discuss how our Branding & Identity services can create a powerful brand that connects with your audience and drives business success.</p>
+            <div class="cta__buttons">
+                <a href="/contact.html" class="btn btn-orange">Start Your Brand Journey</a>
+                <a href="/services.html" class="btn btn-secondary">View All Services</a>
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <div id="footer-container"></div>
-    
-    <!-- JavaScript Files -->
-    <script src="assets/js/header-footer.js" defer></script>
-    <script src="assets/js/animations.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript Files -->
+    <script src="/assets/js/header-footer.js" defer></script>
+    <script src="/assets/js/animations.js" defer></script>
+    <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

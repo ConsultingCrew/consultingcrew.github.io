@@ -1,72 +1,7 @@
-/* ===============================
-   PORTFOLIO & CASE STUDY PAGES
-   ============================= */
-
-.portfolio-item[data-category="data"] {
-    border-top: 4px solid var(--dark-blue);
-}
-.portfolio-item[data-category="data"] .portfolio-image {
-    background-color: var(--light-blue);
-}
-.portfolio-item[data-category="data"] .project-category,
-.portfolio-item[data-category="data"] .project-link {
-    color: var(--dark-blue);
-    background-color: var(--light-blue);
-}
-
-.portfolio-item[data-category="logo"],
-.portfolio-item[data-category="branding"] {
-    border-top: 4px solid var(--primary-green);
-}
-.portfolio-item[data-category="logo"] .portfolio-image,
-.portfolio-item[data-category="branding"] .portfolio-image {
-    background-color: var(--light-green);
-}
-.portfolio-item[data-category="logo"] .project-category,
-.portfolio-item[data-category="branding"] .project-category,
-.portfolio-item[data-category="logo"] .project-link,
-.portfolio-item[data-category="branding"] .project-link {
-    color: var(--primary-green);
-    background-color: var(--light-green);
-}
-
-.portfolio-item[data-category="web"] {
-    border-top: 4px solid var(--primary-orange);
-}
-.portfolio-item[data-category="web"] .portfolio-image {
-    background-color: var(--light-orange);
-}
-.portfolio-item[data-category="web"] .project-category,
-.portfolio-item[data-category="web"] .project-link {
-    color: var(--primary-orange);
-    background-color: var(--light-orange);
-}
-
 /* ============================================
-   FEATURED PROJECT BADGE
+   PORTFOLIO & CASE STUDIES UNIQUE
    ============================================ */
-.portfolio-item.featured {
-    position: relative;
-    overflow: hidden;
-}
-.portfolio-item.featured::before {
-    content: "★ Featured";
-    position: absolute;
-    top: 19px;
-    right: -30px;
-    background: var(--primary-orange);
-    color: white;
-    padding: 5px 30px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transform: rotate(45deg);
-    z-index: 10;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    line-height: 1.4;
-}
-/* ---------- Portfolio Main Grid – Two‑Column Cards ---------- */
+
 .portfolio-item.card {
     display: flex;
     flex-direction: row;
@@ -82,6 +17,7 @@
     box-shadow: var(--shadow-lg);
     transform: translateY(-4px);
 }
+
 .portfolio-image {
     flex: 0 0 240px;
     display: flex;
@@ -98,15 +34,16 @@
     justify-content: center;
     font-size: 3rem;
     color: var(--dark-blue);
-    opacity: 0.9;}
-    
+    opacity: 0.9;
+}
+
 .portfolio-content {
     flex: 1;
     padding: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: center;}
-
+    justify-content: center;
+}
 .project-category {
     font-size: 0.8rem;
     text-transform: uppercase;
@@ -122,7 +59,6 @@
     align-items: center;
     background: var(--light-blue);
 }
-
 .project-title {
     font-family: var(--font-heading);
     font-size: 1.5rem;
@@ -173,7 +109,48 @@
     transform: translateX(5px);
 }
 
-/* ---------- Case Study Detail Pages ---------- */
+/* Color coding for portfolio items */
+.portfolio-item[data-category="data"] {
+    border-top: 4px solid var(--dark-blue);
+}
+.portfolio-item[data-category="data"] .portfolio-image {
+    background-color: var(--light-blue);
+}
+.portfolio-item[data-category="data"] .project-category,
+.portfolio-item[data-category="data"] .project-link {
+    color: var(--dark-blue);
+    background-color: var(--light-blue);
+}
+
+.portfolio-item[data-category="logo"],
+.portfolio-item[data-category="branding"] {
+    border-top: 4px solid var(--primary-green);
+}
+.portfolio-item[data-category="logo"] .portfolio-image,
+.portfolio-item[data-category="branding"] .portfolio-image {
+    background-color: var(--light-green);
+}
+.portfolio-item[data-category="logo"] .project-category,
+.portfolio-item[data-category="branding"] .project-category,
+.portfolio-item[data-category="logo"] .project-link,
+.portfolio-item[data-category="branding"] .project-link {
+    color: var(--primary-green);
+    background-color: var(--light-green);
+}
+
+.portfolio-item[data-category="web"] {
+    border-top: 4px solid var(--primary-orange);
+}
+.portfolio-item[data-category="web"] .portfolio-image {
+    background-color: var(--light-orange);
+}
+.portfolio-item[data-category="web"] .project-category,
+.portfolio-item[data-category="web"] .project-link {
+    color: var(--primary-orange);
+    background-color: var(--light-orange);
+}
+
+/* Case Study Detail */
 .case-study-hero {
     background: linear-gradient(135deg, var(--dark-blue) 0%, #022B5F 100%);
     color: var(--white);
@@ -192,11 +169,10 @@
     border-radius: 50%;
 }
 .case-study-hero h1 {
-    font-family: var(--font-heading);
     font-size: clamp(2rem, 4vw, 2.5rem);
     line-height: 1.2;
     margin-bottom: 15px;
-color: white;
+    color: white;
 }
 .case-study-hero p {
     opacity: 0.95;
@@ -213,7 +189,6 @@ color: white;
     align-items: start;
 }
 .main-story h2 {
-    font-family: var(--font-heading);
     font-size: 1.5rem;
     color: var(--secondary-blue);
     margin-top: 40px;
@@ -231,7 +206,9 @@ color: white;
     background: var(--primary-orange);
     border-radius: 2px;
 }
-.main-story h2:first-of-type { margin-top: 0; }
+.main-story h2:first-of-type {
+    margin-top: 0;
+}
 .main-story p {
     font-size: 1rem;
     line-height: 1.5;
@@ -250,7 +227,9 @@ color: white;
     color: var(--dark-gray);
     border-bottom: 1px solid var(--light-gray);
 }
-.main-story ul li:last-child { border-bottom: none; }
+.main-story ul li:last-child {
+    border-bottom: none;
+}
 .main-story ul li::before {
     content: '✓';
     position: absolute;
@@ -272,14 +251,11 @@ color: white;
     border: 1px solid #e0e0e0;
 }
 .sidebar h3 {
-    font-family: var(--font-heading);
     font-size: 1.4rem;
     margin-bottom: 12px;
     color: var(--dark-blue);
 }
-
 .sidebar h4 {
-    font-family: var(--font-heading);
     font-size: 1.4rem;
     margin-top: 30px;
     color: var(--dark-blue);
@@ -294,7 +270,6 @@ color: white;
     background: var(--primary-blue);
     border-radius: 2px;
 }
-
 .sidebar p {
     font-size: 0.95rem;
     color: var(--dark-gray);
@@ -326,7 +301,6 @@ color: white;
     padding: 12px;
 }
 
-/* Metrics in sidebar */
 .metric-highlight {
     display: flex;
     align-items: baseline;
@@ -335,7 +309,6 @@ color: white;
     font-weight: 700;
     color: var(--dark-blue);
     margin-bottom: 12px;
-    font-family: var(--font-heading);
 }
 .metric-label {
     font-size: 0.9rem;
@@ -343,8 +316,6 @@ color: white;
     font-weight: 400;
     font-style: italic;
 }
-
-/* Client quote in main story */
 .client-quote {
     font-style: italic;
     font-size: 1.15rem;
@@ -357,7 +328,6 @@ color: white;
     color: var(--dark-blue);
 }
 
-/* Image gallery (screenshot) */
 .case-study-gallery {
     margin-bottom: 60px;
     text-align: center;
@@ -379,10 +349,16 @@ color: white;
     font-size: 0.9rem;
 }
 
-/* ---------- Responsive ---------- */
 @media (max-width: 992px) {
     .portfolio-image {
         flex: 0 0 180px;
+    }
+    .case-study-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .sidebar {
+        position: static;
     }
 }
 @media (max-width: 768px) {
@@ -392,13 +368,6 @@ color: white;
     .portfolio-image {
         flex: 0 0 auto;
         height: 200px;
-    }
-    .case-study-layout {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    .sidebar {
-        position: static;
     }
     .case-study-hero {
         padding: 80px 0 50px;
@@ -413,8 +382,5 @@ color: white;
     }
     .case-study-hero h1 {
         font-size: 1.5rem;
-    }
-    .main-story h2 {
-        font-size: 1.2rem;
     }
 }

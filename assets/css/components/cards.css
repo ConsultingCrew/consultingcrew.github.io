@@ -1,0 +1,330 @@
+/* ============================================
+   CARDS – Unified System
+   ============================================ */
+
+/* ----- Base Card ----- */
+.card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg) var(--space-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+    height: 100%;
+}
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ----- Card Variants ----- */
+.card-light {
+    background: linear-gradient(135deg, var(--light-blue), var(--white));
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    margin: 1.5rem 0;
+}
+.card-green {
+    background: linear-gradient(135deg, var(--light-green), var(--white));
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    margin: 1.5rem 0;
+}
+.card-orange {
+    background: linear-gradient(135deg, var(--light-orange), var(--white));
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    margin: 1.5rem 0;
+}
+.card-gray {
+    background: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    margin: 1.5rem 0;
+}
+
+/* ----- Service Card ----- */
+.service-card {
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all var(--transition-medium);
+    border-top: 4px solid transparent;
+    border-radius: var(--radius-lg);
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+}
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+.service-card__icon {
+    width: 63px;
+    height: 63px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.9rem;
+    margin-bottom: var(--space-md);
+}
+.service-card__title {
+    font-size: 1.3rem;
+    margin-bottom: var(--space-sm);
+}
+.service-card__text {
+    font-size: 0.95rem;
+    color: var(--medium-gray);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+    flex-grow: 1;
+}
+.service-card__features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+}
+.service-card__tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+.service-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-weight: 600;
+    margin-top: auto;
+    transition: all var(--transition-fast);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-md);
+    background-color: transparent;
+}
+.service-card__link:hover {
+    transform: translateX(5px);
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Service card color coding (data-category) */
+.service-card[data-category="data"] {
+    border-top-color: var(--dark-blue);
+}
+.service-card[data-category="data"] .service-card__icon,
+.service-card[data-category="data"] .service-card__tag {
+    background-color: var(--light-blue);
+}
+.service-card[data-category="data"] .service-card__icon i,
+.service-card[data-category="data"] .service-card__title,
+.service-card[data-category="data"] .service-card__link {
+    color: var(--dark-blue);
+}
+
+.service-card[data-category="branding"],
+.service-card[data-category="digital"] {
+    border-top-color: var(--primary-green);
+}
+.service-card[data-category="branding"] .service-card__icon,
+.service-card[data-category="branding"] .service-card__tag,
+.service-card[data-category="digital"] .service-card__icon,
+.service-card[data-category="digital"] .service-card__tag {
+    background-color: var(--light-green);
+}
+.service-card[data-category="branding"] .service-card__icon i,
+.service-card[data-category="branding"] .service-card__title,
+.service-card[data-category="branding"] .service-card__link,
+.service-card[data-category="digital"] .service-card__icon i,
+.service-card[data-category="digital"] .service-card__title,
+.service-card[data-category="digital"] .service-card__link {
+    color: var(--primary-green);
+}
+
+.service-card[data-category="web"] {
+    border-top-color: var(--primary-orange);
+}
+.service-card[data-category="web"] .service-card__icon,
+.service-card[data-category="web"] .service-card__tag {
+    background-color: var(--light-orange);
+}
+.service-card[data-category="web"] .service-card__icon i,
+.service-card[data-category="web"] .service-card__title,
+.service-card[data-category="web"] .service-card__link {
+    color: var(--primary-orange);
+}
+
+.service-card[data-category="hr"] {
+    border-top-color: #9C27B0;
+}
+.service-card[data-category="hr"] .service-card__icon,
+.service-card[data-category="hr"] .service-card__tag {
+    background-color: var(--light-purple);
+}
+.service-card[data-category="hr"] .service-card__icon i,
+.service-card[data-category="hr"] .service-card__title,
+.service-card[data-category="hr"] .service-card__link {
+    color: #9C27B0;
+}
+
+/* ----- Value Card ----- */
+.value-card {
+    text-align: center;
+    padding: var(--space-lg) var(--space-sm);
+}
+.value-card__icon {
+    justify-items: center;
+    padding: var(--space-sm);
+}
+.value-card__title {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
+    padding: var(--space-xs);
+}
+.value-card__text {
+    font-size: 0.95rem;
+    color: var(--dark-gray);
+}
+
+/* ----- Insight Card ----- */
+.insight-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-medium);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--light-gray);
+}
+.insight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: transparent;
+}
+.insight-card__image {
+    height: 172px;
+    background: linear-gradient(135deg, var(--light-blue), rgba(208, 240, 202, 0.726));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.insight-card__image i {
+    font-size: 4rem;
+    color: var(--primary-blue);
+    opacity: 0.8;
+}
+.insight-card__content {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+.insight-card__category {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 5px 12px;
+    background: var(--light-blue);
+    color: var(--primary-blue);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: var(--space-sm) 0;
+    align-self: flex-start;
+}
+.insight-card__title {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: var(--space-sm);
+    color: var(--dark-blue);
+}
+.insight-card:hover .insight-card__title {
+    color: var(--primary-blue);
+}
+.insight-card__excerpt {
+    color: var(--medium-gray);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: var(--space-md);
+}
+.insight-card__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--light-gray);
+    font-size: 0.8rem;
+    color: var(--medium-gray);
+}
+
+/* ----- Ethics / CSR / Differentiator Cards ----- */
+.ethics-card,
+.csr-card,
+.differentiator-card,
+.benefit-card {
+    text-align: center;
+    padding: var(--space-lg);
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+    height: 100%;
+}
+.ethics-card:hover,
+.csr-card:hover,
+.differentiator-card:hover,
+.benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+.ethics-card__icon,
+.csr-card__icon,
+.differentiator-card__icon,
+.benefit-card__icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto var(--space-md);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+.ethics-card__icon {
+    background: var(--light-blue);
+    color: var(--primary-blue);
+}
+.csr-card__icon {
+    background: var(--light-green);
+    color: var(--primary-green);
+}
+.differentiator-card__icon {
+    background: var(--light-blue);
+    color: var(--primary-blue);
+}
+.benefit-card__icon {
+    background: var(--light-blue);
+    color: var(--primary-blue);
+}
+
+/* ----- Featured Project Badge ----- */
+.portfolio-item.featured {
+    position: relative;
+    overflow: hidden;
+}
+.portfolio-item.featured::before {
+    content: "★ Featured";
+    position: absolute;
+    top: 19px;
+    right: -30px;
+    background: var(--primary-orange);
+    color: white;
+    padding: 5px 30px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transform: rotate(45deg);
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    line-height: 1.4;
+}

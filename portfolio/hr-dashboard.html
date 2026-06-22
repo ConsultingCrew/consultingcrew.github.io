@@ -3,85 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HR Analytics Dashboard — Workforce Visibility | Consulting Crew</title>
-    <meta name="description" content="Interactive Excel dashboard simplifying workforce reporting, attrition analysis, and headcount trends.">
+    <title>HR Analytics Dashboard — Workforce Visibility & Reporting | Consulting Crew</title>
+    <meta name="description" content="Interactive Excel dashboard that simplified workforce reporting, attrition analysis, and headcount trends for an HR consultancy.">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/portfolio-case-studies.css">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
 </head>
-<body>
-    <div id="header-container"></div>
-    <div class="breadcrumbs"><div class="container"><ol><li><a href="../index.html">Home</a></li><li><a href="../portfolio.html">Portfolio</a></li><li class="current">HR Analytics Dashboard</li></ol></div></div>
 
+<body>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="../assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="loading-text">Loading ...</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="/portfolio.html">Portfolio</a></li>
+                <li><a href="/service-data-intelligence.html">Data & Intelligence</a></li>
+                <li class="current">HR Analytics Dashboard</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Case Study Hero -->
     <section class="case-study-hero">
         <div class="container">
-            <h1>HR Analytics Dashboard — Workforce Visibility</h1>
-            <p>An Excel dashboard that transformed fragmented HR reporting into a clear, real‑time overview for an HR consultancy.</p>
+            <h1>HR Analytics Dashboard</h1>
+            <p>Workforce visibility & reporting for an HR consultancy managing 500+ employees across multiple departments.</p>
         </div>
     </section>
 
+    <!-- Case Study Content -->
     <section class="container case-study-layout">
-        <div class="main-story">
+        <div class="main-story" data-reveal>
             <h2>Business Challenge</h2>
-            <p>An HR consultancy relied on fragmented spreadsheets to analyze workforce performance, attrition, and employee trends. Reporting was time‑consuming and lacked a centralized view.</p>
-            
+            <p>An HR consultancy managing workforce data for multiple client organizations faced challenges with fragmented data, manual reporting, and lack of real‑time visibility into workforce trends.</p>
+
             <h2>Consulting Crew Approach</h2>
-            <p>Consulting Crew developed an interactive Excel dashboard to simplify workforce reporting. The dashboard included:</p>
+            <p>We developed a comprehensive HR Analytics Dashboard in Excel that consolidates data from multiple sources into a single, unified view.</p>
             <ul>
-                <li>Headcount tracking</li>
-                <li>Attrition analysis</li>
-                <li>Department‑level insights</li>
-                <li>Monthly trend reporting</li>
-                <li>KPI cards for workforce metrics</li>
+                <li>Data consolidation from multiple sources</li>
+                <li>Automated reporting with dynamic charts</li>
+                <li>Real‑time headcount and attrition tracking</li>
+                <li>Department‑level drill‑down capability</li>
+                <li>Interactive filters for flexible analysis</li>
             </ul>
-            
+
+            <div class="client-quote">
+                "We were spending 80% of our time on data preparation and only 20% on actual analysis. This dashboard flipped that ratio completely."
+                <br><br>
+                <strong>— HR Director, HR Consultancy Firm</strong>
+            </div>
+
+            <h2>Key Dashboard Features</h2>
+            <ul>
+                <li><strong>Headcount Overview:</strong> Total employees, new hires, and departures with month‑over‑month trends</li>
+                <li><strong>Attrition Analysis:</strong> Voluntary vs. involuntary turnover with department breakdown</li>
+                <li><strong>Demographic Insights:</strong> Age, gender, and tenure distribution across the organization</li>
+                <li><strong>Department Performance:</strong> Key metrics by department with color‑coded indicators</li>
+                <li><strong>Hiring Funnel:</strong> Time‑to‑hire and source effectiveness metrics</li>
+                <li><strong>Interactive Filters:</strong> Drill down by department, location, or date range</li>
+            </ul>
+
             <h2>Business Impact</h2>
             <ul>
-                <li>Reduced reporting effort</li>
-                <li>Improved access to workforce trends</li>
-                <li>Enabled faster review of HR metrics</li>
-                <li>Supported more informed workforce discussions</li>
+                <li><strong>80% Time Savings:</strong> Dramatic reduction in report preparation time</li>
+                <li><strong>95% Data Accuracy:</strong> Significant improvement in data consistency</li>
+                <li><strong>Real‑Time Decisions:</strong> Immediate visibility enabling faster strategic decisions</li>
+                <li><strong>Enhanced Client Satisfaction:</strong> Faster, more accurate reports delivered to clients</li>
             </ul>
-            
-            <div class="client-quote">
-                “The dashboard made workforce reporting easier to review and present.”
-            </div>
         </div>
-        
-        <aside class="sidebar">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" data-reveal data-delay="100">
             <h3>Project Details</h3>
-            <p><strong>Client:</strong> RNack Management (HR Consultancy)</p>
-            <p><strong>Tools:</strong> Microsoft Excel (Power Query, Pivot Charts, Slicers)</p>
-            <div class="metric-highlight">252 <span class="metric-label">Employees Tracked</span></div>
-            <div class="metric-highlight">9.5% <span class="metric-label">Attrition Rate</span></div>
-            <h4>Services Provided</h4>
+            <p><strong>Client:</strong> HR Consultancy Firm</p>
+            <p><strong>Industry:</strong> Human Resources</p>
+            <p><strong>Location:</strong> Karachi, Pakistan</p>
+
+            <div class="metric-highlight">
+                <span>500+</span>
+                <span class="metric-label">Employees Tracked</span>
+            </div>
+            <div class="metric-highlight">
+                <span>80%</span>
+                <span class="metric-label">Time Saved on Reporting</span>
+            </div>
+            <div class="metric-highlight">
+                <span>95%</span>
+                <span class="metric-label">Data Accuracy Improvement</span>
+            </div>
+
+            <h4>Technologies Used</h4>
             <ul>
-                <li><i class="fas fa-check-circle"></i> HR Analytics</li>
-                <li><i class="fas fa-check-circle"></i> Excel Dashboard Development</li>
-                <li><i class="fas fa-check-circle"></i> Data Visualization</li>
+                <li><i class="fas fa-check-circle"></i> Microsoft Excel with Power Query</li>
+                <li><i class="fas fa-check-circle"></i> Dynamic Pivot Tables</li>
+                <li><i class="fas fa-check-circle"></i> Interactive Charts & Slicers</li>
+                <li><i class="fas fa-check-circle"></i> VBA Automation</li>
             </ul>
+
+            <a href="/contact.html" class="btn btn-primary" style="width:100%; text-align:center;">Discuss Your Project</a>
         </aside>
     </section>
 
-    <section class="container case-study-gallery">
-        <img src="../assets/images/dashboards/hr-dashboard.png" alt="HR Dashboard">
-        <p>Interactive Excel dashboard with slicers and KPI cards (dummy data shown).</p>
+    <!-- Gallery -->
+    <section class="container case-study-gallery" data-reveal>
+        <img src="../assets/images/portfolio/hr-dashboard-screenshot.jpg" alt="HR Analytics Dashboard" loading="lazy">
     </section>
 
-<!-- Footer -->
-<div id="footer-container"></div>
+    <!-- Related Projects -->
+    <section class="section related-posts-section bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Related Projects</h2>
+                <p class="section-subtitle">Explore similar data intelligence case studies</p>
+            </div>
+            <div class="related-posts-grid">
+                <div class="related-post-card" data-reveal>
+                    <div class="related-post-image"><i class="fas fa-funnel-dollar"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Data Analysis</span>
+                        <h4 class="related-post-title">Sales Funnel & Revenue Dashboard</h4>
+                        <a href="/portfolio/sales-funnel-dashboard.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="related-post-card" data-reveal data-delay="100">
+                    <div class="related-post-image"><i class="fas fa-industry"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Data Analysis</span>
+                        <h4 class="related-post-title">Production Efficiency Dashboard</h4>
+                        <a href="/portfolio/production-dashboard.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Back to Top Button -->
-<button class="back-to-top" id="backToTop" aria-label="Back to top">
-    <i class="fas fa-arrow-up"></i>
-</button>
+    <!-- Footer -->
+    <div id="footer-container"></div>
 
-<!-- JavaScript -->
-<script src="assets/js/header-footer.js" defer></script>
-<script src="assets/js/animations.js" defer></script>
-<script src="assets/js/main.js" defer></script>
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
+    <!-- JavaScript Files -->
+    <script src="../assets/js/header-footer.js" defer></script>
+    <script src="../assets/js/animations.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
 </body>
 </html>

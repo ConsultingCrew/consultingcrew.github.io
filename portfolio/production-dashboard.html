@@ -4,84 +4,164 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Production Efficiency Dashboard — Multi‑Factory Monitoring | Consulting Crew</title>
-    <meta name="description" content="Centralized Excel dashboard consolidating production performance and efficiency across manufacturing locations.">
+    <meta name="description" content="Centralized dashboard consolidating production KPIs and efficiency metrics across multiple factories for faster operational reviews.">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/portfolio-case-studies.css">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
 </head>
-<body>
-    <div id="header-container"></div>
-    <div class="breadcrumbs"><div class="container"><ol><li><a href="../index.html">Home</a></li><li><a href="../portfolio.html">Portfolio</a></li><li class="current">Production Efficiency Dashboard</li></ol></div></div>
 
+<body>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="../assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="loading-text">Loading ...</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="/portfolio.html">Portfolio</a></li>
+                <li><a href="/service-data-intelligence.html">Data & Intelligence</a></li>
+                <li class="current">Production Dashboard</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Case Study Hero -->
     <section class="case-study-hero">
         <div class="container">
-            <h1>Production Efficiency Dashboard — Multi‑Factory Monitoring</h1>
-            <p>Consolidating production data from multiple factories into a single, actionable dashboard.</p>
+            <h1>Production Efficiency Dashboard</h1>
+            <p>Centralized dashboard consolidating production KPIs and efficiency metrics across multiple factories for faster operational reviews.</p>
         </div>
     </section>
 
+    <!-- Case Study Content -->
     <section class="container case-study-layout">
-        <div class="main-story">
+        <div class="main-story" data-reveal>
             <h2>Business Challenge</h2>
-            <p>Production reporting across multiple factories was managed manually through separate files and spreadsheets. Management required a centralized view of production performance and efficiency.</p>
-            
+            <p>A manufacturing company with multiple factories struggled to consolidate production data from different locations. Operational reviews required manual data collection and time‑consuming report preparation, delaying decision‑making and hiding inefficiencies.</p>
+
             <h2>Consulting Crew Approach</h2>
-            <p>Consulting Crew created a production dashboard consolidating factory‑level performance into a single reporting environment.</p>
+            <p>We developed a centralized production dashboard that consolidates KPIs and efficiency metrics across all factories into a single, easy‑to‑use interface.</p>
             <ul>
-                <li>Production tracking by factory</li>
-                <li>Monthly output monitoring</li>
-                <li>Efficiency indicators</li>
-                <li>Product‑level reporting</li>
-                <li>Performance comparison views</li>
+                <li>Multi‑factory data consolidation</li>
+                <li>Production KPI tracking</li>
+                <li>Efficiency target monitoring</li>
+                <li>Automated reporting system</li>
+                <li>Interactive visualizations</li>
             </ul>
-            
+
+            <h2>Key Dashboard Features</h2>
+            <ul>
+                <li><strong>Production Volume:</strong> Output tracking by factory and product line</li>
+                <li><strong>Efficiency Targets:</strong> Performance against production goals</li>
+                <li><strong>Downtime Analysis:</strong> Causes and duration of production stoppages</li>
+                <li><strong>Quality Metrics:</strong> Defect rates and quality control indicators</li>
+                <li><strong>Capacity Utilization:</strong> Production capacity vs. actual output</li>
+                <li><strong>Factory Comparison:</strong> Side‑by‑side performance benchmarking</li>
+            </ul>
+
             <h2>Business Impact</h2>
             <ul>
-                <li>Reduced manual reporting effort</li>
-                <li>Improved visibility into production performance</li>
-                <li>Supported faster operational reviews</li>
-                <li>Enabled clearer factory comparisons</li>
+                <li><strong>Faster Reviews:</strong> Operational reviews reduced from days to minutes</li>
+                <li><strong>Improved Efficiency:</strong> Quick identification of underperforming factories</li>
+                <li><strong>Data Consistency:</strong> Single source of truth across all locations</li>
+                <li><strong>Cost Savings:</strong> Reduced reporting overhead and faster issue resolution</li>
             </ul>
-            
-            <div class="client-quote">
-                “The dashboard made it easier to compare production performance across locations.”
-            </div>
         </div>
-        
-        <aside class="sidebar">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" data-reveal data-delay="100">
             <h3>Project Details</h3>
-            <p><strong>Client:</strong> Apex Manufacturing</p>
+            <p><strong>Client:</strong> Manufacturing Company</p>
             <p><strong>Industry:</strong> Manufacturing</p>
-            <p><strong>Tools:</strong> Microsoft Excel</p>
-            <div class="metric-highlight">3 <span class="metric-label">Factories Monitored</span></div>
-            <div class="metric-highlight">85% <span class="metric-label">Target Efficiency</span></div>
+            <p><strong>Location:</strong> Multiple Sites</p>
+
+            <div class="metric-highlight">
+                <span>5+</span>
+                <span class="metric-label">Factories Monitored</span>
+            </div>
+            <div class="metric-highlight">
+                <span>60%</span>
+                <span class="metric-label">Time Saved on Reviews</span>
+            </div>
+
             <h4>Services Provided</h4>
             <ul>
-                <li><i class="fas fa-check-circle"></i> Production Analytics</li>
                 <li><i class="fas fa-check-circle"></i> Dashboard Development</li>
+                <li><i class="fas fa-check-circle"></i> KPI Design</li>
                 <li><i class="fas fa-check-circle"></i> Data Visualization</li>
+                <li><i class="fas fa-check-circle"></i> Training & Support</li>
             </ul>
+
+            <a href="/contact.html" class="btn btn-primary" style="width:100%; text-align:center;">Build Your Dashboard</a>
         </aside>
     </section>
 
-    <section class="container case-study-gallery">
-        <img src="../assets/images/dashboards/production_dashboard.png" alt="Production Dashboard">
+    <!-- Gallery -->
+    <section class="container case-study-gallery" data-reveal>
+        <img src="../assets/images/portfolio/production-dashboard.jpg" alt="Production Efficiency Dashboard" loading="lazy">
     </section>
 
-    
-<!-- Footer -->
-<div id="footer-container"></div>
+    <!-- Related Projects -->
+    <section class="section related-posts-section bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Related Projects</h2>
+                <p class="section-subtitle">Explore similar data intelligence case studies</p>
+            </div>
+            <div class="related-posts-grid">
+                <div class="related-post-card" data-reveal>
+                    <div class="related-post-image"><i class="fas fa-funnel-dollar"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Data Analysis</span>
+                        <h4 class="related-post-title">Sales Funnel & Revenue Dashboard</h4>
+                        <a href="/portfolio/sales-funnel-dashboard.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="related-post-card" data-reveal data-delay="100">
+                    <div class="related-post-image"><i class="fas fa-users"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Data Analysis</span>
+                        <h4 class="related-post-title">HR Analytics Dashboard</h4>
+                        <a href="/portfolio/hr-dashboard.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Back to Top Button -->
-<button class="back-to-top" id="backToTop" aria-label="Back to top">
-    <i class="fas fa-arrow-up"></i>
-</button>
+    <!-- Footer -->
+    <div id="footer-container"></div>
 
-<!-- JavaScript Files -->
-<script src="assets/js/header-footer.js" defer></script>
-<script src="assets/js/animations.js" defer></script>
-<script src="assets/js/main.js" defer></script>
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript Files -->
+    <script src="../assets/js/header-footer.js" defer></script>
+    <script src="../assets/js/animations.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
 </body>
 </html>

@@ -5,69 +5,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SES‑Chem — Translating Philosophy into Visual Identity | Consulting Crew</title>
     <meta name="description" content="Bold, energetic logo and stationery system that captures speed and competitiveness in chemical trading.">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/portfolio-case-studies.css">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
 </head>
-<body>
-    <div id="header-container"></div>
-    <div class="breadcrumbs"><div class="container"><ol><li><a href="../index.html">Home</a></li><li><a href="../portfolio.html">Portfolio</a></li><li class="current">SES‑Chem</li></ol></div></div>
 
+<body>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="../assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="loading-text">Loading ...</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="/portfolio.html">Portfolio</a></li>
+                <li class="current">SES‑Chem</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Case Study Hero -->
     <section class="case-study-hero">
         <div class="container">
             <h1>SES‑Chem — Translating Philosophy into Visual Identity</h1>
-            <p>A bold visual system that reflects the company’s “Trading Athlete” philosophy and enhances professional confidence.</p>
+            <p>A bold visual system that reflects the company's "Trading Athlete" philosophy and enhances professional confidence.</p>
         </div>
     </section>
 
+    <!-- Case Study Content -->
     <section class="container case-study-layout">
-        <div class="main-story">
+        <div class="main-story" data-reveal>
             <h2>Business Challenge</h2>
-            <p>SES‑Chem wanted a stronger visual identity that reflected its energetic positioning and business philosophy. The existing branding lacked distinction and did not effectively communicate confidence or professionalism.</p>
-            
+            <p>SES‑Chem's philosophy, "The Trading Athlete," represents agility, speed, and competitive performance. However, their existing brand identity did not reflect this dynamic positioning.</p>
+
             <h2>Consulting Crew Approach</h2>
-            <p>Consulting Crew designed a refreshed branding system aligned with the company’s positioning. The new identity focused on clarity, confidence, and consistency across communication materials.</p>
+            <p>We translated the company's philosophy into a bold and energetic visual identity system. The new branding incorporated vibrant colors and modern typography designed to communicate movement, confidence, and competitiveness.</p>
             <ul>
-                <li>Logo design</li>
-                <li>Corporate identity system</li>
-                <li>Branded stationery</li>
-                <li>Visual styling framework</li>
+                <li>Development of a dynamic new logo reflecting the "Trading Athlete" concept</li>
+                <li>Creation of a cohesive corporate stationery system</li>
+                <li>Application of the brand identity across all official communication materials</li>
             </ul>
-            
+
             <h2>Business Impact</h2>
             <ul>
-                <li>Improved consistency in business communication</li>
-                <li>Created a more distinctive visual identity</li>
-                <li>Strengthened confidence during meetings and presentations</li>
-                <li>Improved overall brand presentation</li>
+                <li><strong>Distinctive Brand Identity:</strong> A bold and memorable visual identity within the chemical trading sector</li>
+                <li><strong>Professional Corporate Communication:</strong> Consistent branding across all official documentation</li>
+                <li><strong>Enhanced Executive Confidence:</strong> Strengthened professional image in international business meetings</li>
             </ul>
-            
+
             <div class="client-quote">
-                “The branding better represents how we want to present ourselves professionally.”
+                "Our new branding perfectly captures our energy. We now feel much more confident when meeting with international partners."
+                <br><br>
+                <strong>— Director, SES‑Chem</strong>
             </div>
         </div>
-        
-        <aside class="sidebar">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" data-reveal data-delay="100">
             <h3>Project Details</h3>
             <p><strong>Client:</strong> SES‑Chem</p>
             <p><strong>Industry:</strong> Chemical Trading</p>
+            <p><strong>Location:</strong> Regional</p>
+
             <h4>Services Provided</h4>
             <ul>
                 <li><i class="fas fa-check-circle"></i> Logo Design</li>
-                <li><i class="fas fa-check-circle"></i> Business Stationery Design</li>
-                <li><i class="fas fa-check-circle"></i> Corporate Identity Development</li>
+                <li><i class="fas fa-check-circle"></i> Branding & Corporate Identity</li>
+                <li><i class="fas fa-check-circle"></i> Stationery System</li>
             </ul>
+
+            <a href="/contact.html" class="btn btn-primary" style="width:100%; text-align:center;">Build Your Brand Identity</a>
         </aside>
     </section>
 
-    <section class="container case-study-gallery">
-        <img src="../assets/images/portfolio/ses-chem-branding.jpg" alt="SES-Chem Branding">
+    <!-- Gallery -->
+    <section class="container case-study-gallery" data-reveal>
+        <img src="../assets/images/portfolio/ses-chem-branding.jpg" alt="SES-Chem Branding" loading="lazy">
     </section>
 
+    <!-- Related Projects -->
+    <section class="section related-posts-section bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Related Projects</h2>
+                <p class="section-subtitle">Explore similar branding case studies</p>
+            </div>
+            <div class="related-posts-grid">
+                <div class="related-post-card" data-reveal>
+                    <div class="related-post-image"><i class="fas fa-couch"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Branding</span>
+                        <h4 class="related-post-title">Trust Way Furnishings — Premium Brand Presence</h4>
+                        <a href="/portfolio/trust-way.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="related-post-card" data-reveal data-delay="100">
+                    <div class="related-post-image"><i class="fas fa-file-powerpoint"></i></div>
+                    <div class="related-post-content">
+                        <span class="related-post-category">Branding</span>
+                        <h4 class="related-post-title">One Stop Supplies — Winning Corporate Accounts</h4>
+                        <a href="/portfolio/one-stop-supplies.html" class="related-post-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <div id="footer-container"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript Files -->
     <script src="../assets/js/header-footer.js" defer></script>
+    <script src="../assets/js/animations.js" defer></script>
     <script src="../assets/js/main.js" defer></script>
 </body>
 </html>
