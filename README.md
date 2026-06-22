@@ -39,7 +39,7 @@ No part of this project may be reproduced, distributed, or transmitted in any fo
 ## 📞 Contact
 
 **Consulting Crew**
-- Website: [consultingcrew.com](https://consultingcrew.com)
+- Website: [consultingcrew.github.io](https://consultingcrew.github.io)
 - Email: [consultingcrew.pk@gmail.com](mailto:consultingcrew.pk@gmail.com)
 
 ---
