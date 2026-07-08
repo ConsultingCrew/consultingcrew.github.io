@@ -1,3 +1,4 @@
+
 /* ============================================
    RESPONSIVE – Clean Version
    ============================================ */
@@ -128,11 +129,11 @@
 
     .section { padding: 70px 0; }
     .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-    
+
     .hero { padding: 72px 0 50px; }
     .hero__title { font-size: 2rem; }
     .hero__subtitle { font-size: 1.2rem; }
-    
+
     .hero-cta { flex-direction: column; align-items: center; }
     .hero-cta .btn { width: 100%; max-width: 280px; }
 
