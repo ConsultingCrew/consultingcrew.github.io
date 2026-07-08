@@ -82,6 +82,26 @@
     .dropdown.open .dropdown-menu { max-height: 600px; }
     .dropdown-columns { flex-direction: column; min-width: auto; }
 
+/* --- Mobile dropdown indentation --- */
+.dropdown-menu .dropdown-column a {
+    padding-left: 30px;          /* indent sub‑links */
+    font-size: 0.95rem;
+}
+
+.dropdown-column h4 {
+    padding-left: 30px;          /* indent headers like "STRATEGIC SOLUTIONS" */
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+/* Optional: subtle visual cue for nesting */
+.dropdown-menu {
+    border-left: 3px solid var(--primary-orange, #f68b1e);
+    margin-left: 10px;
+}
+
     /* Grid collapses - no !important */
     .grid-4,
     .ethics-grid-4,
