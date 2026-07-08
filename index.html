@@ -12,6 +12,12 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- Preload critical SVGs or define them as external assets to manage fill with CSS -->
+    <link rel="preload" as="image" href="/assets/images/icons/strategic.svg" type="image/svg+xml">
+    <link rel="preload" as="image" href="/assets/images/icons/team.svg" type="image/svg+xml">
+    <link rel="preload" as="image" href="/assets/images/icons/partnership.svg" type="image/svg+xml">
+    <link rel="preload" as="image" href="/assets/images/icons/impact.svg" type="image/svg+xml">
+
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/assets/images/logo.svg">
@@ -56,7 +62,8 @@
                 <p class="hero__description">We partner with startups, SMEs, and growth-focused businesses to design and implement data-driven strategies that strengthen brands, optimize performance, and enable sustainable growth.</p>
                 <div class="hero__cta">
                     <a href="/services.html" class="btn btn-primary">Explore Our Services</a>
-                    <a href="/process.html" class="btn btn-primary">Our Process</a>
+                    <!-- Changed the second CTA to a secondary style for better visual hierarchy -->
+                    <a href="/process.html" class="btn btn-secondary">Our Process</a>
                 </div>
             </div>
             <div class="hero__visual">
@@ -109,8 +116,9 @@
                         <img src="/assets/images/digital_marketing.png" alt="Digital Marketing" loading="lazy">
                     </div>
                     <h4>Digital Marketing</h4>
-                    <p>Navigate digital innovation with confidence and strategy for enhanced customer experiences.</p>
-                    <a href="/service-digital-transformation.html" class="service-preview-link">Learn More →</a>
+                    <!-- Corrected text alignment with link -->
+                    <p>End-to-end digital marketing solutions that increase brand visibility and generate qualified leads.</p>
+                    <a href="/service-digital-marketing.html" class="service-preview-link">Learn More →</a>
                 </div>
 
                 <div class="service-preview-card" data-reveal data-delay="200">
@@ -118,7 +126,8 @@
                         <img src="/assets/images/branding_identity.png" alt="Branding & Identity" loading="lazy">
                     </div>
                     <h4>Branding & Identity</h4>
-                    <p>End-to-end digital marketing solutions that increase brand visibility and generate qualified leads.</p>
+                    <!-- Corrected text alignment with link -->
+                    <p>Crafting unique brand identities and strategies for enhanced customer experiences.</p>
                     <a href="/service-branding-identity.html" class="service-preview-link">Learn More →</a>
                 </div>
 
@@ -149,9 +158,8 @@
             <div class="grid grid-4">
                 <div class="value-card card" data-reveal>
                     <div class="value-card__icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="var(--primary-green)">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                        </svg>
+                        <!-- Replaced inline SVG with an external SVG controlled by CSS -->
+                        <img src="/assets/images/icons/strategic.svg" alt="Strategic, Not Generic Icon" width="48" height="48" loading="lazy" class="icon-primary-color">
                     </div>
                     <h3 class="value-card__title">Strategic, Not Generic</h3>
                     <p class="value-card__text">Tailored solutions designed specifically for your business challenges and goals.</p>
@@ -159,9 +167,8 @@
 
                 <div class="value-card card" data-reveal data-delay="100">
                     <div class="value-card__icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="var(--primary-green)">
-                            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
-                        </svg>
+                        <!-- Replaced inline SVG with an external SVG controlled by CSS -->
+                        <img src="/assets/images/icons/team.svg" alt="Experienced Advisory Team Icon" width="48" height="48" loading="lazy" class="icon-primary-color">
                     </div>
                     <h3 class="value-card__title">Experienced Advisory Team</h3>
                     <p class="value-card__text">Seasoned professionals with deep expertise across multiple sectors and industries.</p>
@@ -169,9 +176,8 @@
 
                 <div class="value-card card" data-reveal data-delay="200">
                     <div class="value-card__icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="var(--primary-green)">
-                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                        </svg>
+                        <!-- Replaced inline SVG with an external SVG controlled by CSS -->
+                        <img src="/assets/images/icons/partnership.svg" alt="Partnership-Led Approach Icon" width="48" height="48" loading="lazy" class="icon-primary-color">
                     </div>
                     <h3 class="value-card__title">Partnership-Led Approach</h3>
                     <p class="value-card__text">We work alongside you as strategic partners, not just consultants.</p>
@@ -179,9 +185,8 @@
 
                 <div class="value-card card" data-reveal data-delay="300">
                     <div class="value-card__icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="var(--primary-green)">
-                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4-3h2v13h-2z"/>
-                        </svg>
+                        <!-- Replaced inline SVG with an external SVG controlled by CSS -->
+                        <img src="/assets/images/icons/impact.svg" alt="Measurable Business Impact Icon" width="48" height="48" loading="lazy" class="icon-primary-color">
                     </div>
                     <h3 class="value-card__title">Measurable Business Impact</h3>
                     <p class="value-card__text">Success measured by tangible results and ROI, not just deliverables.</p>
@@ -254,38 +259,57 @@
             </div>
 
             <div class="clients__slider" role="region" aria-label="Client logos carousel">
-                <a href="#" class="clients__item" role="listitem" tabindex="0">
-                    <img src="/assets/images/clients/TW.jpg" alt="Trust Way Furnishing" loading="lazy" width="150" height="80">
-                    <span>Trust Way Furnishings</span>
-                </a>
-                <a href="#" class="clients__item" role="listitem" tabindex="0">
-                    <img src="/assets/images/clients/Decor.jpg" alt="Decor Redefined" loading="lazy" width="150" height="80">
-                    <span>Decor Redefined</span>
-                </a>
-                <a href="#" class="clients__item" role="listitem" tabindex="0">
-                    <img src="/assets/images/clients/Fahad-Logo.jpg" alt="Fahad Enterprises" loading="lazy" width="150" height="80">
-                    <span>Fahad Enterprises</span>
-                </a>
-                <a href="#" class="clients__item" role="listitem" tabindex="0">
-                    <img src="/assets/images/clients/OneStop.jpg" alt="One Stop Supplies" loading="lazy" width="150" height="80">
-                    <span>One Stop Supplies</span>
-                </a>
-                <a href="#" class="clients__item" role="listitem" tabindex="0">
-                    <img src="/assets/images/clients/SES.jpg" alt="SES Chemicals" loading="lazy" width="150" height="80">
-                    <span>SES Chemicals</span>
-                </a>
-                <a href="#" class="clients__item" role="listitem" tabindex="0">
-                    <img src="/assets/images/clients/Burhan.jpeg" alt="Burhan Enterprises" loading="lazy" width="150" height="80">
-                    <span>Burhan Enterprises</span>
-                </a>
-                <a href="#" class="clients__item" role="listitem" tabindex="0">
-                    <img src="/assets/images/clients/Adornments.jpg" alt="Adornments" loading="lazy" width="150" height="80">
-                    <span>Adornments</span>
-                </a>
-                <a href="#" class="clients__item" role="listitem" tabindex="0">
-                    <img src="/assets/images/clients/rnack.jpg" alt="Rnack Management" loading="lazy" width="150" height="80">
-                    <span>Rnack Management</span>
-                </a>
+                <!-- Using role="list" and role="group" for better semantic grouping if JavaScript handles carousel behavior -->
+                <ul class="clients__list" role="list">
+                    <li role="listitem">
+                        <a href="/portfolio.html#trust-way" class="clients__item" aria-label="View portfolio for Trust Way Furnishing" tabindex="0">
+                            <img src="/assets/images/clients/TW.jpg" alt="Trust Way Furnishing Logo" loading="lazy" width="150" height="80">
+                            <span>Trust Way Furnishings</span>
+                        </a>
+                    </li>
+                    <li role="listitem">
+                        <a href="/portfolio.html#decor-redefined" class="clients__item" aria-label="View portfolio for Decor Redefined" tabindex="0">
+                            <img src="/assets/images/clients/Decor.jpg" alt="Decor Redefined Logo" loading="lazy" width="150" height="80">
+                            <span>Decor Redefined</span>
+                        </a>
+                    </li>
+                    <li role="listitem">
+                        <a href="/portfolio.html#fahad-enterprises" class="clients__item" aria-label="View portfolio for Fahad Enterprises" tabindex="0">
+                            <img src="/assets/images/clients/Fahad-Logo.jpg" alt="Fahad Enterprises Logo" loading="lazy" width="150" height="80">
+                            <span>Fahad Enterprises</span>
+                        </a>
+                    </li>
+                    <li role="listitem">
+                        <a href="/portfolio.html#onestop-supplies" class="clients__item" aria-label="View portfolio for One Stop Supplies" tabindex="0">
+                            <img src="/assets/images/clients/OneStop.jpg" alt="One Stop Supplies Logo" loading="lazy" width="150" height="80">
+                            <span>One Stop Supplies</span>
+                        </a>
+                    </li>
+                    <li role="listitem">
+                        <a href="/portfolio.html#ses-chemicals" class="clients__item" aria-label="View portfolio for SES Chemicals" tabindex="0">
+                            <img src="/assets/images/clients/SES.jpg" alt="SES Chemicals Logo" loading="lazy" width="150" height="80">
+                            <span>SES Chemicals</span>
+                        </a>
+                    </li>
+                    <li role="listitem">
+                        <a href="/portfolio.html#burhan-enterprises" class="clients__item" aria-label="View portfolio for Burhan Enterprises" tabindex="0">
+                            <img src="/assets/images/clients/Burhan.jpeg" alt="Burhan Enterprises Logo" loading="lazy" width="150" height="80">
+                            <span>Burhan Enterprises</span>
+                        </a>
+                    </li>
+                    <li role="listitem">
+                        <a href="/portfolio.html#adornments" class="clients__item" aria-label="View portfolio for Adornments" tabindex="0">
+                            <img src="/assets/images/clients/Adornments.jpg" alt="Adornments Logo" loading="lazy" width="150" height="80">
+                            <span>Adornments</span>
+                        </a>
+                    </li>
+                    <li role="listitem">
+                        <a href="/portfolio.html#rnack-management" class="clients__item" aria-label="View portfolio for Rnack Management" tabindex="0">
+                            <img src="/assets/images/clients/rnack.jpg" alt="Rnack Management Logo" loading="lazy" width="150" height="80">
+                            <span>Rnack Management</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
 
             <div class="text-center mt-3">
@@ -298,7 +322,7 @@
 
     <!-- CTA Section -->
     <section class="cta">
-        <img src="/assets/images/featured_art.jpg" class="cta__bg" alt="Background" loading="lazy">
+        <img src="/assets/images/featured_art.jpg" class="cta__bg" alt="Piping systems infrastructure bathed in warm sunrise tones - strategic overview" loading="lazy">
         <div class="cta__overlay"></div>
         <div class="cta__container">
             <h2 class="cta__title">Ready to Translate Ambition into Results?</h2>
