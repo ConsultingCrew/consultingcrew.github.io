@@ -48,16 +48,18 @@
     height: 100%;
 }
 .service-preview-card {
-    justify-items: center;
-    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: white;
     padding: var(--space-lg) var(--space-md);
     border-radius: var(--radius-lg);
+    height: 100%;
 }
 .service-preview-card p {
-    font-size: 0.95rem;
-    color: var(--dark-gray);
-    margin-top: 1rem;
-    text-align: center;
+    flex: 1;
+    margin: 1rem 0;
 }
 .service-preview-icon {
     width: 119px;
@@ -71,9 +73,6 @@
     justify-items: center;
 }
 .service-preview-link {
-    display: inline-flex;
-    color: var(--primary-green);
-    font-weight: 600;
     margin-top: auto;
 }
 .service-preview-link:hover {
