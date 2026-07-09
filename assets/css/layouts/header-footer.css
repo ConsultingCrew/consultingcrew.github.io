@@ -278,7 +278,7 @@
 .breadcrumbs {
     background-color: var(--light-blue);
     padding: var(--space-xs) 0;
-    border: 2px solid var(--light-blue); /* simplified from top/bottom */
+    border-bottom: 2px solid rgba(0, 0, 0, 0.08);
 }
 .breadcrumbs ol {
     list-style: none;
