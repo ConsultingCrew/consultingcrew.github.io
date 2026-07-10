@@ -23,34 +23,26 @@ const Helpers = {
             if (!wait) {
                 fn(...args);
                 wait = true;
-                setTimeout(() => {
-                    wait = false;
-                }, limit);
+                setTimeout(() => { wait = false; }, limit);
             }
         };
     },
 
-    // ✅ Force mobile detection – check both touch AND screen width
     isMobileView() {
-        const isTouch = window.matchMedia('(pointer: coarse)').matches;
-        const isSmallScreen = window.innerWidth <= CONFIG.breakpoint;
-        // OR condition – if either is true, we're on mobile
-        return isTouch || isSmallScreen;
+        return window.innerWidth <= CONFIG.breakpoint;
     },
 
     closeAllDropdowns() {
         document.querySelectorAll('.dropdown.open').forEach((dropdown) => {
             dropdown.classList.remove('open');
             const toggle = dropdown.querySelector('.dropdown-toggle');
-            if (toggle) {
-                toggle.setAttribute('aria-expanded', 'false');
-            }
+            if (toggle) toggle.setAttribute('aria-expanded', 'false');
         });
     }
 };
 
 /* ===============================
-   FETCH WITH RETRY & CACHE
+   FETCH & LOAD
 ================================= */
 async function fetchHTML(path, retries = CONFIG.retries) {
     for (let i = 1; i <= retries; i++) {
@@ -63,29 +55,24 @@ async function fetchHTML(path, retries = CONFIG.retries) {
             await new Promise((r) => setTimeout(r, 1000 * i));
         }
     }
-    throw new Error('Failed to fetch HTML after retries');
 }
 
-/* ===============================
-   LOAD COMPONENT INTO CONTAINER
-================================= */
 async function loadComponent(containerId, path) {
     const container = document.getElementById(containerId);
     if (!container) return false;
-
     try {
         const html = await fetchHTML(path);
         container.innerHTML = html;
         return true;
     } catch (err) {
-        console.warn(`[header-footer] Failed to load ${containerId}:`, err.message);
+        console.warn(`[header-footer] Fallback used for ${containerId}`);
         container.innerHTML = getFallbackHTML(containerId);
         return false;
     }
 }
 
 /* ===============================
-   FALLBACK HTML (Enhanced with dropdowns)
+   COMPLETE FALLBACK HTML (With New Structure)
 ================================= */
 function getFallbackHTML(id) {
     const year = new Date().getFullYear();
@@ -106,10 +93,12 @@ function getFallbackHTML(id) {
                             <ul class="nav-list">
                                 <li><a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
                                 <li class="dropdown">
-                                    <button class="nav-link dropdown-toggle" type="button">
-                                        <i class="fas fa-building"></i> About
-                                        <i class="fas fa-chevron-down dropdown-icon"></i>
-                                    </button>
+                                    <div class="nav-link-wrapper">
+                                        <a href="/about.html" class="nav-link"><i class="fas fa-building"></i> About</a>
+                                        <button class="dropdown-toggle" aria-label="Toggle submenu" aria-expanded="false">
+                                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                                        </button>
+                                    </div>
                                     <div class="dropdown-menu">
                                         <div class="dropdown-column">
                                             <a href="/team.html"><i class="fas fa-user-tie"></i> Our Team</a>
@@ -120,10 +109,12 @@ function getFallbackHTML(id) {
                                     </div>
                                 </li>
                                 <li class="dropdown">
-                                    <button class="nav-link dropdown-toggle" type="button">
-                                        <i class="fas fa-cogs"></i> Services
-                                        <i class="fas fa-chevron-down dropdown-icon"></i>
-                                    </button>
+                                    <div class="nav-link-wrapper">
+                                        <a href="/services.html" class="nav-link"><i class="fas fa-cogs"></i> Services</a>
+                                        <button class="dropdown-toggle" aria-label="Toggle submenu" aria-expanded="false">
+                                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                                        </button>
+                                    </div>
                                     <div class="dropdown-menu">
                                         <div class="dropdown-columns">
                                             <div class="dropdown-column">
@@ -165,167 +156,118 @@ function getFallbackHTML(id) {
 }
 
 /* ===============================
-   MOBILE MENU TOGGLE
+   ✅ CORE EVENT HANDLERS
 ================================= */
-function initMobileMenu() {
-    document.addEventListener('click', function(e) {
-        const toggle = e.target.closest('.mobile-menu-toggle');
-        if (!toggle) return;
+function setupEventListeners() {
+    document.addEventListener('click', (e) => {
+        const target = e.target;
 
-        const menu = document.querySelector('.nav-menu');
-        if (!menu) return;
-
-        const isOpen = menu.classList.toggle('active');
-        toggle.classList.toggle('active', isOpen);
-        document.body.classList.toggle('menu-open', isOpen);
-        toggle.setAttribute('aria-expanded', isOpen);
-
-        if (!isOpen) {
-            Helpers.closeAllDropdowns();
+        // 1️⃣ Mobile Menu Toggle
+        const toggleBtn = target.closest('.mobile-menu-toggle');
+        if (toggleBtn) {
+            const menu = document.querySelector('.nav-menu');
+            const isOpen = menu.classList.toggle('active');
+            toggleBtn.classList.toggle('active', isOpen);
+            document.body.classList.toggle('menu-open', isOpen);
+            toggleBtn.setAttribute('aria-expanded', isOpen);
+            if (!isOpen) Helpers.closeAllDropdowns();
+            return;
         }
-    });
 
-    document.addEventListener('click', function(e) {
-        const menu = document.querySelector('.nav-menu');
-        const toggle = document.querySelector('.mobile-menu-toggle');
-        if (!menu || !toggle) return;
-
-        // ✅ IGNORE clicks on navigation links and dropdown toggles
-        const isNavElement = e.target.closest('.nav-link, .dropdown-toggle, .dropdown-menu a, .logo, .nav-list a');
-        if (isNavElement) return;
-
-        const isInside = e.target.closest('.main-header');
-        if (!isInside && menu.classList.contains('active')) {
-            menu.classList.remove('active');
-            toggle.classList.remove('active');
-            document.body.classList.remove('menu-open');
-            toggle.setAttribute('aria-expanded', 'false');
-            Helpers.closeAllDropdowns();
-        }
-    });
-
-    document.addEventListener('keydown', function(e) {
-        if (e.key !== 'Escape') return;
-        const menu = document.querySelector('.nav-menu');
-        const toggle = document.querySelector('.mobile-menu-toggle');
-        if (!menu || !toggle) return;
-
-        if (menu.classList.contains('active')) {
-            menu.classList.remove('active');
-            toggle.classList.remove('active');
-            document.body.classList.remove('menu-open');
-            toggle.setAttribute('aria-expanded', 'false');
-            Helpers.closeAllDropdowns();
-            toggle.focus();
-        }
-    });
-}
-
-/* ===============================
-   DROPDOWNS – FORCED MOBILE HANDLING
-================================= */
-function initDropdowns() {
-    // ✅ PRIMARY FIX: Use 'mousedown' AND 'click' to ensure interception
-    document.addEventListener('click', function(e) {
-        const toggle = e.target.closest('.dropdown-toggle');
-        if (!toggle) return;
-
-        const dropdown = toggle.closest('.dropdown');
-        if (!dropdown) return;
-
-        // ✅ Always check – if on mobile, intercept
-        if (Helpers.isMobileView()) {
+        // 2️⃣ Dropdown Toggle (Chevron Button) ✅ NEW LOGIC
+        const dropToggle = target.closest('.dropdown-toggle');
+        if (dropToggle) {
+            // Always prevent default on the toggle button
             e.preventDefault();
             e.stopPropagation();
+
+            const dropdown = dropToggle.closest('.dropdown');
+            if (!dropdown) return;
+
+            // Close other open dropdowns
+            document.querySelectorAll('.dropdown.open').forEach((el) => {
+                if (el !== dropdown) {
+                    el.classList.remove('open');
+                    const toggle = el.querySelector('.dropdown-toggle');
+                    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Toggle current
             const isOpen = dropdown.classList.toggle('open');
-            toggle.setAttribute('aria-expanded', isOpen);
+            dropToggle.setAttribute('aria-expanded', isOpen);
+
+            // ✅ Debug log
             console.log('[Dropdown] Toggled:', isOpen ? 'open' : 'closed');
+            return;
         }
-    });
 
-    // ✅ BONUS: Capture 'touchstart' events too (for better mobile response)
-    document.addEventListener('touchstart', function(e) {
-        const toggle = e.target.closest('.dropdown-toggle');
-        if (!toggle) return;
+        // 3️⃣ Close menu & dropdowns when clicking outside
+        if (!target.closest('.main-header')) {
+            // If clicking a sub-link inside dropdown, do nothing
+            if (target.closest('.dropdown-menu a')) return;
 
-        const dropdown = toggle.closest('.dropdown');
-        if (!dropdown) return;
-
-        if (Helpers.isMobileView()) {
-            e.preventDefault();
-            e.stopPropagation();
-            // Only toggle if not already handled by click
-            if (!dropdown.classList.contains('open')) {
-                const isOpen = dropdown.classList.toggle('open');
-                toggle.setAttribute('aria-expanded', isOpen);
+            const menu = document.querySelector('.nav-menu.active');
+            if (menu) {
+                menu.classList.remove('active');
+                const toggle = document.querySelector('.mobile-menu-toggle');
+                if (toggle) {
+                    toggle.classList.remove('active');
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+                document.body.classList.remove('menu-open');
+                Helpers.closeAllDropdowns();
             }
         }
-    }, { passive: false });
-
-    // Keyboard support
-    document.addEventListener('keydown', function(e) {
-        if (e.key !== 'Enter' && e.key !== ' ') return;
-        const toggle = e.target.closest('.dropdown-toggle');
-        if (!toggle) return;
-
-        const dropdown = toggle.closest('.dropdown');
-        if (!dropdown) return;
-
-        if (Helpers.isMobileView()) {
-            e.preventDefault();
-            const isOpen = dropdown.classList.toggle('open');
-            toggle.setAttribute('aria-expanded', isOpen);
-        }
     });
 
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!Helpers.isMobileView()) return;
-
-        const dropdown = e.target.closest('.dropdown');
-        if (dropdown) return;
-
-        // ✅ IGNORE clicks on sub-links
-        const isSubLink = e.target.closest('.dropdown-menu a');
-        if (isSubLink) return;
-
-        document.querySelectorAll('.dropdown.open').forEach(function(d) {
-            d.classList.remove('open');
-            const toggle = d.querySelector('.dropdown-toggle');
-            if (toggle) toggle.setAttribute('aria-expanded', 'false');
-        });
+    // Escape Key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const menu = document.querySelector('.nav-menu.active');
+            if (menu) {
+                menu.classList.remove('active');
+                const toggle = document.querySelector('.mobile-menu-toggle');
+                if (toggle) {
+                    toggle.classList.remove('active');
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+                document.body.classList.remove('menu-open');
+                Helpers.closeAllDropdowns();
+                toggle?.focus();
+            }
+        }
     });
 }
 
 /* ===============================
-   STICKY / SCROLL HEADER
+   STICKY HEADER
 ================================= */
 function initStickyHeader() {
     const header = document.querySelector('.main-header');
     if (!header) return;
 
-    const scrollHandler = Helpers.throttle(() => {
-        const scrolled = window.scrollY > 50;
-        header.classList.toggle('scrolled', scrolled);
-        document.body.classList.toggle('header-scrolled', scrolled);
+    const handler = Helpers.throttle(() => {
+        const isScrolled = window.scrollY > 50;
+        header.classList.toggle('scrolled', isScrolled);
     });
 
-    window.addEventListener('scroll', scrollHandler, { passive: true });
+    window.addEventListener('scroll', handler, { passive: true });
 }
 
 /* ===============================
    ACTIVE NAV LINK
 ================================= */
-function markActiveLink() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+function initActiveLink() {
+    const currentPath = window.location.pathname;
 
     document.querySelectorAll('.nav-link').forEach((link) => {
         const href = link.getAttribute('href');
         if (!href) return;
 
-        const linkPage = href.split('/').pop();
-        const isActive = linkPage === currentPage ||
-                         (currentPage === '' && href === '/');
+        const isActive = currentPath === href ||
+                         (currentPath === '/' && (href === 'index.html' || href === '/')) ||
+                         (currentPath.endsWith(href.replace(/^\.\.\//, '')));
 
         if (isActive) {
             link.classList.add('active');
@@ -345,7 +287,7 @@ function updateYear() {
 }
 
 /* ===============================
-   INIT (Async)
+   ✅ INITIALIZE
 ================================= */
 (async function init() {
     await Promise.all([
@@ -353,9 +295,10 @@ function updateYear() {
         loadComponent('footer-container', COMPONENTS.footer)
     ]);
 
-    initMobileMenu();
-    initDropdowns();
+    setupEventListeners();
     initStickyHeader();
-    markActiveLink();
+    initActiveLink();
     updateYear();
+
+    console.log('[header-footer] Initialized successfully.');
 })();

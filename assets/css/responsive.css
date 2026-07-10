@@ -98,7 +98,7 @@
         flex-shrink: 0;
     }
 
-    /* ----- Mobile Dropdowns (FIXED) ----- */
+    /* ----- Mobile Dropdowns (✅ FIXED for new structure) ----- */
     .dropdown {
         flex-direction: column;
         height: auto;
@@ -106,38 +106,75 @@
         position: relative;
     }
 
-    .dropdown-toggle {
+    .nav-link-wrapper {
+        display: flex;
+        align-items: center;
         width: 100%;
-        justify-content: space-between;
+        gap: 0;
+        border-radius: 10px;
+        transition: background 0.2s ease;
+    }
+
+    .nav-link-wrapper:hover {
+        background: rgba(0, 0, 0, 0.02);
+    }
+
+    .nav-link-wrapper .nav-link {
+        flex: 1;
         padding: 14px 16px;
+        min-height: 48px;
         border-radius: 10px;
         font-size: 1rem;
         display: flex;
         align-items: center;
         gap: 12px;
+        width: auto;
     }
 
-    .dropdown-toggle i:first-child {
+    .nav-link-wrapper .nav-link i {
         width: 24px;
         text-align: center;
+        font-size: 1.1rem;
+        flex-shrink: 0;
     }
 
-    .dropdown-toggle .dropdown-icon {
-        position: static;
-        transition: transform 0.3s ease;
-        font-size: 0.8rem;
-        margin-left: auto;
-    }
-
-    .dropdown.open .dropdown-icon {
-        transform: rotate(180deg);
+    .dropdown-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        padding: 0;
+        margin-right: 4px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: background 0.2s ease, transform 0.3s ease;
+        flex-shrink: 0;
     }
 
     .dropdown-toggle:hover {
-        background: rgba(0, 0, 0, 0.03);
+        background: rgba(0, 0, 0, 0.05);
     }
 
-    /* ✅ Fixed: Dropdown menu – clean vertical stack */
+    .dropdown-toggle .dropdown-icon {
+        font-size: 0.8rem;
+        color: var(--medium-gray, #666);
+        transition: transform 0.3s ease;
+        position: static;
+        margin: 0;
+    }
+
+    .dropdown.open .dropdown-toggle .dropdown-icon {
+        transform: rotate(180deg);
+    }
+
+    .dropdown.open .dropdown-toggle {
+        background: rgba(0, 85, 170, 0.08);
+    }
+
     .dropdown-menu {
         position: static !important;
         top: auto !important;
@@ -153,6 +190,7 @@
         max-width: 100% !important;
         padding: 0 12px !important;
         margin: 0 !important;
+        margin-left: 8px !important;
         max-height: 0 !important;
         overflow: hidden !important;
         opacity: 0 !important;
@@ -175,7 +213,6 @@
         display: none !important;
     }
 
-    /* ✅ Fixed: Dropdown columns stack vertically */
     .dropdown-columns {
         display: flex !important;
         flex-direction: column !important;
@@ -204,7 +241,6 @@
         font-weight: 600 !important;
     }
 
-    /* ✅ Fixed: Sub‑links – clean and indented */
     .dropdown-menu a {
         display: flex !important;
         align-items: center !important;
@@ -269,7 +305,6 @@
         display: none;
     }
 
-    /* ----- Intro ----- */
     .intro-split {
         grid-template-columns: 1fr;
         gap: var(--space-lg);
@@ -281,7 +316,6 @@
         max-width: 80%;
     }
 
-    /* ----- Purpose (About) ----- */
     .purpose-content {
         grid-template-columns: 1fr;
         gap: var(--space-lg);
@@ -291,18 +325,15 @@
         order: -1;
     }
 
-    /* ----- Intent (About) ----- */
     .intent-grid {
         grid-template-columns: 1fr;
         max-width: 650px;
     }
 
-    /* ----- Values (About) ----- */
     .values-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* ----- Steps ----- */
     .steps--horizontal {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -310,7 +341,6 @@
         display: none;
     }
 
-    /* ----- Portfolio Case Study ----- */
     .case-study-layout {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -319,7 +349,6 @@
         position: static;
     }
 
-    /* ----- Contact ----- */
     .contact-details {
         grid-template-columns: 1fr;
         max-width: 500px;
