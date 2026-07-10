@@ -13,8 +13,8 @@
 @import 'ui.css';
 @import 'sections.css';
 
-/* ----- PAGE OVERRIDES (must be last) ----- */
+/* ----- PAGE OVERRIDES ----- */
 @import 'pages.css';
 
-/* ----- RESPONSIVE (must be absolute last) ----- */
+/* ----- RESPONSIVE ----- */
 @import 'responsive.css';
