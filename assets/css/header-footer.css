@@ -27,6 +27,7 @@
     transform: translateY(-100%);
 }
 
+/* ----- Navbar (UNIFIED – single definition) ----- */
 .navbar {
     display: flex;
     align-items: center;
@@ -35,6 +36,23 @@
     height: 100%;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-left: auto;  /* ✅ Push menu to the right */
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 4px;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 /* ----- Logo ----- */
@@ -73,19 +91,7 @@
 }
 .scrolled .logo-tagline { font-size: 0.65rem; }
 
-/* ----- Navigation ----- */
-.nav-menu {
-    display: flex;
-    align-items: center;
-    height: 100%;
-}
-.nav-list {
-    display: flex;
-    list-style: none;
-    gap: 4px;
-    align-items: center;
-    height: 100%;
-}
+/* ----- Navigation Links ----- */
 .nav-link {
     display: flex;
     align-items: center;
@@ -142,28 +148,45 @@
     box-shadow: 0 8px 25px rgba(0, 168, 22, 0.4);
 }
 
-/* ----- Dropdown ----- */
+/* ----- Dropdown (Desktop) ----- */
 .dropdown {
     position: relative;
     height: 100%;
     display: flex;
     align-items: center;
 }
+
+/* ----- Dropdown Toggle (UNIFIED – button styling) ----- */
 .dropdown-toggle {
+    background: none;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--dark-gray);
+    cursor: pointer;
     display: flex;
     align-items: center;
     gap: 6px;
-    cursor: pointer;
     padding-right: 24px;
+    position: relative;
 }
+
+.dropdown-toggle:hover {
+    color: var(--primary-blue);
+}
+
 .dropdown-icon {
     font-size: 0.8rem;
-    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: transform 0.3s ease;
     position: absolute;
     right: 0;
 }
-.dropdown:hover .dropdown-icon,
-.dropdown.open .dropdown-icon { transform: rotate(180deg); }
+
+.dropdown.open .dropdown-icon {
+    transform: rotate(180deg);
+}
+
 .dropdown-menu {
     position: absolute;
     top: calc(100% - 10px);

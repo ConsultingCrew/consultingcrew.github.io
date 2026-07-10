@@ -1,99 +1,114 @@
-    <link rel="icon" href="../assets/images/logo.png">
+<link rel="icon" href="../assets/images/logo.png">
 
-    <header class="main-header">
+<header class="main-header">
     <div class="container">
         <nav class="navbar">
-<a href="../index.html" class="logo">
-    <img src="../assets/images/logo.png" alt="Consulting Crew Logo" class="logo-img">
+            <!-- Logo -->
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo.png" alt="Consulting Crew Logo" class="logo-img">
+                <div class="logo-content">
+                    <span class="logo-text">Consulting Crew</span>
+                    <span class="logo-tagline">Empowering Smarter Decisions</span>
+                </div>
+            </a>
 
-    <div class="logo-content">
-        <span class="logo-text">Consulting Crew</span>
-        <span class="logo-tagline">Empowering Smarter Decisions</span>
-    </div>
-</a>
-
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
 
+            <!-- Navigation Menu -->
             <div class="nav-menu">
                 <ul class="nav-list">
-                    <li><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
-
-                    <!-- About Dropdown -->
-                    <li class="dropdown">
-                        <a href="../about.html" class="nav-link dropdown-toggle"><i class="fas fa-building"></i> About<i class="fas fa-chevron-down dropdown-icon"></i>
+                    <!-- Home -->
+                    <li>
+                        <a href="../index.html" class="nav-link">
+                            <i class="fas fa-home"></i> Home
                         </a>
+                    </li>
+
+                    <!-- About Dropdown (FIXED) -->
+                    <li class="dropdown">
+                        <button class="nav-link dropdown-toggle" aria-expanded="false">
+                            <i class="fas fa-building"></i> About
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </button>
                         <div class="dropdown-menu">
                             <div class="dropdown-column">
                                 <a href="../team.html">
-                                <i class="fas fa-user-tie"></i>
-                                    Our Team
-                                </a>   
-                                <a href="../process.html">
-                                <i class="fas fa-sitemap"></i>
-                                    Our EDGE Process
+                                    <i class="fas fa-user-tie"></i> Our Team
                                 </a>
-
+                                <a href="../process.html">
+                                    <i class="fas fa-sitemap"></i> Our EDGE Process
+                                </a>
                                 <a href="../ethics.html">
-                                <i class="fas fa-balance-scale"></i>
-                                    Business Ethics
+                                    <i class="fas fa-balance-scale"></i> Business Ethics
                                 </a>
                                 <a href="../csr.html">
-                                <i class="fas fa-handshake"></i>
-                                    Corporate Responsibility
-                                </a> 
+                                    <i class="fas fa-handshake"></i> Corporate Responsibility
+                                </a>
                             </div>
                         </div>
-                    </li>    
+                    </li>
 
-                    <!-- Services Dropdown -->
+                    <!-- Services Dropdown (FIXED) -->
                     <li class="dropdown">
-                        <a href="../services.html" class="nav-link dropdown-toggle">
-                            <i class="fas fa-cogs"></i> Services <i class="fas fa-chevron-down dropdown-icon"></i>
-                        </a>
-
+                        <button class="nav-link dropdown-toggle" aria-expanded="false">
+                            <i class="fas fa-cogs"></i> Services
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </button>
                         <div class="dropdown-menu">
                             <div class="dropdown-columns">
                                 <div class="dropdown-column">
                                     <h4>Strategic Solutions</h4>
                                     <a href="../service-data-intelligence.html">
-                                        <i class="fas fa-chart-line"></i>
-                                        Data & Intelligence
+                                        <i class="fas fa-chart-line"></i> Data & Intelligence
                                     </a>
                                     <a href="../service-digital-transformation.html">
-                                        <i class="fas fa-sync-alt"></i>
-                                        Digital Marketing
+                                        <i class="fas fa-sync-alt"></i> Digital Marketing
                                     </a>
                                     <a href="../service-branding-identity.html">
-                                        <i class="fas fa-palette"></i>
-                                        Branding & Identity
+                                        <i class="fas fa-palette"></i> Branding & Identity
                                     </a>
                                 </div>
                                 <div class="dropdown-column">
                                     <h4>Web & HR Solutions</h4>
                                     <a href="../service-web-services.html">
-                                        <i class="fas fa-globe"></i>
-                                        Web Services
+                                        <i class="fas fa-globe"></i> Web Services
                                     </a>
                                     <a href="../service-hr-consulting.html">
-                                        <i class="fas fa-users"></i>
-                                        HR Audits
+                                        <i class="fas fa-users"></i> HR Audits
                                     </a>
                                     <a href="../services.html" class="view-all">
-                                        <i class="fas fa-th-large"></i>
-                                        All Services
+                                        <i class="fas fa-th-large"></i> All Services
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </li>
 
-                    <li><a href="../portfolio.html" class="nav-link"><i class="fas fa-chart-pie nav__icon"></i>Portfolio</a></li>
-                    <li> <a href="../insights.html" class="nav-link"><i class="fas fa-blog"></i> Insights</a></li>
-                    <li><a href="../contact.html" class="nav-link cta-link"><i class="fas fa-paper-plane"></i> Contact</a></li>
+                    <!-- Portfolio -->
+                    <li>
+                        <a href="../portfolio.html" class="nav-link">
+                            <i class="fas fa-chart-pie"></i> Portfolio
+                        </a>
+                    </li>
+
+                    <!-- Insights -->
+                    <li>
+                        <a href="../insights.html" class="nav-link">
+                            <i class="fas fa-blog"></i> Insights
+                        </a>
+                    </li>
+
+                    <!-- Contact (CTA) -->
+                    <li>
+                        <a href="../contact.html" class="nav-link cta-link">
+                            <i class="fas fa-paper-plane"></i> Contact
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>
