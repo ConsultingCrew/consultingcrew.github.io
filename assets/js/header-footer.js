@@ -32,12 +32,48 @@ const Helpers = {
         return window.innerWidth <= CONFIG.breakpoint;
     },
 
-    closeAllDropdowns() {
+    closeAllDropdowns(exception = null) {
         document.querySelectorAll('.dropdown.open').forEach((dropdown) => {
+            if (dropdown === exception) return;
             dropdown.classList.remove('open');
             const toggle = dropdown.querySelector('.dropdown-toggle');
             if (toggle) toggle.setAttribute('aria-expanded', 'false');
+            const link = dropdown.querySelector('.nav-link');
+            if (link) link.setAttribute('aria-expanded', 'false');
+            const menu = dropdown.querySelector('.dropdown-menu');
+            if (menu) menu.style.maxHeight = '';
         });
+    },
+
+    openDropdown(dropdown) {
+        const menu = dropdown.querySelector('.dropdown-menu');
+        if (menu) {
+            menu.style.maxHeight = menu.scrollHeight + 50 + 'px';
+        }
+        dropdown.classList.add('open');
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        if (toggle) toggle.setAttribute('aria-expanded', 'true');
+        const link = dropdown.querySelector('.nav-link');
+        if (link) link.setAttribute('aria-expanded', 'true');
+    },
+
+    closeDropdown(dropdown) {
+        const menu = dropdown.querySelector('.dropdown-menu');
+        if (menu) menu.style.maxHeight = '0';
+        dropdown.classList.remove('open');
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        const link = dropdown.querySelector('.nav-link');
+        if (link) link.setAttribute('aria-expanded', 'false');
+    },
+
+    toggleDropdown(dropdown) {
+        if (dropdown.classList.contains('open')) {
+            Helpers.closeDropdown(dropdown);
+        } else {
+            Helpers.closeAllDropdowns(dropdown);
+            Helpers.openDropdown(dropdown);
+        }
     }
 };
 
@@ -72,7 +108,7 @@ async function loadComponent(containerId, path) {
 }
 
 /* ===============================
-   COMPLETE FALLBACK HTML (With New Structure)
+   COMPLETE FALLBACK HTML
 ================================= */
 function getFallbackHTML(id) {
     const year = new Date().getFullYear();
@@ -81,60 +117,56 @@ function getFallbackHTML(id) {
         return `
             <header class="main-header">
                 <div class="container">
-                    <nav class="navbar" aria-label="Main navigation">
-                        <a href="/" class="logo">
+                    <nav class="navbar" aria-label="Primary Navigation">
+                        <a href="/" class="logo" aria-label="Consulting Crew Home">
                             <span class="logo-text">Consulting Crew</span>
                             <span class="logo-tagline">Empowering Smarter Decisions</span>
                         </a>
-                        <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                        <button class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
                             <span></span><span></span><span></span>
                         </button>
-                        <div class="nav-menu">
+                        <div class="nav-menu" id="primary-navigation">
                             <ul class="nav-list">
-                                <li><a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
-                                <li class="dropdown">
+                                <li><a href="/" class="nav-link"><i class="fas fa-home" aria-hidden="true"></i> Home</a></li>
+                                <li class="dropdown" data-dropdown="about">
                                     <div class="nav-link-wrapper">
-                                        <a href="/about.html" class="nav-link"><i class="fas fa-building"></i> About</a>
-                                        <button class="dropdown-toggle" aria-label="Toggle submenu" aria-expanded="false">
-                                            <i class="fas fa-chevron-down dropdown-icon"></i>
-                                        </button>
+                                        <a href="/about.html" class="nav-link" aria-haspopup="true" aria-expanded="false"><i class="fas fa-building" aria-hidden="true"></i> About</a>
+                                        <button class="dropdown-toggle" type="button" aria-label="Expand About menu" aria-expanded="false" aria-controls="about-menu"><i class="fas fa-chevron-down dropdown-icon" aria-hidden="true"></i></button>
                                     </div>
-                                    <div class="dropdown-menu">
+                                    <div class="dropdown-menu" id="about-menu">
                                         <div class="dropdown-column">
-                                            <a href="/team.html"><i class="fas fa-user-tie"></i> Our Team</a>
-                                            <a href="/process.html"><i class="fas fa-sitemap"></i> Our EDGE Process</a>
-                                            <a href="/ethics.html"><i class="fas fa-balance-scale"></i> Business Ethics</a>
-                                            <a href="/csr.html"><i class="fas fa-handshake"></i> Corporate Responsibility</a>
+                                            <a href="/team.html"><i class="fas fa-user-tie" aria-hidden="true"></i> Our Team</a>
+                                            <a href="/process.html"><i class="fas fa-sitemap" aria-hidden="true"></i> Our EDGE Process</a>
+                                            <a href="/ethics.html"><i class="fas fa-balance-scale" aria-hidden="true"></i> Business Ethics</a>
+                                            <a href="/csr.html"><i class="fas fa-handshake" aria-hidden="true"></i> Corporate Responsibility</a>
                                         </div>
                                     </div>
                                 </li>
-                                <li class="dropdown">
+                                <li class="dropdown" data-dropdown="services">
                                     <div class="nav-link-wrapper">
-                                        <a href="/services.html" class="nav-link"><i class="fas fa-cogs"></i> Services</a>
-                                        <button class="dropdown-toggle" aria-label="Toggle submenu" aria-expanded="false">
-                                            <i class="fas fa-chevron-down dropdown-icon"></i>
-                                        </button>
+                                        <a href="/services.html" class="nav-link" aria-haspopup="true" aria-expanded="false"><i class="fas fa-cogs" aria-hidden="true"></i> Services</a>
+                                        <button class="dropdown-toggle" type="button" aria-label="Expand Services menu" aria-expanded="false" aria-controls="services-menu"><i class="fas fa-chevron-down dropdown-icon" aria-hidden="true"></i></button>
                                     </div>
-                                    <div class="dropdown-menu">
+                                    <div class="dropdown-menu" id="services-menu">
                                         <div class="dropdown-columns">
                                             <div class="dropdown-column">
                                                 <h4>Strategic Solutions</h4>
-                                                <a href="/service-data-intelligence.html"><i class="fas fa-chart-line"></i> Data & Intelligence</a>
-                                                <a href="/service-digital-transformation.html"><i class="fas fa-sync-alt"></i> Digital Marketing</a>
-                                                <a href="/service-branding-identity.html"><i class="fas fa-palette"></i> Branding & Identity</a>
+                                                <a href="/service-data-intelligence.html"><i class="fas fa-chart-line" aria-hidden="true"></i> Data &amp; Intelligence</a>
+                                                <a href="/service-digital-transformation.html"><i class="fas fa-sync-alt" aria-hidden="true"></i> Digital Marketing</a>
+                                                <a href="/service-branding-identity.html"><i class="fas fa-palette" aria-hidden="true"></i> Branding &amp; Identity</a>
                                             </div>
                                             <div class="dropdown-column">
-                                                <h4>Web & HR Solutions</h4>
-                                                <a href="/service-web-services.html"><i class="fas fa-globe"></i> Web Services</a>
-                                                <a href="/service-hr-consulting.html"><i class="fas fa-users"></i> HR Audits</a>
-                                                <a href="/services.html" class="view-all"><i class="fas fa-th-large"></i> All Services</a>
+                                                <h4>Web &amp; HR Solutions</h4>
+                                                <a href="/service-web-services.html"><i class="fas fa-globe" aria-hidden="true"></i> Web Services</a>
+                                                <a href="/service-hr-consulting.html"><i class="fas fa-users" aria-hidden="true"></i> HR Audits</a>
+                                                <a href="/services.html" class="view-all"><i class="fas fa-th-large" aria-hidden="true"></i> All Services</a>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-                                <li><a href="/portfolio.html" class="nav-link"><i class="fas fa-chart-pie"></i> Portfolio</a></li>
-                                <li><a href="/insights.html" class="nav-link"><i class="fas fa-blog"></i> Insights</a></li>
-                                <li><a href="/contact.html" class="nav-link cta-link"><i class="fas fa-paper-plane"></i> Contact</a></li>
+                                <li><a href="/portfolio.html" class="nav-link"><i class="fas fa-chart-pie" aria-hidden="true"></i> Portfolio</a></li>
+                                <li><a href="/insights.html" class="nav-link"><i class="fas fa-blog" aria-hidden="true"></i> Insights</a></li>
+                                <li><a href="/contact.html" class="nav-link cta-link"><i class="fas fa-paper-plane" aria-hidden="true"></i> Contact</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -156,13 +188,14 @@ function getFallbackHTML(id) {
 }
 
 /* ===============================
-   ✅ CORE EVENT HANDLERS
+   ✅ UNIFIED EVENT HANDLERS
 ================================= */
 function setupEventListeners() {
+    // ----- 1. Unified Click Handler -----
     document.addEventListener('click', (e) => {
         const target = e.target;
 
-        // 1️⃣ Mobile Menu Toggle
+        // Mobile Menu Toggle
         const toggleBtn = target.closest('.mobile-menu-toggle');
         if (toggleBtn) {
             const menu = document.querySelector('.nav-menu');
@@ -174,54 +207,61 @@ function setupEventListeners() {
             return;
         }
 
-        // 2️⃣ Dropdown Toggle (Chevron Button) ✅ NEW LOGIC
-        const dropToggle = target.closest('.dropdown-toggle');
-        if (dropToggle) {
-            // Always prevent default on the toggle button
+        // Ignore clicks on submenu links (they navigate normally)
+        if (target.closest('.dropdown-menu a')) return;
+
+        // Find the nav-link-wrapper
+        const wrapper = target.closest('.nav-link-wrapper');
+        if (!wrapper) return;
+
+        // Only intercept on mobile
+        if (!Helpers.isMobileView()) return;
+
+        const dropdown = wrapper.closest('.dropdown');
+        if (!dropdown) return;
+
+        const link = wrapper.querySelector('.nav-link');
+        const toggle = wrapper.querySelector('.dropdown-toggle');
+
+        // If clicking the chevron button: toggle ONLY
+        if (target.closest('.dropdown-toggle')) {
             e.preventDefault();
             e.stopPropagation();
-
-            const dropdown = dropToggle.closest('.dropdown');
-            if (!dropdown) return;
-
-            // Close other open dropdowns
-            document.querySelectorAll('.dropdown.open').forEach((el) => {
-                if (el !== dropdown) {
-                    el.classList.remove('open');
-                    const toggle = el.querySelector('.dropdown-toggle');
-                    if (toggle) toggle.setAttribute('aria-expanded', 'false');
-                }
-            });
-
-            // Toggle current
-            const isOpen = dropdown.classList.toggle('open');
-            dropToggle.setAttribute('aria-expanded', isOpen);
-
-            // ✅ Debug log
-            console.log('[Dropdown] Toggled:', isOpen ? 'open' : 'closed');
+            Helpers.toggleDropdown(dropdown);
             return;
         }
 
-        // 3️⃣ Close menu & dropdowns when clicking outside
-        if (!target.closest('.main-header')) {
-            // If clicking a sub-link inside dropdown, do nothing
-            if (target.closest('.dropdown-menu a')) return;
+        // If clicking the link text or wrapper
+        // First tap: dropdown is closed → expand it
+        if (!dropdown.classList.contains('open')) {
+            e.preventDefault();
+            Helpers.closeAllDropdowns(dropdown);
+            Helpers.openDropdown(dropdown);
+            return;
+        }
 
-            const menu = document.querySelector('.nav-menu.active');
-            if (menu) {
-                menu.classList.remove('active');
-                const toggle = document.querySelector('.mobile-menu-toggle');
-                if (toggle) {
-                    toggle.classList.remove('active');
-                    toggle.setAttribute('aria-expanded', 'false');
-                }
-                document.body.classList.remove('menu-open');
-                Helpers.closeAllDropdowns();
+        // Second tap: dropdown is open → navigate (do nothing, link works)
+    });
+
+    // ----- 2. Close menu when clicking outside -----
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.main-header')) return;
+        if (e.target.closest('.dropdown-menu a')) return;
+
+        const menu = document.querySelector('.nav-menu.active');
+        if (menu) {
+            menu.classList.remove('active');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            if (toggle) {
+                toggle.classList.remove('active');
+                toggle.setAttribute('aria-expanded', 'false');
             }
+            document.body.classList.remove('menu-open');
+            Helpers.closeAllDropdowns();
         }
     });
 
-    // Escape Key
+    // ----- 3. Escape key -----
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             const menu = document.querySelector('.nav-menu.active');
@@ -238,6 +278,28 @@ function setupEventListeners() {
             }
         }
     });
+
+    // ----- 4. Resize handler -----
+    let lastWidth = window.innerWidth;
+    window.addEventListener('resize', Helpers.throttle(() => {
+        const currentWidth = window.innerWidth;
+        const crossedBreakpoint = (lastWidth > CONFIG.breakpoint && currentWidth <= CONFIG.breakpoint) ||
+                                  (lastWidth <= CONFIG.breakpoint && currentWidth > CONFIG.breakpoint);
+        if (crossedBreakpoint) {
+            Helpers.closeAllDropdowns();
+            const menu = document.querySelector('.nav-menu.active');
+            if (menu) {
+                menu.classList.remove('active');
+                const toggle = document.querySelector('.mobile-menu-toggle');
+                if (toggle) {
+                    toggle.classList.remove('active');
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+                document.body.classList.remove('menu-open');
+            }
+        }
+        lastWidth = currentWidth;
+    }, 200));
 }
 
 /* ===============================

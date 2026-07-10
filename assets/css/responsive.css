@@ -1,6 +1,6 @@
 /* ============================================
    RESPONSIVE – SINGLE SOURCE OF TRUTH
-============================================ */
+   ============================================ */
 
 /* ----- Large Desktops ----- */
 @media (min-width: 1400px) {
@@ -27,8 +27,8 @@
 }
 
 /* ============================================
-   TABLET BREAKPOINT (992px) – MOBILE MENU
-============================================ */
+   TABLET BREAKPOINT (≤992px) – MOBILE MENU
+   ============================================ */
 @media (max-width: 992px) {
     :root {
         --space-xl: 4rem;
@@ -78,6 +78,7 @@
         margin: 0;
     }
 
+    /* ----- General Nav Link (mobile) ----- */
     .nav-link {
         display: flex;
         align-items: center;
@@ -98,7 +99,7 @@
         flex-shrink: 0;
     }
 
-    /* ----- Mobile Dropdowns (✅ FIXED for new structure) ----- */
+    /* ----- Dropdowns on mobile ----- */
     .dropdown {
         flex-direction: column;
         height: auto;
@@ -106,6 +107,7 @@
         position: relative;
     }
 
+    /* Nav-link-wrapper – full width row */
     .nav-link-wrapper {
         display: flex;
         align-items: center;
@@ -113,10 +115,15 @@
         gap: 0;
         border-radius: 10px;
         transition: background 0.2s ease;
+        cursor: pointer;
     }
 
-    .nav-link-wrapper:hover {
-        background: rgba(0, 0, 0, 0.02);
+    .nav-link-wrapper:active {
+        background: rgba(0, 0, 0, 0.04);
+    }
+
+    .dropdown.open > .nav-link-wrapper {
+        background: rgba(0, 85, 170, 0.06);
     }
 
     .nav-link-wrapper .nav-link {
@@ -138,13 +145,14 @@
         flex-shrink: 0;
     }
 
+    /* Toggle button – larger touch target (56px) */
     .dropdown-toggle {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 48px;
-        height: 48px;
-        min-width: 48px;
+        width: 56px;
+        min-width: 56px;
+        height: 56px;
         padding: 0;
         margin-right: 4px;
         background: transparent;
@@ -156,15 +164,20 @@
     }
 
     .dropdown-toggle:hover {
-        background: rgba(0, 0, 0, 0.05);
+        background: rgba(0, 0, 0, 0.04);
+    }
+
+    .dropdown-toggle:active {
+        background: rgba(0, 0, 0, 0.08);
     }
 
     .dropdown-toggle .dropdown-icon {
         font-size: 0.8rem;
         color: var(--medium-gray, #666);
-        transition: transform 0.3s ease;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         position: static;
         margin: 0;
+        pointer-events: none;
     }
 
     .dropdown.open .dropdown-toggle .dropdown-icon {
@@ -175,6 +188,7 @@
         background: rgba(0, 85, 170, 0.08);
     }
 
+    /* Dropdown menu – smooth height animation */
     .dropdown-menu {
         position: static !important;
         top: auto !important;
@@ -202,17 +216,18 @@
     }
 
     .dropdown.open .dropdown-menu {
-        max-height: 800px !important;
         padding: 12px 12px 8px !important;
         opacity: 1 !important;
         visibility: visible !important;
         pointer-events: auto !important;
+        /* max-height is set dynamically by JS using scrollHeight */
     }
 
     .dropdown-menu::before {
         display: none !important;
     }
 
+    /* Dropdown columns – stack vertically */
     .dropdown-columns {
         display: flex !important;
         flex-direction: column !important;
@@ -278,7 +293,7 @@
         border-radius: 6px !important;
     }
 
-    /* ----- CTA on mobile ----- */
+    /* ----- CTA (Contact) on mobile ----- */
     .nav-link.cta-link {
         margin-left: 0 !important;
         justify-content: center !important;
@@ -286,7 +301,9 @@
         width: 100% !important;
     }
 
-    /* ----- Grid Adjustments ----- */
+    /* ============================================
+       GRID ADJUSTMENTS (Mobile)
+       ============================================ */
     .grid-4, .ethics-grid-4, .csr-grid-4, .differentiator-grid,
     .services-grid, .benefits-grid, .testimonials-grid,
     .featured-grid, .related-posts-grid, .resources-grid {
@@ -361,8 +378,8 @@
 }
 
 /* ============================================
-   TABLET PORTRAIT (768px)
-============================================ */
+   TABLET PORTRAIT (≤768px)
+   ============================================ */
 @media (max-width: 768px) {
     :root {
         --space-xl: 3rem;
@@ -508,8 +525,8 @@
 }
 
 /* ============================================
-   MOBILE (480px)
-============================================ */
+   MOBILE (≤480px)
+   ============================================ */
 @media (max-width: 480px) {
     h1, .hero__title, .cta__title {
         font-size: 1.6rem;
@@ -605,8 +622,8 @@
 }
 
 /* ============================================
-   ULTRA SMALL (360px)
-============================================ */
+   ULTRA SMALL (≤360px)
+   ============================================ */
 @media (max-width: 360px) {
     .section-title {
         font-size: 1.3rem;
@@ -622,7 +639,7 @@
 
 /* ============================================
    TOUCH DEVICE OPTIMIZATION
-============================================ */
+   ============================================ */
 @media (hover: none) {
     .btn:hover,
     .card:hover,
@@ -638,7 +655,7 @@
 
 /* ============================================
    REDUCED MOTION
-============================================ */
+   ============================================ */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
