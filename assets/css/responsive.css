@@ -81,62 +81,59 @@
         transition: background 0.2s ease;
     }
 
-    /* ----- Mobile Dropdowns ----- */
-    .dropdown {
-        flex-direction: column;
-        height: auto;
-        width: 100%;
-    }
+ /* ----- Mobile Dropdowns ----- */
+.dropdown {
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+}
 
-    .dropdown-toggle {
-        width: 100%;
-        justify-content: space-between;
-        padding: 14px 20px;
-        border-radius: 12px;
-    }
+.dropdown-toggle {
+    width: 100%;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-radius: 12px;
+}
 
-    .dropdown-toggle:hover {
-        background: rgba(0, 0, 0, 0.03);
-    }
+.dropdown-toggle:hover {
+    background: rgba(0, 0, 0, 0.03);
+}
 
-    .dropdown-icon {
-        position: static;
-        transition: transform 0.3s ease;
-    }
+.dropdown-icon {
+    position: static;
+    transition: transform 0.3s ease;
+}
 
-    .dropdown.open .dropdown-icon {
-        transform: rotate(180deg);
-    }
+.dropdown.open .dropdown-icon {
+    transform: rotate(180deg);
+}
 
-    .dropdown-menu {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        box-shadow: none;
-        background: rgba(0, 0, 0, 0.03);
-        margin-top: 0;
-        border-radius: 8px;
-        min-width: auto;
-        width: 100%;
-        padding: 0 16px;
+.dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.03);
+    margin-top: 0;
+    border-radius: 8px;
+    min-width: auto;
+    width: 100%;
+    padding: 0 16px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                padding 0.35s ease,
+                opacity 0.25s ease;
+}
 
-        /* 🔑 KEY FIX: max-height for smooth, reliable animation */
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                    padding 0.35s ease,
-                    opacity 0.25s ease;
-        opacity: 0;
-    }
+.dropdown.open .dropdown-menu {
+    max-height: 600px;
+    padding: 16px 16px 8px;
+    opacity: 1;
+}
 
-    .dropdown.open .dropdown-menu {
-        max-height: 600px;
-        padding: 16px 16px 8px;
-        opacity: 1;
-    }
-
-    /* Remove the decorative arrow on mobile */
     .dropdown-menu::before {
         display: none;
     }
