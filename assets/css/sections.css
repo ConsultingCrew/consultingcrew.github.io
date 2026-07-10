@@ -1,0 +1,138 @@
+/* ============================================
+   SECTIONS – Testimonials, Clients, Newsletter
+   ============================================ */
+
+/* ----- Testimonials ----- */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+}
+.testimonial-card {
+    background: var(--white);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+    height: 100%;
+}
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+.testimonial-card p {
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--dark-gray);
+    margin-bottom: var(--space-md);
+}
+.testimonial-card .testimonial__author h4 {
+    color: var(--dark-blue);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* ----- Clients ----- */
+.clients {
+    overflow: hidden;
+    background: var(--white);
+}
+.clients__slider {
+    display: flex;
+    gap: var(--space-lg);
+    overflow-x: auto;
+    padding: var(--space-md) 0;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+}
+.clients__slider::-webkit-scrollbar {
+    display: none;
+}
+.clients__item {
+    flex: 0 0 180px;
+    scroll-snap-align: start;
+    padding: var(--space-sm);
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 140px;
+    border: 1px solid var(--light-gray);
+    transition: all var(--transition-fast);
+}
+.clients__item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-blue);
+}
+.clients__item img {
+    width: 100%;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: var(--space-xs);
+}
+.clients__item span {
+    font-size: 0.85rem;
+    color: var(--medium-gray);
+    text-align: center;
+}
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+}
+.clients-grid .clients__item {
+    flex: none;
+    min-height: 100px;
+}
+
+/* ----- Newsletter ----- */
+.newsletter-section {
+    padding: var(--space-xl) 0;
+    background: var(--white);
+}
+.newsletter-content {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: var(--space-xl);
+    background: linear-gradient(135deg, rgba(91, 192, 19, 0.07) 0%, rgba(255, 255, 255, 1) 100%);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+.newsletter-title {
+    font-size: 2rem;
+    margin-bottom: var(--space-md);
+    color: var(--dark-blue);
+}
+.newsletter-subtitle {
+    color: var(--medium-gray);
+    font-size: 1.1rem;
+    margin-bottom: var(--space-md);
+}
+.newsletter--insights {
+    background: var(--light-blue);
+}
+.newsletter--insights .newsletter-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+}
+.newsletter--insights .newsletter-text {
+    flex: 1;
+    min-width: 250px;
+}
+.newsletter--insights .newsletter-form {
+    flex: 1;
+    min-width: 280px;
+}

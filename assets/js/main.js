@@ -4,6 +4,10 @@
    UTILITIES
 ================================= */
 const Utils = {
+  /**
+   * Throttles a function using requestAnimationFrame.
+   * Ideal for scroll/resize events.
+   */
   rafThrottle(fn) {
     let ticking = false;
     return (...args) => {
@@ -16,6 +20,11 @@ const Utils = {
       }
     };
   },
+
+  /**
+   * Debounces a function.
+   * Useful for input/typing events.
+   */
   debounce(fn, delay = 200) {
     let timer;
     return (...args) => {
@@ -26,13 +35,15 @@ const Utils = {
 };
 
 /* ===============================
-   TOAST
+   TOAST NOTIFICATIONS
 ================================= */
 function showToast(message, type = 'success', duration = 3000) {
   let container = document.querySelector('.toast-container');
+
   if (!container) {
     container = document.createElement('div');
     container.className = 'toast-container';
+    container.setAttribute('aria-live', 'polite');
     document.body.appendChild(container);
   }
 
@@ -43,8 +54,10 @@ function showToast(message, type = 'success', duration = 3000) {
 
   container.appendChild(toast);
 
+  // Trigger entrance animation
   requestAnimationFrame(() => toast.classList.add('show'));
 
+  // Auto-dismiss
   setTimeout(() => {
     toast.classList.remove('show');
     toast.addEventListener('transitionend', () => toast.remove(), { once: true });
@@ -52,14 +65,13 @@ function showToast(message, type = 'success', duration = 3000) {
 }
 
 /* ===============================
-   FILTERS
+   FILTERS (Optimized)
 ================================= */
 function initFilters() {
   document.addEventListener('click', function(e) {
     const btn = e.target.closest('.filter-btn');
     if (!btn) return;
 
-    // Find the wrapper
     const wrapper = btn.closest('[data-filter-wrapper]');
     if (!wrapper) {
       console.warn('Filter button outside data-filter-wrapper');
@@ -71,27 +83,14 @@ function initFilters() {
     const items = wrapper.querySelectorAll(itemsSelector);
 
     // Update active button
-    wrapper.querySelectorAll('.filter-btn').forEach(function(b) {
-      b.classList.remove('active');
-    });
+    wrapper.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
     btn.classList.add('active');
 
-    // Filter items
-    items.forEach(function(item) {
+    // Filter items – using only CSS class (no redundant inline styles)
+    items.forEach((item) => {
       const category = item.dataset.category;
       const visible = filter === 'all' || category === filter;
-
-      // Method 1: Toggle class
       item.classList.toggle('filtered-out', !visible);
-
-      // Method 2: Direct style (backup)
-      if (!visible) {
-        item.style.display = 'none';
-      } else {
-        item.style.display = '';
-      }
-
-      // Accessibility
       item.setAttribute('aria-hidden', !visible);
     });
   });
@@ -101,25 +100,29 @@ function initFilters() {
    LOADING SCREEN
 ================================= */
 function initLoadingScreen() {
-    const screen = document.getElementById('loadingScreen');
-    if (!screen) return;
+  const screen = document.getElementById('loadingScreen');
+  if (!screen) return;
 
-    let hidden = false;
+  let hidden = false;
 
-    const hide = () => {
-        if (hidden) return;
-        hidden = true;
-        screen.classList.add('hidden');
-        setTimeout(() => {
-            screen.style.display = 'none';
-        }, 600);
-    };
+  const hide = () => {
+    if (hidden) return;
+    hidden = true;
+    screen.classList.add('hidden');
 
-    window.addEventListener('load', () => {
-        setTimeout(hide, 600);
-    });
+    // Remove from DOM after transition
+    setTimeout(() => {
+      screen.style.display = 'none';
+    }, 600);
+  };
 
-    setTimeout(hide, 4000);
+  // Hide on page load (with a small delay to show the animation)
+  window.addEventListener('load', () => {
+    setTimeout(hide, 600);
+  });
+
+  // Safety fallback: hide after 4 seconds even if load fails
+  setTimeout(hide, 4000);
 }
 
 /* ===============================
@@ -141,10 +144,10 @@ function initBackToTop() {
 }
 
 /* ===============================
-   FAQ
+   FAQ ACCORDION
 ================================= */
 function initFAQ() {
-  document.addEventListener('click', e => {
+  document.addEventListener('click', (e) => {
     const trigger = e.target.closest('.faq-question');
     if (!trigger) return;
 
@@ -152,15 +155,20 @@ function initFAQ() {
     const answer = item.querySelector('.faq-answer');
     const isOpen = item.classList.contains('active');
 
-    // Close others
-    item.parentElement.querySelectorAll('.faq-item.active').forEach(el => {
-      if (el !== item) {
-        el.classList.remove('active');
-        el.querySelector('.faq-answer').style.maxHeight = null;
-        el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-      }
-    });
+    // Close other open items in the same accordion
+    const parent = item.parentElement;
+    if (parent) {
+      parent.querySelectorAll('.faq-item.active').forEach((el) => {
+        if (el !== item) {
+          el.classList.remove('active');
+          const otherAnswer = el.querySelector('.faq-answer');
+          if (otherAnswer) otherAnswer.style.maxHeight = null;
+          el.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
 
+    // Toggle current item
     if (isOpen) {
       item.classList.remove('active');
       answer.style.maxHeight = null;
@@ -174,82 +182,91 @@ function initFAQ() {
 }
 
 /* ===============================
-   SMOOTH SCROLL
+   SMOOTH SCROLL FOR ANCHOR LINKS
 ================================= */
 function initSmoothScroll() {
-  document.addEventListener('click', e => {
+  document.addEventListener('click', (e) => {
     const anchor = e.target.closest('a[href^="#"]');
     if (!anchor) return;
+
     const href = anchor.getAttribute('href');
     if (!href || href === '#') return;
+
     const target = document.querySelector(href);
     if (!target) return;
+
     e.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 }
 
 /* ===============================
-   FORMS
+   FORMS (Validation & Submission)
 ================================= */
 function initForms() {
   const validateField = (field) => {
-    const error = document.getElementById(field.id + 'Error');
-    if (!error) return true;
+    const errorEl = document.getElementById(field.id + 'Error');
+    if (!errorEl) return true;
 
     let valid = true;
     let message = '';
     const value = field.value.trim();
 
+    // Required check
     if (field.hasAttribute('required') && !value) {
       valid = false;
-      message = 'Required field';
+      message = 'This field is required';
     }
 
+    // Email format check
     if (valid && field.type === 'email' && value) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(value)) {
         valid = false;
-        message = 'Invalid email';
+        message = 'Please enter a valid email address';
       }
     }
 
     field.classList.toggle('error', !valid);
-    error.textContent = message;
+    errorEl.textContent = message;
     return valid;
   };
 
-  document.querySelectorAll('form').forEach(form => {
-    // Real-time validation
-    form.querySelectorAll('input, textarea, select').forEach(field => {
+  document.querySelectorAll('form').forEach((form) => {
+    // Real‑time validation on input
+    form.querySelectorAll('input, textarea, select').forEach((field) => {
       field.addEventListener('input', () => validateField(field));
+      field.addEventListener('blur', () => validateField(field));
     });
 
-    form.addEventListener('submit', async e => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
+      // Validate all fields
       let valid = true;
-      form.querySelectorAll('input, textarea, select').forEach(field => {
+      form.querySelectorAll('input, textarea, select').forEach((field) => {
         if (!validateField(field)) valid = false;
       });
 
       if (!valid) return;
 
+      // Disable submit button to prevent double submission
       const btn = form.querySelector('button[type="submit"]');
       if (btn) btn.disabled = true;
 
-      // Simulate async submission
-      await new Promise(r => setTimeout(r, 1200));
+      // Simulate async submission (replace with actual fetch/axios call)
+      await new Promise((resolve) => setTimeout(resolve, 1200));
 
+      // Reset form
       form.reset();
 
       // Show success message
-      const successDiv = form.parentElement.querySelector('.form-success');
+      const successDiv = form.parentElement?.querySelector('.form-success');
       if (successDiv) {
         successDiv.style.display = 'block';
         successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {
-        showToast('Form submitted successfully');
+        showToast('Form submitted successfully!', 'success');
       }
 
       if (btn) btn.disabled = false;
@@ -258,36 +275,42 @@ function initForms() {
 }
 
 /* ===============================
-   LAZY LOAD (if using data-src)
+   LAZY LOADING (IntersectionObserver)
 ================================= */
 function initLazyLoad() {
   if (!('IntersectionObserver' in window)) return;
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const img = entry.target;
-      const src = img.dataset.src;
-      if (src) {
-        img.src = src;
-        img.onload = () => img.classList.add('loaded');
-      }
-      observer.unobserve(img);
-    });
-  }, { rootMargin: '100px' });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const img = entry.target;
+        const src = img.dataset.src;
 
-  document.querySelectorAll('img[data-src]').forEach(img => observer.observe(img));
+        if (src) {
+          img.src = src;
+          img.onload = () => img.classList.add('loaded');
+          img.removeAttribute('data-src');
+        }
+        observer.unobserve(img);
+      });
+    },
+    { rootMargin: '100px' }
+  );
+
+  document.querySelectorAll('img[data-src]').forEach((img) => observer.observe(img));
 }
 
 /* ===============================
-   RIPPLE
+   RIPPLE EFFECT ON BUTTONS
 ================================= */
 function initRipple() {
-  document.addEventListener('click', e => {
+  document.addEventListener('click', (e) => {
     const btn = e.target.closest('.btn');
     if (!btn) return;
 
-    btn.querySelectorAll('.ripple').forEach(r => r.remove());
+    // Remove any existing ripples
+    btn.querySelectorAll('.ripple').forEach((r) => r.remove());
 
     const ripple = document.createElement('span');
     ripple.className = 'ripple';
@@ -295,17 +318,20 @@ function initRipple() {
     const rect = btn.getBoundingClientRect();
     const size = Math.max(rect.width, rect.height);
 
-    ripple.style.width = ripple.style.height = `${size}px`;
-    ripple.style.left = `${e.clientX - rect.left - size/2}px`;
-    ripple.style.top = `${e.clientY - rect.top - size/2}px`;
+    ripple.style.width = `${size}px`;
+    ripple.style.height = `${size}px`;
+    ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+    ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
 
     btn.appendChild(ripple);
+
+    // Clean up after animation
     ripple.addEventListener('animationend', () => ripple.remove());
   });
 }
 
 /* ===============================
-   INIT
+   INITIALISE EVERYTHING
 ================================= */
 document.addEventListener('DOMContentLoaded', () => {
   initLoadingScreen();
@@ -319,4 +345,195 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('load', () => {
   initRipple();
+});
+
+'use strict';
+
+/* ============================================
+   ENHANCEMENTS – Polish & Interactive Flair
+   ============================================ */
+
+/* ----- 1. Scroll Progress Bar ----- */
+function initScrollProgress() {
+  // Create the progress bar if it doesn't exist
+  let progressBar = document.querySelector('.scroll-progress');
+  if (!progressBar) {
+    progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    document.body.prepend(progressBar);
+  }
+
+  const updateProgress = Utils.rafThrottle(() => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = progress + '%';
+  });
+
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress, { passive: true });
+  updateProgress();
+}
+
+/* ----- 2. Staggered Reveals (Enhanced) ----- */
+function initStaggeredReveals() {
+  const containers = document.querySelectorAll('.stagger-children');
+  if (!containers.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  containers.forEach((container) => observer.observe(container));
+}
+
+/* ----- 3. Mouse‑Driven Parallax Orbs (Floating Background) ----- */
+function initOrbParallax() {
+  const orbs = document.querySelectorAll('.orb');
+  if (!orbs.length) return;
+
+  const handleMove = (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 2;
+    const y = (e.clientY / window.innerHeight - 0.5) * 2;
+
+    orbs.forEach((orb, index) => {
+      const speed = 0.03 + (index * 0.01);
+      const offsetX = x * 60 * speed;
+      const offsetY = y * 60 * speed;
+      orb.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+    });
+  };
+
+  document.addEventListener('mousemove', handleMove, { passive: true });
+}
+
+/* ----- 4. Cursor Glow Follower (Desktop Only) ----- */
+function initCursorGlow() {
+  // Only on non-touch devices
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  let glow = document.querySelector('.cursor-glow');
+  if (!glow) {
+    glow = document.createElement('div');
+    glow.className = 'cursor-glow';
+    document.body.appendChild(glow);
+  }
+
+  const onMove = (e) => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  };
+
+  // Detect hoverable interactive elements
+  const onHover = (e) => {
+    const target = e.target.closest('a, .btn, .card, .service-card, .filter-btn');
+    glow.classList.toggle('is-hovering', !!target);
+  };
+
+  document.addEventListener('mousemove', onMove, { passive: true });
+  document.addEventListener('mouseover', onHover, { passive: true });
+  document.addEventListener('mouseout', () => {
+    glow.classList.remove('is-hovering');
+  }, { passive: true });
+}
+
+/* ----- 5. 3D Tilt Effect on Cards (Desktop) ----- */
+function initTilt3D() {
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const cards = document.querySelectorAll('.tilt-3d');
+  if (!cards.length) return;
+
+  cards.forEach((card) => {
+    const handleMove = (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -6; // max ±6deg
+      const rotateY = ((x - centerX) / centerX) * 6;
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+    };
+
+    const handleLeave = () => {
+      card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+    };
+
+    card.addEventListener('mousemove', handleMove, { passive: true });
+    card.addEventListener('mouseleave', handleLeave, { passive: true });
+  });
+}
+
+/* ----- 6. Smooth Entrance on Page Load (Body Fade) ----- */
+function initPageEntrance() {
+  document.body.style.opacity = '0';
+  document.body.style.transition = 'opacity 0.6s cubic-bezier(0.2, 0.9, 0.3, 1)';
+
+  requestAnimationFrame(() => {
+    document.body.style.opacity = '1';
+  });
+
+  // Remove inline styles after transition to not interfere
+  setTimeout(() => {
+    document.body.style.opacity = '';
+    document.body.style.transition = '';
+  }, 700);
+}
+
+/* ----- 7. Lazy Load with Blur-up Effect (Adds class) ----- */
+function initBlurLazy() {
+  if (!('IntersectionObserver' in window)) return;
+
+  const images = document.querySelectorAll('img[data-src]');
+  if (!images.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const img = entry.target;
+        const src = img.dataset.src;
+
+        // Add a blur class while loading
+        img.classList.add('lazy-loading');
+
+        if (src) {
+          img.src = src;
+          img.onload = () => {
+            img.classList.remove('lazy-loading');
+            img.classList.add('lazy-loaded');
+          };
+          img.removeAttribute('data-src');
+        }
+        observer.unobserve(img);
+      });
+    },
+    { rootMargin: '100px' }
+  );
+
+  images.forEach((img) => observer.observe(img));
+}
+
+/* ============================================
+   INIT ENHANCEMENTS
+   ============================================ */
+document.addEventListener('DOMContentLoaded', () => {
+  initScrollProgress();
+  initStaggeredReveals();
+  initOrbParallax();
+  initCursorGlow();
+  initTilt3D();
+  initPageEntrance();
+  initBlurLazy();
 });
