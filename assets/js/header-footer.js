@@ -1,366 +1,283 @@
-'use strict';
+/**
+ * ============================================
+ * HEADER-FOOTER.JS
+ * Best practices • ES6+ • Accessibility • Animations • Performance
+ * ============================================
+ */
 
-/* ===============================
-   CONFIGURATION
-================================= */
-const COMPONENTS = {
-    header: 'components/header.html',
-    footer: 'components/footer.html'
-};
+(() => {
+    'use strict';
 
-const CONFIG = {
-    breakpoint: 992,
-    retries: 3
-};
+    // ---------- DOM refs ----------
+    const header = document.querySelector('.main-header');
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navList = document.querySelector('.nav-list');
+    const dropdowns = document.querySelectorAll('.dropdown');
+    const yearSpan = document.getElementById('current-year');
 
-/* ===============================
-   HELPERS
-================================= */
-const Helpers = {
-    throttle(fn, limit = 16) {
-        let wait = false;
-        return (...args) => {
-            if (!wait) {
-                fn(...args);
-                wait = true;
-                setTimeout(() => { wait = false; }, limit);
-            }
-        };
-    },
+    // ---------- 1. Set current year in footer ----------
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
 
-    isMobileView() {
-        return window.innerWidth <= CONFIG.breakpoint;
-    },
+    // ---------- 2. Sticky header shadow on scroll ----------
+    let ticking = false;
 
-    closeAllDropdowns(exception = null) {
-        document.querySelectorAll('.dropdown.open').forEach((dropdown) => {
-            if (dropdown === exception) return;
-            dropdown.classList.remove('open');
-            const toggle = dropdown.querySelector('.dropdown-toggle');
-            if (toggle) toggle.setAttribute('aria-expanded', 'false');
-            const link = dropdown.querySelector('.nav-link');
-            if (link) link.setAttribute('aria-expanded', 'false');
-            const menu = dropdown.querySelector('.dropdown-menu');
-            if (menu) menu.style.maxHeight = '';
-        });
-    },
-
-    openDropdown(dropdown) {
-        const menu = dropdown.querySelector('.dropdown-menu');
-        if (menu) {
-            menu.style.maxHeight = menu.scrollHeight + 50 + 'px';
+    const handleScroll = () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const scrollY = window.scrollY;
+                if (scrollY > 20) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                ticking = false;
+            });
+            ticking = true;
         }
-        dropdown.classList.add('open');
-        const toggle = dropdown.querySelector('.dropdown-toggle');
-        if (toggle) toggle.setAttribute('aria-expanded', 'true');
-        const link = dropdown.querySelector('.nav-link');
-        if (link) link.setAttribute('aria-expanded', 'true');
-    },
+    };
 
-    closeDropdown(dropdown) {
-        const menu = dropdown.querySelector('.dropdown-menu');
-        if (menu) menu.style.maxHeight = '0';
-        dropdown.classList.remove('open');
-        const toggle = dropdown.querySelector('.dropdown-toggle');
-        if (toggle) toggle.setAttribute('aria-expanded', 'false');
-        const link = dropdown.querySelector('.nav-link');
-        if (link) link.setAttribute('aria-expanded', 'false');
-    },
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
-    toggleDropdown(dropdown) {
-        if (dropdown.classList.contains('open')) {
-            Helpers.closeDropdown(dropdown);
-        } else {
-            Helpers.closeAllDropdowns(dropdown);
-            Helpers.openDropdown(dropdown);
+    // ---------- 3. Mobile menu toggle ----------
+    const toggleMobileMenu = (forceState) => {
+        const isOpen = typeof forceState === 'boolean' ? forceState : !navMenu.classList.contains('open');
+        navMenu.classList.toggle('open', isOpen);
+        mobileToggle.setAttribute('aria-expanded', isOpen);
+        mobileToggle.setAttribute(
+            'aria-label',
+            isOpen ? 'Close navigation menu' : 'Open navigation menu'
+        );
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    };
+
+    mobileToggle.addEventListener('click', () => toggleMobileMenu());
+
+    // Close mobile menu on link click (for better UX)
+    navList.addEventListener('click', (e) => {
+        const link = e.target.closest('a.nav-link');
+        if (link && !link.closest('.dropdown')) {
+            // Only close if it's a direct nav link, not a dropdown item
+            toggleMobileMenu(false);
         }
-    }
-};
+    });
 
-/* ===============================
-   FETCH & LOAD
-================================= */
-async function fetchHTML(path, retries = CONFIG.retries) {
-    for (let i = 1; i <= retries; i++) {
-        try {
-            const response = await fetch(path, { cache: 'force-cache' });
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            return await response.text();
-        } catch (err) {
-            if (i === retries) throw err;
-            await new Promise((r) => setTimeout(r, 1000 * i));
+    // Close mobile menu on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+            toggleMobileMenu(false);
+            mobileToggle.focus();
         }
-    }
-}
+    });
 
-async function loadComponent(containerId, path) {
-    const container = document.getElementById(containerId);
-    if (!container) return false;
-    try {
-        const html = await fetchHTML(path);
-        container.innerHTML = html;
-        return true;
-    } catch (err) {
-        console.warn(`[header-footer] Fallback used for ${containerId}`);
-        container.innerHTML = getFallbackHTML(containerId);
-        return false;
-    }
-}
-
-/* ===============================
-   COMPLETE FALLBACK HTML
-================================= */
-function getFallbackHTML(id) {
-    const year = new Date().getFullYear();
-
-    if (id === 'header-container') {
-        return `
-            <header class="main-header">
-                <div class="container">
-                    <nav class="navbar" aria-label="Primary Navigation">
-                        <a href="/" class="logo" aria-label="Consulting Crew Home">
-                            <span class="logo-text">Consulting Crew</span>
-                            <span class="logo-tagline">Empowering Smarter Decisions</span>
-                        </a>
-                        <button class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
-                            <span></span><span></span><span></span>
-                        </button>
-                        <div class="nav-menu" id="primary-navigation">
-                            <ul class="nav-list">
-                                <li><a href="/" class="nav-link"><i class="fas fa-home" aria-hidden="true"></i> Home</a></li>
-                                <li class="dropdown" data-dropdown="about">
-                                    <div class="nav-link-wrapper">
-                                        <a href="/about.html" class="nav-link" aria-haspopup="true" aria-expanded="false"><i class="fas fa-building" aria-hidden="true"></i> About</a>
-                                        <button class="dropdown-toggle" type="button" aria-label="Expand About menu" aria-expanded="false" aria-controls="about-menu"><i class="fas fa-chevron-down dropdown-icon" aria-hidden="true"></i></button>
-                                    </div>
-                                    <div class="dropdown-menu" id="about-menu">
-                                        <div class="dropdown-column">
-                                            <a href="/team.html"><i class="fas fa-user-tie" aria-hidden="true"></i> Our Team</a>
-                                            <a href="/process.html"><i class="fas fa-sitemap" aria-hidden="true"></i> Our EDGE Process</a>
-                                            <a href="/ethics.html"><i class="fas fa-balance-scale" aria-hidden="true"></i> Business Ethics</a>
-                                            <a href="/csr.html"><i class="fas fa-handshake" aria-hidden="true"></i> Corporate Responsibility</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="dropdown" data-dropdown="services">
-                                    <div class="nav-link-wrapper">
-                                        <a href="/services.html" class="nav-link" aria-haspopup="true" aria-expanded="false"><i class="fas fa-cogs" aria-hidden="true"></i> Services</a>
-                                        <button class="dropdown-toggle" type="button" aria-label="Expand Services menu" aria-expanded="false" aria-controls="services-menu"><i class="fas fa-chevron-down dropdown-icon" aria-hidden="true"></i></button>
-                                    </div>
-                                    <div class="dropdown-menu" id="services-menu">
-                                        <div class="dropdown-columns">
-                                            <div class="dropdown-column">
-                                                <h4>Strategic Solutions</h4>
-                                                <a href="/service-data-intelligence.html"><i class="fas fa-chart-line" aria-hidden="true"></i> Data &amp; Intelligence</a>
-                                                <a href="/service-digital-transformation.html"><i class="fas fa-sync-alt" aria-hidden="true"></i> Digital Marketing</a>
-                                                <a href="/service-branding-identity.html"><i class="fas fa-palette" aria-hidden="true"></i> Branding &amp; Identity</a>
-                                            </div>
-                                            <div class="dropdown-column">
-                                                <h4>Web &amp; HR Solutions</h4>
-                                                <a href="/service-web-services.html"><i class="fas fa-globe" aria-hidden="true"></i> Web Services</a>
-                                                <a href="/service-hr-consulting.html"><i class="fas fa-users" aria-hidden="true"></i> HR Audits</a>
-                                                <a href="/services.html" class="view-all"><i class="fas fa-th-large" aria-hidden="true"></i> All Services</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li><a href="/portfolio.html" class="nav-link"><i class="fas fa-chart-pie" aria-hidden="true"></i> Portfolio</a></li>
-                                <li><a href="/insights.html" class="nav-link"><i class="fas fa-blog" aria-hidden="true"></i> Insights</a></li>
-                                <li><a href="/contact.html" class="nav-link cta-link"><i class="fas fa-paper-plane" aria-hidden="true"></i> Contact</a></li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </header>
-        `;
-    }
-
-    return `
-        <footer class="main-footer">
-            <div class="container">
-                <div class="footer-col">
-                    <p class="footer-logo">Consulting Crew</p>
-                    <p class="footer-description">&copy; ${year} Consulting Crew. All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
-    `;
-}
-
-/* ===============================
-   ✅ UNIFIED EVENT HANDLERS
-================================= */
-function setupEventListeners() {
-    // ----- 1. Unified Click Handler -----
-    document.addEventListener('click', (e) => {
-        const target = e.target;
-
-        // Mobile Menu Toggle
-        const toggleBtn = target.closest('.mobile-menu-toggle');
+    // ---------- 4. Dropdown toggles (desktop + mobile) ----------
+    const toggleDropdown = (dropdown, forceState) => {
+        const isOpen = typeof forceState === 'boolean' ? forceState : !dropdown.classList.contains('open');
+        dropdown.classList.toggle('open', isOpen);
+        const toggleBtn = dropdown.querySelector('.dropdown-toggle');
         if (toggleBtn) {
-            const menu = document.querySelector('.nav-menu');
-            const isOpen = menu.classList.toggle('active');
-            toggleBtn.classList.toggle('active', isOpen);
-            document.body.classList.toggle('menu-open', isOpen);
             toggleBtn.setAttribute('aria-expanded', isOpen);
-            if (!isOpen) Helpers.closeAllDropdowns();
-            return;
         }
-
-        // Ignore clicks on submenu links (they navigate normally)
-        if (target.closest('.dropdown-menu a')) return;
-
-        // Find the nav-link-wrapper
-        const wrapper = target.closest('.nav-link-wrapper');
-        if (!wrapper) return;
-
-        // Only intercept on mobile
-        if (!Helpers.isMobileView()) return;
-
-        const dropdown = wrapper.closest('.dropdown');
-        if (!dropdown) return;
-
-        const link = wrapper.querySelector('.nav-link');
-        const toggle = wrapper.querySelector('.dropdown-toggle');
-
-        // If clicking the chevron button: toggle ONLY
-        if (target.closest('.dropdown-toggle')) {
-            e.preventDefault();
-            e.stopPropagation();
-            Helpers.toggleDropdown(dropdown);
-            return;
+        const link = dropdown.querySelector('.nav-link-wrapper > .nav-link');
+        if (link) {
+            link.setAttribute('aria-expanded', isOpen);
         }
+    };
 
-        // If clicking the link text or wrapper
-        // First tap: dropdown is closed → expand it
-        if (!dropdown.classList.contains('open')) {
-            e.preventDefault();
-            Helpers.closeAllDropdowns(dropdown);
-            Helpers.openDropdown(dropdown);
-            return;
-        }
-
-        // Second tap: dropdown is open → navigate (do nothing, link works)
-    });
-
-    // ----- 2. Close menu when clicking outside -----
-    document.addEventListener('click', (e) => {
-        if (e.target.closest('.main-header')) return;
-        if (e.target.closest('.dropdown-menu a')) return;
-
-        const menu = document.querySelector('.nav-menu.active');
-        if (menu) {
-            menu.classList.remove('active');
-            const toggle = document.querySelector('.mobile-menu-toggle');
-            if (toggle) {
-                toggle.classList.remove('active');
-                toggle.setAttribute('aria-expanded', 'false');
+    const closeAllDropdowns = () => {
+        dropdowns.forEach((d) => {
+            if (d.classList.contains('open')) {
+                toggleDropdown(d, false);
             }
-            document.body.classList.remove('menu-open');
-            Helpers.closeAllDropdowns();
+        });
+    };
+
+    dropdowns.forEach((dropdown) => {
+        const toggleBtn = dropdown.querySelector('.dropdown-toggle');
+        const link = dropdown.querySelector('.nav-link-wrapper > .nav-link');
+
+        // Click on toggle button (chevron)
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // Close other dropdowns (on desktop)
+                if (window.innerWidth > 992) {
+                    dropdowns.forEach((d) => {
+                        if (d !== dropdown && d.classList.contains('open')) {
+                            toggleDropdown(d, false);
+                        }
+                    });
+                }
+                toggleDropdown(dropdown);
+            });
+        }
+
+        // Hover on desktop (for better UX)
+        if (window.innerWidth > 992) {
+            // Mouse enter dropdown
+            dropdown.addEventListener('mouseenter', () => {
+                // Close other dropdowns
+                dropdowns.forEach((d) => {
+                    if (d !== dropdown && d.classList.contains('open')) {
+                        toggleDropdown(d, false);
+                    }
+                });
+                toggleDropdown(dropdown, true);
+            });
+
+            // Mouse leave dropdown – with delay to allow moving into menu
+            dropdown.addEventListener('mouseleave', (e) => {
+                const relatedTarget = e.relatedTarget;
+                const menu = dropdown.querySelector('.dropdown-menu');
+                if (menu && menu.contains(relatedTarget)) {
+                    return; // Don't close – we're entering the menu
+                }
+                setTimeout(() => {
+                    if (!dropdown.matches(':hover') && !menu?.matches(':hover')) {
+                        toggleDropdown(dropdown, false);
+                    }
+                }, 100);
+            });
+
+            // Keep open when hovering the menu itself
+            const menu = dropdown.querySelector('.dropdown-menu');
+            if (menu) {
+                menu.addEventListener('mouseenter', () => {
+                    toggleDropdown(dropdown, true);
+                });
+                menu.addEventListener('mouseleave', () => {
+                    toggleDropdown(dropdown, false);
+                });
+            }
+        }
+
+        // Click on the nav link inside dropdown – "first tap expands, second tap navigates"
+        if (link) {
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 992) {
+                    // If dropdown is closed, open it instead of navigating
+                    if (!dropdown.classList.contains('open')) {
+                        e.preventDefault();
+                        // Close other dropdowns first
+                        dropdowns.forEach((d) => {
+                            if (d !== dropdown && d.classList.contains('open')) {
+                                toggleDropdown(d, false);
+                            }
+                        });
+                        toggleDropdown(dropdown);
+                    }
+                    // If dropdown is open, allow navigation (second tap)
+                }
+            });
         }
     });
 
-    // ----- 3. Escape key -----
+    // ---------- 5. Close dropdowns when clicking outside ----------
+    document.addEventListener('click', (e) => {
+        const isInsideDropdown = e.target.closest('.dropdown');
+        if (!isInsideDropdown) {
+            closeAllDropdowns();
+        }
+    });
+
+    // ---------- 6. Close dropdowns on Escape key ----------
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            const menu = document.querySelector('.nav-menu.active');
-            if (menu) {
-                menu.classList.remove('active');
-                const toggle = document.querySelector('.mobile-menu-toggle');
-                if (toggle) {
-                    toggle.classList.remove('active');
-                    toggle.setAttribute('aria-expanded', 'false');
-                }
-                document.body.classList.remove('menu-open');
-                Helpers.closeAllDropdowns();
-                toggle?.focus();
+            closeAllDropdowns();
+        }
+    });
+
+    // ---------- 7. Handle window resize: reset mobile state ----------
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            // If we're on desktop and menu is open, close it
+            if (window.innerWidth > 992 && navMenu.classList.contains('open')) {
+                toggleMobileMenu(false);
             }
-        }
-    });
-
-    // ----- 4. Resize handler -----
-    let lastWidth = window.innerWidth;
-    window.addEventListener('resize', Helpers.throttle(() => {
-        const currentWidth = window.innerWidth;
-        const crossedBreakpoint = (lastWidth > CONFIG.breakpoint && currentWidth <= CONFIG.breakpoint) ||
-                                  (lastWidth <= CONFIG.breakpoint && currentWidth > CONFIG.breakpoint);
-        if (crossedBreakpoint) {
-            Helpers.closeAllDropdowns();
-            const menu = document.querySelector('.nav-menu.active');
-            if (menu) {
-                menu.classList.remove('active');
-                const toggle = document.querySelector('.mobile-menu-toggle');
-                if (toggle) {
-                    toggle.classList.remove('active');
-                    toggle.setAttribute('aria-expanded', 'false');
-                }
-                document.body.classList.remove('menu-open');
+            // Reset dropdown states on resize
+            if (window.innerWidth > 992) {
+                closeAllDropdowns();
             }
-        }
-        lastWidth = currentWidth;
-    }, 200));
-}
-
-/* ===============================
-   STICKY HEADER
-================================= */
-function initStickyHeader() {
-    const header = document.querySelector('.main-header');
-    if (!header) return;
-
-    const handler = Helpers.throttle(() => {
-        const isScrolled = window.scrollY > 50;
-        header.classList.toggle('scrolled', isScrolled);
+        }, 200);
     });
 
-    window.addEventListener('scroll', handler, { passive: true });
-}
+    // ---------- 8. Intersection Observer: fade-up animations ----------
+    const fadeElements = document.querySelectorAll('.fade-up');
+    if (fadeElements.length > 0) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.15,
+                rootMargin: '0px 0px -20px 0px',
+            }
+        );
 
-/* ===============================
-   ACTIVE NAV LINK
-================================= */
-function initActiveLink() {
-    const currentPath = window.location.pathname;
-
-    document.querySelectorAll('.nav-link').forEach((link) => {
-        const href = link.getAttribute('href');
-        if (!href) return;
-
-        const isActive = currentPath === href ||
-                         (currentPath === '/' && (href === 'index.html' || href === '/')) ||
-                         (currentPath.endsWith(href.replace(/^\.\.\//, '')));
-
-        if (isActive) {
-            link.classList.add('active');
-            link.setAttribute('aria-current', 'page');
-        }
-    });
-}
-
-/* ===============================
-   UPDATE FOOTER YEAR
-================================= */
-function updateYear() {
-    const yearEl = document.getElementById('current-year');
-    if (yearEl) {
-        yearEl.textContent = new Date().getFullYear();
+        fadeElements.forEach((el) => observer.observe(el));
     }
-}
 
-/* ===============================
-   ✅ INITIALIZE
-================================= */
-(async function init() {
-    await Promise.all([
-        loadComponent('header-container', COMPONENTS.header),
-        loadComponent('footer-container', COMPONENTS.footer)
-    ]);
+    // ---------- 9. Active link highlighting ----------
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-link:not(.cta-link)');
 
-    setupEventListeners();
-    initStickyHeader();
-    initActiveLink();
-    updateYear();
+    navLinks.forEach((link) => {
+        const href = link.getAttribute('href');
+        if (href) {
+            // Normalize paths for comparison
+            const linkPath = href.replace(/^\.\.\//, '/').replace(/^\.\//, '/');
+            const currentPathNormalized = currentPath.replace(/^\/$/, '/index.html');
 
-    console.log('[header-footer] Initialized successfully.');
+            if (
+                currentPathNormalized === linkPath ||
+                currentPathNormalized.endsWith(linkPath) ||
+                (linkPath === '/index.html' && currentPathNormalized === '/')
+            ) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        }
+    });
+
+    // ---------- 10. Keyboard navigation: dropdown toggle with Enter/Space ----------
+    document.querySelectorAll('.dropdown-toggle').forEach((btn) => {
+        btn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const dropdown = btn.closest('.dropdown');
+                if (dropdown) {
+                    toggleDropdown(dropdown);
+                }
+            }
+        });
+    });
+
+    // ---------- 11. Ensure ARIA attributes are correct on load ----------
+    dropdowns.forEach((dropdown) => {
+        const toggleBtn = dropdown.querySelector('.dropdown-toggle');
+        if (toggleBtn) {
+            toggleBtn.setAttribute('aria-expanded', 'false');
+        }
+        const link = dropdown.querySelector('.nav-link-wrapper > .nav-link');
+        if (link) {
+            link.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // ---------- 12. Console info (developer friendly) ----------
+    console.log(
+        '%c Consulting Crew %c Header & Footer initialized ',
+        'background:#052874;color:#FF5500;font-weight:bold;padding:4px 8px;border-radius:4px 0 0 4px;',
+        'background:#FF5500;color:#fff;padding:4px 8px;border-radius:0 4px 4px 0;'
+    );
 })();
