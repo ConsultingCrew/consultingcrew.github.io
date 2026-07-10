@@ -330,32 +330,12 @@ function initRipple() {
   });
 }
 
-/* ===============================
-   INITIALISE EVERYTHING
-================================= */
-document.addEventListener('DOMContentLoaded', () => {
-  initLoadingScreen();
-  initFilters();
-  initBackToTop();
-  initFAQ();
-  initSmoothScroll();
-  initForms();
-  initLazyLoad();
-});
-
-window.addEventListener('load', () => {
-  initRipple();
-});
-
-'use strict';
-
 /* ============================================
    ENHANCEMENTS – Polish & Interactive Flair
    ============================================ */
 
 /* ----- 1. Scroll Progress Bar ----- */
 function initScrollProgress() {
-  // Create the progress bar if it doesn't exist
   let progressBar = document.querySelector('.scroll-progress');
   if (!progressBar) {
     progressBar = document.createElement('div');
@@ -505,7 +485,6 @@ function initBlurLazy() {
         const img = entry.target;
         const src = img.dataset.src;
 
-        // Add a blur class while loading
         img.classList.add('lazy-loading');
 
         if (src) {
@@ -526,8 +505,207 @@ function initBlurLazy() {
 }
 
 /* ============================================
-   INIT ENHANCEMENTS
+   NEW: HEADER/FOOTER INJECTION
    ============================================ */
+
+/**
+ * Injects header and footer from the components folder
+ * Uses absolute paths from root to work on any page.
+ */
+async function injectHeaderFooter() {
+  try {
+    const [headerRes, footerRes] = await Promise.all([
+      fetch('/components/header.html'),
+      fetch('/components/footer.html')
+    ]);
+
+    if (!headerRes.ok) throw new Error(`Header not found (${headerRes.status})`);
+    if (!footerRes.ok) throw new Error(`Footer not found (${footerRes.status})`);
+
+    const [headerHTML, footerHTML] = await Promise.all([
+      headerRes.text(),
+      footerRes.text()
+    ]);
+
+    // Insert header right after <body> opens
+    const headerWrapper = document.createElement('div');
+    headerWrapper.innerHTML = headerHTML;
+    while (headerWrapper.firstChild) {
+      document.body.prepend(headerWrapper.firstChild);
+    }
+
+    // Insert footer before </body>
+    const footerWrapper = document.createElement('div');
+    footerWrapper.innerHTML = footerHTML;
+    while (footerWrapper.firstChild) {
+      document.body.appendChild(footerWrapper.firstChild);
+    }
+
+    console.log('✅ Header & Footer injected successfully.');
+    return true;
+  } catch (error) {
+    console.error('❌ Header/Footer injection failed:', error.message);
+    return false;
+  }
+}
+
+/**
+ * Initialises header/footer interactions (dropdowns, mobile menu, scroll effects)
+ * Must be called AFTER injection.
+ */
+function initHeaderFooterInteractions() {
+  const header = document.querySelector('.main-header');
+  const mobileToggle = document.querySelector('.mobile-menu-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+  const navList = document.querySelector('.nav-list');
+  const dropdowns = document.querySelectorAll('.dropdown');
+  const yearSpan = document.getElementById('current-year');
+
+  // Set year
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
+
+  // Sticky header
+  if (header) {
+    window.addEventListener('scroll', Utils.rafThrottle(() => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    }), { passive: true });
+  }
+
+  // Mobile menu toggle
+  if (mobileToggle && navMenu) {
+    const toggleMobileMenu = (forceState) => {
+      const isOpen = typeof forceState === 'boolean' ? forceState : !navMenu.classList.contains('open');
+      navMenu.classList.toggle('open', isOpen);
+      mobileToggle.setAttribute('aria-expanded', isOpen);
+      mobileToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    };
+
+    mobileToggle.addEventListener('click', () => toggleMobileMenu());
+
+    if (navList) {
+      navList.addEventListener('click', (e) => {
+        const link = e.target.closest('a.nav-link');
+        if (link && !link.closest('.dropdown')) {
+          toggleMobileMenu(false);
+        }
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+        toggleMobileMenu(false);
+        mobileToggle.focus();
+      }
+    });
+  }
+
+  // Dropdowns
+  if (dropdowns.length > 0) {
+    const toggleDropdown = (dropdown, forceState) => {
+      const isOpen = typeof forceState === 'boolean' ? forceState : !dropdown.classList.contains('open');
+      dropdown.classList.toggle('open', isOpen);
+      const toggleBtn = dropdown.querySelector('.dropdown-toggle');
+      if (toggleBtn) toggleBtn.setAttribute('aria-expanded', isOpen);
+    };
+
+    dropdowns.forEach((dropdown) => {
+      const toggleBtn = dropdown.querySelector('.dropdown-toggle');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (window.innerWidth > 992) {
+            dropdowns.forEach((d) => {
+              if (d !== dropdown && d.classList.contains('open')) {
+                toggleDropdown(d, false);
+              }
+            });
+          }
+          toggleDropdown(dropdown);
+        });
+      }
+
+      // Desktop hover
+      if (window.innerWidth > 992) {
+        dropdown.addEventListener('mouseenter', () => {
+          dropdowns.forEach((d) => {
+            if (d !== dropdown && d.classList.contains('open')) toggleDropdown(d, false);
+          });
+          toggleDropdown(dropdown, true);
+        });
+        dropdown.addEventListener('mouseleave', () => {
+          const menu = dropdown.querySelector('.dropdown-menu');
+          if (!menu || !menu.matches(':hover')) {
+            toggleDropdown(dropdown, false);
+          }
+        });
+        // Keep open when hovering the menu itself
+        const menu = dropdown.querySelector('.dropdown-menu');
+        if (menu) {
+          menu.addEventListener('mouseenter', () => toggleDropdown(dropdown, true));
+          menu.addEventListener('mouseleave', () => toggleDropdown(dropdown, false));
+        }
+      }
+    });
+
+    // Close dropdowns on outside click
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.dropdown')) {
+        dropdowns.forEach((d) => toggleDropdown(d, false));
+      }
+    });
+  }
+
+  // Active link highlighting
+  if (navList) {
+    const currentPath = window.location.pathname;
+    navList.querySelectorAll('.nav-link:not(.cta-link)').forEach((link) => {
+      const href = link.getAttribute('href');
+      if (href) {
+        const linkPath = href.replace(/^\.\.\//, '/').replace(/^\.\//, '/');
+        const currentPathNormalized = currentPath.replace(/^\/$/, '/index.html');
+        if (currentPathNormalized === linkPath ||
+            currentPathNormalized.endsWith(linkPath) ||
+            (linkPath === '/index.html' && currentPathNormalized === '/')) {
+          link.classList.add('active');
+        }
+      }
+    });
+  }
+
+  console.log('✅ Header/Footer interactions initialised.');
+}
+
+/* ============================================
+   INITIALISE EVERYTHING
+   ============================================ */
+
+document.addEventListener('DOMContentLoaded', async () => {
+  // 1. Inject header and footer
+  await injectHeaderFooter();
+
+  // 2. Initialize header/footer interactions
+  initHeaderFooterInteractions();
+
+  // 3. All your original initialisations (unchanged)
+  initLoadingScreen();
+  initFilters();
+  initBackToTop();
+  initFAQ();
+  initSmoothScroll();
+  initForms();
+  initLazyLoad();
+});
+
+window.addEventListener('load', () => {
+  initRipple();
+});
+
+/* ---------------------------------------------------
+   Enhancements that can run after DOM ready (they don't depend on header/footer)
+   --------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
   initScrollProgress();
   initStaggeredReveals();
