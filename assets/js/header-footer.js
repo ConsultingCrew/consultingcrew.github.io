@@ -30,9 +30,11 @@ const Helpers = {
         };
     },
 
+    // ✅ Force mobile detection – check both touch AND screen width
     isMobileView() {
         const isTouch = window.matchMedia('(pointer: coarse)').matches;
         const isSmallScreen = window.innerWidth <= CONFIG.breakpoint;
+        // OR condition – if either is true, we're on mobile
         return isTouch || isSmallScreen;
     },
 
@@ -104,7 +106,7 @@ function getFallbackHTML(id) {
                             <ul class="nav-list">
                                 <li><a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
                                 <li class="dropdown">
-                                    <button class="nav-link dropdown-toggle">
+                                    <button class="nav-link dropdown-toggle" type="button">
                                         <i class="fas fa-building"></i> About
                                         <i class="fas fa-chevron-down dropdown-icon"></i>
                                     </button>
@@ -118,7 +120,7 @@ function getFallbackHTML(id) {
                                     </div>
                                 </li>
                                 <li class="dropdown">
-                                    <button class="nav-link dropdown-toggle">
+                                    <button class="nav-link dropdown-toggle" type="button">
                                         <i class="fas fa-cogs"></i> Services
                                         <i class="fas fa-chevron-down dropdown-icon"></i>
                                     </button>
@@ -150,7 +152,6 @@ function getFallbackHTML(id) {
         `;
     }
 
-    // Footer fallback
     return `
         <footer class="main-footer">
             <div class="container">
@@ -164,7 +165,7 @@ function getFallbackHTML(id) {
 }
 
 /* ===============================
-   MOBILE MENU TOGGLE (Event Delegation)
+   MOBILE MENU TOGGLE
 ================================= */
 function initMobileMenu() {
     document.addEventListener('click', function(e) {
@@ -188,6 +189,10 @@ function initMobileMenu() {
         const menu = document.querySelector('.nav-menu');
         const toggle = document.querySelector('.mobile-menu-toggle');
         if (!menu || !toggle) return;
+
+        // ✅ IGNORE clicks on navigation links and dropdown toggles
+        const isNavElement = e.target.closest('.nav-link, .dropdown-toggle, .dropdown-menu a, .logo, .nav-list a');
+        if (isNavElement) return;
 
         const isInside = e.target.closest('.main-header');
         if (!isInside && menu.classList.contains('active')) {
@@ -217,10 +222,29 @@ function initMobileMenu() {
 }
 
 /* ===============================
-   DROPDOWNS (Mobile + Desktop Delegated)
+   DROPDOWNS – FORCED MOBILE HANDLING
 ================================= */
 function initDropdowns() {
+    // ✅ PRIMARY FIX: Use 'mousedown' AND 'click' to ensure interception
     document.addEventListener('click', function(e) {
+        const toggle = e.target.closest('.dropdown-toggle');
+        if (!toggle) return;
+
+        const dropdown = toggle.closest('.dropdown');
+        if (!dropdown) return;
+
+        // ✅ Always check – if on mobile, intercept
+        if (Helpers.isMobileView()) {
+            e.preventDefault();
+            e.stopPropagation();
+            const isOpen = dropdown.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', isOpen);
+            console.log('[Dropdown] Toggled:', isOpen ? 'open' : 'closed');
+        }
+    });
+
+    // ✅ BONUS: Capture 'touchstart' events too (for better mobile response)
+    document.addEventListener('touchstart', function(e) {
         const toggle = e.target.closest('.dropdown-toggle');
         if (!toggle) return;
 
@@ -229,11 +253,16 @@ function initDropdowns() {
 
         if (Helpers.isMobileView()) {
             e.preventDefault();
-            const isOpen = dropdown.classList.toggle('open');
-            toggle.setAttribute('aria-expanded', isOpen);
+            e.stopPropagation();
+            // Only toggle if not already handled by click
+            if (!dropdown.classList.contains('open')) {
+                const isOpen = dropdown.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', isOpen);
+            }
         }
-    });
+    }, { passive: false });
 
+    // Keyboard support
     document.addEventListener('keydown', function(e) {
         if (e.key !== 'Enter' && e.key !== ' ') return;
         const toggle = e.target.closest('.dropdown-toggle');
@@ -249,10 +278,16 @@ function initDropdowns() {
         }
     });
 
+    // Close dropdown when clicking outside
     document.addEventListener('click', function(e) {
         if (!Helpers.isMobileView()) return;
+
         const dropdown = e.target.closest('.dropdown');
         if (dropdown) return;
+
+        // ✅ IGNORE clicks on sub-links
+        const isSubLink = e.target.closest('.dropdown-menu a');
+        if (isSubLink) return;
 
         document.querySelectorAll('.dropdown.open').forEach(function(d) {
             d.classList.remove('open');
