@@ -36,7 +36,6 @@ const Helpers = {
         return isTouch || isSmallScreen;
     },
 
-    // ✅ New helper to close all open dropdowns
     closeAllDropdowns() {
         document.querySelectorAll('.dropdown.open').forEach((dropdown) => {
             dropdown.classList.remove('open');
@@ -59,7 +58,6 @@ async function fetchHTML(path, retries = CONFIG.retries) {
             return await response.text();
         } catch (err) {
             if (i === retries) throw err;
-            // Exponential backoff
             await new Promise((r) => setTimeout(r, 1000 * i));
         }
     }
@@ -85,7 +83,7 @@ async function loadComponent(containerId, path) {
 }
 
 /* ===============================
-   FALLBACK HTML (for offline / network failure)
+   FALLBACK HTML (Enhanced with dropdowns)
 ================================= */
 function getFallbackHTML(id) {
     const year = new Date().getFullYear();
@@ -97,18 +95,53 @@ function getFallbackHTML(id) {
                     <nav class="navbar" aria-label="Main navigation">
                         <a href="/" class="logo">
                             <span class="logo-text">Consulting Crew</span>
+                            <span class="logo-tagline">Empowering Smarter Decisions</span>
                         </a>
                         <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
                             <span></span><span></span><span></span>
                         </button>
                         <div class="nav-menu">
                             <ul class="nav-list">
-                                <li><a href="/" class="nav-link">Home</a></li>
-                                <li><a href="/about.html" class="nav-link">About</a></li>
-                                <li><a href="/services.html" class="nav-link">Services</a></li>
-                                <li><a href="/portfolio.html" class="nav-link">Portfolio</a></li>
-                                <li><a href="/insights.html" class="nav-link">Insights</a></li>
-                                <li><a href="/contact.html" class="nav-link cta-link">Contact</a></li>
+                                <li><a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                                <li class="dropdown">
+                                    <button class="nav-link dropdown-toggle">
+                                        <i class="fas fa-building"></i> About
+                                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <div class="dropdown-column">
+                                            <a href="/team.html"><i class="fas fa-user-tie"></i> Our Team</a>
+                                            <a href="/process.html"><i class="fas fa-sitemap"></i> Our EDGE Process</a>
+                                            <a href="/ethics.html"><i class="fas fa-balance-scale"></i> Business Ethics</a>
+                                            <a href="/csr.html"><i class="fas fa-handshake"></i> Corporate Responsibility</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="dropdown">
+                                    <button class="nav-link dropdown-toggle">
+                                        <i class="fas fa-cogs"></i> Services
+                                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <div class="dropdown-columns">
+                                            <div class="dropdown-column">
+                                                <h4>Strategic Solutions</h4>
+                                                <a href="/service-data-intelligence.html"><i class="fas fa-chart-line"></i> Data & Intelligence</a>
+                                                <a href="/service-digital-transformation.html"><i class="fas fa-sync-alt"></i> Digital Marketing</a>
+                                                <a href="/service-branding-identity.html"><i class="fas fa-palette"></i> Branding & Identity</a>
+                                            </div>
+                                            <div class="dropdown-column">
+                                                <h4>Web & HR Solutions</h4>
+                                                <a href="/service-web-services.html"><i class="fas fa-globe"></i> Web Services</a>
+                                                <a href="/service-hr-consulting.html"><i class="fas fa-users"></i> HR Audits</a>
+                                                <a href="/services.html" class="view-all"><i class="fas fa-th-large"></i> All Services</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><a href="/portfolio.html" class="nav-link"><i class="fas fa-chart-pie"></i> Portfolio</a></li>
+                                <li><a href="/insights.html" class="nav-link"><i class="fas fa-blog"></i> Insights</a></li>
+                                <li><a href="/contact.html" class="nav-link cta-link"><i class="fas fa-paper-plane"></i> Contact</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -131,44 +164,48 @@ function getFallbackHTML(id) {
 }
 
 /* ===============================
-   MOBILE MENU TOGGLE
+   MOBILE MENU TOGGLE (Event Delegation)
 ================================= */
 function initMobileMenu() {
-    const toggle = document.querySelector('.mobile-menu-toggle');
-    const menu = document.querySelector('.nav-menu');
+    document.addEventListener('click', function(e) {
+        const toggle = e.target.closest('.mobile-menu-toggle');
+        if (!toggle) return;
 
-    if (!toggle || !menu) return;
+        const menu = document.querySelector('.nav-menu');
+        if (!menu) return;
 
-    // Toggle menu on button click
-    toggle.addEventListener('click', () => {
         const isOpen = menu.classList.toggle('active');
         toggle.classList.toggle('active', isOpen);
         document.body.classList.toggle('menu-open', isOpen);
         toggle.setAttribute('aria-expanded', isOpen);
 
-        // ✅ Close all dropdowns when menu closes
         if (!isOpen) {
             Helpers.closeAllDropdowns();
         }
     });
 
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
+    document.addEventListener('click', function(e) {
+        const menu = document.querySelector('.nav-menu');
+        const toggle = document.querySelector('.mobile-menu-toggle');
+        if (!menu || !toggle) return;
+
         const isInside = e.target.closest('.main-header');
         if (!isInside && menu.classList.contains('active')) {
             menu.classList.remove('active');
             toggle.classList.remove('active');
             document.body.classList.remove('menu-open');
             toggle.setAttribute('aria-expanded', 'false');
-
-            // ✅ Close all dropdowns when menu closes from outside click
             Helpers.closeAllDropdowns();
         }
     });
 
-    // ✅ Close menu on Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && menu.classList.contains('active')) {
+    document.addEventListener('keydown', function(e) {
+        if (e.key !== 'Escape') return;
+        const menu = document.querySelector('.nav-menu');
+        const toggle = document.querySelector('.mobile-menu-toggle');
+        if (!menu || !toggle) return;
+
+        if (menu.classList.contains('active')) {
             menu.classList.remove('active');
             toggle.classList.remove('active');
             document.body.classList.remove('menu-open');
@@ -180,42 +217,47 @@ function initMobileMenu() {
 }
 
 /* ===============================
-   DROPDOWNS (Enhanced for Resize)
+   DROPDOWNS (Mobile + Desktop Delegated)
 ================================= */
 function initDropdowns() {
-    document.querySelectorAll('.dropdown').forEach((dropdown) => {
-        const toggle = dropdown.querySelector('.dropdown-toggle');
+    document.addEventListener('click', function(e) {
+        const toggle = e.target.closest('.dropdown-toggle');
         if (!toggle) return;
 
-        // Click handler – condition checked inside to support window resizing
-        toggle.addEventListener('click', (e) => {
-            if (Helpers.isMobileView()) {
-                e.preventDefault();
-                const isOpen = dropdown.classList.toggle('open');
-                toggle.setAttribute('aria-expanded', isOpen);
-            }
-        });
+        const dropdown = toggle.closest('.dropdown');
+        if (!dropdown) return;
 
-        // Keyboard support (Enter / Space)
-        toggle.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                if (Helpers.isMobileView()) {
-                    const isOpen = dropdown.classList.toggle('open');
-                    toggle.setAttribute('aria-expanded', isOpen);
-                }
-            }
-        });
+        if (Helpers.isMobileView()) {
+            e.preventDefault();
+            const isOpen = dropdown.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', isOpen);
+        }
+    });
 
-        // ✅ Close dropdown when clicking outside (mobile only)
-        document.addEventListener('click', (e) => {
-            if (Helpers.isMobileView()) {
-                const isInside = e.target.closest('.dropdown');
-                if (!isInside && dropdown.classList.contains('open')) {
-                    dropdown.classList.remove('open');
-                    toggle.setAttribute('aria-expanded', 'false');
-                }
-            }
+    document.addEventListener('keydown', function(e) {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        const toggle = e.target.closest('.dropdown-toggle');
+        if (!toggle) return;
+
+        const dropdown = toggle.closest('.dropdown');
+        if (!dropdown) return;
+
+        if (Helpers.isMobileView()) {
+            e.preventDefault();
+            const isOpen = dropdown.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', isOpen);
+        }
+    });
+
+    document.addEventListener('click', function(e) {
+        if (!Helpers.isMobileView()) return;
+        const dropdown = e.target.closest('.dropdown');
+        if (dropdown) return;
+
+        document.querySelectorAll('.dropdown.open').forEach(function(d) {
+            d.classList.remove('open');
+            const toggle = d.querySelector('.dropdown-toggle');
+            if (toggle) toggle.setAttribute('aria-expanded', 'false');
         });
     });
 }
@@ -271,7 +313,6 @@ function updateYear() {
    INIT (Async)
 ================================= */
 (async function init() {
-    // Load header and footer in parallel
     await Promise.all([
         loadComponent('header-container', COMPONENTS.header),
         loadComponent('footer-container', COMPONENTS.footer)
