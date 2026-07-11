@@ -554,55 +554,88 @@ async function injectHeaderFooter() {
  * Must be called AFTER injection.
  */
 function initHeaderFooterInteractions() {
+  console.log('🔷 Initialising header/footer interactions...');
+
   const header = document.querySelector('.main-header');
-  const mobileToggle = document.querySelector('.mobile-menu-toggle');
   const navMenu = document.querySelector('.nav-menu');
   const navList = document.querySelector('.nav-list');
   const dropdowns = document.querySelectorAll('.dropdown');
   const yearSpan = document.getElementById('current-year');
 
-  // Set year
+  // ---- Set year ----
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
   }
 
-  // Sticky header
+  // ---- Sticky header ----
   if (header) {
     window.addEventListener('scroll', Utils.rafThrottle(() => {
       header.classList.toggle('scrolled', window.scrollY > 20);
     }), { passive: true });
   }
 
-  // Mobile menu toggle
-  if (mobileToggle && navMenu) {
-    const toggleMobileMenu = (forceState) => {
-      const isOpen = typeof forceState === 'boolean' ? forceState : !navMenu.classList.contains('open');
-      navMenu.classList.toggle('open', isOpen);
-      mobileToggle.setAttribute('aria-expanded', isOpen);
-      mobileToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    };
-
-    mobileToggle.addEventListener('click', () => toggleMobileMenu());
-
-    if (navList) {
-      navList.addEventListener('click', (e) => {
-        const link = e.target.closest('a.nav-link');
-        if (link && !link.closest('.dropdown')) {
-          toggleMobileMenu(false);
-        }
-      });
+  // ---- Mobile menu toggle (using event delegation) ----
+  // Ensure the toggle function is defined once
+  const toggleMobileMenu = (forceState) => {
+    if (!navMenu) {
+      console.warn('Nav menu not found');
+      return;
     }
+    const isOpen = typeof forceState === 'boolean' ? forceState : !navMenu.classList.contains('open');
+    navMenu.classList.toggle('open', isOpen);
+    // Update the toggle button's aria-expanded
+    const toggleBtn = document.querySelector('.mobile-menu-toggle');
+    if (toggleBtn) {
+      toggleBtn.setAttribute('aria-expanded', isOpen);
+      toggleBtn.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    }
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    console.log(`Menu ${isOpen ? 'opened' : 'closed'}`);
+  };
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+  // Listen for clicks on the toggle button (event delegation)
+  document.addEventListener('click', (e) => {
+    const toggleBtn = e.target.closest('.mobile-menu-toggle');
+    if (toggleBtn) {
+      e.preventDefault();
+      toggleMobileMenu();
+    }
+  });
+
+  // Also try to attach directly if the button already exists (for safety)
+  const mobileToggle = document.querySelector('.mobile-menu-toggle');
+  if (mobileToggle) {
+    // Remove any previous listener to avoid duplicates
+    mobileToggle.removeEventListener('click', toggleMobileMenu);
+    mobileToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      toggleMobileMenu();
+    });
+    console.log('✅ Direct click listener added to mobile toggle');
+  } else {
+    console.warn('⚠️ Mobile toggle button not found – using delegation only');
+  }
+
+  // Close menu on link click (inside nav)
+  if (navList) {
+    navList.addEventListener('click', (e) => {
+      const link = e.target.closest('a.nav-link');
+      if (link && !link.closest('.dropdown')) {
         toggleMobileMenu(false);
-        mobileToggle.focus();
       }
     });
   }
 
-  // Dropdowns
+  // Close menu on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu && navMenu.classList.contains('open')) {
+      toggleMobileMenu(false);
+      const toggleBtn = document.querySelector('.mobile-menu-toggle');
+      if (toggleBtn) toggleBtn.focus();
+    }
+  });
+
+  // ---- Dropdowns (unchanged, but we keep them) ----
   if (dropdowns.length > 0) {
     const toggleDropdown = (dropdown, forceState) => {
       const isOpen = typeof forceState === 'boolean' ? forceState : !dropdown.classList.contains('open');
@@ -627,7 +660,6 @@ function initHeaderFooterInteractions() {
         });
       }
 
-      // Desktop hover
       if (window.innerWidth > 992) {
         dropdown.addEventListener('mouseenter', () => {
           dropdowns.forEach((d) => {
@@ -641,7 +673,6 @@ function initHeaderFooterInteractions() {
             toggleDropdown(dropdown, false);
           }
         });
-        // Keep open when hovering the menu itself
         const menu = dropdown.querySelector('.dropdown-menu');
         if (menu) {
           menu.addEventListener('mouseenter', () => toggleDropdown(dropdown, true));
@@ -650,7 +681,6 @@ function initHeaderFooterInteractions() {
       }
     });
 
-    // Close dropdowns on outside click
     document.addEventListener('click', (e) => {
       if (!e.target.closest('.dropdown')) {
         dropdowns.forEach((d) => toggleDropdown(d, false));
@@ -658,7 +688,7 @@ function initHeaderFooterInteractions() {
     });
   }
 
-  // Active link highlighting
+  // ---- Active link highlighting ----
   if (navList) {
     const currentPath = window.location.pathname;
     navList.querySelectorAll('.nav-link:not(.cta-link)').forEach((link) => {
@@ -675,7 +705,7 @@ function initHeaderFooterInteractions() {
     });
   }
 
-  console.log('✅ Header/Footer interactions initialised.');
+  console.log('✅ Header/Footer interactions fully initialised.');
 }
 
 /* ============================================
