@@ -1,5 +1,6 @@
 /* ============================================
    RESPONSIVE – SINGLE SOURCE OF TRUTH
+   (General layout & typography adjustments)
    ============================================ */
 
 /* ----- Large Desktops ----- */
@@ -27,283 +28,16 @@
 }
 
 /* ============================================
-   TABLET BREAKPOINT (≤992px) – MOBILE MENU
+   TABLET BREAKPOINT (≤992px) – LAYOUT ONLY
+   (Mobile menu is now in header-footer.css)
    ============================================ */
 @media (max-width: 992px) {
     :root {
         --space-xl: 4rem;
-        --header-height: 70px;
+        /* --header-height is defined in header-footer.css */
     }
 
-    /* ----- Mobile Navigation ----- */
-    .mobile-menu-toggle {
-        display: flex;
-        z-index: 1001;
-    }
-
-    .nav-menu {
-        position: fixed;
-        top: var(--header-height);
-        left: 0;
-        width: 100%;
-        height: calc(100vh - var(--header-height));
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        padding: 24px 20px 40px;
-        overflow-y: auto;
-        z-index: 1000;
-        will-change: transform, opacity;
-        transform: translateY(-10px);
-        opacity: 0;
-        visibility: hidden;
-        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                    opacity 0.3s ease,
-                    visibility 0.3s ease;
-    }
-
-    .nav-menu.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .nav-list {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        height: auto;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-    }
-
-    /* ----- General Nav Link (mobile) ----- */
-    .nav-link {
-        display: flex;
-        align-items: center;
-        padding: 14px 16px;
-        min-height: 48px;
-        border-radius: 10px;
-        transition: background 0.2s ease;
-        width: 100%;
-        font-size: 1rem;
-        justify-content: flex-start;
-        gap: 12px;
-    }
-
-    .nav-link i {
-        width: 24px;
-        text-align: center;
-        font-size: 1.1rem;
-        flex-shrink: 0;
-    }
-
-    /* ----- Dropdowns on mobile ----- */
-    .dropdown {
-        flex-direction: column;
-        height: auto;
-        width: 100%;
-        position: relative;
-    }
-
-    /* Nav-link-wrapper – full width row */
-    .nav-link-wrapper {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        gap: 0;
-        border-radius: 10px;
-        transition: background 0.2s ease;
-        cursor: pointer;
-    }
-
-    .nav-link-wrapper:active {
-        background: rgba(0, 0, 0, 0.04);
-    }
-
-    .dropdown.open > .nav-link-wrapper {
-        background: rgba(0, 85, 170, 0.06);
-    }
-
-    .nav-link-wrapper .nav-link {
-        flex: 1;
-        padding: 14px 16px;
-        min-height: 48px;
-        border-radius: 10px;
-        font-size: 1rem;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        width: auto;
-    }
-
-    .nav-link-wrapper .nav-link i {
-        width: 24px;
-        text-align: center;
-        font-size: 1.1rem;
-        flex-shrink: 0;
-    }
-
-    /* Toggle button – larger touch target (56px) */
-    .dropdown-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 56px;
-        min-width: 56px;
-        height: 56px;
-        padding: 0;
-        margin-right: 4px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        border-radius: 8px;
-        transition: background 0.2s ease, transform 0.3s ease;
-        flex-shrink: 0;
-    }
-
-    .dropdown-toggle:hover {
-        background: rgba(0, 0, 0, 0.04);
-    }
-
-    .dropdown-toggle:active {
-        background: rgba(0, 0, 0, 0.08);
-    }
-
-    .dropdown-toggle .dropdown-icon {
-        font-size: 0.8rem;
-        color: var(--medium-gray, #666);
-        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-        position: static;
-        margin: 0;
-        pointer-events: none;
-    }
-
-    .dropdown.open .dropdown-toggle .dropdown-icon {
-        transform: rotate(180deg);
-    }
-
-    .dropdown.open .dropdown-toggle {
-        background: rgba(0, 85, 170, 0.08);
-    }
-
-    /* Dropdown menu – smooth height animation */
-    .dropdown-menu {
-        position: static !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        background: rgba(0, 0, 0, 0.03) !important;
-        backdrop-filter: none !important;
-        box-shadow: none !important;
-        border: none !important;
-        border-radius: 8px !important;
-        width: 100% !important;
-        min-width: auto !important;
-        max-width: 100% !important;
-        padding: 0 12px !important;
-        margin: 0 !important;
-        margin-left: 8px !important;
-        max-height: 0 !important;
-        overflow: hidden !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                    padding 0.3s ease,
-                    opacity 0.25s ease !important;
-        pointer-events: none !important;
-    }
-
-    .dropdown.open .dropdown-menu {
-        padding: 12px 12px 8px !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
-        /* max-height is set dynamically by JS using scrollHeight */
-    }
-
-    .dropdown-menu::before {
-        display: none !important;
-    }
-
-    /* Dropdown columns – stack vertically */
-    .dropdown-columns {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 16px !important;
-        min-width: auto !important;
-        max-width: 100% !important;
-        width: 100% !important;
-        padding: 0 !important;
-    }
-
-    .dropdown-column {
-        flex: 1 !important;
-        min-width: auto !important;
-        width: 100% !important;
-        padding: 0 !important;
-    }
-
-    .dropdown-column h4 {
-        font-size: 0.8rem !important;
-        text-transform: uppercase !important;
-        letter-spacing: 0.05em !important;
-        margin: 0 0 8px 0 !important;
-        padding: 0 0 6px 0 !important;
-        color: var(--primary-blue, #0055aa) !important;
-        border-bottom: 2px solid rgba(0, 85, 170, 0.1) !important;
-        font-weight: 600 !important;
-    }
-
-    .dropdown-menu a {
-        display: flex !important;
-        align-items: center !important;
-        gap: 12px !important;
-        padding: 10px 12px !important;
-        color: var(--dark-gray, #333) !important;
-        text-decoration: none !important;
-        border-radius: 6px !important;
-        transition: all 0.2s ease !important;
-        font-size: 0.95rem !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    .dropdown-menu a:hover {
-        background: rgba(0, 85, 170, 0.05) !important;
-        color: var(--dark-blue, #063565) !important;
-        transform: translateX(4px) !important;
-    }
-
-    .dropdown-menu a i {
-        width: 20px !important;
-        text-align: center !important;
-        color: var(--primary-green, #00a816) !important;
-        font-size: 0.9rem !important;
-        flex-shrink: 0 !important;
-    }
-
-    .view-all {
-        font-weight: 600 !important;
-        background: rgba(0, 85, 170, 0.05) !important;
-        margin-top: 4px !important;
-        border-top: 1px solid rgba(0, 0, 0, 0.06) !important;
-        padding-top: 12px !important;
-        border-radius: 6px !important;
-    }
-
-    /* ----- CTA (Contact) on mobile ----- */
-    .nav-link.cta-link {
-        margin-left: 0 !important;
-        justify-content: center !important;
-        margin-top: 8px !important;
-        width: 100% !important;
-    }
-
-    /* ============================================
-       GRID ADJUSTMENTS (Mobile)
-       ============================================ */
+    /* ----- Grid Adjustments (non‑header) ----- */
     .grid-4, .ethics-grid-4, .csr-grid-4, .differentiator-grid,
     .services-grid, .benefits-grid, .testimonials-grid,
     .featured-grid, .related-posts-grid, .resources-grid {
@@ -654,7 +388,7 @@
 }
 
 /* ============================================
-   REDUCED MOTION
+   REDUCED MOTION 
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
     *,
@@ -679,10 +413,5 @@
 
     .loading-screen {
         display: none !important;
-    }
-
-    .nav-menu,
-    .dropdown-menu {
-        transition: none !important;
     }
 }
