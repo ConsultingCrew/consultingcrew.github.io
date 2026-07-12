@@ -5,12 +5,15 @@
 /* Large desktops: wider container */
 @media (min-width: 1400px) {
   .container { max-width: 1300px; }
-  .section { padding: 92px 0; }
+  .section { padding: 92px 12px; }
 }
 
 /* Tablet landscape: hero min-height adjustment */
 @media (max-width: 1024px) and (orientation: landscape) {
   .hero { min-height: auto; padding: 72px 0 63px; }
+}
+@media (max-width: 786px) {
+  .hero { min-height: auto; padding: 63px 12px; }
 }
 
 /* Accessibility & Performance */
