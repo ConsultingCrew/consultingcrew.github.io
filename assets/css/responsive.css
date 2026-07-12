@@ -15,7 +15,7 @@
 @media (max-width: 786px) {
   .hero { min-height: auto; padding: 63px 19px; }
 
-  .section { padding: 92px 120px; }
+  .section { padding: 72px 19px; }
 }
 
 /* Accessibility & Performance */
