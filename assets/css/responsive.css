@@ -13,7 +13,9 @@
   .hero { min-height: auto; padding: 72px 0 63px; }
 }
 @media (max-width: 786px) {
-  .hero { min-height: auto; padding: 63px 12px; }
+  .hero { min-height: auto; padding: 63px 19px; }
+
+  .section { padding: 92px 120px; }
 }
 
 /* Accessibility & Performance */
