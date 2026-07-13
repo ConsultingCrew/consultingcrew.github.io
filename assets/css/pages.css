@@ -609,6 +609,7 @@
 }
 .project-link {
   font-weight: 600;
+  font-size: var(--font-size-sm);
   text-decoration: none;
   align-self: flex-start;
   transition: color 0.2s, transform 0.2s;
@@ -649,11 +650,17 @@
 }
 
 .case-study-hero {
-  background: linear-gradient(135deg, var(--dark-blue) 0%, #022B5F 100%);
+  background: linear-gradient(135deg, var(--dark-blue) 0%, rgb(75, 0, 128) 72%);
   color: var(--white);
   padding: calc(var(--header-height) + 2rem) 0 3rem;
   position: relative;
   overflow: hidden;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
 }
 .case-study-hero::before {
   content: '';
@@ -662,7 +669,7 @@
   right: -10%;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255,255,255,0.09) 0%, transparent 70%);
   border-radius: 50%;
 }
 .case-study-hero h1 {
