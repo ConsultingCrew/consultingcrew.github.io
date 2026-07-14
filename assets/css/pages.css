@@ -50,6 +50,7 @@
   background-color: white;
   padding: var(--space-lg) var(--space-md);
   border-radius: var(--radius-lg);
+text-align: center;
 }
 .service-preview-card p {
   font-size: var(--font-size-sm);
@@ -72,6 +73,7 @@
   color: var(--primary-green);
   font-weight: 600;
   margin-top: auto;
+justify-content: center;
 }
 .service-preview-link:hover {
   color: var(--primary-orange);
