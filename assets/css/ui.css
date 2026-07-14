@@ -1173,6 +1173,7 @@
   font-size: 1.5rem;
   font-weight: 300;
   transition: transform 0.3s;
+padding:0 1rem;
 }
 .faq-item.active .faq-icon {
   transform: rotate(45deg);
