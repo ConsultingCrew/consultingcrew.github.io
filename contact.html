@@ -270,8 +270,17 @@
         </div>
     </section>
 
-    <!-- Footer -->
+       <!-- Footer -->
     <div id="footer-container"></div>
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("coccdlXJd1iP7b5AB");
+            console.log('[EmailJS] Initialized successfully.');
+        })();
+    </script>
 
     <!-- JavaScript Files -->
     <script src="/assets/js/header-footer.js" defer></script>
