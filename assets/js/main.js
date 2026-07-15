@@ -193,7 +193,7 @@ function initSmoothScroll() {
 }
 
 /* ===============================
-   ✅ FORMS – FULL EMAILJS INTEGRATION
+   FORMS – FULL EMAILJS INTEGRATION
 ================================= */
 function initForms() {
     const validateField = (field) => {
@@ -288,7 +288,7 @@ function initForms() {
                 // --- Send email using EmailJS ---
                 const response = await emailjs.send(
                     'service_xbnw094',      // Your Service ID
-                    'template_vs6nh0q',     // Your Template ID
+                    'template_wr89m8j',     // Your Template ID
                     templateParams
                 );
 
