@@ -244,7 +244,7 @@
   }
 }
 
-/* ----- CTA (mobile-first) ----- */
+/* ----- CTA ----- */
 .cta {
   position: relative;
   padding: var(--space-2xl) 0;
@@ -410,7 +410,7 @@
   }
 }
 
-/* ----- Steps (mobile-first) ----- */
+/* ----- Steps  ----- */
 .steps {
   display: flex;
   flex-direction: column;
@@ -631,7 +631,7 @@
   }
 }
 
-/* ----- Cards (mobile-first) ----- */
+/* ----- Cards ----- */
 .card {
   background: var(--white);
   border-radius: var(--radius-lg);
@@ -1001,7 +1001,7 @@
   line-height: 1.4;
 }
 
-/* ----- Forms (mobile-first) ----- */
+/* ----- Forms ----- */
 .form-input,
 .form-select,
 .form-textarea {
@@ -1094,7 +1094,7 @@
   }
 }
 
-/* ----- Filters (mobile-first) ----- */
+/* ----- Filters ----- */
 .portfolio-filter-section,
 .services-filter-section,
 .insights-filter-section {
@@ -1143,7 +1143,7 @@
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* ----- FAQ (unchanged) ----- */
+/* ----- FAQ ----- */
 .faq-accordion {
   max-width: 800px;
   margin: 0 auto;
@@ -1191,7 +1191,7 @@ padding:0 1rem;
   line-height: 1.6;
 }
 
-/* ----- Tables (unchanged) ----- */
+/* ----- Tables ----- */
 .table-responsive {
   overflow-x: auto;
   margin: 1.5rem 0;
@@ -1218,7 +1218,7 @@ padding:0 1rem;
   border-bottom: none;
 }
 
-/* ----- Toast (unchanged) ----- */
+/* ----- Toast ----- */
 .toast-container {
   position: fixed;
   bottom: 80px;
@@ -1277,7 +1277,7 @@ padding:0 1rem;
   color: var(--white);
 }
 
-/* ----- Loading screen (unchanged) ----- */
+/* ----- Loading screen ----- */
 .loading-screen {
   position: fixed;
   top: 0;
@@ -1401,7 +1401,7 @@ body.menu-open {
   overflow: hidden;
 }
 
-/* ----- Enhancement: Glassmorphism (desktop only for performance) ----- */
+/* Glassmorphism (desktop only) */
 @media (min-width: 768px) {
   .glass {
     background: rgba(255, 255, 255, 0.7) !important;
