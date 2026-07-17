@@ -71,7 +71,7 @@
   font-size: var(--font-size-xs);
 }
 
-/* Ripple effect (unchanged) */
+/* Ripple effect */
 .btn .ripple {
   position: absolute;
   border-radius: 50%;
