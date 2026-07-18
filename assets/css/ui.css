@@ -2,7 +2,7 @@
    UI COMPONENTS – Buttons, Cards, Hero, CTA, etc.
    ============================================ */
 
-/* ----- Buttons (fluid) ----- */
+/* ----- Buttons ----- */
 .btn {
   display: inline-block;
   padding: 0.6rem var(--space-md);
@@ -71,7 +71,7 @@
   font-size: var(--font-size-xs);
 }
 
-/* Ripple effect (unchanged) */
+/* Ripple effect */
 .btn .ripple {
   position: absolute;
   border-radius: 50%;
@@ -84,7 +84,7 @@
   to { transform: scale(4); opacity: 0; }
 }
 
-/* ----- Hero (mobile-first) ----- */
+/* ----- Hero ----- */
 .hero {
   position: relative;
   overflow: hidden;
@@ -244,7 +244,7 @@
   }
 }
 
-/* ----- CTA (mobile-first) ----- */
+/* ----- CTA ----- */
 .cta {
   position: relative;
   padding: var(--space-2xl) 0;
@@ -410,7 +410,7 @@
   }
 }
 
-/* ----- Steps (mobile-first) ----- */
+/* ----- Steps ----- */
 .steps {
   display: flex;
   flex-direction: column;
@@ -631,7 +631,7 @@
   }
 }
 
-/* ----- Cards (mobile-first) ----- */
+/* ----- Cards ----- */
 .card {
   background: var(--white);
   border-radius: var(--radius-lg);
@@ -734,7 +734,7 @@
   transform: translateX(5px);
   background-color: rgba(0, 0, 0, 0.02);
 }
-/* Category colors (unchanged) */
+/* Category colors */
 .service-card[data-category="data"] { border-top-color: var(--dark-blue); }
 .service-card[data-category="data"] .service-card__icon,
 .service-card[data-category="data"] .service-card__tag {
@@ -771,7 +771,7 @@
 .service-card[data-category="web"] .service-card__link {
   color: var(--primary-orange);
 }
-.service-card[data-category="hr"] { border-top-color: #9C27B0; }
+.service-card[data-category="hr"] { border-top-color: #651573; }
 .service-card[data-category="hr"] .service-card__icon,
 .service-card[data-category="hr"] .service-card__tag {
   background-color: var(--light-purple);
@@ -779,7 +779,7 @@
 .service-card[data-category="hr"] .service-card__icon i,
 .service-card[data-category="hr"] .service-card__title,
 .service-card[data-category="hr"] .service-card__link {
-  color: #9C27B0;
+  color: #661274;
 }
 
 /* Value card */
@@ -1094,7 +1094,7 @@
   }
 }
 
-/* ----- Filters (mobile-first) ----- */
+/* ----- Filters  ----- */
 .portfolio-filter-section,
 .services-filter-section,
 .insights-filter-section {
@@ -1143,7 +1143,7 @@
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* ----- FAQ (unchanged) ----- */
+/* ----- FAQ ----- */
 .faq-accordion {
   max-width: 800px;
   margin: 0 auto;
@@ -1191,7 +1191,7 @@ padding:0 1rem;
   line-height: 1.6;
 }
 
-/* ----- Tables (unchanged) ----- */
+/* ----- Tables ----- */
 .table-responsive {
   overflow-x: auto;
   margin: 1.5rem 0;
@@ -1218,7 +1218,7 @@ padding:0 1rem;
   border-bottom: none;
 }
 
-/* ----- Toast (unchanged) ----- */
+/* ----- Toast ----- */
 .toast-container {
   position: fixed;
   bottom: 80px;
@@ -1277,7 +1277,7 @@ padding:0 1rem;
   color: var(--white);
 }
 
-/* ----- Loading screen (unchanged) ----- */
+/* ----- Loading screen ----- */
 .loading-screen {
   position: fixed;
   top: 0;
@@ -1401,7 +1401,7 @@ body.menu-open {
   overflow: hidden;
 }
 
-/* ----- Enhancement: Glassmorphism (desktop only for performance) ----- */
+/* ----- Glassmorphism (desktop only) ----- */
 @media (min-width: 768px) {
   .glass {
     background: rgba(255, 255, 255, 0.7) !important;
@@ -1467,7 +1467,7 @@ body.menu-open {
 .stagger-children.revealed > *:nth-child(9) { transition-delay: 0.45s; }
 .stagger-children.revealed > *:nth-child(10) { transition-delay: 0.50s; }
 
-/* Orbs (desktop only) */
+/* Orbs  */
 @media (min-width: 768px) {
   .orb {
     position: fixed;
