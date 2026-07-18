@@ -572,6 +572,7 @@
   color: rgba(255, 255, 255, 0.85);
   font-size: var(--font-size-sm);
   margin-top: 2rem;
+padding: 0.5rem;
 }
 .footer-top {
   padding: var(--space-xl) 0 var(--space-lg);
