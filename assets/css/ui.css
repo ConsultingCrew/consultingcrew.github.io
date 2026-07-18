@@ -410,7 +410,11 @@
   }
 }
 
+<<<<<<< HEAD
 /* ----- Steps ----- */
+=======
+/* ----- Steps  ----- */
+>>>>>>> ac057da97b725ce2c6feb673c8371f96f5bd07a4
 .steps {
   display: flex;
   flex-direction: column;
@@ -1001,7 +1005,7 @@
   line-height: 1.4;
 }
 
-/* ----- Forms (mobile-first) ----- */
+/* ----- Forms ----- */
 .form-input,
 .form-select,
 .form-textarea {
@@ -1094,7 +1098,11 @@
   }
 }
 
+<<<<<<< HEAD
 /* ----- Filters  ----- */
+=======
+/* ----- Filters ----- */
+>>>>>>> ac057da97b725ce2c6feb673c8371f96f5bd07a4
 .portfolio-filter-section,
 .services-filter-section,
 .insights-filter-section {
@@ -1401,7 +1409,11 @@ body.menu-open {
   overflow: hidden;
 }
 
+<<<<<<< HEAD
 /* ----- Glassmorphism (desktop only) ----- */
+=======
+/* Glassmorphism (desktop only) */
+>>>>>>> ac057da97b725ce2c6feb673c8371f96f5bd07a4
 @media (min-width: 768px) {
   .glass {
     background: rgba(255, 255, 255, 0.7) !important;
