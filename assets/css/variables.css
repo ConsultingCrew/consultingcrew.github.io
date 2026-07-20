@@ -19,10 +19,10 @@
   --white: #FFFFFF;
 
   /* Typography */
-  --font-heading: 'Merriweather', serif;
-  --font-body: 'Mona Sans', sans-serif;
+  --font-heading: 'Merriweather', Georgia, serif;
+  --font-body: 'Mona Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* Fluid spacing (min, preferred, max) */
+  /* Fluid spacing */
   --space-xs: clamp(0.25rem, 0.5vw, 0.5rem);
   --space-sm: clamp(0.5rem, 1vw, 1rem);
   --space-md: clamp(1rem, 2vw, 2rem);
@@ -60,7 +60,7 @@
   --header-bg: rgba(255, 255, 255, 0.98);
   --header-blur: 8px;
 
-  /* Breakpoints  */
+  /* Breakpoints */
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
@@ -97,7 +97,7 @@ body.header-scrolled {
   padding-top: var(--header-height-scrolled);
 }
 
-/* ----- Typography (fluid) ----- */
+/* ----- Typography ----- */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;

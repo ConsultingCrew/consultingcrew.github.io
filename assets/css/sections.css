@@ -33,7 +33,6 @@
   font-size: var(--font-size-md);
   font-weight: 600;
 }
-
 @media (min-width: 768px) {
   .testimonials-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -93,14 +92,12 @@
   color: var(--medium-gray);
   text-align: center;
 }
-
 .clients-grid {
-  display: none; /* hidden on mobile, slider shown */
+  display: none;
   grid-template-columns: 1fr;
   gap: var(--space-lg);
   margin-top: var(--space-xl);
 }
-
 @media (min-width: 768px) {
   .clients__slider {
     display: none;
@@ -165,7 +162,6 @@
   min-width: auto;
   width: 100%;
 }
-
 @media (min-width: 768px) {
   .newsletter--insights .newsletter-content {
     flex-direction: row;
