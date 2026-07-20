@@ -19,27 +19,37 @@
     <div id="header-container"></div>
 
     <main>
-        <section class="hero hero--light" style="min-height: 100%;">
+        <section class="hero hero--light" style="min-height: 100vh;">
             <div class="hero__container">
+                <!-- 404 Number -->
                 <div style="font-size: 6rem; font-weight: 700; line-height: 1; margin-bottom: 1rem; color: var(--primary-orange);">404</div>
+
+                <!-- Heading -->
                 <h1 class="hero__title" style="font-size: var(--font-size-2xl);">Page Not Found</h1>
-                <p class="hero__subtitle" style="font-size: var(--font-size-lg);  font-style: italic;">You weren't supposed to see this.</p>
-                <p style="font-size: var(--font-size-base); color: var(--medium-gray); max-width: 720px; margin-bottom: 1rem;">The page you requested may have been moved or is no longer available.
-Explore our core practice areas below.</p>
-                <div style="margin-top: 3rem;">
-                    <ul style="font-size: var(--font-size-base); list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-                        <li><a href="/index.html" style="color: var(--dark-gray); text-decoration: underline;">Home</a></li>
-                        <li><span style="color: var(--light-gray);">/</span></li>
-                        <li><a href="/services.html" style="color: var(--dark-gray); text-decoration: underline;">Services</a></li>
-                        <li><span style="color: var(--light-gray);">/</span></li>
-                        <li><a href="/portfolio.html" style="color: var(--dark-gray); text-decoration: underline;">Portfolio</a></li>
-                        <li><span style="color: var(--light-gray);">/</span></li>
-                        <li><a href="/insights.html" style="color: var(--dark-gray); text-decoration: underline;">Insights</a></li>
-                        <li><span style="color: var(--light-gray);">/</span></li>
-                        <li><a href="/about.html" style="color: var(--dark-gray); text-decoration: underline;">About Us</a></li>
-                        <li><span style="color: var(--light-gray);">/</span></li>
-                        <li><a href="/contact.html" style="color: var(--dark-gray); text-decoration: underline;">Contact Us</a></li>
-                    </ul>
+
+                <!-- Subheading -->
+                <p class="hero__subtitle" style="font-size: var(--font-size-lg); font-style: italic;">You weren't supposed to see this.</p>
+
+                <!-- Body Text -->
+                <p style="font-size: var(--font-size-base); color: var(--medium-gray); max-width: 720px; margin: 0 auto 2rem;">
+                    The page you requested may have been moved or is no longer available.
+                    Explore our core practice areas below.
+                </p>
+
+                <!-- ===== PRIMARY ACTIONS (Solid Buttons) ===== -->
+                <div style="display: flex; flex-direction: row; gap: 1.5rem; justify-content: center; align-items: center; margin-bottom: 2.5rem;">
+                    <a href="/" class="btn btn-primary"><i class="fas fa-home"></i> Home</a>
+                    <a href="/contact.html" class="btn btn-secondary">Contact Us</a>
+                </div>
+
+                <!-- ===== QUICK LINKS (Small Pill Buttons) ===== -->
+                <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;">
+                    <a href="/" class="btn btn-secondary btn-small" style="background: transparent; border-color: var(--light-gray); color: var(--dark-gray);">Home</a>
+                    <a href="/services.html" class="btn btn-secondary btn-small" style="background: transparent; border-color: var(--light-gray); color: var(--dark-gray);">Services</a>
+                    <a href="/portfolio.html" class="btn btn-secondary btn-small" style="background: transparent; border-color: var(--light-gray); color: var(--dark-gray);">Portfolio</a>
+                    <a href="/insights.html" class="btn btn-secondary btn-small" style="background: transparent; border-color: var(--light-gray); color: var(--dark-gray);">Insights</a>
+                    <a href="/about.html" class="btn btn-secondary btn-small" style="background: transparent; border-color: var(--light-gray); color: var(--dark-gray);">About Us</a>
+                    <a href="/contact.html" class="btn btn-secondary btn-small" style="background: transparent; border-color: var(--light-gray); color: var(--dark-gray);">Contact</a>
                 </div>
             </div>
         </section>
