@@ -6,6 +6,32 @@
     <title>Contact Us - Consulting Crew | Get Your Free Consultation</title>
     <meta name="description" content="Get in touch with Consulting Crew for strategic advisory services. Schedule a free consultation to discuss how we can help your business grow.">
 
+    <!-- ===== OPEN GRAPH / SOCIAL SHARING ===== -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://consultingcrew.com/contact.html">
+    <meta property="og:title" content="Contact Us – Consulting Crew | Free Consultation">
+    <meta property="og:description" content="Get in touch with Consulting Crew for strategic advisory services. Schedule a free consultation to discuss how we can help your business grow.">
+    <meta property="og:image" content="https://consultingcrew.com/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Consulting Crew">
+
+    <!-- ===== TWITTER CARDS ===== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://consultingcrew.com/contact.html">
+    <meta name="twitter:title" content="Contact Us – Consulting Crew | Free Consultation">
+    <meta name="twitter:description" content="Get in touch with Consulting Crew for strategic advisory services.">
+    <meta name="twitter:image" content="https://consultingcrew.com/assets/images/og-image.jpg">
+
+    <!-- ===== ADDITIONAL META TAGS ===== -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="author" content="Consulting Crew">
+    <meta name="theme-color" content="#0455BF">
+
+    <!-- ===== CANONICAL URL ===== -->
+    <link rel="canonical" href="https://consultingcrew.com/contact.html">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -43,6 +69,56 @@
             </ol>
         </div>
     </div>
+
+    <!-- ===== FAQPage Structured Data ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How quickly can we start working together?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We can typically begin initial discussions within 24-48 hours of your inquiry. The formal engagement start date depends on project scope and complexity, but we aim to begin active work within 1-2 weeks of agreement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is your typical engagement length?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Engagements vary based on project scope. Strategy projects typically last 4-8 weeks, while implementation projects can range from 8 weeks to several months. We offer both fixed-scope projects and ongoing retainer arrangements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work with international clients?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we serve clients globally. We work remotely with international clients and can arrange on-site visits when necessary. Our team is experienced in cross-cultural collaboration and time zone management."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is your pricing model?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We offer flexible pricing models including project-based fees, monthly retainers, and hourly consulting. After understanding your needs, we'll recommend the most suitable pricing structure that aligns with your budget and project requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What information do you need to provide a quote?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To provide an accurate quote, we typically need to understand your business objectives, current challenges, project scope, timeline, and budget considerations. We'll schedule a discovery call to gather this information."
+          }
+        }
+      ]
+    }
+    </script>
 
     <!-- Hero Section -->
     <section class="hero hero--dark">
@@ -182,6 +258,15 @@
                         <div class="error-message" id="messageError"></div>
                     </div>
 
+                    <!-- ===== HONEYPOT FIELD (Anti-Spam) ===== -->
+                    <div class="form-group honeypot-field" style="position: absolute; left: -9999px; top: -9999px; opacity: 0; pointer-events: none; height: 0; overflow: hidden; width: 0;">
+                        <label for="website">Website</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" value="">
+                    </div>
+
+                    <!-- ===== FORM TIMESTAMP (Rate Limiting) ===== -->
+                    <input type="hidden" name="form_timestamp" id="form_timestamp" value="">
+
                     <!-- Submit -->
                     <div class="form-submit">
                         <button type="submit" class="btn btn-primary btn-large">
@@ -292,6 +377,16 @@
             emailjs.init("coccdlXJd1iP7b5AB");
             console.log('[EmailJS] Initialized successfully.');
         })();
+    </script>
+
+    <!-- ===== FORM TIMESTAMP SETUP ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const timestamp = document.getElementById('form_timestamp');
+            if (timestamp) {
+                timestamp.value = Date.now();
+            }
+        });
     </script>
 
     <!-- JavaScript Files -->

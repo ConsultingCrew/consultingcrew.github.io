@@ -1,9 +1,3 @@
-/**
- * MAIN.JS – Optimised & Consolidated
- * Handles UI interactions, animations, and EmailJS form submissions.
- * (Header/footer injection is now managed exclusively by header-footer.js)
- */
-
 'use strict';
 
 /* ===============================
@@ -42,7 +36,6 @@ const Utils = {
         );
     },
 
-    // Get sticky top position from CSS variable (the actual sticky position)
     getStickyTop() {
         const cssVar = getComputedStyle(document.documentElement)
             .getPropertyValue('--header-height').trim();
@@ -211,7 +204,7 @@ function initSmoothScroll() {
 }
 
 /* ===============================
-   FORMS – FULL EMAILJS INTEGRATION
+   FORMS – EMAILJS INTEGRATION + SPAM PROTECTION
 ================================= */
 function initForms() {
     const validateField = (field) => {
@@ -273,6 +266,46 @@ function initForms() {
             }
 
             try {
+                // ===== HONEYPOT CHECK (Anti-Spam) =====
+                const honeypot = form.querySelector('#website');
+                if (honeypot && honeypot.value.trim() !== '') {
+                    console.log('[Honeypot] Bot detected – form rejected.');
+                    showToast('We could not process your request. Please try again.', 'error');
+                    if (btn) {
+                        btn.disabled = false;
+                        const textSpan = btn.querySelector('.submit-text');
+                        if (textSpan) textSpan.textContent = originalText;
+                        const spinner = btn.querySelector('.loading-spinner');
+                        if (spinner) spinner.style.display = 'none';
+                    }
+                    return;
+                }
+
+                // ===== RATE LIMITING CHECK =====
+                const timestampField = form.querySelector('#form_timestamp');
+                if (timestampField) {
+                    const submitTime = Date.now();
+                    const formTime = parseInt(timestampField.value) || 0;
+                    const timeDiff = submitTime - formTime;
+                    // If form was submitted less than 2 seconds after load, it's likely a bot
+                    if (timeDiff < 2000) {
+                        console.log('[RateLimit] Bot detected – too fast:', timeDiff);
+                        showToast('Please take a moment to fill out the form.', 'error');
+                        if (btn) {
+                            btn.disabled = false;
+                            const textSpan = btn.querySelector('.submit-text');
+                            if (textSpan) textSpan.textContent = originalText;
+                            const spinner = btn.querySelector('.loading-spinner');
+                            if (spinner) spinner.style.display = 'none';
+                        }
+                        return;
+                    }
+                    // If form was loaded more than 5 minutes ago, warn but allow
+                    if (timeDiff > 300000) {
+                        console.log('[RateLimit] Form may be stale:', timeDiff);
+                    }
+                }
+
                 // --- Check if EmailJS is available ---
                 if (typeof emailjs === 'undefined' || typeof emailjs.send !== 'function') {
                     throw new Error('EmailJS service is not available. Please email us directly.');
@@ -286,7 +319,6 @@ function initForms() {
                 const serviceSelect = document.getElementById('service');
                 const service = serviceSelect?.options?.[serviceSelect.selectedIndex]?.text || 'Not specified';
                 const message = document.getElementById('message')?.value || '';
-                const newsletter = document.getElementById('newsletter')?.checked || false;
 
                 // Build subject from service interest or use default
                 const subject = service !== 'Not specified'
@@ -302,7 +334,6 @@ function initForms() {
                     service: service,
                     subject: subject,
                     message: message,
-                    newsletter: newsletter ? 'Yes' : 'No',
                     year: new Date().getFullYear(),
                 };
 
@@ -355,7 +386,7 @@ function initForms() {
 }
 
 /* ===============================
-   LAZY LOADING (with blur‑up effect)
+   LAZY LOADING 
 ================================= */
 function initLazyLoad() {
     if (!('IntersectionObserver' in window)) return;
@@ -514,7 +545,7 @@ function initCursorGlow() {
     }, { passive: true });
 }
 
-// 5. 3D Tilt Effect on Cards (desktop) – enhanced with perspective
+// 5. 3D Tilt Effect on Cards (desktop)
 function initTilt3D() {
     if (window.matchMedia('(pointer: coarse)').matches) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -558,55 +589,45 @@ function initPageEntrance() {
     }, 700);
 }
 
-// 7. Sticky Filter Bar Enhancement (FIXED)
-// Compares against the sticky top position (CSS variable), not the dynamic header height
+// 7. Sticky Filter Bar Enhancement
 function initStickyFilter() {
     const filterSections = document.querySelectorAll(
         '.portfolio-filter-section, .services-filter-section, .insights-filter-section'
     );
     if (!filterSections.length) return;
 
-    // The sticky top position from CSS (this is the actual sticky position)
     const stickyTop = Utils.getStickyTop();
-    const tolerance = 20; // Allowance for floating point and slight offsets
+    const tolerance = 20;
 
     const checkSticky = Utils.rafThrottle(() => {
         filterSections.forEach((section) => {
             const rect = section.getBoundingClientRect();
-            // Compare against the sticky top position (NOT the actual header height)
             const isStuck = rect.top <= stickyTop + tolerance;
 
             if (isStuck) {
                 section.classList.add('is-stuck');
-                // For debugging - uncomment to verify
-                // console.log('[StickyFilter] Stuck:', section.className, 'rect.top:', rect.top, 'stickyTop:', stickyTop);
             } else {
                 section.classList.remove('is-stuck');
             }
         });
     });
 
-    // Run on scroll, resize, and load
     window.addEventListener('scroll', checkSticky, { passive: true });
     window.addEventListener('resize', checkSticky, { passive: true });
 
-    // Initial checks with delays to catch layout shifts
     setTimeout(checkSticky, 50);
     setTimeout(checkSticky, 150);
     setTimeout(checkSticky, 350);
 
-    // Also re-check when header height changes (scrolled class toggles)
     const header = document.querySelector('.main-header');
     if (header) {
         const observer = new MutationObserver(() => {
-            // Re-check after a small delay to let the header transition complete
             setTimeout(checkSticky, 50);
         });
         observer.observe(header, { attributes: true, attributeFilter: ['class'] });
         header._stickyObserver = observer;
     }
 
-    // Store for potential cleanup
     window._stickyFilterCleanup = () => {
         window.removeEventListener('scroll', checkSticky);
         window.removeEventListener('resize', checkSticky);
@@ -617,7 +638,7 @@ function initStickyFilter() {
     };
 }
 
-// 8. Active Navigation Link Highlighting (enhanced with precise matching)
+// 8. Active Navigation Link Highlighting
 function initActiveNavLink() {
     const navLinks = document.querySelectorAll('.nav-link:not(.cta-link)');
     if (!navLinks.length) return;
@@ -629,12 +650,9 @@ function initActiveNavLink() {
         const href = link.getAttribute('href');
         if (!href) return;
 
-        // Normalize the link path
         let linkPath = href.replace(/^\.\.\//, '/').replace(/^\.\//, '');
-        // Ensure it starts with /
         if (!linkPath.startsWith('/')) linkPath = '/' + linkPath;
 
-        // Exact match cases
         const isExactMatch =
             currentNormalized === linkPath ||
             currentNormalized === linkPath + '/' ||
@@ -645,19 +663,13 @@ function initActiveNavLink() {
             return;
         }
 
-        // Subdirectory match (e.g., /portfolio/xyz matches /portfolio)
-        // Only applies to non-root paths
         if (linkPath !== '/' && linkPath !== '/index.html' && linkPath !== '') {
-            // Check if current path starts with linkPath + '/'
-            // e.g., linkPath = '/portfolio', current = '/portfolio/hr-dashboard'
             if (currentNormalized.startsWith(linkPath + '/')) {
                 link.classList.add('active');
                 return;
             }
         }
 
-        // For root-level matches: linkPath is '/' or '/index.html'
-        // Only match if current is exactly root
         if ((linkPath === '/' || linkPath === '/index.html' || linkPath === '') &&
             (currentNormalized === '/' || currentNormalized === '/index.html')) {
             link.classList.add('active');
@@ -669,7 +681,6 @@ function initActiveNavLink() {
    INITIALISE EVERYTHING
 ================================= */
 document.addEventListener('DOMContentLoaded', () => {
-    // Core UI interactions
     initLoadingScreen();
     initFilters();
     initBackToTop();
@@ -678,11 +689,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initForms();
     initLazyLoad();
     initActiveNavLink();
-
-    // Sticky filter – fixed version
     initStickyFilter();
 
-    // Enhancements (non‑critical, can be deferred)
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         initScrollProgress();
         initStaggeredReveals();
@@ -699,7 +707,6 @@ window.addEventListener('load', () => {
 
 /* ===============================
    CURSOR GLOW STYLES (injected via JS)
-   These are added dynamically so they don't clutter CSS files.
 ================================= */
 (function injectCursorStyles() {
     if (window.matchMedia('(pointer: coarse)').matches) return;
