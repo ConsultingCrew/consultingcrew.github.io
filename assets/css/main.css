@@ -18,21 +18,3 @@
 
 /* ----- RESPONSIVE ----- */
 @import 'responsive.css';
-
-/* Force sticky and ensure no parent overflow blocks it */
-.portfolio-filter-section,
-.services-filter-section,
-.insights-filter-section {
-  position: sticky !important;
-  top: var(--header-height) !important;
-  z-index: 99 !important;
-}
-
-/* Override any ancestor overflow: hidden that might break sticky */
-body,
-main,
-.container,
-[data-filter-wrapper],
-.section {
-  overflow: visible !important;
-}

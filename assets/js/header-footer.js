@@ -1,11 +1,11 @@
 (() => {
   'use strict';
 
-const CONFIG = {
-  headerUrl: '/components/header.html',
-  footerUrl: '/components/footer.html',
-  cacheBust: true,
-};
+  const CONFIG = {
+    headerUrl: '/components/header.html',
+    footerUrl: '/components/footer.html',
+    cacheBust: true,
+  };
 
   const log = (msg, type = 'info') => {
     const prefix = '🔷 [HeaderFooter]';
@@ -74,16 +74,11 @@ const CONFIG = {
 
     } catch (error) {
       log(`Injection failed: ${error.message}`, 'error');
-      // Optionally show a visible fallback message
-      // document.body.insertAdjacentHTML('afterbegin', '<p style="color:red;">Header/Footer failed to load.</p>');
     }
   };
 
-  // ----- All header/footer interaction logic (unchanged from previous version) -----
+  // ----- All header/footer interaction logic -----
   const initHeaderFooter = () => {
-    // ... (same code as before – sticky header, mobile toggle, dropdowns, active link, year)
-    // I'll include a concise version here for completeness, but you can reuse your existing one.
-    // For brevity, I'm pasting the essential parts – replace with your full init function.
     const header = document.querySelector('.main-header');
     const mobileToggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
@@ -91,9 +86,10 @@ const CONFIG = {
     const dropdowns = document.querySelectorAll('.dropdown');
     const yearSpan = document.getElementById('current-year');
 
+    // Set current year in footer
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-    // Sticky header
+    // ----- Sticky Header -----
     if (header) {
       let ticking = false;
       window.addEventListener('scroll', () => {
@@ -107,7 +103,7 @@ const CONFIG = {
       }, { passive: true });
     }
 
-    // Mobile menu
+    // ----- Mobile Menu Toggle -----
     if (mobileToggle && navMenu) {
       const toggleMenu = (forceState) => {
         const isOpen = typeof forceState === 'boolean' ? forceState : !navMenu.classList.contains('open');
@@ -116,13 +112,18 @@ const CONFIG = {
         mobileToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
         document.body.style.overflow = isOpen ? 'hidden' : '';
       };
+
       mobileToggle.addEventListener('click', () => toggleMenu());
+
+      // Close menu when a nav link is clicked (except dropdown toggles)
       if (navList) {
         navList.addEventListener('click', (e) => {
           const link = e.target.closest('a.nav-link');
           if (link && !link.closest('.dropdown')) toggleMenu(false);
         });
       }
+
+      // Close on Escape key
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && navMenu.classList.contains('open')) {
           toggleMenu(false);
@@ -131,7 +132,7 @@ const CONFIG = {
       });
     }
 
-    // Dropdowns (desktop hover + click)
+    // ----- Dropdowns (desktop hover + mobile click) -----
     if (dropdowns.length) {
       const toggleDropdown = (dropdown, forceState) => {
         const isOpen = typeof forceState === 'boolean' ? forceState : !dropdown.classList.contains('open');
@@ -139,11 +140,15 @@ const CONFIG = {
         const btn = dropdown.querySelector('.dropdown-toggle');
         if (btn) btn.setAttribute('aria-expanded', isOpen);
       };
+
       dropdowns.forEach((dropdown) => {
         const toggleBtn = dropdown.querySelector('.dropdown-toggle');
+
+        // Mobile: click to toggle
         if (toggleBtn) {
           toggleBtn.addEventListener('click', (e) => {
             e.stopPropagation();
+            // On desktop, close other dropdowns when one is opened
             if (window.innerWidth > 992) {
               dropdowns.forEach((d) => {
                 if (d !== dropdown && d.classList.contains('open')) toggleDropdown(d, false);
@@ -152,18 +157,25 @@ const CONFIG = {
             toggleDropdown(dropdown);
           });
         }
+
+        // Desktop: hover behavior
         if (window.innerWidth > 992) {
           let timeoutId;
+
           dropdown.addEventListener('mouseenter', () => {
             clearTimeout(timeoutId);
+            // Close other dropdowns
             dropdowns.forEach((d) => {
               if (d !== dropdown && d.classList.contains('open')) toggleDropdown(d, false);
             });
             toggleDropdown(dropdown, true);
           });
+
           dropdown.addEventListener('mouseleave', () => {
             timeoutId = setTimeout(() => toggleDropdown(dropdown, false), 150);
           });
+
+          // Keep dropdown open when hovering over the menu itself
           const menu = dropdown.querySelector('.dropdown-menu');
           if (menu) {
             menu.addEventListener('mouseenter', () => clearTimeout(timeoutId));
@@ -173,26 +185,11 @@ const CONFIG = {
           }
         }
       });
+
+      // Close dropdowns when clicking outside
       document.addEventListener('click', (e) => {
         if (!e.target.closest('.dropdown')) {
           dropdowns.forEach((d) => toggleDropdown(d, false));
-        }
-      });
-    }
-
-    // Active link highlighting
-    if (navList) {
-      const currentPath = window.location.pathname;
-      navList.querySelectorAll('.nav-link:not(.cta-link)').forEach((link) => {
-        const href = link.getAttribute('href');
-        if (href) {
-          const linkPath = href.replace(/^\.\.\//, '/').replace(/^\.\//, '/');
-          const currentNormalized = currentPath.replace(/^\/$/, '/index.html');
-          if (currentNormalized === linkPath ||
-              currentNormalized.endsWith(linkPath) ||
-              (linkPath === '/index.html' && currentNormalized === '/')) {
-            link.classList.add('active');
-          }
         }
       });
     }
