@@ -8,20 +8,20 @@
 
     <!-- ===== OPEN GRAPH / SOCIAL SHARING ===== -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://consultingcrew.com/contact.html">
+    <meta property="og:url" content="https://consultingcrew.github.io/contact.html">
     <meta property="og:title" content="Contact Us – Consulting Crew | Free Consultation">
     <meta property="og:description" content="Get in touch with Consulting Crew for strategic advisory services. Schedule a free consultation to discuss how we can help your business grow.">
-    <meta property="og:image" content="https://consultingcrew.com/assets/images/og-image.jpg">
+    <meta property="og:image" content="https://consultingcrew.github.io/assets/images/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Consulting Crew">
 
     <!-- ===== TWITTER CARDS ===== -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://consultingcrew.com/contact.html">
+    <meta name="twitter:url" content="https://consultingcrew.github.io/contact.html">
     <meta name="twitter:title" content="Contact Us – Consulting Crew | Free Consultation">
     <meta name="twitter:description" content="Get in touch with Consulting Crew for strategic advisory services.">
-    <meta name="twitter:image" content="https://consultingcrew.com/assets/images/og-image.jpg">
+    <meta name="twitter:image" content="https://consultingcrew.github.io/assets/images/og-image.jpg">
 
     <!-- ===== ADDITIONAL META TAGS ===== -->
     <meta name="robots" content="index, follow">
@@ -30,7 +30,7 @@
     <meta name="theme-color" content="#0455BF">
 
     <!-- ===== CANONICAL URL ===== -->
-    <link rel="canonical" href="https://consultingcrew.com/contact.html">
+    <link rel="canonical" href="https://consultingcrew.github.io/contact.html">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Mona+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -41,36 +41,26 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/assets/images/logo.svg">
-</head>
 
-<body>
-    <!-- Loading Animation -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-content">
-            <div class="loading-logo">
-                <img src="/assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
-            </div>
-            <div class="loading-progress">
-                <div class="progress-bar"></div>
-            </div>
-            <p class="loading-text">Loading ...</p>
-        </div>
-    </div>
+    <!-- ===== CONTACT PAGE SCHEMA ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact Consulting Crew",
+      "description": "Get in touch with Consulting Crew for strategic advisory services. Schedule a free consultation.",
+      "url": "https://consultingcrew.github.io/contact.html",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "Consulting Crew",
+        "url": "https://consultingcrew.github.io/",
+        "email": "consultingcrew.pk@gmail.com",
+        "telephone": "+923323450433"
+      }
+    }
+    </script>
 
-    <!-- Header -->
-    <div id="header-container"></div>
-
-    <!-- Breadcrumbs -->
-    <div class="breadcrumbs">
-        <div class="container">
-            <ol>
-                <li><a href="/">Home</a></li>
-                <li class="current" aria-current="page">Contact Us</li>
-            </ol>
-        </div>
-    </div>
-
-    <!-- ===== FAQPage Structured Data ===== -->
+    <!-- ===== FAQ PAGE SCHEMA ===== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -119,6 +109,57 @@
       ]
     }
     </script>
+
+    <!-- ===== BREADCRUMB SCHEMA ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://consultingcrew.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Contact Us",
+          "item": "https://consultingcrew.github.io/contact.html"
+        }
+      ]
+    }
+    </script>
+
+</head>
+
+<body>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="/assets/images/logo.png" alt="Consulting Crew" width="63" height="63" loading="eager">
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="loading-text">Loading ...</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li class="current" aria-current="page">Contact Us</li>
+            </ol>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero hero--dark">
