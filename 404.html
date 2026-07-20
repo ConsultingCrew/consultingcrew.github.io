@@ -19,34 +19,35 @@
     <div id="header-container"></div>
 
     <main>
-        <section class="hero hero--light" style="min-height: 72vh;">
-            <div class="hero__container">
-                <!-- 404 Number -->
-                <div style="font-size: 6rem; font-weight: 700; line-height: 1; margin-bottom: 1rem; color: var(--primary-orange);">404</div>
+    <section class="hero hero--light" style="min-height: 72vh;">
+        <div class="hero__container">
+            <!-- 404 Number -->
+            <div style="font-size: 6rem; font-weight: 700; line-height: 1; margin-bottom: 1rem; color: var(--primary-orange);">404</div>
 
-                <!-- Heading -->
-                <h1 class="hero__title" style="font-size: var(--font-size-2xl);">Page Not Found</h1>
+            <!-- Heading -->
+            <h1 class="hero__title" style="font-size: var(--font-size-2xl);">Page Not Found</h1>
 
-                <!-- Subheading -->
-                <p class="hero__subtitle" style="font-size: var(--font-size-lg); font-style: italic;">You weren't supposed to see this.</p>
+            <!-- Subheading (The subtle dark text looks much more integrated!) -->
+            <p class="hero__subtitle" style="font-size: var(--font-size-lg); font-style: italic;">You weren't supposed to see this.</p>
 
-                <!-- Body Text -->
-                <div style="font-size: var(--font-size-base); color: var(--medium-gray); max-width: 720px; margin: 0;">
-                    <p>The page you requested may have been moved or is no longer available.</p>
-                    <p>Explore our core practice areas below.</p>
-                </div>
-
-                <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-top: 2rem;">
-                    <a href="/index.html" class="btn btn-primary btn-small"> Home </a>
-                    <a href="/services.html" class="btn btn-secondary btn-small">Services</a>
-                    <a href="/portfolio.html" class="btn btn-secondary btn-small">Portfolio</a>
-                    <a href="/insights.html" class="btn btn-secondary btn-small">Insights</a>
-                    <a href="/about.html" class="btn btn-secondary btn-small">About Us</a>
-                    <a href="/contact.html" class="btn btn-secondary btn-small">Contact Us</a>
-                </div>
+            <!-- Body Text (Changed margin to '0 auto' for ultra-wide screen safety) -->
+            <div style="font-size: var(--font-size-base); color: var(--medium-gray); max-width: 720px; margin: 0 auto;">
+                <p>The page you requested may have been moved or is no longer available.</p>
+                <p>Explore our core practice areas below.</p>
             </div>
-        </section>
-    </main>
+
+            <!-- Buttons (Converted to semantic <nav> for accessibility) -->
+            <nav aria-label="404 page navigation" style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-top: 2rem;">
+                <a href="/" class="btn btn-primary btn-small">Home</a>
+                <a href="/services.html" class="btn btn-secondary btn-small">Services</a>
+                <a href="/portfolio.html" class="btn btn-secondary btn-small">Portfolio</a>
+                <a href="/insights.html" class="btn btn-secondary btn-small">Insights</a>
+                <a href="/about.html" class="btn btn-secondary btn-small">About Us</a>
+                <a href="/contact.html" class="btn btn-secondary btn-small">Contact Us</a>
+            </nav>
+        </div>
+    </section>
+</main>
 
     <div id="footer-container"></div>
 
