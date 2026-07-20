@@ -1,0 +1,16 @@
+# robots.txt for Consulting Crew
+
+User-agent: *
+Allow: /
+
+# Allow all search engines to crawl everything
+Disallow:
+
+# Sitemap location
+Sitemap: https://consultingcrew.github.io/sitemap.xml
+
+# Crawl-delay for slower crawlers (optional)
+Crawl-delay: 1
+
+# Host (optional)
+Host: https://consultingcrew.github.io
