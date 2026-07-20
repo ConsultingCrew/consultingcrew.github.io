@@ -1,5 +1,5 @@
 /**
- * MAIN.JS – Optimised & consolidated
+ * MAIN.JS – Optimised & Consolidated
  * Handles UI interactions, animations, and EmailJS form submissions.
  * (Header/footer injection is now managed exclusively by header-footer.js)
  */
@@ -30,6 +30,24 @@ const Utils = {
             timer = setTimeout(() => fn(...args), delay);
         };
     },
+
+    // Check if element is in viewport
+    isInViewport(el, offset = 0) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= -offset &&
+            rect.left >= -offset &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + offset &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth) + offset
+        );
+    },
+
+    // Get sticky top position from CSS variable (the actual sticky position)
+    getStickyTop() {
+        const cssVar = getComputedStyle(document.documentElement)
+            .getPropertyValue('--header-height').trim();
+        return parseInt(cssVar) || 60;
+    }
 };
 
 /* ===============================
@@ -61,7 +79,7 @@ function showToast(message, type = 'success', duration = 3000) {
 }
 
 /* ===============================
-   FILTERS (Portfolio / Services)
+   FILTERS (Portfolio / Services / Insights)
 ================================= */
 function initFilters() {
     document.addEventListener('click', (e) => {
@@ -222,8 +240,8 @@ function initForms() {
         return valid;
     };
 
-    // Find all forms with the contact-form class
-    document.querySelectorAll('#contactForm, .contact-form, form').forEach((form) => {
+    // Target only contact forms (not all forms on the page)
+    document.querySelectorAll('#contactForm, .contact-form').forEach((form) => {
         // Real-time validation
         form.querySelectorAll('input, textarea, select').forEach((field) => {
             field.addEventListener('input', () => validateField(field));
@@ -255,6 +273,11 @@ function initForms() {
             }
 
             try {
+                // --- Check if EmailJS is available ---
+                if (typeof emailjs === 'undefined' || typeof emailjs.send !== 'function') {
+                    throw new Error('EmailJS service is not available. Please email us directly.');
+                }
+
                 // --- Get form values ---
                 const name = document.getElementById('name')?.value || '';
                 const email = document.getElementById('email')?.value || '';
@@ -309,9 +332,14 @@ function initForms() {
             } catch (error) {
                 console.error('[EmailJS] Error:', error);
 
-                // Show error message
-                const errorMessage = error?.text || 'Failed to send message. Please try again or email us directly.';
-                showToast(errorMessage, 'error');
+                // Show user-friendly error message
+                let userMessage = 'Failed to send message. Please try again or email us directly.';
+                if (error.message && error.message.includes('EmailJS')) {
+                    userMessage = error.message;
+                } else if (error.text) {
+                    userMessage = error.text;
+                }
+                showToast(userMessage, 'error');
             } finally {
                 // Re-enable submit button
                 if (btn) {
@@ -369,7 +397,11 @@ function initRipple() {
         const btn = e.target.closest('.btn');
         if (!btn) return;
 
-        btn.querySelectorAll('.ripple').forEach((r) => r.remove());
+        // Limit active ripples to prevent memory churn
+        const ripples = btn.querySelectorAll('.ripple');
+        if (ripples.length >= 5) {
+            ripples[0].remove();
+        }
 
         const ripple = document.createElement('span');
         ripple.className = 'ripple';
@@ -482,7 +514,7 @@ function initCursorGlow() {
     }, { passive: true });
 }
 
-// 5. 3D Tilt Effect on Cards (desktop)
+// 5. 3D Tilt Effect on Cards (desktop) – enhanced with perspective
 function initTilt3D() {
     if (window.matchMedia('(pointer: coarse)').matches) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -499,11 +531,11 @@ function initTilt3D() {
             const centerY = rect.height / 2;
             const rotateX = ((y - centerY) / centerY) * -6;
             const rotateY = ((x - centerX) / centerX) * 6;
-            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
         };
 
         const handleLeave = () => {
-            card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+            card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
         };
 
         card.addEventListener('mousemove', handleMove, { passive: true });
@@ -526,6 +558,113 @@ function initPageEntrance() {
     }, 700);
 }
 
+// 7. Sticky Filter Bar Enhancement (FIXED)
+// Compares against the sticky top position (CSS variable), not the dynamic header height
+function initStickyFilter() {
+    const filterSections = document.querySelectorAll(
+        '.portfolio-filter-section, .services-filter-section, .insights-filter-section'
+    );
+    if (!filterSections.length) return;
+
+    // The sticky top position from CSS (this is the actual sticky position)
+    const stickyTop = Utils.getStickyTop();
+    const tolerance = 20; // Allowance for floating point and slight offsets
+
+    const checkSticky = Utils.rafThrottle(() => {
+        filterSections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            // Compare against the sticky top position (NOT the actual header height)
+            const isStuck = rect.top <= stickyTop + tolerance;
+
+            if (isStuck) {
+                section.classList.add('is-stuck');
+                // For debugging - uncomment to verify
+                // console.log('[StickyFilter] Stuck:', section.className, 'rect.top:', rect.top, 'stickyTop:', stickyTop);
+            } else {
+                section.classList.remove('is-stuck');
+            }
+        });
+    });
+
+    // Run on scroll, resize, and load
+    window.addEventListener('scroll', checkSticky, { passive: true });
+    window.addEventListener('resize', checkSticky, { passive: true });
+
+    // Initial checks with delays to catch layout shifts
+    setTimeout(checkSticky, 50);
+    setTimeout(checkSticky, 150);
+    setTimeout(checkSticky, 350);
+
+    // Also re-check when header height changes (scrolled class toggles)
+    const header = document.querySelector('.main-header');
+    if (header) {
+        const observer = new MutationObserver(() => {
+            // Re-check after a small delay to let the header transition complete
+            setTimeout(checkSticky, 50);
+        });
+        observer.observe(header, { attributes: true, attributeFilter: ['class'] });
+        header._stickyObserver = observer;
+    }
+
+    // Store for potential cleanup
+    window._stickyFilterCleanup = () => {
+        window.removeEventListener('scroll', checkSticky);
+        window.removeEventListener('resize', checkSticky);
+        if (header) {
+            const observer = header._stickyObserver;
+            if (observer) observer.disconnect();
+        }
+    };
+}
+
+// 8. Active Navigation Link Highlighting (enhanced with precise matching)
+function initActiveNavLink() {
+    const navLinks = document.querySelectorAll('.nav-link:not(.cta-link)');
+    if (!navLinks.length) return;
+
+    const currentPath = window.location.pathname;
+    const currentNormalized = currentPath.replace(/^\/$/, '/index.html');
+
+    navLinks.forEach((link) => {
+        const href = link.getAttribute('href');
+        if (!href) return;
+
+        // Normalize the link path
+        let linkPath = href.replace(/^\.\.\//, '/').replace(/^\.\//, '');
+        // Ensure it starts with /
+        if (!linkPath.startsWith('/')) linkPath = '/' + linkPath;
+
+        // Exact match cases
+        const isExactMatch =
+            currentNormalized === linkPath ||
+            currentNormalized === linkPath + '/' ||
+            currentNormalized === linkPath.replace(/\/$/, '');
+
+        if (isExactMatch) {
+            link.classList.add('active');
+            return;
+        }
+
+        // Subdirectory match (e.g., /portfolio/xyz matches /portfolio)
+        // Only applies to non-root paths
+        if (linkPath !== '/' && linkPath !== '/index.html' && linkPath !== '') {
+            // Check if current path starts with linkPath + '/'
+            // e.g., linkPath = '/portfolio', current = '/portfolio/hr-dashboard'
+            if (currentNormalized.startsWith(linkPath + '/')) {
+                link.classList.add('active');
+                return;
+            }
+        }
+
+        // For root-level matches: linkPath is '/' or '/index.html'
+        // Only match if current is exactly root
+        if ((linkPath === '/' || linkPath === '/index.html' || linkPath === '') &&
+            (currentNormalized === '/' || currentNormalized === '/index.html')) {
+            link.classList.add('active');
+        }
+    });
+}
+
 /* ===============================
    INITIALISE EVERYTHING
 ================================= */
@@ -538,6 +677,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initForms();
     initLazyLoad();
+    initActiveNavLink();
+
+    // Sticky filter – fixed version
+    initStickyFilter();
 
     // Enhancements (non‑critical, can be deferred)
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -553,3 +696,41 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('load', () => {
     initRipple();
 });
+
+/* ===============================
+   CURSOR GLOW STYLES (injected via JS)
+   These are added dynamically so they don't clutter CSS files.
+================================= */
+(function injectCursorStyles() {
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+    if (document.querySelector('#cursor-glow-styles')) return;
+
+    const style = document.createElement('style');
+    style.id = 'cursor-glow-styles';
+    style.textContent = `
+        .cursor-glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(4,85,191,0.06) 0%, transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9998;
+            transition: width 0.4s ease, height 0.4s ease, background 0.4s ease;
+            will-change: transform;
+        }
+        .cursor-glow.is-hovering {
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(255,85,0,0.08) 0%, transparent 70%);
+        }
+        @media (max-width: 768px) {
+            .cursor-glow { display: none; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .cursor-glow { display: none; }
+        }
+    `;
+    document.head.appendChild(style);
+})();

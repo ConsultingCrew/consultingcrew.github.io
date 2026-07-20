@@ -116,53 +116,74 @@
                 </div>
 
                 <form id="contactForm" class="contact-form" novalidate>
+                    <!-- Row 1: Name & Email -->
                     <div class="form-row">
+                        <!-- Name -->
                         <div class="form-group">
-                            <label for="name" class="form-label form-label--required">Full Name</label>
-                            <input type="text" id="name" name="name" class="form-input" required placeholder="Your full name" aria-describedby="nameError">
+                            <div class="form-input-wrapper">
+                                <input type="text" id="name" name="name" class="form-input" placeholder=" " required aria-describedby="nameError">
+                                <label for="name" class="form-label form-label--required">Full Name</label>
+                            </div>
                             <div class="error-message" id="nameError"></div>
                         </div>
 
+                        <!-- Email -->
                         <div class="form-group">
-                            <label for="email" class="form-label form-label--required">Email Address</label>
-                            <input type="email" id="email" name="email" class="form-input" required placeholder="your.email@example.com" aria-describedby="emailError">
+                            <div class="form-input-wrapper">
+                                <input type="email" id="email" name="email" class="form-input" placeholder=" " required aria-describedby="emailError">
+                                <label for="email" class="form-label form-label--required">Email Address</label>
+                            </div>
                             <div class="error-message" id="emailError"></div>
                         </div>
                     </div>
 
+                    <!-- Row 2: Company & Phone -->
                     <div class="form-row">
+                        <!-- Company -->
                         <div class="form-group">
-                            <label for="company" class="form-label">Company Name</label>
-                            <input type="text" id="company" name="company" class="form-input" placeholder="Your company name">
+                            <div class="form-input-wrapper">
+                                <input type="text" id="company" name="company" class="form-input" placeholder=" ">
+                                <label for="company" class="form-label">Company Name</label>
+                            </div>
                         </div>
 
+                        <!-- Phone -->
                         <div class="form-group">
-                            <label for="phone" class="form-label">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="Your phone number">
+                            <div class="form-input-wrapper">
+                                <input type="tel" id="phone" name="phone" class="form-input" placeholder=" ">
+                                <label for="phone" class="form-label">Phone Number</label>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Service Interest -->
                     <div class="form-group">
-                        <label for="service" class="form-label form-label--required">Service Interest</label>
-                        <select id="service" name="service" class="form-select" required aria-describedby="serviceError">
-                            <option value="" disabled selected>Select a service</option>
-                            <option value="data-intelligence">Data & Intelligence</option>
-                            <option value="digital-transformation">Digital Transformation</option>
-                            <option value="branding-identity">Branding & Identity</option>
-                            <option value="hr-consulting">HR Consulting</option>
-                            <option value="web-services">Web Services</option>
-                            <option value="multiple">Multiple Services</option>
-                            <option value="not-sure">Not Sure / General Inquiry</option>
-                        </select>
+                        <div class="form-input-wrapper">
+                            <select id="service" name="service" class="form-select" required aria-describedby="serviceError">
+                                <option value="" disabled selected></option>
+                                <option value="data-intelligence">Data & Intelligence</option>
+                                <option value="digital-transformation">Digital Transformation</option>
+                                <option value="branding-identity">Branding & Identity</option>
+                                <option value="hr-consulting">HR Consulting</option>
+                                <option value="web-services">Web Services</option>
+                                <option value="multiple">Multiple Services</option>
+                                <option value="not-sure">Not Sure / General Inquiry</option>
+                            </select>
+                            <label for="service" class="form-label form-label--required">Service Interest</label>
+                        </div>
                         <div class="error-message" id="serviceError"></div>
                     </div>
 
+                    <!-- Message -->
                     <div class="form-group">
-                        <label for="message" class="form-label form-label--required">Your Message</label>
-                        <textarea id="message" name="message" class="form-textarea" rows="5" required placeholder="Tell us about your project or business challenge..." aria-describedby="messageError"></textarea>
+                        <div class="form-input-wrapper">
+                            <textarea id="message" name="message" class="form-textarea" placeholder=" " rows="5" required aria-describedby="messageError"></textarea>
+                            <label for="message" class="form-label form-label--required">Your Message</label>
+                        </div>
                         <div class="error-message" id="messageError"></div>
                     </div>
 
+                    <!-- Newsletter -->
                     <div class="form-group">
                         <div class="checkbox-group">
                             <input type="checkbox" id="newsletter" name="newsletter" checked>
@@ -170,6 +191,7 @@
                         </div>
                     </div>
 
+                    <!-- Submit -->
                     <div class="form-submit">
                         <button type="submit" class="btn btn-primary btn-large">
                             <span class="submit-text">Send Message</span>
@@ -270,7 +292,7 @@
         </div>
     </section>
 
-       <!-- Footer -->
+    <!-- Footer -->
     <div id="footer-container"></div>
 
     <!-- EmailJS -->

@@ -54,7 +54,6 @@
     </section>
 
     <!-- Filter + Grid Wrapper -->
-    <div data-filter-wrapper data-items=".insight-card, .featured-article">
 
         <!-- Filter Section -->
         <section class="insights-filter-section">
@@ -70,7 +69,8 @@
         </section>
 
         <!-- Featured Insights -->
-        <section class="section featured-insights">
+        <div data-filter-wrapper data-items=".insight-card, .featured-article">
+            <section class="section featured-insights">
             <div class="container">
                 <div class="section-header text-center">
                     <h2 class="section-title">Featured Insights</h2>
