@@ -248,11 +248,11 @@
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://consultingcrew.github.io/insights/brand-identity.html</loc>
+        <loc>https://consultingcrew.github.io/insights/insight-brand-identity.html</loc>
         <lastmod>2026-04-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
 
-    <!-- Add all other insight articles similarly -->
+
 </urlset>
