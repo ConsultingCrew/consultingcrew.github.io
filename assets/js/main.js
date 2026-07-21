@@ -741,3 +741,38 @@ window.addEventListener('load', () => {
     `;
     document.head.appendChild(style);
 })();
+
+// --- Dynamic Share Links ---
+document.addEventListener('DOMContentLoaded', function() {
+    const shareButtons = document.querySelectorAll('.share-button');
+    if (!shareButtons.length) return;
+
+    const pageUrl = encodeURIComponent(window.location.href);
+    const pageTitle = encodeURIComponent(document.title);
+
+    shareButtons.forEach(btn => {
+        const platform = btn.classList.contains('twitter') ? 'twitter' :
+                         btn.classList.contains('linkedin') ? 'linkedin' :
+                         btn.classList.contains('facebook') ? 'facebook' :
+                         btn.classList.contains('email') ? 'email' : null;
+
+        if (!platform) return;
+
+        let shareUrl = '#';
+        switch (platform) {
+            case 'twitter':
+                shareUrl = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+                break;
+            case 'linkedin':
+                shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+                break;
+            case 'facebook':
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+                break;
+            case 'email':
+                shareUrl = `mailto:?subject=${pageTitle}&body=${pageUrl}`;
+                break;
+        }
+        btn.setAttribute('href', shareUrl);
+    });
+});
